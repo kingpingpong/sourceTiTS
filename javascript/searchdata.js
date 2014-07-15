@@ -222,7 +222,7 @@ var indexSectionsWithContent = {
       "H": true,
       "I": true,
       "J": false,
-      "K": false,
+      "K": true,
       "L": true,
       "M": true,
       "N": true,
