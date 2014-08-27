@@ -613,7 +613,7 @@
 		//Because actionscript 3 doesn't make any sense
 		private function setupBigMapTooltips(bigM:MiniMap, coordX:int, coordY:int, room:*, link:MiniMap = null, completeRooms:Array = null):void
 		{
-			if(coordY < 0 || coordX < 0) return;
+			if(coordX < 0 || coordY < 0 || coordX >= bigM.childNumX || coordY >= bigM.childNumY) return;
 			if(completeRooms == null) completeRooms = new Array();
 			if(completeRooms.indexOf(room) != -1) return;
 			completeRooms.push(room);
@@ -674,37 +674,40 @@
 			tooltip.addChild(tipHeader);
 			tooltip.addChild(tipText);
 			
-			bigM.childElements[coordX][coordY].buttonMode = true;
-			bigM.childElements[coordX][coordY].addEventListener(MouseEvent.MOUSE_MOVE, function(e:MouseEvent)
+			var tooltipFunc:Function = function(e:MouseEvent)
 			{
-				tooltip.x = e.localX + bigM.childElements[coordX][coordY].x + bigM.childContainer.x;
-				tooltip.y = e.localY + bigM.childElements[coordX][coordY].y + bigM.childContainer.y;
-				tooltip.visible = true;
-			});
-			bigM.childElements[coordX][coordY].addEventListener(MouseEvent.MOUSE_OUT, function(e:MouseEvent)
-			{
-				if(e.relatedObject == bigM.childElements[coordX][coordY].roomIcon) return;
-				//If the room has a mask on it, just do a bounding box check
-				if(bigM.childElements[coordX][coordY].mask != null)
-				{
-					if(e.localX > 0 && e.localY > 0 && e.localX < bigM.childElements[coordX][coordY].width && e.localY < bigM.childElements[coordX][coordY].height)
-					{
-						//Checks for corners
-						if(!(e.localX <= 4 && e.localY <= 4) && !(e.localX >= 22 && e.localY >= 22)) return;
-					}
-				}
 				tooltip.visible = false;
-			});
-			tooltip.addEventListener(MouseEvent.MOUSE_OVER, function(e:Event) {tooltip.visible = false});
+				if(!bigM.childElements[coordX][coordY].hitTestPoint(e.stageX, e.stageY)) return;
+				
+				tooltip.x = e.localX/* + bigM.childElements[coordX][coordY].x + bigM.childContainer.x*/;
+				tooltip.y = e.localY/* + bigM.childElements[coordX][coordY].y + bigM.childContainer.y*/;
+				tooltip.visible = true;
+				if(e.target.name == "mapbackground") return
+				tooltip.x += bigM.childElements[coordX][coordY].x + bigM.childContainer.x;
+				tooltip.y += bigM.childElements[coordX][coordY].y + bigM.childContainer.y;
+			}
+			var trackFunc:Function = function(e:MouseEvent)
+			{
+				if(!bigM.childElements[coordX][coordY].hitTestPoint(e.stageX, e.stageY)) return;
+				
+				var path:Array = bigM.track(kGAMECLASS.rooms[kGAMECLASS.currentLocation], room);
+				if(path == null) return;
+				bigM.lightUpPath(path, UIStyleSettings.gMinimapTrackerColorTransform, true);
+				link.lightUpPath(path, UIStyleSettings.gMinimapTrackerColorTransform);
+			}
+			
+			bigM.childElements[coordX][coordY].buttonMode = true;
+				
+			bigM.addEventListener(MouseEvent.MOUSE_MOVE, tooltipFunc);
+			
+			if(bigM.childElements[coordX][coordY].mask != null)
+			{
+				(bigM.childElements[coordX][coordY].mask as Sprite).buttonMode = true;
+			}
+						
 			if(link != null)
 			{
-				bigM.childElements[coordX][coordY].addEventListener(MouseEvent.CLICK, function(e:MouseEvent)
-				{
-					var path:Array = bigM.track(kGAMECLASS.rooms[kGAMECLASS.currentLocation], room);
-					if(path == null) return;
-					bigM.lightUpPath(path, UIStyleSettings.gMinimapTrackerColorTransform, true);
-					link.lightUpPath(path, UIStyleSettings.gMinimapTrackerColorTransform);
-				});
+				bigM.addEventListener(MouseEvent.CLICK, trackFunc);
 			}
 			
 			if(room.northExit) setupBigMapTooltips(bigM, coordX, coordY - 1, kGAMECLASS.rooms[room.northExit], link, completeRooms);

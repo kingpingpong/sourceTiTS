@@ -626,7 +626,7 @@
 			
 			if(nextRoom == path[path.length - 1])
 			{
-				if(coordX >= 0 && coordX <= this._childNumX && coordY >= 0 && coordY <= this._childNumY) _childElements[coordX][coordY].setGhostColour(UIStyleSettings.gMinimapTrackerColorTransform);
+				if(coordX >= 0 && coordX < this._childNumX && coordY >= 0 && coordY < this._childNumY) _childElements[coordX][coordY].setGhostColour(UIStyleSettings.gMinimapTrackerColorTransform);
 			}
 		}
 		
