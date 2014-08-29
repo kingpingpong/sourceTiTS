@@ -4,10 +4,11 @@
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.Event;
-	import classes.Mapper;
 	import flash.geom.ColorTransform;
 	import classes.UIComponents.UIStyleSettings;
 	import classes.kGAMECLASS;
+	import classes.RoomClass;
+	import classes.GLOBAL;
 	
 	/**
 	 * ...
@@ -349,175 +350,21 @@
 			trace("Parent Dimensions (x,y):(" + this.parent.width + "," + this.parent.height + ")");
 		}
 		
-		private function roomConnection(sourceRoom:int, targetRoom:int, posMask:int, negMask:int):int
+		private function roomConnection(sourceExit:String, targetExit:String):int
 		{
-			// Early return -- source or target doesn't exist, fuck all to do (hide)
-			if (!(sourceRoom & Mapper.room_present_mask)) return -1;
-			if (!(targetRoom & Mapper.room_present_mask)) return -1;
-			
-			// Passageway
-			if ((sourceRoom & posMask) && (targetRoom & negMask))
-			{
-				return LINK_PASSAGE;
-			}
-			
-			// One way, source > target
-			if ((sourceRoom & posMask) && !(targetRoom & negMask))
-			{
-				return LINK_TARGET2NEIGHBOUR;
-			}
-			
-			// One way, source < target
-			if (!(sourceRoom & posMask) && (targetRoom & negMask))
-			{
-				return LINK_NEIGHBOUR2TARGET;
-			}
-			
-			// Should be a redundant check...
-			if (!(sourceRoom & posMask) && !(targetRoom & negMask))
-			{
-				return -1;
-			}
+			if(sourceExit && targetExit) return LINK_PASSAGE;
+			if(sourceExit && !targetExit) return LINK_TARGET2NEIGHBOUR;
+			if(!sourceExit && targetExit) return LINK_NEIGHBOUR2TARGET;
+			if(!sourceExit && !targetExit) return -1;
 			
 			throw new Error("Couldn't determine room linkage!");
 		}
 		
-		public function setMapData(map:Vector.<Vector.<Vector.<int>>>):void
+		public function map(room:RoomClass):void
 		{
 			this._hasMapRender = true;
-			
-			// Right now this is tied to the hardcoded map size from Mapper.
-			// Once I get this working, I would like to refactor Mapper to return data based on defined map size
-			// Also I want to get the room names or indices as well; touching two classes to add map features seems overkill
-			// considering the underlying Rooms obj will have the data we need to query anyway~ the mapper should just act as a window into the rooms
-			// obj for us in a way
-			
-			// Player is always currently on z=3 of the map
-			var zPos:int = map.length / 2;
-			var xPos:int = 0;
-			var yPos:int = 0;
-			var roomFlags:int;
-			
-			// Room Linkages
-			for (xPos = 0; xPos < map.length - 1; xPos++)
-			{
-				for (yPos = 0; yPos < map.length; yPos++)
-				{
-					roomFlags = map[xPos][yPos][zPos];
-					var roomEast:int = map[xPos + 1][yPos][zPos];
-					
-					// East room
-					_childLinksX[xPos][(map.length - 1) - yPos].setLink(roomConnection(roomFlags, roomEast, Mapper.x_pos_exit_mask, Mapper.x_neg_exit_mask));
-				}
-			}
-			
-			for (xPos = 0; xPos < map.length; xPos++)
-			{
-				for (yPos = 0; yPos < map.length - 1; yPos++)
-				{
-					roomFlags = map[xPos][yPos][zPos];
-					var roomSouth:int = map[xPos][yPos + 1][zPos];
-					
-					// South room
-					_childLinksY[xPos][(map.length - 2) - yPos].setLink(roomConnection(roomFlags, roomSouth, Mapper.y_pos_exit_mask, Mapper.y_neg_exit_mask));
-				}
-			}
-			
-			// Primary room visibility
-			for (xPos = 0; xPos < map.length; xPos++)
-			{
-				for (yPos = 0; yPos < map.length; yPos++)
-				{
-					roomFlags = map[xPos][yPos][zPos];					
-					var tarSprite:MinimapRoom = _childElements[xPos][(map.length - 1) - yPos];
-					
-					// Room visibility
-					if (roomFlags & Mapper.room_present_mask)
-					{
-						// Show the icon room if it's present
-						tarSprite.visible = true;
-						
-						// Set the background colours -- I can expand this to more flags, but I think
-						// it should be limited to flags that don't imply an icon such as indoor and outdoor etc
-						
-						if (roomFlags & Mapper.current_locaton_mask)
-						{
-						tarSprite.setColour(UIStyleSettings.gMapPCLocationRoomColourTransform);
-						}
-						else if (roomFlags & Mapper.room_indoor_mask)
-						{
-							tarSprite.setColour(UIStyleSettings.gMapIndoorRoomFlagColourTransform);
-						}
-						else if (roomFlags & Mapper.room_outdoor_mask)
-						{
-							tarSprite.setColour(UIStyleSettings.gMapOutdoorRoomFlagColourTransform);
-						}
-						else // Catch-all for any room that doesn't have a flag set.
-						{
-							tarSprite.setColour(UIStyleSettings.gMapFallbackColourTransform);
-						}
-						
-						// Specialised Map Icons
-						// For now, this is going to work basically off priority; we'll search all flags until we get one of them and ignore the remainder. I COULD possibly make it so we can display multiple icons per room, but the code will be... eeesh.
-						if (roomFlags & Mapper.z_pos_exit_mask)
-						{
-							tarSprite.setIcon(ICON_UP);
-						}
-						else if (roomFlags & Mapper.z_neg_exit_mask)
-						{
-							tarSprite.setIcon(ICON_DOWN);
-						}
-						else if (roomFlags & Mapper.room_ship_mask)
-						{
-							tarSprite.setIcon(ICON_SHIP);
-						}
-						else if (roomFlags & Mapper.room_npc_mask)
-						{
-							tarSprite.setIcon(ICON_NPC);
-						}
-						else if (roomFlags & Mapper.room_medical_mask)
-						{
-							tarSprite.setIcon(ICON_MEDICAL);
-						}
-						else if (roomFlags & Mapper.room_commerce_mask)
-						{
-							tarSprite.setIcon(ICON_COMMERCE);
-						}
-						else if (roomFlags & Mapper.room_bar_mask)
-						{
-							tarSprite.setIcon(ICON_BAR);
-						}
-						else if (roomFlags & Mapper.room_objective_mask)
-						{
-							tarSprite.setIcon(ICON_OBJECTIVE);
-						}
-						else if (roomFlags & Mapper.room_quest_mask)
-						{
-							tarSprite.setIcon(ICON_QUEST);
-						}
-						else
-						{
-							tarSprite.setIcon(-1);
-						}
-						
-						// The hazard icon isn't AMAZING how it's currently set up, but it DOES work quite well. Could do with tweaks.
-						// Basically makes the "stripey" hazard-warning style deal on the rooms
-						if (roomFlags & Mapper.room_hazard_mask)
-						{
-							tarSprite.showHazard();
-						}
-						else
-						{
-							tarSprite.hideHazard();
-						}
-					}
-					else
-					{
-						// No room, hide it but leave the rest of its state as-is
-						tarSprite.visible = false;
-					}
-				}
-			}
+			resetChildren();
+			mapRoom(room, _childNumX / 2, _childNumY / 2, kGAMECLASS.rooms);
 			
 			if(_trackerData != null) 
 			{
@@ -528,6 +375,73 @@
 				}
 				var path:Array = track(kGAMECLASS.rooms[kGAMECLASS.currentLocation], _trackerData);
 				lightUpPath(path, UIStyleSettings.gMinimapTrackerColorTransform, _trackerBool);
+			}
+		}
+		
+		private function mapRoom(room:RoomClass, xPos:int, yPos:int, roomsObj:*, completeRooms:Array = null):void
+		{
+			if(completeRooms == null) completeRooms = new Array();
+			if(room == null) return;
+			if(completeRooms.indexOf(room) != -1) return;
+			if(xPos < 0 || yPos < 0 || xPos >= _childNumX || yPos >= _childNumY) return;
+			
+			trace(xPos + ", " + yPos);
+			completeRooms.push(room);
+			var tarSprite:MinimapRoom = _childElements[xPos][(_childNumY - 1) - yPos];
+			tarSprite.visible = true;
+			
+			if(room == roomsObj[kGAMECLASS.currentLocation]) tarSprite.setColour(UIStyleSettings.gMapPCLocationRoomColourTransform);
+			else if(room.hasFlag(GLOBAL.INDOOR))             tarSprite.setColour(UIStyleSettings.gMapIndoorRoomFlagColourTransform);
+			else if(room.hasFlag(GLOBAL.OUTDOOR))            tarSprite.setColour(UIStyleSettings.gMapOutdoorRoomFlagColourTransform);
+			else                                             tarSprite.setColour(UIStyleSettings.gMapFallbackColourTransform);
+			
+			if(room.inExit)                          tarSprite.setIcon(ICON_UP);
+			else if(room.outExit)                    tarSprite.setIcon(ICON_DOWN);
+			else if(room.hasFlag(GLOBAL.SHIPHANGAR)) tarSprite.setIcon(ICON_SHIP);
+			else if(room.hasFlag(GLOBAL.NPC))        tarSprite.setIcon(ICON_NPC);
+			else if(room.hasFlag(GLOBAL.MEDICAL))    tarSprite.setIcon(ICON_MEDICAL);
+			else if(room.hasFlag(GLOBAL.COMMERCE))   tarSprite.setIcon(ICON_COMMERCE);
+			else if(room.hasFlag(GLOBAL.BAR))        tarSprite.setIcon(ICON_BAR);
+			else if(room.hasFlag(GLOBAL.OBJECTIVE))  tarSprite.setIcon(ICON_OBJECTIVE);
+			else if(room.hasFlag(GLOBAL.QUEST))      tarSprite.setIcon(ICON_QUEST);
+			else                                     tarSprite.setIcon(-1);
+			
+			if(room.hasFlag(GLOBAL.HAZARD)) tarSprite.showHazard();
+			else                            tarSprite.hideHazard();
+			
+			if(room.northExit) mapRoom(roomsObj[room.northExit], xPos, yPos + 1, roomsObj, completeRooms);
+			if(room.southExit) mapRoom(roomsObj[room.southExit], xPos, yPos - 1, roomsObj, completeRooms);
+			if(room.westExit)  mapRoom(roomsObj[room.westExit], xPos - 1, yPos, roomsObj, completeRooms);
+			if(room.eastExit)  mapRoom(roomsObj[room.eastExit], xPos + 1, yPos, roomsObj, completeRooms);
+			
+			if(xPos >= _childNumX - 2 || yPos <= 0) return;
+			
+			if(room.southExit) _childLinksY[xPos][(_childNumY - 1) - yPos].setLink(roomConnection(room.southExit, roomsObj[room.southExit].northExit));			
+			if(room.eastExit)  _childLinksX[xPos][(_childNumY - 1) - yPos].setLink(roomConnection(room.eastExit, roomsObj[room.eastExit].westExit));
+		}
+		
+		public function resetChildren():void
+		{
+			for each(var vec:Vector.<MinimapRoom> in _childElements)
+			{
+				for each(var mRoom:MinimapRoom in vec)
+				{
+					mRoom.visible = false;
+				}
+			}
+			for each(var xArr:Vector.<MinimapLink> in _childLinksX)
+			{
+				for each(var xLink:MinimapLink in xArr)
+				{
+					xLink.setLink(-1);
+				}
+			}
+			for each(var yArr:Vector.<MinimapLink> in _childLinksY)
+			{
+				for each(var yLink:MinimapLink in yArr)
+				{
+					yLink.setLink(-1);
+				}
 			}
 		}
 		

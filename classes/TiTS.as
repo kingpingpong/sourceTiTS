@@ -56,7 +56,6 @@
 	import classes.DataManager.DataManager;
 	import classes.GameData.StatTracking;
 	import classes.GUI;
-	import classes.Mapper;
 	import classes.StringUtil;
 
 	//Build the bottom drawer
@@ -184,9 +183,6 @@
 
 		public var combatStage;
 
-		// LE MAP
-		public var mapper:Mapper;
-
 		// Hacky fix for some UI updating problems under Chrome
 		public var whatTheFuck:Sprite;
 		public var whatTheFuckToggleState:Boolean;
@@ -251,9 +247,6 @@
 
 			// Major class variable setup: ------------------------------------------------------------
 			initializeRooms();
-			
-			// dick about with mapper: ------------------------------------------------------------
-			mapper = new Mapper(this.rooms)
 
 			//Lazy man shortcuts! Need reset after reinitialization of data.
 			//pc = chars[0];

@@ -759,8 +759,7 @@ function bombAlertBonusFunction():Boolean
 		clearMenu();
 		//Reset position as you haven't really moved.
 		currentLocation = "352";
-		var map:* = mapper.generateMap(currentLocation);
-		this.userInterface.setMapData(map);
+		this.userInterface.setMapData(currentLocation);
 		addButton(0,"Next",mainGameMenu);
 		return true;
 	}
@@ -801,8 +800,7 @@ function liftDownEvent():void
 	processTime(23);
 	//Move the PC
 	currentLocation = "354";
-	var map:* = mapper.generateMap(currentLocation);
-	this.userInterface.setMapData(map);
+	this.userInterface.setMapData(currentLocation);
 	clearMenu();
 	addButton(0,"Next",mainGameMenu);
 }
@@ -909,8 +907,7 @@ function goUpTarkusLift():void
 	processTime(25);
 	//Move the PC
 	currentLocation = "353";
-	var map:* = mapper.generateMap(currentLocation);
-	this.userInterface.setMapData(map);
+	this.userInterface.setMapData(currentLocation);
 	clearMenu();
 	addButton(0,"Next",mainGameMenu);
 }
@@ -2860,8 +2857,7 @@ function bombExplodes():void
 function planetAsplodeWhileInNova():void
 {
 	currentLocation = "201";
-	var map:* = mapper.generateMap(currentLocation);
-	this.userInterface.setMapData(map);
+	this.userInterface.setMapData(currentLocation);
 	clearOutput();
 	author("Fenoxo");
 	output("The hangar's blast doors are sealed. You didn't even know the hangar HAD blast doors, but they've closed all the same. Your ship and a half dozen others are piled together on the far side of the chamber, damaged but unbroken. You're lucky no one brought any larger ships here before the planets came apart. Your ride could've gotten smashed.");

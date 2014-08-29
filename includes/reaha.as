@@ -656,8 +656,7 @@ function reahaISFREEEEEEE():void
 	userInterface.showBust("REAHA");
 	clearMenu();
 	currentLocation = "SHIP INTERIOR";
-	var map:* = mapper.generateMap(currentLocation);
-	userInterface.setMapData(map);
+	userInterface.setMapData(currentLocation);
 	flags["REAHA_FREE"] = 1;
 	pc.personality = pc.personality - 5;
 	if (pc.personality <= 0) pc.personality = 0;
@@ -682,8 +681,7 @@ function reahaISFREEEEEEE():void
 function reahaWantsToKnowWhatsUp():void
 {
 	currentLocation = "SHIP INTERIOR";
-	var map:* = mapper.generateMap(currentLocation);
-	userInterface.setMapData(map);
+	userInterface.setMapData(currentLocation);
 	author("Savin");
 	clearOutput();
 	clearMenu();
