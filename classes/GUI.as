@@ -105,6 +105,10 @@
 		private var _previousModule:String = "";
 		private var _availableModules:Object;
 		
+		//Map stuff
+		private var _bigMapContainers:Object;
+		public function get bigMapContainers():Object {return _bigMapContainers;}
+		
 		public function GUI(titsClassPtrArg:*, stagePtrArg:*)
 		{
 			// Pointer to the TiTS class
@@ -589,6 +593,8 @@
 		public function showBigMap(mapLink:MiniMap = null, allowInteraction:Boolean = true, container:DisplayObjectContainer = null):MiniMap
 		{
 			if(container == null) container = this.primaryOutputModule;
+			if(bigMapContainers == null) _bigMapContainers = new Object();
+			if(bigMapContainers[container]) return null;
 			
 			var bigM:MiniMap = new MiniMap();
 			bigM.childSizeX = 24;
@@ -598,6 +604,7 @@
 			bigM.childNumX = 20;
 			
 			container.addChild(bigM);
+			_bigMapContainers[container] = bigM;
 			bigM.map(kGAMECLASS.rooms[kGAMECLASS.currentLocation]);
 			
 			setupBigMapTooltips(bigM, 10, 9, kGAMECLASS.rooms[kGAMECLASS.currentLocation], (allowInteraction ? mapLink : null));
@@ -716,6 +723,7 @@
 		}
 		
 		public function removeBigMap(bigM:MiniMap):void {
+			bigMapContainers[bigM.parent] = null;
 			bigM.parent.removeChild(bigM);
 			showPrimaryOutput();
 		}
