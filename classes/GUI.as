@@ -597,9 +597,8 @@
 			bigM.childNumY = 20;
 			bigM.childNumX = 20;
 			
-			var mapper:Mapper = new Mapper(kGAMECLASS.rooms, 20);
 			container.addChild(bigM);
-			bigM.setMapData(mapper.generateMap(kGAMECLASS.currentLocation));
+			bigM.map(kGAMECLASS.rooms[kGAMECLASS.currentLocation]);
 			
 			setupBigMapTooltips(bigM, 10, 9, kGAMECLASS.rooms[kGAMECLASS.currentLocation], (allowInteraction ? mapLink : null));
 			
@@ -679,8 +678,8 @@
 				tooltip.visible = false;
 				if(!bigM.childElements[coordX][coordY].hitTestPoint(e.stageX, e.stageY)) return;
 				
-				tooltip.x = e.localX/* + bigM.childElements[coordX][coordY].x + bigM.childContainer.x*/;
-				tooltip.y = e.localY/* + bigM.childElements[coordX][coordY].y + bigM.childContainer.y*/;
+				tooltip.x = e.localX;
+				tooltip.y = e.localY;
 				tooltip.visible = true;
 				if(e.target.name == "mapbackground") return
 				tooltip.x += bigM.childElements[coordX][coordY].x + bigM.childContainer.x;
@@ -1315,10 +1314,15 @@
 			if(value != undefined) arg.values.text = String(value);
 		}
 		
-		// Set the current map data
-		public function setMapData(data:*):void
+		public function setMapData(room:String):void
 		{
-			this._leftSideBar.miniMap.setMapData(data);
+			if(room in kGAMECLASS.rooms) this.setMapDataByRoom(kGAMECLASS.rooms[room]);
+		}
+		
+		// Set the current map data
+		public function setMapDataByRoom(room:RoomClass):void
+		{
+			this._leftSideBar.miniMap.map(room);
 			_leftSideBar.ShowMiniMap();
 		}
 		

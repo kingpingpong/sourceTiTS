@@ -118,8 +118,7 @@ public function mainGameMenu():void {
 	
 	// Show the minimap too!
 	this.userInterface.showMinimap();
-	var map:* = mapper.generateMap(currentLocation);
-	this.userInterface.setMapData(map);
+	this.userInterface.setMapData(currentLocation);
 	
 	// Enable the perk list button
 	(userInterface as GUI).perkDisplayButton.Activate();
@@ -354,8 +353,7 @@ function move(arg:String, goToMainMenu:Boolean = true):void {
 	}
 	processTime(moveMinutes);
 	currentLocation = arg;
-	var map:* = mapper.generateMap(currentLocation);
-	this.userInterface.setMapData(map);
+	this.userInterface.setMapData(currentLocation);
 	
 	trace("Printing map for " + currentLocation);
 	//mapper.printMap(map);

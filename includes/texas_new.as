@@ -136,8 +136,7 @@ function visitorDeskApproach():void
 function customsFucksYourShitUp():void
 {
 	currentLocation = "TEXAS CUSTOMS";
-	var map:* = mapper.generateMap(currentLocation);
-	this.userInterface.setMapData(map);
+	this.userInterface.setMapData(currentLocation);
 	clearOutput();
 	output("“<i>Hey, " + pc.mf("buddy","beautiful") + ", where do you think you’re going?</i>” Ogram says, standing up behind his desk. “<i>No weapons past this point. Come over here and check ‘em, or you’re going nowhere.</i>”");
 	output("\n\nWhoops.");

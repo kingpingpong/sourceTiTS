@@ -659,7 +659,7 @@
 			}
 			else if (kGAMECLASS.currentLocation != "")
 			{
-				kGAMECLASS.userInterface.setMapData(kGAMECLASS.mapper.generateMap(kGAMECLASS.currentLocation));
+				kGAMECLASS.userInterface.setMapData(kGAMECLASS.rooms[kGAMECLASS.currentLocation]);
 				kGAMECLASS.userInterface.showMinimap();
 			}
 						
