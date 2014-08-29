@@ -385,7 +385,6 @@
 			if(completeRooms.indexOf(room) != -1) return;
 			if(xPos < 0 || yPos < 0 || xPos >= _childNumX || yPos >= _childNumY) return;
 			
-			trace(xPos + ", " + yPos);
 			completeRooms.push(room);
 			var tarSprite:MinimapRoom = _childElements[xPos][(_childNumY - 1) - yPos];
 			tarSprite.visible = true;
