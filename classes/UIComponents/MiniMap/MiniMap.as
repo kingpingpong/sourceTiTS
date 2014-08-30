@@ -80,8 +80,7 @@
 		
 		private var _hasMapRender:Boolean = false;
 		
-		private var _trackerBool:Boolean;
-		private var _trackerData:*;
+		private var _trackerData:RoomClass;
 		private var _trackerRooms:Object;
 		
 		// Access/Mutator shit so I can do funky observer-pattern bollocks later on
@@ -109,6 +108,8 @@
 		public function get targetX():int		                          { return _targetX;	   }
 		public function get targetY():int		                          { return _targetY;	   }
 		
+		public function get trackerData():RoomClass                       { return _trackerData;   }
+		
 		public function get hasMapRender():Boolean { return _hasMapRender; }
 		
 		public function set childSizeX(value:int):void 		{ _childSizeX = value; 		}
@@ -129,6 +130,8 @@
 		public function set targetWidth(value:int):void		{ _targetWidth = value;		}
 		public function set targetX(value:int):void			{ _targetX = value;			}
 		public function set targetY(value:int):void			{ _targetY = value;			}
+		
+		public function set trackerData(value:RoomClass):void { _trackerData = value;   }
 		
 		
 		
@@ -383,7 +386,7 @@
 				}
 				var path:Array = track(kGAMECLASS.rooms[kGAMECLASS.currentLocation], _trackerData);
 				if(path == null) return;
-				lightUpPath(path, UIStyleSettings.gMinimapTrackerColorTransform, _trackerBool);
+				lightUpPath(path, UIStyleSettings.gMinimapTrackerColorTransform);
 			}
 		}
 		
@@ -532,12 +535,16 @@
 		public function track(roomFrom:RoomClass, roomTo:RoomClass):Array
 		{
 			if(roomFrom == roomTo) return null;
+			
 			this._trackerRooms = new Object();
 			pathFind(roomFrom, roomTo, 0);
+			
 			//If the room is unreachable, end
 			if(!_trackerRooms[roomTo]) return null;
+			
 			var path:Array = findPath(roomFrom, roomTo, new Array());
 			path.splice(0, 0, roomFrom);
+			
 			return path;
 		}
 		
@@ -574,10 +581,9 @@
 		
 		//Doesn't work for starting locations other than current location, sorry!
 		//Also, no clue why I need this extraBool, but I'll figure it out later
-		public function lightUpPath(path:Array, color:ColorTransform = null, extraBool:Boolean = false):void
+		public function lightUpPath(path:Array, color:ColorTransform = null):void
 		{
 			this._trackerData = path[path.length - 1];
-			this._trackerBool = extraBool;
 			
 			if(color == null) color = UIStyleSettings.gMinimapTrackerColorTransform;
 			var j:int = 1;
@@ -703,7 +709,7 @@
 				var path:Array = track(kGAMECLASS.rooms[kGAMECLASS.currentLocation], room.room);
 				if(path == null) return;
 							
-				lightUpPath(path, UIStyleSettings.gMinimapTrackerColorTransform, true);
+				lightUpPath(path, UIStyleSettings.gMinimapTrackerColorTransform);
 			
 				if(link == null) return;
 				link.lightUpPath(path, UIStyleSettings.gMinimapTrackerColorTransform);
