@@ -603,6 +603,8 @@
 			bigM.childNumY = 20;
 			bigM.childNumX = 20;
 			
+			if(mapLink != null) bigM.trackerData = mapLink.trackerData;
+			
 			container.addChild(bigM);
 			_bigMapContainers[container] = bigM;
 			
