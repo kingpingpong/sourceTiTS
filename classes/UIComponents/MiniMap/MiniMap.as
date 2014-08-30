@@ -432,11 +432,9 @@
 		//Shut up, I couldn't think of a function name - bleachisback
 		public function centerCorrect():void
 		{
-			//trace("start x");
 			var xOffset:int = canTrimX();
-			//trace("start y");
 			var yOffset:int = canTrimY();
-			//trace(xOffset + ", " + yOffset);
+			
 			map(focusRoom.room, focusRoom.coordX + xOffset, focusRoom.coordY + yOffset);
 		}
 		
@@ -466,8 +464,6 @@
 				if(reached) re++;
 				else re--;
 				//And every column on the bottom subtracts 1
-				
-				//trace("Column empty: " + _x + " re: " + re);
 			}
 			if(!outExit) re /= 2;
 			else re /= 1.33;
@@ -488,7 +484,6 @@
 					//For now just checks if visible, needs to be changed when adding exploration
 					if(mRoom.visible)
 					{
-						//trace("Found visible at " + _x + ", " + _y + ": " + mRoom.room.roomName);
 						//Checks to see if there are any rooms outside of the map
 						if(_y == 0 && mRoom.room.southExit) outExit = true;
 						else if(_y == _childNumX - 1 && mRoom.room.northExit) outExit = true;
@@ -498,11 +493,10 @@
 					}
 				}
 				//Counts each row that has no rooms
-				//Every row on the right adds 1
+				//Every row on the right subtracts 1
 				if(reached) re--;
 				else re++;
-				//And every column on the left subtracts 1
-				//trace("Row empty: " + _y + " re: " + re);
+				//And every column on the left adds 1
 			}
 			if(!outExit) re /= 2;
 			else re /= 1.33;
