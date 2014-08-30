@@ -374,6 +374,7 @@
 					return;
 				}
 				var path:Array = track(kGAMECLASS.rooms[kGAMECLASS.currentLocation], _trackerData);
+				if(path == null) return;
 				lightUpPath(path, UIStyleSettings.gMinimapTrackerColorTransform, _trackerBool);
 			}
 		}
