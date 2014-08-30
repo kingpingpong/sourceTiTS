@@ -614,7 +614,6 @@
 			
 			clearGhostMenu();
 			addGhostButton(14, "Back", removeBigMap, bigM);
-			//addGhostButton(12, "Center", bigM.centerCorrect);
 			
 			return bigM;
 		}
