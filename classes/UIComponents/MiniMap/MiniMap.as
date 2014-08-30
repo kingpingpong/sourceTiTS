@@ -9,6 +9,7 @@
 	import classes.kGAMECLASS;
 	import classes.RoomClass;
 	import classes.GLOBAL;
+	import flash.events.MouseEvent;
 	
 	/**
 	 * ...
@@ -271,7 +272,7 @@
 				for (numY = 0; numY < childNumY; numY++)
 				{
 					// ... Build the sprite
-					var childSprite = new MinimapRoom(childSizeX, childSizeY);
+					var childSprite = new MinimapRoom(childSizeX, childSizeY, numX, numY);
 					childSprite.name = String(numX) + "." + String(numY);
 					
 					_childElements[numX][numY] = childSprite;
@@ -389,6 +390,7 @@
 			completeRooms.push(room);
 			var tarSprite:MinimapRoom = _childElements[xPos][(_childNumY - 1) - yPos];
 			tarSprite.visible = true;
+			tarSprite.room = room;
 			
 			if(room == roomsObj[kGAMECLASS.currentLocation]) tarSprite.setColour(UIStyleSettings.gMapPCLocationRoomColourTransform);
 			else if(room.hasFlag(GLOBAL.INDOOR))             tarSprite.setColour(UIStyleSettings.gMapIndoorRoomFlagColourTransform);
@@ -422,6 +424,7 @@
 		
 		public function resetChildren():void
 		{
+			hideTooltips()
 			for each(var vec:Vector.<MinimapRoom> in _childElements)
 			{
 				for each(var mRoom:MinimapRoom in vec)
@@ -445,7 +448,7 @@
 			}
 		}
 		
-		public function track(roomFrom:*, roomTo:*):Array
+		public function track(roomFrom:RoomClass, roomTo:RoomClass):Array
 		{
 			if(roomFrom == roomTo) return null;
 			this._trackerRooms = new Object();
@@ -458,7 +461,7 @@
 		}
 		
 		//Finds all paths
-		private function pathFind(roomFrom:*, roomTo:*, num:int):void
+		private function pathFind(roomFrom:RoomClass, roomTo:RoomClass, num:int):void
 		{
 			_trackerRooms[roomFrom] = num;
 			if(roomFrom == roomTo) return;
@@ -470,7 +473,7 @@
 		}
 		
 		//Finds shortest path
-		private function findPath(roomFrom:*, roomTo:*, path:Array):Array
+		private function findPath(roomFrom:RoomClass, roomTo:RoomClass, path:Array):Array
 		{
 			path.push(roomTo);
 			var nearestRoom:*;
@@ -564,6 +567,93 @@
 		public function lightUpRoom(room:MinimapRoom, color:ColorTransform):void
 		{
 			room.setGhostColour(color);
+		}
+		
+		private function tooltipFunc(room:MinimapRoom):Function
+		{
+			return function(e:MouseEvent):void
+			{
+				room.tooltip.visible = false;
+				if(!room.hitTestPoint(e.stageX, e.stageY)) return;				
+				
+				room.tooltip.x = e.localX + room.tooltipOffsetX;
+				room.tooltip.y = e.localY + room.tooltipOffsetY;
+				room.tooltip.visible = true;
+				
+				if(e.target.name == "mapbackground") return;
+			
+				room.tooltip.x += room.x + childContainer.x;
+				room.tooltip.y += room.y + childContainer.y;
+			}
+		}
+	
+		public function showTooltips():void
+		{
+			for each(var roomArr:Vector.<MinimapRoom> in _childElements)
+			{
+				for each(var mRoom:MinimapRoom in roomArr)
+				{
+					if(!mRoom.visible) continue;
+					if(mRoom.tooltip.parent == null) addChild(mRoom.tooltip);
+					mRoom.tooltip.visible = true;
+					addEventListener(MouseEvent.MOUSE_MOVE, tooltipFunc(mRoom));
+				}
+			}
+		}
+	
+		public function hideTooltips():void
+		{
+			for each(var roomArr:Vector.<MinimapRoom> in _childElements)
+			{
+				for each(var mRoom:MinimapRoom in roomArr)
+				{
+					if(!mRoom.visible) continue;
+					mRoom.tooltip.visible = false;
+					removeEventListener(MouseEvent.MOUSE_MOVE, tooltipFunc(mRoom));
+				}
+			}
+		}
+	
+		private function trackerFunc(room:MinimapRoom, link:MiniMap):Function
+		{
+			return function(e:MouseEvent):void
+			{
+				if(!room.hitTestPoint(e.stageX, e.stageY)) return;
+								
+				var path:Array = track(kGAMECLASS.rooms[kGAMECLASS.currentLocation], room.room);
+				if(path == null) return;
+							
+				lightUpPath(path, UIStyleSettings.gMinimapTrackerColorTransform, true);
+			
+				if(link == null) return;
+				link.lightUpPath(path, UIStyleSettings.gMinimapTrackerColorTransform);
+			}
+		}
+	
+		public function addTrackers(link:MiniMap = null):void
+		{
+			for each(var roomArr:Vector.<MinimapRoom> in _childElements)
+			{
+				for each(var mRoom:MinimapRoom in roomArr)
+				{
+					if(!mRoom.visible) continue;
+					addEventListener(MouseEvent.CLICK, trackerFunc(mRoom, link));
+					mRoom.buttonMode = true;
+				}
+			}
+		}
+	
+		public function removeTrackers(link:MiniMap = null):void
+		{
+			for each(var roomArr:Vector.<MinimapRoom> in _childElements)
+			{
+				for each(var mRoom:MinimapRoom in roomArr)
+				{
+					if(!mRoom.visible) continue;
+					removeEventListener(MouseEvent.CLICK, trackerFunc(mRoom, link));
+					mRoom.buttonMode = false;
+				}
+			}
 		}
 	}
 }

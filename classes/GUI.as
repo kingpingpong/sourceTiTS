@@ -607,119 +607,13 @@
 			_bigMapContainers[container] = bigM;
 			bigM.map(kGAMECLASS.rooms[kGAMECLASS.currentLocation]);
 			
-			setupBigMapTooltips(bigM, 10, 9, kGAMECLASS.rooms[kGAMECLASS.currentLocation], (allowInteraction ? mapLink : null));
+			bigM.showTooltips();
+			if(allowInteraction) bigM.addTrackers(mapLink);
 			
 			clearGhostMenu();
 			addGhostButton(14, "Back", removeBigMap, bigM);
 			
 			return bigM;
-		}
-		
-		//Is just want everyone to know that this took forever to figure out
-		//Because actionscript 3 doesn't make any sense
-		private function setupBigMapTooltips(bigM:MiniMap, coordX:int, coordY:int, room:*, link:MiniMap = null, completeRooms:Array = null):void
-		{
-			if(coordX < 0 || coordY < 0 || coordX >= bigM.childNumX || coordY >= bigM.childNumY) return;
-			if(completeRooms == null) completeRooms = new Array();
-			if(completeRooms.indexOf(room) != -1) return;
-			completeRooms.push(room);
-			
-			//Makes sure the tooltip doesn't go out of the screen
-			var tipOffset:int = 5;
-			var tipX:int = coordX >= 10 ? -330 - tipOffset: 0 + tipOffset;
-			var tipY:int = coordY >= 17 ? -100 - tipOffset: 0 + tipOffset;
-			
-			var tooltip = new Sprite();
-			var tipHeader = new TextField();
-			var tipText = new TextField();
-			
-			//Border
-			tooltip.graphics.beginFill(UIStyleSettings.gHighlightColour, 1);
-			tooltip.graphics.drawRoundRect(tipX, tipY, 330, 100, 5);
-			tooltip.graphics.endFill();
-			
-			//Text background
-			tooltip.graphics.beginFill(UIStyleSettings.gIndoorRoomFlagColour, 1);
-			tooltip.graphics.drawRoundRect(tipX + 5, tipY + 5, 320, 90, 5);
-			tooltip.graphics.endFill();
-			tooltip.visible = false;
-			
-			//Where I fail starts here - bad visual design HOOOOOOOOO
-			tipHeader.x = tipX + 5;
-			tipHeader.y = tipY + 5;
-			tipHeader.width = 320;
-			tipHeader.defaultTextFormat = UIStyleSettings.gMapTooltipHeaderFormatter;
-			tipHeader.embedFonts = true;
-			tipHeader.multiline = false;
-			tipHeader.wordWrap = false;
-			tipHeader.mouseEnabled = false;
-			tipHeader.mouseWheelEnabled = false;
-			tipHeader.htmlText = "<b>" + room.roomName.replace("\n", " ") + "</b>";
-			tipHeader.height = tipHeader.textHeight;
-			
-			tipText.x = tipX + 5;
-			tipText.y = tipY + 5 + tipHeader.height;
-			tipText.width = 320;
-			tipText.height = 70;
-			tipText.defaultTextFormat = UIStyleSettings.gMapTooltipFormatter;
-			tipText.embedFonts = true;
-			tipText.multiline = true;
-			tipText.wordWrap = true;
-			tipText.mouseEnabled = false;
-			tipText.mouseWheelEnabled = false;
-			
-			//Limits description to 160 characters
-			var tip:String = room.description;
-			if(tip.length > 160)
-			{
-				tip = tip.substring(0, tip.lastIndexOf(" ", 159)) + "...";
-			}			
-			tipText.htmlText = tip;
-			
-			bigM.addChild(tooltip);
-			tooltip.addChild(tipHeader);
-			tooltip.addChild(tipText);
-			
-			var tooltipFunc:Function = function(e:MouseEvent)
-			{
-				tooltip.visible = false;
-				if(!bigM.childElements[coordX][coordY].hitTestPoint(e.stageX, e.stageY)) return;
-				
-				tooltip.x = e.localX;
-				tooltip.y = e.localY;
-				tooltip.visible = true;
-				if(e.target.name == "mapbackground") return
-				tooltip.x += bigM.childElements[coordX][coordY].x + bigM.childContainer.x;
-				tooltip.y += bigM.childElements[coordX][coordY].y + bigM.childContainer.y;
-			}
-			var trackFunc:Function = function(e:MouseEvent)
-			{
-				if(!bigM.childElements[coordX][coordY].hitTestPoint(e.stageX, e.stageY)) return;
-				
-				var path:Array = bigM.track(kGAMECLASS.rooms[kGAMECLASS.currentLocation], room);
-				if(path == null) return;
-				bigM.lightUpPath(path, UIStyleSettings.gMinimapTrackerColorTransform, true);
-				link.lightUpPath(path, UIStyleSettings.gMinimapTrackerColorTransform);
-			}
-			
-			bigM.childElements[coordX][coordY].buttonMode = true;
-				
-			bigM.addEventListener(MouseEvent.MOUSE_MOVE, tooltipFunc);
-			
-			if(bigM.childElements[coordX][coordY].mask != null)
-			{
-				(bigM.childElements[coordX][coordY].mask as Sprite).buttonMode = true;
-			}
-						
-			if(link != null)
-			{
-				bigM.addEventListener(MouseEvent.CLICK, trackFunc);
-			}
-			
-			if(room.northExit) setupBigMapTooltips(bigM, coordX, coordY - 1, kGAMECLASS.rooms[room.northExit], link, completeRooms);
-			if(room.southExit) setupBigMapTooltips(bigM, coordX, coordY + 1, kGAMECLASS.rooms[room.southExit], link, completeRooms);
-			if(room.westExit) setupBigMapTooltips(bigM, coordX - 1, coordY, kGAMECLASS.rooms[room.westExit], link, completeRooms);
-			if(room.eastExit) setupBigMapTooltips(bigM, coordX + 1, coordY, kGAMECLASS.rooms[room.eastExit], link, completeRooms);
 		}
 		
 		public function removeBigMap(bigM:MiniMap):void {
