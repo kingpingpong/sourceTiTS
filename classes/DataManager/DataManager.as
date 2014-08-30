@@ -442,6 +442,7 @@
 				kGAMECLASS.userInterface.hideNPCStats();
 				kGAMECLASS.userInterface.showPCStats();
 				kGAMECLASS.updatePCStats();
+				kGAMECLASS.userInterface.removeBigMapFromContainer(kGAMECLASS.userInterface.primaryOutputModule, false);
 				kGAMECLASS.output2("Game loaded from 'TiTs_" + slotNumber + "'!");
 				kGAMECLASS.userInterface.clearGhostMenu();
 				kGAMECLASS.addGhostButton(0, "Next", this.executeGame);

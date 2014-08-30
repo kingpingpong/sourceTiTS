@@ -605,21 +605,33 @@
 			
 			container.addChild(bigM);
 			_bigMapContainers[container] = bigM;
+			
 			bigM.map(kGAMECLASS.rooms[kGAMECLASS.currentLocation]);
+			bigM.centerCorrect();
 			
 			bigM.showTooltips();
 			if(allowInteraction) bigM.addTrackers(mapLink);
 			
 			clearGhostMenu();
 			addGhostButton(14, "Back", removeBigMap, bigM);
+			//addGhostButton(12, "Center", bigM.centerCorrect);
 			
 			return bigM;
 		}
 		
-		public function removeBigMap(bigM:MiniMap):void {
+		public function removeBigMap(bigM:MiniMap, showOutput:Boolean = true):void {
+			if(bigMapContainers == null) return;
 			bigMapContainers[bigM.parent] = null;
 			bigM.parent.removeChild(bigM);
-			showPrimaryOutput();
+			if(showOutput) showPrimaryOutput();
+		}
+		
+		public function removeBigMapFromContainer(container:DisplayObjectContainer, showOutput:Boolean = true):void {
+			if(bigMapContainers == null) return;
+			if(bigMapContainers[container] == null) return;
+			container.removeChild(bigMapContainers[container]);
+			bigMapContainers[container] = null;
+			if(showOutput) showPrimaryOutput();
 		}
 		
 		// Once this is all working, a lot of this should be refactored so that code external to GUI

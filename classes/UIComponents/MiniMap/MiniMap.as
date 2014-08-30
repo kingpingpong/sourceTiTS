@@ -70,6 +70,8 @@
 		private var _displayMode:int	= 0;	// Provisional method of setting up different display settings for the map
 		private var _scaleMode:int		= 0;	// Scaling to use for child map elements
 		
+		private var _focusRoom:MinimapRoom;
+		
 		// Positioning & Sizing settings
 		private var _targetHeight:int   = 0;
 		private var _targetWidth:int 	= 0;
@@ -100,6 +102,7 @@
 		public function get childElements():Vector.<Vector.<MinimapRoom>> { return _childElements; }
 		public function get childLinksX():Vector.<Vector.<MinimapLink>>   { return _childLinksX;   }
 		public function get childLinksY():Vector.<Vector.<MinimapLink>>   { return _childLinksY;   }
+		public function get focusRoom():MinimapRoom                       { return _focusRoom;     }
 		
 		public function get targetHeight():int	                          { return _targetHeight;  }
 		public function get targetWidth():int 	                          { return _targetWidth;   }
@@ -361,11 +364,15 @@
 			throw new Error("Couldn't determine room linkage!");
 		}
 		
-		public function map(room:RoomClass):void
+		public function map(room:RoomClass, xPos:int = -1, yPos:int = -1):void
 		{
 			this._hasMapRender = true;
 			resetChildren();
-			mapRoom(room, _childNumX / 2, _childNumY / 2, kGAMECLASS.rooms);
+			
+			if(xPos == -1) xPos = _childNumX / 2;
+			if(yPos == -1) yPos = _childNumY / 2;
+			mapRoom(room, xPos, yPos, kGAMECLASS.rooms);
+			_focusRoom = getMapRoomByRoomClass(room);
 			
 			if(_trackerData != null) 
 			{
@@ -416,10 +423,90 @@
 			if(room.westExit)  mapRoom(roomsObj[room.westExit], xPos - 1, yPos, roomsObj, completeRooms);
 			if(room.eastExit)  mapRoom(roomsObj[room.eastExit], xPos + 1, yPos, roomsObj, completeRooms);
 			
-			if(xPos >= _childNumX - 2 || yPos <= 0) return;
-			
-			if(room.southExit) _childLinksY[xPos][(_childNumY - 1) - yPos].setLink(roomConnection(room.southExit, roomsObj[room.southExit].northExit));			
+			if(yPos <= 0) return;
+			if(room.southExit) _childLinksY[xPos][(_childNumY - 1) - yPos].setLink(roomConnection(room.southExit, roomsObj[room.southExit].northExit));	
+			if(xPos >= _childNumX - 1) return;
 			if(room.eastExit)  _childLinksX[xPos][(_childNumY - 1) - yPos].setLink(roomConnection(room.eastExit, roomsObj[room.eastExit].westExit));
+		}
+		
+		//Shut up, I couldn't think of a function name - bleachisback
+		public function centerCorrect():void
+		{
+			//trace("start x");
+			var xOffset:int = canTrimX();
+			//trace("start y");
+			var yOffset:int = canTrimY();
+			//trace(xOffset + ", " + yOffset);
+			map(focusRoom.room, focusRoom.coordX + xOffset, focusRoom.coordY + yOffset);
+		}
+		
+		private function canTrimX():int
+		{
+			var re:int = 0;
+			var reached:Boolean = false;
+			var outExit:Boolean = false;
+			
+			loop: for(var _x:int = 0; _x <  _childNumX; _x++)
+			{
+				for(var _y:int = 0; _y < _childNumY; _y++)
+				{
+					var mRoom:MinimapRoom = _childElements[_x][_y];
+					//For now just checks if visible, needs to be changed when adding exploration
+					if(mRoom.visible)
+					{
+						//trace("Found visible at " + _x + ", " + _y + ": " + mRoom.room.roomName);
+						if(_x == 0 && mRoom.room.westExit) outExit = true;
+						else if(_x == _childNumX - 1 && mRoom.room.eastExit) outExit = true;
+						reached = true;
+						continue loop;
+					}
+				}
+				//Counts each column that has no rooms
+				//Every column on the top adds 1
+				if(reached) re++;
+				else re--;
+				//And every column on the bottom subtracts 1
+				
+				//trace("Column empty: " + _x + " re: " + re);
+			}
+			if(!outExit) re /= 2;
+			else re /= 1.33;
+			return re;
+		}
+		
+		private function canTrimY():int
+		{
+			var re:int = 0;
+			var reached:Boolean = false;
+			var outExit:Boolean = false;
+			
+			loop: for(var _y:int = 0; _y < _childNumY; _y++)
+			{
+				for(var _x:int = 0; _x < _childNumX; _x++)
+				{
+					var mRoom:MinimapRoom = _childElements[_x][_y];
+					//For now just checks if visible, needs to be changed when adding exploration
+					if(mRoom.visible)
+					{
+						//trace("Found visible at " + _x + ", " + _y + ": " + mRoom.room.roomName);
+						//Checks to see if there are any rooms outside of the map
+						if(_y == 0 && mRoom.room.southExit) outExit = true;
+						else if(_y == _childNumX - 1 && mRoom.room.northExit) outExit = true;
+						
+						reached = true;
+						continue loop;
+					}
+				}
+				//Counts each row that has no rooms
+				//Every row on the right adds 1
+				if(reached) re--;
+				else re++;
+				//And every column on the left subtracts 1
+				//trace("Row empty: " + _y + " re: " + re);
+			}
+			if(!outExit) re /= 2;
+			else re /= 1.33;
+			return re;
 		}
 		
 		public function resetChildren():void
@@ -512,9 +599,8 @@
 				}
 			}
 			
-			var coordX:int = this._childNumX / 2;
-			var coordY:int = this._childNumY / 2;
-			if(extraBool) coordY--;
+			var coordX:int = this._focusRoom.coordX;
+			var coordY:int = this._focusRoom.coordY;
 			
 			for(; j < path.length; j++)
 			{
@@ -654,6 +740,18 @@
 					mRoom.buttonMode = false;
 				}
 			}
+		}
+		
+		public function getMapRoomByRoomClass(roomClass:RoomClass):MinimapRoom
+		{
+			for each(var roomArr:Vector.<MinimapRoom> in _childElements)
+			{
+				for each(var mRoom:MinimapRoom in roomArr)
+				{
+					if(mRoom.room == roomClass) return mRoom;
+				}
+			}
+			return null;
 		}
 	}
 }
