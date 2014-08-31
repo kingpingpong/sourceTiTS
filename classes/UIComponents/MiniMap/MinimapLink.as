@@ -3,8 +3,8 @@
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.utils.getDefinitionByName;
-	import classes.Resources.MapIcons;
 	import flash.geom.ColorTransform;
+	import classes.Resources.MapIcons;
 	import classes.UIComponents.UIStyleSettings;
 
 	/**
@@ -60,6 +60,8 @@
 					_linkIcons[i].y -= _linkIcons[i].height / 2;
 				}
 			}
+			
+			setColour(UIStyleSettings.gMapIndoorRoomFlagColourTransform);
 		}
 		
 		public function setLink(linkType:int):void
@@ -78,7 +80,6 @@
 				
 			_currLinkId = linkType;
 			
-			setColour(UIStyleSettings.gMapIndoorRoomFlagColourTransform);
 		}
 		
 		public function setColour(color:ColorTransform):void
@@ -94,7 +95,7 @@
 		
 		public function resetColor():void
 		{
-			if(_lastColor == null) return;
+			if(_lastColor == null || _lastColor == this.transform.colorTransform) return;
 			this.transform.colorTransform = this._lastColor;
 		}
 		

@@ -5,11 +5,14 @@
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.geom.ColorTransform;
+	import classes.Animations;
 	import classes.UIComponents.UIStyleSettings;
 	import classes.kGAMECLASS;
 	import classes.RoomClass;
 	import classes.GLOBAL;
 	import flash.events.MouseEvent;
+	import flash.utils.setTimeout;
+	import flash.utils.Dictionary;
 	
 	/**
 	 * ...
@@ -367,14 +370,15 @@
 			throw new Error("Couldn't determine room linkage!");
 		}
 		
-		public function map(room:RoomClass, xPos:int = -1, yPos:int = -1):void
+		public function map(room:RoomClass, anim:Boolean = false, xPos:int = -1, yPos:int = -1):void
 		{
 			this._hasMapRender = true;
 			resetChildren();
 			
 			if(xPos == -1) xPos = _childNumX / 2;
 			if(yPos == -1) yPos = _childNumY / 2;
-			mapRoom(room, xPos, yPos, kGAMECLASS.rooms);
+			
+			mapRoom(room, xPos, yPos, kGAMECLASS.rooms, anim);
 			_focusRoom = getMapRoomByRoomClass(room);
 			
 			if(_trackerData != null) 
@@ -386,11 +390,13 @@
 				}
 				var path:Array = track(kGAMECLASS.rooms[kGAMECLASS.currentLocation], _trackerData);
 				if(path == null) return;
-				lightUpPath(path, UIStyleSettings.gMinimapTrackerColorTransform);
+				lightUpPath(path);
 			}
 		}
 		
-		private function mapRoom(room:RoomClass, xPos:int, yPos:int, roomsObj:*, completeRooms:Array = null):void
+		private var _animations:Array = new Array();
+		
+		private function mapRoom(room:RoomClass, xPos:int, yPos:int, roomsObj:*, animate:Boolean = false, completeRooms:Array = null):void
 		{
 			if(completeRooms == null) completeRooms = new Array();
 			if(room == null) return;
@@ -398,14 +404,29 @@
 			if(xPos < 0 || yPos < 0 || xPos >= _childNumX || yPos >= _childNumY) return;
 			
 			completeRooms.push(room);
+			
 			var tarSprite:MinimapRoom = _childElements[xPos][(_childNumY - 1) - yPos];
 			tarSprite.visible = true;
 			tarSprite.room = room;
+			if(animate)
+			{
+				var animationTime:int = 30; //Time in milliseconds that the animation takes to finish
+				var startX:Number = tarSprite.x + Math.random() * 200 - 100;
+				var startY:Number = tarSprite.y + Math.random() * 200 - 100;
+				var rotations:int = 0;
+				
+				tarSprite.addEventListener(Animations.ANIMATION_FINISHED, mapRoomAnimFinished(room, xPos, yPos, roomsObj, completeRooms, true));
+				
+				Animations.animateSimple(tarSprite, startX, startY, tarSprite.x, tarSprite.y, 0, 1, animationTime, rotations);
+				this._animations.push(tarSprite);
+			}
 			
 			if(room == roomsObj[kGAMECLASS.currentLocation]) tarSprite.setColour(UIStyleSettings.gMapPCLocationRoomColourTransform);
 			else if(room.hasFlag(GLOBAL.INDOOR))             tarSprite.setColour(UIStyleSettings.gMapIndoorRoomFlagColourTransform);
 			else if(room.hasFlag(GLOBAL.OUTDOOR))            tarSprite.setColour(UIStyleSettings.gMapOutdoorRoomFlagColourTransform);
 			else                                             tarSprite.setColour(UIStyleSettings.gMapFallbackColourTransform);
+			
+			if(room == _trackerData)                    tarSprite.setGhostColour(UIStyleSettings.gMinimapTrackerColorTransform);
 			
 			if(room.inExit)                          tarSprite.setIcon(ICON_UP);
 			else if(room.outExit)                    tarSprite.setIcon(ICON_DOWN);
@@ -421,15 +442,38 @@
 			if(room.hasFlag(GLOBAL.HAZARD)) tarSprite.showHazard();
 			else                            tarSprite.hideHazard();
 			
-			if(room.northExit) mapRoom(roomsObj[room.northExit], xPos, yPos + 1, roomsObj, completeRooms);
-			if(room.southExit) mapRoom(roomsObj[room.southExit], xPos, yPos - 1, roomsObj, completeRooms);
-			if(room.westExit)  mapRoom(roomsObj[room.westExit], xPos - 1, yPos, roomsObj, completeRooms);
-			if(room.eastExit)  mapRoom(roomsObj[room.eastExit], xPos + 1, yPos, roomsObj, completeRooms);
-			
+			if(animate) return;
+			if(room.northExit) mapRoom(roomsObj[room.northExit], xPos, yPos + 1, roomsObj, animate, completeRooms);
+			if(room.southExit) mapRoom(roomsObj[room.southExit], xPos, yPos - 1, roomsObj, animate, completeRooms);
+			if(room.westExit)  mapRoom(roomsObj[room.westExit], xPos - 1, yPos, roomsObj, animate, completeRooms);
+			if(room.eastExit)  mapRoom(roomsObj[room.eastExit], xPos + 1, yPos, roomsObj, animate, completeRooms);
+
 			if(yPos <= 0) return;
 			if(room.southExit) _childLinksY[xPos][(_childNumY - 1) - yPos].setLink(roomConnection(room.southExit, roomsObj[room.southExit].northExit));	
 			if(xPos >= _childNumX - 1) return;
 			if(room.eastExit)  _childLinksX[xPos][(_childNumY - 1) - yPos].setLink(roomConnection(room.eastExit, roomsObj[room.eastExit].westExit));
+		}
+		
+		private function mapRoomAnimFinished(room:RoomClass, xPos:int, yPos:int, roomsObj:*, completeRooms, animate:Boolean = true)
+		{
+			return function(e:Event):void
+			{
+				e.target.removeEventListener(Animations.ANIMATION_FINISHED, mapRoomAnimFinished(room, xPos, yPos, roomsObj, completeRooms, true));
+				
+				_animations.splice(_animations.indexOf(e.target), 1);
+				
+				if(room.northExit) mapRoom(roomsObj[room.northExit], xPos, yPos + 1, roomsObj, animate, completeRooms);
+				if(room.southExit) mapRoom(roomsObj[room.southExit], xPos, yPos - 1, roomsObj, animate, completeRooms);
+				if(room.westExit)  mapRoom(roomsObj[room.westExit], xPos - 1, yPos, roomsObj, animate, completeRooms);
+				if(room.eastExit)  mapRoom(roomsObj[room.eastExit], xPos + 1, yPos, roomsObj, animate, completeRooms);
+			
+				if(_animations.length == 0) dispatchEvent(new Event(Animations.ANIMATION_FINISHED));
+				
+				if(yPos <= 0) return;
+				if(room.southExit) _childLinksY[xPos][(_childNumY - 1) - yPos].setLink(roomConnection(room.southExit, roomsObj[room.southExit].northExit));	
+				if(xPos >= _childNumX - 1) return;
+				if(room.eastExit)  _childLinksX[xPos][(_childNumY - 1) - yPos].setLink(roomConnection(room.eastExit, roomsObj[room.eastExit].westExit));
+			};
 		}
 		
 		//Shut up, I couldn't think of a function name - bleachisback
@@ -438,7 +482,7 @@
 			var xOffset:int = canTrimX();
 			var yOffset:int = canTrimY();
 			
-			map(focusRoom.room, focusRoom.coordX + xOffset, focusRoom.coordY + yOffset);
+			map(focusRoom.room, true, focusRoom.coordX + xOffset, focusRoom.coordY + yOffset);
 		}
 		
 		private function canTrimX():int
@@ -532,11 +576,38 @@
 			}
 		}
 		
+		public function resetChildrenColors():void
+		{
+			for each(var vec:Vector.<MinimapRoom> in _childElements)
+			{
+				for each(var mRoom:MinimapRoom in vec)
+				{
+					mRoom.resetColor();
+				}
+			}
+			for each(var xArr:Vector.<MinimapLink> in _childLinksX)
+			{
+				for each(var xLink:MinimapLink in xArr)
+				{
+					xLink.resetColor();
+				}
+			}
+			for each(var yArr:Vector.<MinimapLink> in _childLinksY)
+			{
+				for each(var yLink:MinimapLink in yArr)
+				{
+					yLink.resetColor();
+				}
+			}
+		}
+		
 		public function track(roomFrom:RoomClass, roomTo:RoomClass):Array
 		{
 			if(roomFrom == roomTo) return null;
 			
-			this._trackerRooms = new Object();
+			if(this._trackerRooms != null) resetChildrenColors();
+			_trackerRooms = new Object();
+			
 			pathFind(roomFrom, roomTo, 0);
 			
 			//If the room is unreachable, end
@@ -580,7 +651,6 @@
 		}
 		
 		//Doesn't work for starting locations other than current location, sorry!
-		//Also, no clue why I need this extraBool, but I'll figure it out later
 		public function lightUpPath(path:Array, color:ColorTransform = null):void
 		{
 			this._trackerData = path[path.length - 1];
@@ -604,7 +674,7 @@
 			
 			for(; j < path.length; j++)
 			{
-				var nextRoom:* = path[j];
+				var nextRoom:RoomClass = path[j];
 				if(nextRoom == kGAMECLASS.rooms[path[j - 1].northExit])
 				{
 					lightUpVerticalLink(coordX, coordY - 1, UIStyleSettings.gMinimapTrackerColorTransform);
@@ -679,9 +749,8 @@
 			{
 				for each(var mRoom:MinimapRoom in roomArr)
 				{
-					if(!mRoom.visible) continue;
+					if(mRoom.room == null) continue;
 					if(mRoom.tooltip.parent == null) addChild(mRoom.tooltip);
-					mRoom.tooltip.visible = true;
 					addEventListener(MouseEvent.MOUSE_MOVE, tooltipFunc(mRoom));
 				}
 			}
@@ -693,7 +762,7 @@
 			{
 				for each(var mRoom:MinimapRoom in roomArr)
 				{
-					if(!mRoom.visible) continue;
+					if(mRoom.room == null) continue;
 					mRoom.tooltip.visible = false;
 					removeEventListener(MouseEvent.MOUSE_MOVE, tooltipFunc(mRoom));
 				}
@@ -712,7 +781,7 @@
 				lightUpPath(path, UIStyleSettings.gMinimapTrackerColorTransform);
 			
 				if(link == null) return;
-				link.lightUpPath(path, UIStyleSettings.gMinimapTrackerColorTransform);
+				link.lightUpPath(path);
 			}
 		}
 	
@@ -722,7 +791,7 @@
 			{
 				for each(var mRoom:MinimapRoom in roomArr)
 				{
-					if(!mRoom.visible) continue;
+					if(mRoom.room == null) continue;
 					addEventListener(MouseEvent.CLICK, trackerFunc(mRoom, link));
 					mRoom.buttonMode = true;
 				}
@@ -735,7 +804,7 @@
 			{
 				for each(var mRoom:MinimapRoom in roomArr)
 				{
-					if(!mRoom.visible) continue;
+					if(mRoom.room == null) continue;
 					removeEventListener(MouseEvent.CLICK, trackerFunc(mRoom, link));
 					mRoom.buttonMode = false;
 				}

@@ -4,6 +4,8 @@
 	import flash.events.Event;
 	import flash.geom.ColorTransform;
 	import flash.utils.getDefinitionByName;
+	import flash.utils.setTimeout;
+	import flash.utils.clearTimeout;
 	import classes.UIComponents.UIStyleSettings;
 	import classes.Resources.MapIcons;
 	import classes.RoomClass;
@@ -24,6 +26,7 @@
 		private var _currIconId:int; 
 		private var _hazardMask:Sprite;
 		private var _lastColor:ColorTransform;
+		private var _currentColor:ColorTransform;
 		
 		private var _tooltip:Sprite;
 		private var _tipHeader:TextField;
@@ -171,11 +174,13 @@
 		{
 			_roomIcon.transform.colorTransform = ct;
 			_lastColor = ct;
+			_currentColor = ct;
 		}
 		
 		public function setGhostColour(ct:ColorTransform):void
 		{
 			_roomIcon.transform.colorTransform = ct;
+			_currentColor = ct;
 		}
 		
 		public function setIcon(iconId:int):void
@@ -201,7 +206,9 @@
 		
 		public function resetColor():void
 		{
+			if(_lastColor == null || _lastColor == _currentColor) return;
 			this.transform.colorTransform = this._lastColor;
+			this._currentColor = this._lastColor;
 		}
 		
 		public function showHazard():void
@@ -215,6 +222,7 @@
 			if (_hazardMask.parent != null) this.removeChild(_hazardMask);
 			this.mask = null;
 		}
+		
 	}
 
 }
