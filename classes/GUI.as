@@ -611,11 +611,14 @@
 			bigM.map(kGAMECLASS.rooms[kGAMECLASS.currentLocation]);
 			bigM.centerCorrect();
 			
-			bigM.showTooltips();
-			if(allowInteraction) bigM.addTrackers(mapLink);
-			
 			clearGhostMenu();
-			addGhostButton(14, "Back", removeBigMap, bigM);
+			bigM.addEventListener(Animations.ANIMATION_FINISHED, function(e:Event):void
+			{
+				bigM.showTooltips();
+				if(allowInteraction) bigM.addTrackers(mapLink);
+			
+				addGhostButton(14, "Back", removeBigMap, bigM);
+			});
 			
 			return bigM;
 		}
