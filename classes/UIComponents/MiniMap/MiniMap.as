@@ -605,7 +605,6 @@
 		{
 			if(roomFrom == roomTo) return null;
 			
-			if(this._trackerRooms != null) resetChildrenColors();
 			_trackerRooms = new Object();
 			
 			pathFind(roomFrom, roomTo, 0);
@@ -651,9 +650,10 @@
 		}
 		
 		//Doesn't work for starting locations other than current location, sorry!
-		public function lightUpPath(path:Array, color:ColorTransform = null):void
+		public function lightUpPath(path:Array, resetChildren:Boolean = true, color:ColorTransform = null):void
 		{
 			this._trackerData = path[path.length - 1];
+			if(resetChildren) resetChildrenColors();
 			
 			if(color == null) color = UIStyleSettings.gMinimapTrackerColorTransform;
 			var j:int = 1;
@@ -777,11 +777,10 @@
 								
 				var path:Array = track(kGAMECLASS.rooms[kGAMECLASS.currentLocation], room.room);
 				if(path == null) return;
-							
-				lightUpPath(path, UIStyleSettings.gMinimapTrackerColorTransform);
+				lightUpPath(path, _trackerRooms != null);
 			
 				if(link == null) return;
-				link.lightUpPath(path);
+				link.lightUpPath(path, _trackerRooms != null);
 			}
 		}
 	
