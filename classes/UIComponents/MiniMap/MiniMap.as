@@ -379,7 +379,7 @@
 			if(yPos == -1) yPos = _childNumY / 2;
 			
 			mapRoom(room, xPos, yPos, kGAMECLASS.rooms, anim);
-			_focusRoom = getMapRoomByRoomClass(room);
+			_focusRoom = _childElements[xPos][(_childNumY - 1) - yPos];
 			
 			if(_trackerData != null) 
 			{
