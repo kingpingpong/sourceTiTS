@@ -608,17 +608,27 @@
 			container.addChild(bigM);
 			_bigMapContainers[container] = bigM;
 			
-			bigM.map(kGAMECLASS.rooms[kGAMECLASS.currentLocation]);
-			bigM.centerCorrect();
-			
-			clearGhostMenu();
-			bigM.addEventListener(Animations.ANIMATION_FINISHED, function(e:Event):void
+			var trackerFunc:Function = function(e:Event):void
 			{
+				bigM.removeEventListener(Animations.ANIMATION_FINISHED, trackerFunc);
 				bigM.showTooltips();
 				if(allowInteraction) bigM.addTrackers(mapLink);
 			
 				addGhostButton(14, "Back", removeBigMap, bigM);
-			});
+			};
+			/*var centerFunc:Function = function(e:Event):void
+			{
+				bigM.removeEventListener(Animations.ANIMATION_FINISHED, centerFunc);
+				bigM.addEventListener(Animations.ANIMATION_FINISHED, trackerFunc);
+				trace("Stage 1");
+				bigM.centerCorrect();
+			};*/
+			
+			bigM.map(kGAMECLASS.rooms[kGAMECLASS.currentLocation], false);
+			bigM.centerCorrect();
+			bigM.addEventListener(Animations.ANIMATION_FINISHED, trackerFunc);
+			
+			clearGhostMenu();
 			
 			return bigM;
 		}
