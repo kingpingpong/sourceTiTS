@@ -410,7 +410,7 @@
 			tarSprite.room = room;
 			if(animate)
 			{
-				var animationTime:int = 30; //Time in milliseconds that the animation takes to finish
+				var animationTime:int = 30; //Time in milliseconds that the animation takes to finish. The lower the number, the faster the animation (and the entire map loading)
 				var startX:Number = tarSprite.x + Math.random() * 200 - 100;
 				var startY:Number = tarSprite.y + Math.random() * 200 - 100;
 				var rotations:int = 0;
@@ -479,8 +479,13 @@
 		//Shut up, I couldn't think of a function name - bleachisback
 		public function centerCorrect():void
 		{
+			//trace("Stage 2");
 			var xOffset:int = canTrimX();
 			var yOffset:int = canTrimY();
+			
+			//Not working yet
+			//trace("Stage 3", xOffset, yOffset);
+			//shift(xOffset, yOffset);
 			
 			map(focusRoom.room, true, focusRoom.coordX + xOffset, focusRoom.coordY + yOffset);
 		}
@@ -499,7 +504,6 @@
 					//For now just checks if visible, needs to be changed when adding exploration
 					if(mRoom.visible)
 					{
-						//trace("Found visible at " + _x + ", " + _y + ": " + mRoom.room.roomName);
 						if(_x == 0 && mRoom.room.westExit) outExit = true;
 						else if(_x == _childNumX - 1 && mRoom.room.eastExit) outExit = true;
 						reached = true;
@@ -507,10 +511,10 @@
 					}
 				}
 				//Counts each column that has no rooms
-				//Every column on the top adds 1
+				//Every column on the left adds 1
 				if(reached) re++;
 				else re--;
-				//And every column on the bottom subtracts 1
+				//And every column on the right subtracts 1
 			}
 			if(!outExit) re /= 2;
 			else re /= 1.33;
@@ -540,14 +544,78 @@
 					}
 				}
 				//Counts each row that has no rooms
-				//Every row on the right subtracts 1
+				//Every row on the top subtracts 1
 				if(reached) re--;
 				else re++;
-				//And every column on the left adds 1
+				//And every row on the bottom adds 1
 			}
 			if(!outExit) re /= 2;
 			else re /= 1.33;
 			return re;
+		}
+		
+		public function shift(xShift:int, yShift:int):void
+		{
+			trace("Stage 4");
+			if(_animations.length) return;
+			trace("Stage 5");
+			if(!xShift && !yShift) return;
+			trace("Stage 6");
+			//If only shifting one axis, shift row by row or column by column
+			if(!xShift || !yShift)
+			{
+				//if(!yShift) shiftX(xShift);
+				//if(!xShift) shiftY(yShift);
+				return;
+			}
+			//If shifting by both axes, shift one room at a time, starting at the corner where it's shifting towards
+			var startX:int = xShift > 0 ? _childNumX - 1 : 0;
+			var startY:int = yShift > 0 ? _childNumY - 1 : 0;
+			trace("Stage 7", startX, startY);
+			shiftByRoom(startX, startY, xShift, yShift);
+		}
+		
+		private function shiftByRoom(coordX:int, coordY:int, xShift:int, yShift:int):void
+		{
+			//trace("Stage 8");
+			if(coordX < 0 || coordX >= _childNumX || coordY < 0 || coordY >= _childNumY) return;
+			//trace("Stage 9");
+			if(_animations.indexOf(room) != -1) return;
+			//trace("Stage 10");
+			
+			var room:MinimapRoom = _childElements[coordX][coordY];
+			//trace("Stage 11");
+			
+			var xShiftDistance:int = (childSizeX + childSpacing) * xShift;
+			var yShiftDistance:int = (childSizeY + childSpacing) * yShift;
+			
+			room.addEventListener(Animations.ANIMATION_FINISHED, shiftByRoomNext(coordX, coordY, xShift, yShift, room.x, room.y));
+			Animations.animateSimple(room, room.x, room.y, room.x + xShiftDistance, room.y + yShiftDistance, 1, 0, 50);
+			_animations.push(room);
+		}
+		
+		private function shiftByRoomNext(coordX:int, coordY:int, xShift:int, yShift:int, originalX:Number, originalY:Number):Function
+		{
+			return function(e:Event):void
+			{
+				var oldRoom:MinimapRoom = e.target;
+				oldRoom.x = originalX;
+				oldRoom.y = originalY;
+				oldRoom.removeEventListener(Animations.ANIMATION_FINISHED, shiftByRoomNext(coordX, coordY, xShift, yShift, originalX, originalY));
+				
+				if(coordX + xShift >= 0 && coordX + xShift < _childNumX && coordY + yShift >= 0 && coordY + yShift < _childNumY)
+				{
+					var newRoom:MinimapRoom = _childElements[coordX + xShift][coordY + yShift];
+					newRoom.copy(oldRoom);
+				}
+				oldRoom.visible = false;
+				oldRoom.room = null;
+				
+				shiftByRoom(coordX - 1, coordY, xShift, yShift);
+				shiftByRoom(coordX + 1, coordY, xShift, yShift);
+				shiftByRoom(coordX, coordY - 1, xShift, yShift);
+				shiftByRoom(coordX, coordY + 1, xShift, yShift);
+			}
 		}
 		
 		public function resetChildren():void
@@ -730,7 +798,8 @@
 			return function(e:MouseEvent):void
 			{
 				room.tooltip.visible = false;
-				if(!room.hitTestPoint(e.stageX, e.stageY)) return;				
+				if(!room.hitTestPoint(e.stageX, e.stageY)) return;
+				if(!room.visible) return;
 				
 				room.tooltip.x = e.localX + room.tooltipOffsetX;
 				room.tooltip.y = e.localY + room.tooltipOffsetY;

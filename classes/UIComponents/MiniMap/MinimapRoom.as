@@ -52,6 +52,7 @@
 		{
 			this._room = room;
 			
+			if(room == null) return;
 			var tip:String = room.description;
 			if(tip.length > 160) tip = tip.substring(0, tip.lastIndexOf(" ", 159)) + "...";
 			
@@ -204,10 +205,20 @@
 			_currIconId = iconId;
 		}
 		
+		public function copy(room:MinimapRoom):void
+		{
+			room.setIcon(_currIconId);
+			trace(_roomIcon.transform.colorTransform);
+			room._roomIcon.transform.colorTransform = _roomIcon.transform.colorTransform;
+			room.room = this.room;
+			//room._tooltip = _tooltip;
+			room.visible = visible;
+		}
+		
 		public function resetColor():void
 		{
 			if(_lastColor == null || _lastColor == _currentColor) return;
-			this.transform.colorTransform = this._lastColor;
+			_roomIcon.transform.colorTransform = this._lastColor;
 			this._currentColor = this._lastColor;
 		}
 		
