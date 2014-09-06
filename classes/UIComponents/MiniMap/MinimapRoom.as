@@ -9,6 +9,7 @@
 	import classes.UIComponents.UIStyleSettings;
 	import classes.Resources.MapIcons;
 	import classes.RoomClass;
+	import classes.GLOBAL;
 	import flash.text.TextField;
 	
 	/**
@@ -53,6 +54,11 @@
 			this._room = room;
 			
 			if(room == null) return;
+			if(room.hasFlag(GLOBAL.UNVISITED))
+			{
+				setTooltip("?", room.teaserText);
+				return;
+			}
 			var tip:String = room.description;
 			if(tip.length > 160) tip = tip.substring(0, tip.lastIndexOf(" ", 159)) + "...";
 			

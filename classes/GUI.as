@@ -1147,6 +1147,11 @@
 			_leftSideBar.levelUpButton.visible = false;
 		}
 		
+		public function minimapTrackerClear():void
+		{
+			_leftSideBar.miniMap.trackerData = null;
+		}
+		
 		public function hideTime():void 
 		{
 			_leftSideBar.generalInfoBlock.HideTime();

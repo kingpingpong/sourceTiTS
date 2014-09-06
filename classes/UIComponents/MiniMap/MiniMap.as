@@ -362,6 +362,8 @@
 		
 		private function roomConnection(sourceExit:String, targetExit:String):int
 		{
+			if(kGAMECLASS.rooms[sourceExit].hasFlag(GLOBAL.UNDISCOVERED) || kGAMECLASS.rooms[sourceExit].hasFlag(GLOBAL.UNREACHABLE)) return -1;
+			if(kGAMECLASS.rooms[targetExit].hasFlag(GLOBAL.UNDISCOVERED) || kGAMECLASS.rooms[targetExit].hasFlag(GLOBAL.UNREACHABLE)) return -1;
 			if(sourceExit && targetExit) return LINK_PASSAGE;
 			if(sourceExit && !targetExit) return LINK_TARGET2NEIGHBOUR;
 			if(!sourceExit && targetExit) return LINK_NEIGHBOUR2TARGET;
@@ -381,7 +383,7 @@
 			mapRoom(room, xPos, yPos, kGAMECLASS.rooms, anim);
 			_focusRoom = _childElements[xPos][(_childNumY - 1) - yPos];
 			
-			if(_trackerData != null) 
+			if(_trackerData != null)
 			{
 				if(_trackerData == kGAMECLASS.rooms[kGAMECLASS.currentLocation])
 				{
@@ -408,18 +410,6 @@
 			var tarSprite:MinimapRoom = _childElements[xPos][(_childNumY - 1) - yPos];
 			tarSprite.visible = true;
 			tarSprite.room = room;
-			if(animate)
-			{
-				var animationTime:int = 30; //Time in milliseconds that the animation takes to finish. The lower the number, the faster the animation (and the entire map loading)
-				var startX:Number = tarSprite.x + Math.random() * 200 - 100;
-				var startY:Number = tarSprite.y + Math.random() * 200 - 100;
-				var rotations:int = 0;
-				
-				tarSprite.addEventListener(Animations.ANIMATION_FINISHED, mapRoomAnimFinished(room, xPos, yPos, roomsObj, completeRooms, true));
-				
-				Animations.animateSimple(tarSprite, startX, startY, tarSprite.x, tarSprite.y, 0, 1, animationTime, rotations);
-				this._animations.push(tarSprite);
-			}
 			
 			if(room == roomsObj[kGAMECLASS.currentLocation]) tarSprite.setColour(UIStyleSettings.gMapPCLocationRoomColourTransform);
 			else if(room.hasFlag(GLOBAL.INDOOR))             tarSprite.setColour(UIStyleSettings.gMapIndoorRoomFlagColourTransform);
@@ -442,12 +432,31 @@
 			if(room.hasFlag(GLOBAL.HAZARD)) tarSprite.showHazard();
 			else                            tarSprite.hideHazard();
 			
-			if(animate) return;
+			if(room.hasFlag(GLOBAL.UNDISCOVERED)) tarSprite.visible = false;
+			if(room.hasFlag(GLOBAL.UNVISITED))    tarSprite.alpha = .4;
+			
+			if(animate)
+			{
+				var animationTime:int = 30; //Time in milliseconds that the animation takes to finish. The lower the number, the faster the animation (and the entire map loading)
+				var startX:Number = tarSprite.x + Math.random() * 200 - 100;
+				var startY:Number = tarSprite.y + Math.random() * 200 - 100;
+				var rotations:int = 0;
+				
+				if(!tarSprite.visible) animationTime = 0;
+				
+				tarSprite.addEventListener(Animations.ANIMATION_FINISHED, mapRoomAnimFinished(room, xPos, yPos, roomsObj, completeRooms, true));
+				
+				Animations.animateSimple(tarSprite, startX, startY, tarSprite.x, tarSprite.y, 0, tarSprite.alpha, animationTime, rotations);
+				this._animations.push(tarSprite);
+				return;
+			}
+			
 			if(room.northExit) mapRoom(roomsObj[room.northExit], xPos, yPos + 1, roomsObj, animate, completeRooms);
 			if(room.southExit) mapRoom(roomsObj[room.southExit], xPos, yPos - 1, roomsObj, animate, completeRooms);
 			if(room.westExit)  mapRoom(roomsObj[room.westExit], xPos - 1, yPos, roomsObj, animate, completeRooms);
 			if(room.eastExit)  mapRoom(roomsObj[room.eastExit], xPos + 1, yPos, roomsObj, animate, completeRooms);
 
+			if(room.hasFlag(GLOBAL.UNREACHABLE) || room.hasFlag(GLOBAL.UNDISCOVERED)) return;
 			if(yPos <= 0) return;
 			if(room.southExit) _childLinksY[xPos][(_childNumY - 1) - yPos].setLink(roomConnection(room.southExit, roomsObj[room.southExit].northExit));	
 			if(xPos >= _childNumX - 1) return;
@@ -469,6 +478,7 @@
 			
 				if(_animations.length == 0) dispatchEvent(new Event(Animations.ANIMATION_FINISHED));
 				
+				if(room.hasFlag(GLOBAL.UNREACHABLE) || room.hasFlag(GLOBAL.UNDISCOVERED)) return;
 				if(yPos <= 0) return;
 				if(room.southExit) _childLinksY[xPos][(_childNumY - 1) - yPos].setLink(roomConnection(room.southExit, roomsObj[room.southExit].northExit));	
 				if(xPos >= _childNumX - 1) return;
@@ -625,7 +635,9 @@
 			{
 				for each(var mRoom:MinimapRoom in vec)
 				{
+					mRoom.alpha = 1;
 					mRoom.visible = false;
+					mRoom.room = null;
 				}
 			}
 			for each(var xArr:Vector.<MinimapLink> in _childLinksX)
@@ -633,6 +645,7 @@
 				for each(var xLink:MinimapLink in xArr)
 				{
 					xLink.setLink(-1);
+					xLink.resetColor();
 				}
 			}
 			for each(var yArr:Vector.<MinimapLink> in _childLinksY)
@@ -640,6 +653,7 @@
 				for each(var yLink:MinimapLink in yArr)
 				{
 					yLink.setLink(-1);
+					yLink.resetColor();
 				}
 			}
 		}
@@ -689,6 +703,7 @@
 		//Finds all paths
 		private function pathFind(roomFrom:RoomClass, roomTo:RoomClass, num:int):void
 		{
+			if(getMapRoomByRoomClass(roomFrom) != null && !getMapRoomByRoomClass(roomFrom).visible) return;
 			_trackerRooms[roomFrom] = num;
 			if(roomFrom == roomTo) return;
 			for each(var room:* in roomFrom.exits)
@@ -818,7 +833,7 @@
 			{
 				for each(var mRoom:MinimapRoom in roomArr)
 				{
-					if(mRoom.room == null) continue;
+					if(!mRoom.visible) continue;
 					if(mRoom.tooltip.parent == null) addChild(mRoom.tooltip);
 					addEventListener(MouseEvent.MOUSE_MOVE, tooltipFunc(mRoom));
 				}
@@ -831,7 +846,7 @@
 			{
 				for each(var mRoom:MinimapRoom in roomArr)
 				{
-					if(mRoom.room == null) continue;
+					if(!mRoom.visible) continue;
 					mRoom.tooltip.visible = false;
 					removeEventListener(MouseEvent.MOUSE_MOVE, tooltipFunc(mRoom));
 				}
@@ -843,6 +858,7 @@
 			return function(e:MouseEvent):void
 			{
 				if(!room.hitTestPoint(e.stageX, e.stageY)) return;
+				if(!room.visible) return;
 								
 				var path:Array = track(kGAMECLASS.rooms[kGAMECLASS.currentLocation], room.room);
 				if(path == null) return;

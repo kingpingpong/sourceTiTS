@@ -18,6 +18,7 @@
 	import classes.Creature;
 	import classes.GameData.CodexManager;
 	import classes.GameData.StatTracking;
+	import classes.RoomClass;
 	
 	/**
 	 * Data Manager to handle the processing of player data files.
@@ -360,6 +361,8 @@
 				dataFile.viewedCodexEntries.push(cViewed[i]);
 			}
 			
+			RoomClass.saveRoomFlags(dataFile);
+			
 			// Stat tracking
 			dataFile.statTracking = cloneObject(StatTracking.getStorageObject());
 		}
@@ -444,6 +447,7 @@
 				kGAMECLASS.userInterface.showPCStats();
 				kGAMECLASS.updatePCStats();
 				kGAMECLASS.userInterface.removeBigMapFromContainer(kGAMECLASS.userInterface.primaryOutputModule, false);
+				kGAMECLASS.userInterface.minimapTrackerClear();
 				kGAMECLASS.output2("Game loaded from 'TiTs_" + slotNumber + "'!");
 				kGAMECLASS.userInterface.clearGhostMenu();
 				kGAMECLASS.addGhostButton(0, "Next", this.executeGame);
@@ -583,6 +587,7 @@
 			
 			//Update room placement:
 			kGAMECLASS.variableRoomUpdateCheck();
+			RoomClass.loadRoomFlags(obj, kGAMECLASS);
 			// Returns the backup
 			return false;
 		}

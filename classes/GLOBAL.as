@@ -636,6 +636,9 @@
 		
 		// Temp flag alias whilst the asset gets introduced
 		public static const LIFT:int = OBJECTIVE;
+		public static const UNDISCOVERED:int                           = 12;
+		public static const UNVISITED:int                              = 13;
+		public static const UNREACHABLE:int                            = 14;
 
 		//PLOT FLAGS
 		public static const RECRUITED_CELISE:int                       = 0;
