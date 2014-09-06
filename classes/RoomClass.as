@@ -102,6 +102,7 @@
 			if(arg == GLOBAL.UNDISCOVERED || arg == GLOBAL.UNVISITED || arg == GLOBAL.UNREACHABLE) {
 				needLoading.push(this);
 			}
+			if(hasFlag(arg)) return;
 			roomFlags[roomFlags.length] = arg;
 		}
 		public function removeFlag(arg):void {
