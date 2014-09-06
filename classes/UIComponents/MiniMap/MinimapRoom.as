@@ -108,20 +108,6 @@
 				//Scale icon properly - base map size is 35
 				_icons[i].width *= this.width / 35
 				_icons[i].height *= this.height / 35
-				if(_icons[i].height > this.height || _icons[i].width > this.width)
-				{
-					var yScale:Boolean = (_icons[i].height / this.height) > (_icons[i].width / this.width);
-					if(yScale)
-					{
-						_icons[i].height /= (_icons[i].height / this.height);
-						_icons[i].width /= (_icons[i].height / this.height);
-					}
-					else
-					{
-						_icons[i].height /= (_icons[i].width / this.width);
-						_icons[i].width /= (_icons[i].width / this.width);
-					}
-				}
 				this.addChild(_icons[i]);
 				_icons[i].visible = false;
 				_icons[i].transform.colorTransform = UIStyleSettings.gWhiteColourTransform;
