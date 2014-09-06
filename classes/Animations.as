@@ -8,7 +8,7 @@
 	
 	public class Animations {
 		
-		public static const ANIMATION_FINISHED:String = "MinimapRoom_Animation_Finish";
+		public static const ANIMATION_FINISHED:String = "TiTS_Animation_Finish";
 		
 		private static var animations:Dictionary = new Dictionary();
 		
