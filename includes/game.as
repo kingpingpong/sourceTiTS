@@ -353,6 +353,7 @@ function move(arg:String, goToMainMenu:Boolean = true):void {
 	}
 	processTime(moveMinutes);
 	currentLocation = arg;
+	RoomClass.updateRoomFlags(this);
 	this.userInterface.setMapData(currentLocation);
 	
 	trace("Printing map for " + currentLocation);

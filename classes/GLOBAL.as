@@ -622,6 +622,9 @@
 		public static const OBJECTIVE:int						       = 9;
 		public static const HAZARD:int								   = 10;
 		public static const NOFAP:int 								   = 11;
+		public static const UNDISCOVERED:int                           = 12;
+		public static const UNVISITED:int                              = 13;
+		public static const UNREACHABLE:int                            = 14;
 
 		//PLOT FLAGS
 		public static const RECRUITED_CELISE:int                       = 0;
