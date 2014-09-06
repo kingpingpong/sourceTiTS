@@ -439,17 +439,17 @@ function statusTick():void {
 public function variableRoomUpdateCheck():void
 {
 	//Handle planet explosions
-	if(flags["TARKUS_DESTROYED"] == 1 && rooms["211"].southExit != "") 
+	if(flags["TARKUS_DESTROYED"] == 1) 
 	{
 		trace("PLANET BLEWED UP. HIDIN ROOMS");
-		rooms["211"].southExit = "";
-		rooms["213"].southExit = "";
+		rooms["215"].addFlag(GLOBAL.UNREACHABLE);
+		rooms["295"].addFlag(GLOBAL.UNREACHABLE);
 	}
-	else if(rooms["211"].southExit == "" && flags["TARKUS_DESTROYED"] == undefined)
+	else if(flags["TARKUS_DESTROYED"] == undefined)
 	{
 		trace("PLANET DIDN'T BLOWED UP. LINKIN' ROOMS");
-		rooms["211"].southExit = "215";
-		rooms["213"].southExit = "295";
+		rooms["215"].removeFlag(GLOBAL.UNREACHABLE);
+		rooms["295"].removeFlag(GLOBAL.UNREACHABLE);
 	}
 	
 	//Kelly's work - close/open Xenogen Biotech.
