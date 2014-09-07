@@ -97,17 +97,17 @@ public function mainGameMenu():void {
 	//Turn off encounters since you're already here. Moving clears this.
 	flags["ENCOUNTERS_DISABLED"] = 1;
 
-	if(this.rooms[this.currentLocation].northExit) 
+	if(this.rooms[this.currentLocation].northExit && !this.rooms[this.rooms[this.currentLocation].northExit].hasFlag(GLOBAL.UNREACHABLE)) 
 		this.addButton(6,"North",move,this.rooms[this.currentLocation].northExit);
-	if(this.rooms[this.currentLocation].eastExit) 
+	if(this.rooms[this.currentLocation].eastExit && !this.rooms[this.rooms[this.currentLocation].eastExit].hasFlag(GLOBAL.UNREACHABLE)) 
 		this.addButton(12,"East",move,this.rooms[this.currentLocation].eastExit);
-	if(this.rooms[this.currentLocation].southExit) 
+	if(this.rooms[this.currentLocation].southExit && !this.rooms[this.rooms[this.currentLocation].southExit].hasFlag(GLOBAL.UNREACHABLE)) 
 		this.addButton(11,"South",move,this.rooms[this.currentLocation].southExit);
-	if(this.rooms[this.currentLocation].westExit) 
+	if(this.rooms[this.currentLocation].westExit && !this.rooms[this.rooms[this.currentLocation].westExit].hasFlag(GLOBAL.UNREACHABLE)) 
 		this.addButton(10,"West",move,this.rooms[this.currentLocation].westExit);
-	if(this.rooms[this.currentLocation].inExit) 
+	if(this.rooms[this.currentLocation].inExit && !this.rooms[this.rooms[this.currentLocation].inExit].hasFlag(GLOBAL.UNREACHABLE)) 
 		this.addButton(5,this.rooms[this.currentLocation].inText,move,this.rooms[this.currentLocation].inExit);
-	if(this.rooms[this.currentLocation].outExit) 
+	if(this.rooms[this.currentLocation].outExit && !this.rooms[this.rooms[this.currentLocation].outExit].hasFlag(GLOBAL.UNREACHABLE)) 
 		this.addButton(7,this.rooms[this.currentLocation].outText,move,this.rooms[this.currentLocation].outExit);
 	if(this.currentLocation == shipLocation) 
 		this.addButton(1,"Enter Ship",move,"SHIP INTERIOR");
@@ -488,12 +488,9 @@ public function variableRoomUpdateCheck():void
 		trace("PLANET BLEWED UP. HIDIN ROOMS");
 		rooms["215"].addFlag(GLOBAL.UNREACHABLE);
 		rooms["295"].addFlag(GLOBAL.UNREACHABLE);
-	}
-	else if(flags["TARKUS_DESTROYED"] == undefined)
-	{
-		trace("PLANET DIDN'T BLOWED UP. LINKIN' ROOMS");
-		rooms["215"].removeFlag(GLOBAL.UNREACHABLE);
-		rooms["295"].removeFlag(GLOBAL.UNREACHABLE);
+		rooms["295"].addFlag(GLOBAL.UNDISCOVERED);
+		rooms["215"].description = "A splintered plank of wood hangs over the crater that was once Tarkus";
+		rooms["215"].teaserText = "A splintered plank of wood hangs over a large crater";
 	}
 	
 	//Kelly's work - close/open Xenogen Biotech.

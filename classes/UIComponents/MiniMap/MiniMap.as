@@ -703,7 +703,7 @@
 		//Finds all paths
 		private function pathFind(roomFrom:RoomClass, roomTo:RoomClass, num:int):void
 		{
-			if(getMapRoomByRoomClass(roomFrom) != null && !getMapRoomByRoomClass(roomFrom).visible) return;
+			if(roomFrom.hasFlag(GLOBAL.UNREACHABLE) || (getMapRoomByRoomClass(roomFrom) != null && !getMapRoomByRoomClass(roomFrom).visible)) return;
 			_trackerRooms[roomFrom] = num;
 			if(roomFrom == roomTo) return;
 			for each(var room:* in roomFrom.exits)
@@ -858,7 +858,7 @@
 			return function(e:MouseEvent):void
 			{
 				if(!room.hitTestPoint(e.stageX, e.stageY)) return;
-				if(!room.visible) return;
+				if(!room.visible || room.room.hasFlag(GLOBAL.UNREACHABLE)) return;
 								
 				var path:Array = track(kGAMECLASS.rooms[kGAMECLASS.currentLocation], room.room);
 				if(path == null) return;
