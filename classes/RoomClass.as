@@ -99,11 +99,11 @@
 			return roomFlags.indexOf(arg) != -1;
 		}
 		public function addFlag(arg):void {
-			if(arg == GLOBAL.UNDISCOVERED || arg == GLOBAL.UNVISITED || arg == GLOBAL.UNREACHABLE) {
+			if((arg == GLOBAL.UNDISCOVERED || arg == GLOBAL.UNVISITED || arg == GLOBAL.UNREACHABLE) && needLoading.indexOf(this) == -1) {
 				needLoading.push(this);
 			}
 			if(hasFlag(arg)) return;
-			roomFlags[roomFlags.length] = arg;
+			roomFlags.push(arg);
 		}
 		public function removeFlag(arg):void {
 			if(hasFlag(arg)) roomFlags.splice(roomFlags.indexOf(arg), 1);
