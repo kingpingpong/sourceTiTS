@@ -121,6 +121,9 @@
 		include "../includes/stellarTether.as";
 		include "../includes/saendra.as";
 		include "../includes/texas_new.as";
+		include "../includes/vanae.as";
+		include "../includes/anno.follower.as";
+		include "../includes/ellie.as";
 		
 		include "../includes/lightsOut.as";
 			
@@ -200,7 +203,7 @@
 
 			trace("TiTS Constructor")
 
-			version = "0.02.46";
+			version = "0.02.51";
 
 			//temporary nonsense variables.
 			temp = 0;
@@ -495,6 +498,11 @@
 			userInterface.addDisabledButton(slot);
 		}
 		
+		public function refreshFontSize():void
+		{
+			userInterface.refreshFontSize(gameOptions.fontSize);
+		}
+		
 		public function showCodex():void
 		{
 			this.userInterface.showCodex();
@@ -617,8 +625,6 @@
 		
 		public function get pc():*
 		{
-			// This is actually a legit sensible layer of indirection for the player object when we want to address it.
-			// Case in point; Urtaquest-like "swapping" of the controllable character.
 			return chars["PC"];
 		}
 		public function get monster():*
@@ -713,6 +719,19 @@
 		public function get sera():*
 		{
 			return chars["SERA"];
+		}
+		
+		public function get vanae():*
+		{
+			return this.monster;
+		}
+		public function get vanaeMaiden():*
+		{
+			return chars["MAIDEN_VANAE"];
+		}
+		public function get vanaeHuntress():*
+		{
+			return chars["HUNTRESS_VANAE"];
 		}
 	}
 }

@@ -271,7 +271,7 @@ function buttfuckDefeatedZil():void {
 	userInterface.showBust("ZIL");
 	userInterface.showName("MALE\nZIL");
 	if(pc.isNice()) output("Chuckling happily, you tell the zil that you have every intention of playing with him for as long as possible.");
-	else if(pc.isMischievous()) output("Grinning mischieviously, you inform the poor zil that you're going to have quite a bit of fun with him.");
+	else if(pc.isMischievous()) output("Grinning mischievously, you inform the poor zil that you're going to have quite a bit of fun with him.");
 	else output("Lording a cruel smile over your latest prey, you let him know that you're going to have quite a lot of fun with him.");
 	output(" He looks up hopefully at your statement, but you grab him by his shoulders and spin him around, pushing him forward so that he's on his hands and knees, ass in the air.  His cute little ball-sack glistens with sweat from your recent exchange, connected by a narrow strip of soft taint to his tight, winking anus.  Combined with his well-filled foreskin, the male's softest, most vulnerable points are all lined up and displayed for you, one erotic line of pliant flesh sandwiched between the glossy, chitinous plates of his cheeks.");
 	
@@ -1209,7 +1209,7 @@ function theZilPretendToBeHelia():void {
 	userInterface.showName("MALE\nZIL");
 	//(Lose by HP)
 	if(pc.HP() <= 0) {
-		output("You reel backward, unable to stand any longer in the face of such a determined in powerful foe. The fight has sapped your strength and battered your muscles to such a degree that you don't think you're even capable of resisting any more, and as that realization sinks in, you slump over, panting from exertion. The zil's shadow falls across your prone form. A curious, lighthearted expression has spread across his inhuman visage.");
+		output("You reel backward, unable to stand any longer in the face of such a determined and powerful foe. The fight has sapped your strength and battered your muscles to such a degree that you don't think you're even capable of resisting any more, and as that realization sinks in, you slump over, panting from exertion. The zil's shadow falls across your prone form. A curious, lighthearted expression has spread across his inhuman visage.");
 		output("\n\n<i>“Hey, I won, so I hope you're ready for your snack,”</i> he states a little over eagerly, <i>“I didn't actually want to hurt you bad or anything.”</i>");
 		output("\n\nAbruptly, the bushes behind him rustle. They part a moment later, and a lissom pair of latex-black legs stride out of the foliage, swaying back and forth so sensuously that you momentarily forget your pain. The reason for the newcomer's unusual gait is made apparent when it turns to regard the male zil; a heavy, insectile abdomen hangs behind it from just above her buttons, tipped with a deadly-looking stinger.");
 	}
@@ -1236,7 +1236,7 @@ function theZilPretendToBeHelia():void {
 	if(!pc.hasVagina()) pc.buttChange(foes[0].cockVolume(0),true,true,false);
 	else pc.cuntChange(x,foes[0].cockVolume(0),true,true,false);
 	output("\n\nSmooth armor compresses your [pc.butt] when the foreskin-wrapped dick bottoms out, the zil's smooth, hairless sack rubbing against you for a moment before he draws back and begins to fuck your [pc.vagOrAss] slowly, almost languidly.");
-	output("\n\n<i>“Oh, this is nice,”</i> he admits. His sack seems to grow a little bit bigger against your body as his constantly leaking pre turns your innards into slippery mess. The slow friction gradually increases as the zil begins to pump faster and faster, locking eyes with his opposite across your submissive, conquered frame. His dick grows a hair thicker and plumper; his hips thrust faster, and you know a messy, gooey climax is is close at hand for bug-man.");
+	output("\n\n<i>“Oh, this is nice,”</i> he admits. His sack seems to grow a little bit bigger against your body as his constantly leaking pre turns your innards into slippery mess. The slow friction gradually increases as the zil begins to pump faster and faster, locking eyes with his opposite across your submissive, conquered frame. His dick grows a hair thicker and plumper; his hips thrust faster, and you know a messy, gooey climax is is close at hand for the bug-man.");
 	output("\n\nThe female bites her lips and shudders while your tongue polishes her clit, gathering every drop of her hot honey, sliding deeper into her folds where it can properly tickle the rest of her nerve endings. You dole out cunnilingus with no thought but eagerness for the taste in your mouth, instinctively improving your technique whenever you discover something that gets you a fresh dribble of her juices. Her legs are quaking lustily around your head as she rides you towards a much-needed cum. If your mouth weren't muff-deep in cunt, a dopey smile would be visible on it.");
 	//{Vagina}
 	if(pc.hasVagina()) {

@@ -113,7 +113,14 @@ function availableFaps(roundTwo:Boolean = false):Array
 			faps.push(fap);
 		}
 	}
-	
+	//Boobswell pads. Need a way to exclude this from random selection sometime.	
+	if(pc.hasStatusEffect("Boobswell Pads")) 
+	{
+		fap = new FapCommandContainer();
+		fap.text = "Remove B.Swell";
+		fap.func = removeBoobswellPads;
+		faps.push(fap);
+	}
 	return faps;
 }
 
@@ -153,6 +160,13 @@ function masturbateMenu(roundTwo:Boolean = false):void {
 	if (roundTwo == true)
 	{
 		selectRandomFap(faps);
+		return;
+	}
+	
+	// If only one fap came back, just execute it
+	if (faps is Array && faps.length == 1)
+	{
+		faps[0].execute();
 		return;
 	}
 	
@@ -426,7 +440,7 @@ function singleDickFap():void {
 		else if(pc.cumQ() <= 150) output(" A single droplet of pre beads from your cumsit, but it turns out to be the first of many when that droplet turns into a river of lubricating cockslime. You gather up the musky, sexual efflux and smear it over your shaft in a lubricating layer.");
 		else output(" Fat droplets of pre roll out of your cumslit one after another, so fast that your crotch soon becomes sticky with the leaking sexual stuff. You gather up a handful of the stuff and smear it over your shaft, lubricating yourself for your playful fingertips.");
 		//Precum finisher
-		output(" The sound of your masturabtion takes on a decidedly moist quality, schlicking hard and fast as you rise towards your peak.");
+		output(" The sound of your masturbation takes on a decidedly moist quality, schlicking hard and fast as you rise towards your peak.");
 		if(pc.balls > 0) {
 			output(" Grabbing your [pc.balls] with one hand, you gently rub and caress your [pc.sack], massaging it to make yourself even harder, even more erect.");
 			if(pc.balls == 1) output(" It churns");
@@ -856,7 +870,7 @@ function milkturbation():void
 	{
 		output(" Looking around to ");
 		if(pc.libido() >= 75) output("make sure you've got an audience");
-		else output("make sure noone is looking too closely");
+		else output("make sure no one is looking too closely");
 	}
 	else output(" Setting comfortably in a quiet corner");
 	output(", you grab your [pc.chest] and squeeze, rubbing gently towards your [pc.nipples] to coax yourself into letting down. The lactating flesh feels wonderful in your hands, and you shudder with barely suppressed delight at how good it feels to get yourself ready.");
@@ -929,7 +943,7 @@ function milkturbation():void
 		else if(pc.milkQ() <= 3000)
 		{
 			output("\n\nThe [pc.milk] forms into puddles between your [pc.feet] while you're still getting started, and as you settle into giving yourself a proper milking, they only get bigger. Streams of [pc.milkColor] spill down your forearms to your elbows before falling off in rivers. You groan in animal pleasure, unable to help yourself; there's just so much coming out of you, and it feels like such a relief. The human body wasn't made to gush like this, but isn't science wonderful?");
-			if(pc.biggestTitSize() >= 5) output(" Grabbing a teat, you lift it to your [pc.lips] for a sample and sample. The flow is strong enough to flood your cheeks in spite of your gluttonous swallowing. Eventually you have to let go. Streamers of [pc.milk] come out in a spray.");
+			if(pc.biggestTitSize() >= 5) output(" Grabbing a teat, you lift it to your [pc.lips] for a sample. The flow is strong enough to flood your cheeks in spite of your gluttonous swallowing. Eventually you have to let go. Streamers of [pc.milk] come out in a spray.");
 			else output(" Wishing you could lift a teat to your mouth to sample to, you tug with wild abandon, squeezing heavier and heavier flows from your body.");
 		}
 		//Middle: Express milk like a fucking cow
@@ -1293,4 +1307,15 @@ public function joyCoMagicMilker7Sucks():void
 		}
 		pc.milked(pc.milkFullness);
 	}
+}
+
+
+function removeBoobswellPads():void
+{
+	clearOutput();
+	author("Fenoxo");
+	pc.removeStatusEffect("Boobswell Pads");
+	output("You peel the pads off your chest and breathe a sigh of relief now that the constant moisture and vibration is no longer rubbing at your [pc.nipples].\n\n<b>The boobswell pads shut down, their use expended.</b>");
+	clearMenu();
+	addButton(0,"Next",mainGameMenu);
 }

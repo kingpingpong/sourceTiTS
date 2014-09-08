@@ -276,7 +276,7 @@ function getSpitRoastedForPenny():void {
 	else output("[pc.vagina] is stuffed full of rigid zil-cock");
 	output(". As the cock in your mouth withdraws, you are hilted; yellow balls slap against your butt. They saw into you, their athletic forms building speed. The aliens use you as little more than a sentient cock-sleeve. A thrill of pleasure runs through your body, feeling like a soft sex-toy just waiting to be turned into a double cum-dump.");
 	
-	output("\n\nIf the throbbing of their dicks is any indication, the zil are clearly enjoying dominating your submissive body. You rock back and forth, greedily gulping down pre-cum, desperately working your muscles to coax ever more from them. They don’t keep you waiting much longer. As one, they break their rhythm, and both cocks are rammed into you. The throbbing ballsacks grind against your [pc.skinFurScales], and a torrent of honeyed jism erupts into your mouth, flooding your cheeks. Diffirent from the syrupy pre, the zil’s cum is creamy and thick, satisfying a deep desire you didn’t even know you had until you started to swallow. You gulp it down with a blissful smile, feeling only wanton abandon at amber trails slopping out of the corners of your mouth and down your chin. At the same time, the yellow zil explodes in your [pc.vagOrAss], hot, thick spunk flooding your insides, jet after jet of it lancing deep into your ");
+	output("\n\nIf the throbbing of their dicks is any indication, the zil are clearly enjoying dominating your submissive body. You rock back and forth, greedily gulping down pre-cum, desperately working your muscles to coax ever more from them. They don’t keep you waiting much longer. As one, they break their rhythm, and both cocks are rammed into you. The throbbing ballsacks grind against your [pc.skinFurScales], and a torrent of honeyed jism erupts into your mouth, flooding your cheeks. Different from the syrupy pre, the zil’s cum is creamy and thick, satisfying a deep desire you didn’t even know you had until you started to swallow. You gulp it down with a blissful smile, feeling only wanton abandon at amber trails slopping out of the corners of your mouth and down your chin. At the same time, the yellow zil explodes in your [pc.vagOrAss], hot, thick spunk flooding your insides, jet after jet of it lancing deep into your ");
 	if(!pc.hasVagina()) output("bowels");
 	else if(!pc.isPregnant()) output("womb");
 	else output("passage");
@@ -830,7 +830,7 @@ function firstTimePennyShowerSex():void {
 		else output("dick");
 		output(" and over to another penis, allowing her to double the handjob. She works the [pc.cock " + y + "] with matched pumps, gleefully using your array of handholds to her advantage. ");
 	}
-	output("Plush breasts push up against your back, grinding against you as Penny’s eager handjob becomes more enthusiastic.She leans ");
+	output("Plush breasts push up against your back, grinding against you as Penny’s eager handjob becomes more enthusiastic. She leans ");
 	if(pc.tallness >= 72) output("under your arm");
 	else if(pc.tallness >= 55) output("around you");
 	else output("over top of you");
@@ -1881,7 +1881,7 @@ function pennySexMenu(outputT:Boolean = true):void {
 		this.addDisabledButton(3,"Pawjob","Pawjob","This scene requires you to have a penis.");
 		//this.addDisabledButton(4,"FaceFuckHer");
 		if(penny.hasCock()) this.addButton(4,"Catch Anal",getAssFuckedByPenny,undefined,"Catch Anal","Get ass-fucked by Penny.");
-		addDisabledButton(4,"Catch Anal","Catch Anal","Penny needs a dick to fuck you in the ass.");
+		else addDisabledButton(4,"Catch Anal","Catch Anal","Penny needs a dick to fuck you in the ass.");
 	}
 	this.addButton(5,"EatHerOut",gardeFordWritesPennySmex,undefined,"EatHerOut","Eat out Penny.");
 	if(flags["PENNY_IS_A_CUMSLUT"] != undefined) this.addButton(6,"Selfsuck",pennySelfSuckCumsluttery,undefined,"Selfsuck","Watch Penny suck herself off.");
@@ -2978,7 +2978,7 @@ function pennyLetThemWatchYouCumSlut():void {
 	output("\n\n\"<i>In fact,</i>\"  you continue, moving around to stand beside her and whispering directly into her ear, \"<i>you </i>want<i> people to see this, don't you? You want people to see how you're hooked on drinking your own cum, how you can't stop putting your dick in your mouth and working it over again, and again, and again.</i>\"");
 	output("\n\nPenny's movements are becoming jerky and erratic, her whole body shuddering as she approaches what is clearly an unstoppable orgasm. Seizing the moment you grab her fiercely and hiss, \"<i>you're a cumslut, aren't you? You're addicted to the taste of your own cum, and don't care if the whole town watches you milk yourself.</i>\"");
 	output("\n\nShe manages to look up at you, her blushing face and the look of pleading desperation in her eyes conveying her hesitance, but even as she does her dick starts surging involuntarily, and soon burst after burst is splashing against the back of her throat, and all she can do is slurp it down greedily. Her resistance melts as she sinks into it, her eyes sliding closed and her blush fading as all her reservations are overcome by just how <i>good</i> this feels.");
-	output("\n\nSeeing her adjusting, you shift to {kneel/crouch} directly in front of her, watching approvingly as she gulps down her seemingly never-ending load. \"<i>Good girl,</i>\"  you say encouragingly. \"<i>Don't you enjoy putting on a good show like this?</i>\"");
+	output("\n\nSeeing her adjusting, you shift to crouch directly in front of her, watching approvingly as she gulps down her seemingly never-ending load. \"<i>Good girl,</i>\"  you say encouragingly. \"<i>Don't you enjoy putting on a good show like this?</i>\"");
 	output("\n\nEven muffled as she is, Penny manages to give out a slightly more concerted moan to attempt to express her approval.");
 	output("\n\nYou grin in response. \"<i>Of course you do. So much better than letting your silly little shyness get in the way of enjoying your wonderful cock you went </i>so<i> out of your way to get. But remember...</i>\"  Without warning you slide three fingers inside her dripping slit, the sudden shock of which causes her cock to bulge with a startlingly intense orgasm, almost forcing it out of her mouth with the sheer volume of cum she produces in that one instant. \"<i>...everyone can watch, but only </i>I<i> get to enjoy you.</i>\"");
 	output("\n\nThat last emphatic orgasm seems to have wrung most of it out of her, and within moments Penny is left leaning exhausted back in her chair, while her [penny.cock] slides slowly out of her mouth to rest between her breasts. After spending a moment appraising the impressive amount of mess she left on your fingers you casually place them next to her mouth, and reflexively she leans forward and begins to eagerly lick them clean.");
@@ -3042,14 +3042,14 @@ function useYourCocksOnCumSluttyPenny():void {
 	output("Grinning, you hurriedly get your equipment out of the way, leaving the both of you completely naked. Penny by now is simply drooling; her mind so addled by lust she doesn't even think to suck her own cock - she's merely waiting passively to be used. You have every intention of obliging her; ");
 	if(pc.isTaur()) output("positioning yourself carefully, then ");
 	output("working your [pc.cock " + x + "] over eagerly. It's not long before you feel your body begin to respond - her performance so far has done more than enough to put you in the mood, and her absolute lust for this serves to spur you on even further. Within moments you feel your body tensing, your hips thrusting reflexively as your [pc.cock " + x + "] spasms, ");
-	if(pc.cockTotal() > 2 && pc.hasVagina()) output("other cocks and [pc.vaginas]");
-	else if(pc.cockTotal() > 1) 
+	
+	if(pc.cockTotal() > 1) 
 	{
 		output("your ");
 		if(pc.cockTotal() == 2) output("other cock");
 		else output("other cocks");
 	}
-	else if(pc.hasVagina()) output("[pc.vaginas]");
+	else if(pc.hasVagina()) output("your [pc.vaginas]");
 	if(pc.cockTotal() > 1 || pc.hasVagina()) output(" soon joining in sympathetically, and ");
 	output("your [pc.cumColor] cum spurting out to land on her face.");
 	//MODERATE LEVEL OF CUM PRODUCTION

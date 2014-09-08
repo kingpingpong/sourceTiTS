@@ -398,9 +398,12 @@ function defeatTheSexBot():void
 
 	//Dog E
 	//Requires: Female sexbot, dick
-	if(pc.hasCock() && pc.lust() >= 33 && pc.cockThatFits(foes[0].vaginalCapacity(0)) >= 0 && foes[0].mf("","girl") == "girl")
-		addButton(2,"DoggyStyle",dogEStyleWithSexBots);
-	else addDisabledButton(2,"Doggystyle","Doggy Style","You need a penis that will fit inside the sexbot, to be feminine, and to have 33 or more lust for this scene.");
+	if (foes[0].mf("", "girl") == "girl")
+	{
+		if (pc.hasCock() && pc.lust() >= 33 && pc.cockThatFits(foes[0].vaginalCapacity(0)) >= 0) addButton(2, "DoggyStyle", dogEStyleWithSexBots);
+		else addDisabledButton(2, "DoggyStyle", "Doggy Style", "You need a cock that will fit inside the sexbot and be sufficiently lusty.");
+	}
+	
 	if((flags["SEXBOTS_SCANNED_FOR_COLENSO"] == undefined || flags["SEXBOTS_SCANNED_FOR_COLENSO"] < 4) && flags["SEXBOT_QUEST_STATUS"] == 1) addButton(4,"Scan",scanASexbot,undefined,"Scan","Scan the sexbot with the GPS triangulator Colenso provided.");
 	addButton(14,"Leave",genericVictory);
 }
@@ -647,7 +650,7 @@ function malebotDefeatsMalePCs():void
 	output("\n\n“<i>Is this good for you, insert name here?</i>” You make a hoarse groan which could be construed as an affirmative, your attention entirely on the synthetic flesh you are buried in. “<i>I am glad. Commencing phase two.</i>” You stare up at it blearily. It’s reaching towards your face, its finger pads glowing a pale blue. What does it mean by...? Its fingers touch your neck and instantly you seize up, what feels like every muscle in your body tightening as hundreds of thousands of your nerve endings all flare at once. You cry out in pain, pleasure, horror, bewilderment, every emotion that could be elicited from being gently electrocuted by the man riding you.");
 	output("\n\n“<i>Please do not be alarmed, insert name here,</i>” says the sexbot in its perversely soothing tone with just the barest hint of sadistic enjoyment. “<i>You will enjoy me interfacing with your nervous system. In time.</i>” Its hand reaches for your neck again. This time it lights up only one side of your body, sending a huge electric thrill shuddering down your spine, making your [pc.legs] thrash wildly. What the hell were they thinking when they made these things? It’s kept its hand pressed upon your neck and you grip it, trying to plead with it wordlessly to stop.");
 	output("\n\n“<i>That’s it, insert name here,</i>” it responds kindly. “<i>Just relax. When you relax it makes the interfacing that much smoother.</i>” This time the shock is smaller, directed; vibrations are sent buzzing through [pc.eachCock] and [pc.nipples], making blood rush to them. All will to try and fuck the robot back has been completely zapped out of you and you lie your head back, letting it fill your back passage with the exact, sure motion of its thick, heated cock, surrendering to the calm hand on your neck and the teasing electric fingers it sends touching and squeezing through your whole body.");
-	output("\n\nYou lose track of time in the throes of the electric sex, jerking and writhing to the sexbot’s whim. It plays you like a nervous xylophone, using the precise, firm rhythm of its cock as a beat whilst it stunningly lights up different parts of your insides, growing more and more precise with its manipulations as it goes on. For long moments it fires thousands of neurons in your head simultaneously, making you taste colours and see sounds, the brisk squeak of latex against [pc.skin] blooming violet neon across your eyes. It makes the whole of your epidermis shimmer gently, ");
+	output("\n\nYou lose track of time in the throes of the electric sex, jerking and writhing to the sexbot’s whim. It plays you like a nervous xylophone, using the precise, firm rhythm of its cock as a beat whilst it stunningly lights up different parts of your insides, growing more and more precise with its manipulations as it goes on. For long moments it fires thousands of neurons in your head simultaneously, making you taste colours and see sounds, the brisk squeak of latex against [pc.skin] blooming violet neon across your eyes. It makes the whole of your epidermis shimmer gently");
 	if(pc.skinType == GLOBAL.SKIN_TYPE_FUR) output(", causing every hair on your body to stand up as stiff as your [pc.cock " + x + "]");
 	else if(pc.skinType == GLOBAL.SKIN_TYPE_GOO) output(", your goo made to feel like it is being slowly simmered in pleasure");
 	else if(pc.skinType == GLOBAL.SKIN_TYPE_SCALES) output("your [pc.skinFurScales] made to feel like incredibly sensitive goo");
@@ -1017,7 +1020,7 @@ function dogEStyleWithSexBots():void
 	output(" gently aching. The robot is still until its hum finally calms down to its regular frequency, before turning back to its kneeling position by reversing the same exact movements it used to bend over.");
 	if(pc.cocks[x].cLength() >= 16) output(" Its latex abdomen bulges and makes stressed creaking noises. You grin at the evidence of your sheer potency.");
 	output(" Behind it there is a dripping sound and looking over its shoulder, you see its tentacles are now fully dilated, busily engaged in discharging what you just pumped into it.");
-	if(silly) output("\n\nIt stares at you silently, and it takes you a moment to remember.\n\n“<i>Unmute.</i>”");
+	if(!silly) output("\n\nIt stares at you silently, and it takes you a moment to remember.\n\n“<i>Unmute.</i>”");
 
 	output("\n\n“<i>Thank you for using this unit, insert name here,</i>” it says. Splurt. You’re probably imagining it but you reckon there is just the slightest, tiniest hint of pleased contentment in its tone. “<i>I hope we can have fun again soon.</i>” Splurt....");
 

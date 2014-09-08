@@ -1,6 +1,11 @@
-﻿import classes.Characters.GrayGoo;
+﻿import classes.Characters.GigaGoo;
+import classes.Characters.GrayGoo;
+import classes.Characters.GrayPrime;
+import classes.Characters.HuntressVanae;
+import classes.Characters.MaidenVanae;
 import classes.Characters.Mimbrane;
 import classes.Characters.PhoenixPirates;
+import classes.Characters.SecurityDroids;
 import classes.Creature;
 import classes.Items.Guns.Goovolver;
 import classes.Items.Miscellaneous.GrayMicrobots;
@@ -18,19 +23,24 @@ function combatMainMenu():void
 	userInterface.showPrimaryOutput();
 	if(flags["COMBAT MENU SEEN"] == undefined)
 	{
-		clearOutput();
 		//Track round, expires on combat exit.
 		if(!pc.hasStatusEffect("Round")) pc.createStatusEffect("Round",1,0,0,0,true,"","",true,0);
 		else pc.addStatusValue("Round",1,1);
-		
-		//Show what you're up against.
-		if(foes[0] == celise) this.userInterface.showBust("CELISE");
-		for(var x:int = 0; x < foes.length; x++) 
-		{
-			if(x > 0) output("\n\n");
-			displayMonsterStatus(foes[x]);
-		}
+
+		//If a round has passed since the last concentrated fire proc, clear the values as if a miss occurred.
+		if(pc.statusEffectv2("Concentrated Fire") + 1 < pc.statusEffectv1("Round")) concentratedFire(false);
 	}
+	
+	//Show what you're up against.
+	// This only happening during the first initial display of the combatMainMenu should be irrelevent - it should be okay
+	// to regenerate/display it without having to cache the text/convert Tease menu to output2
+	if(foes[0] == celise) this.userInterface.showBust("CELISE");
+	for(var x:int = 0; x < foes.length; x++) 
+	{
+		if(x > 0) output("\n\n");
+		displayMonsterStatus(foes[x]);
+	}
+	
 	//Check to see if combat should be over or not.
 	//Victory check first, because PC's are OP.
 	if(allFoesDefeated()) {
@@ -66,6 +76,13 @@ function combatMainMenu():void
 		updateCombatStatuses();
 	}
 	
+	// Grayprime Gooclones
+	if (foes[0].hasStatusEffect("Gooclones"))
+	{
+		var numClones:int = foes[0].statusEffectv1("Gooclones");
+		output("\nThere " + ((numClones == 1) ? "is" : "are") + " Lust Clone" + ((numClones == 1) ? "" : "s") + " remaining, teasing you with " + ((numClones == 1) ? "her":"their") +" bountiful gray " + ((numClones == 1) ? "body" : "bodies") + ", all but inviting you to just drop everything and submit to pleasures of the flesh!");
+	}
+	
 	//Stunned Menu
 	if (pc.hasStatusEffect("Stunned") || pc.hasStatusEffect("Paralyzed"))
 	{
@@ -80,7 +97,8 @@ function combatMainMenu():void
 		output("\n<b>You are wrapped up in coils!</b>");
 		addButton(0,"Struggle",naleenStruggle);
 		if(pc.hasPerk("Static Burst")) {
-			if(pc.energy() >= 50) this.addButton(3,"StaticBurst",staticBurst);
+			if(pc.shields() <= 0) addDisabledButton(3,"StaticBurst","StaticBurst","You need shields available to overload in order for static burst to function.");
+			else if(pc.energy() >= 50) this.addButton(3,"StaticBurst",staticBurst);
 			else this.addDisabledButton(3,"StaticBurst");
 		}
 		this.addButton(4,"Do Nothing",wait);
@@ -92,7 +110,8 @@ function combatMainMenu():void
 		output("\n<b>You are grappled and unable to fight normally!</b>");
 		addButton(0,"Struggle",grappleStruggle);
 		if(pc.hasPerk("Static Burst")) {
-			if(pc.energy() >= 50) this.addButton(3,"StaticBurst",staticBurst);
+			if(pc.shields() <= 0) addDisabledButton(3,"StaticBurst","StaticBurst","You need shields available to overload in order for static burst to function.");
+			else if(pc.energy() >= 50) this.addButton(3,"StaticBurst",staticBurst);
 			else this.addDisabledButton(3,"StaticBurst");
 		}
 		if(foes[0] is Kaska) addButton(10,"Nip-Pinch",pinchKaskaNipple,undefined,"Nip-Pinch","Maybe pinching Kaska's nipple will get her to release you.");
@@ -106,7 +125,8 @@ function combatMainMenu():void
 		addButton(0, "Struggle", mimbraneStruggle);
 		if (pc.hasPerk("Static Burst"))
 		{
-			if (pc.energy() >= 50) this.addButton(3, "Static Burst", staticBurst);
+			if (pc.shields() <= 0) addDisabledButton(3,"StaticBurst","StaticBurst","You need shields available to overload in order for static burst to function.");
+			else if (pc.energy() >= 50) this.addButton(3, "Static Burst", staticBurst);
 			else this.addDisabledButton(3, "Static Burst");
 		}
 		this.addButton(4, "Do Nothing", wait);
@@ -117,6 +137,10 @@ function combatMainMenu():void
 		this.clearMenu();
 		this.addButton(0,"Attack",attackRouter,playerAttack,"Attack","Attack a single enemy with a melee strike. Damage is based on physique.");
 		this.addButton(1, upperCase(pc.rangedWeapon.attackVerb), attackRouter, playerRangedAttack, "Ranged Attack", "Attack a single enemy with a ranged weapon. Damage is based on aim.");
+		if (foes[0].hasStatusEffect("Gooclones"))
+		{
+			addButton(2, "Attack Clone", grayPrimeAttackLustClone, undefined, "Attack Goo Clone", "Attack one of the Gray Primes gooclones.");
+		}
 		this.addButton(3, "Inventory", inventory, undefined, "Inventory", "Use items in combat.");
 		this.addButton(4,"Specials",specialsMenu,undefined,"Specials","The special attacks you have available to you are listed in this menu.");
 		this.addButton(5,"Tease",attackRouter,teaseMenu,"Tease Menu","Opens up your menu of available lust targetting attacks. It is recommended that the \"Sense\" option be used beforehand.");
@@ -240,6 +264,16 @@ function specialsMenu():void {
 			else addDisabledButton(offset, "G. Disrupt.");
 			offset++;
 		}
+		if(pc.hasPerk("Shield Hack"))
+		{
+			if(pc.energy() >= 25) addButton(offset,"S. Hack",attackRouter,shieldHack,"Shield Hack","Attempts to deal high damage to a target's shields.\n\nConsumes 25 energy.");
+			else addDisabledButton(offset,"S. Hack","Shield Hack","You do not have enough energy to use this attack.\n\nConsumes 25 energy.");
+		}
+		if(pc.hasPerk("Weapon Hack"))
+		{
+			if(pc.energy() >= 25) addButton(offset,"W. Hack",attackRouter,weaponHack,"Weapon Hack","Attempt to neutralize a foe's energy weapon.\n\nConsumes 20 energy.");
+			else addDisabledButton(offset,"W. Hack","Weapon Hack","You do not have enough energy to use this attack.\n\nConsumes 20 energy.");
+		}
 	}
 	else if(pc.characterClass == GLOBAL.CLASS_SMUGGLER)
 	{
@@ -290,6 +324,18 @@ function specialsMenu():void {
 			else addDisabledButton(offset, "Gas Grenade");	
 			offset++;
 		}
+		if(pc.hasPerk("Smuggled Stimulant"))
+		{
+			if(pc.hasStatusEffect("Used Smuggled Stimulant")) addDisabledButton(offset,"S.Stimulant","Smuggled Stimulant","You've already used your smuggled stimulant for this encounter.");
+			else addButton(offset,"S.Stimulant",struggledStimulant,undefined,"Smuggled Stimulant","Inject yourself with a smuggled stimulant, causing you to recover 25 energy a turn for three turns.");
+			offset++;
+		}
+		if(pc.hasPerk("Burst of Energy"))
+		{
+			if(pc.hasStatusEffect("Used Burst of Energy")) addDisabledButton(offset,"B.O. Energy","Burst of Energy","You've already used a burst of energy this encounter.");
+			else addButton(offset,"B.O. Energy",burstOfEnergy,undefined,"Burst of Energy","Get a burst of energy, recovering 60 energy.\n\nYou may only do this once per encounter.");
+			offset++;
+		}
 	}
 	
 	// Shared Specials!
@@ -297,7 +343,7 @@ function specialsMenu():void {
 	{
 		if (!pc.hasItem(new GrayMicrobots()))
 		{
-			addDisabledButton(offset, "Goozooka", "Fire Goozooka", "You don't have any Gray Goo samples to use as ammunition for the Goozoka.");
+			addDisabledButton(offset, "Goozooka", "Fire Goozooka", "You don't have any Gray Goo samples to use as ammunition for the Goozooka.");
 		}
 		else
 		{
@@ -309,6 +355,12 @@ function specialsMenu():void {
 function updateCombatStatuses():void {
 	var temp:Number = 0;
 	//PC STATUSES!
+	if(pc.hasPerk("Shield Regen") && pc.shields() <= 0 && pc.shieldsMax() > 0 && !pc.hasStatusEffect("Used Shield Regen"))
+	{
+		output("<b>Your shields power back up at once quarter power. Now's your chance to turn this around!</b>\n");
+		pc.shields(Math.round(pc.shieldsMax()/4));
+		pc.createStatusEffect("Used Shield Regen",0,0,0,0,true,"","",true,0);
+	}
 	if(pc.hasStatusEffect("Taking Cover")) pc.removeStatusEffect("Taking Cover");
 	if(pc.hasStatusEffect("Riposting")) pc.removeStatusEffect("Riposting");
 	if(pc.hasPerk("Juggernaught"))
@@ -344,8 +396,16 @@ function updateCombatStatuses():void {
 	{
 		if(rand(10) == 0) 
 		{
-			output("<b>You abruptly go blind, perhaps an effect of the Quivering Quasar you drank.</b>")
+			output("<b>You abruptly go blind, perhaps an effect of the Quivering Quasar you drank.</b>\n")
 			pc.createStatusEffect("Blind",2,0,0,0,false,"Blind","You're blinded and cannot see! Accuracy is reduced, and ranged attacks are far more likely to miss.",true,0);
+		}
+	}
+	if(pc.hasStatusEffect("Trip"))
+	{
+		if(pc.hasPerk("Leap Up"))
+		{
+			output("<b>You roll up onto your feet immediately thanks to your quick reflexes.</b>\n");
+			pc.removeStatusEffect("Trip");
 		}
 	}
 	if(pc.hasStatusEffect("Blind")) {
@@ -376,7 +436,7 @@ function updateCombatStatuses():void {
 			pc.removeStatusEffect("Stealth Field Generator");
 		}
 		else {
-			output("<b>You are practically invisible thanks to your stealth field generator.</b>");
+			output("<b>You are practically invisible thanks to your stealth field generator.</b>\n");
 		}
 	}
 	if(pc.hasStatusEffect("Deflector Regeneration"))
@@ -394,6 +454,12 @@ function updateCombatStatuses():void {
 			output("<b>Your shields are no longer regenerating!</b>\n");
 			pc.removeStatusEffect("Deflector Regeneration");
 		}
+	}
+	if(pc.statusEffectv1("Used Smuggled Stimulant") > 0)
+	{
+		pc.addStatusValue("Used Smuggled Stimulant",1,-1);
+		pc.energy(25);
+		output("<b>A rush of energy fills you as the struggled stimulant affects you.</b>\n");
 	}
 	if (pc.hasStatusEffect("Porno Hacked Drone"))
 	{
@@ -421,15 +487,38 @@ function updateCombatStatuses():void {
 		{
 			if (mimbraneDebug) trace("Removing lust cloud effect from player");
 			pc.removeStatusEffect("Mimbrane Lust Cloud");
-			output("<b>The parasite’s noxious perspiration has faded away.</b>");
+			output("<b>The parasite’s noxious perspiration has faded away.</b>\n");
 		}
 		else
 		{
 			if (mimbraneDebug) trace("Lust cloud remains.");
 			pc.lust(5 + rand(10));
-			output("\n<b>The parasite's venom is coursing through your veins. Your sexual desire is rising at an alarming rate.</b>");
+			output("<b>The parasite's venom is coursing through your veins. Your sexual desire is rising at an alarming rate.</b>\n");
 		}
 	}
+	
+	// Annoquest stuffs
+	
+	if (pc.hasStatusEffect("Sensor Link"))
+	{
+		pc.addStatusValue("Sensor Link", 1, -1);
+		if (pc.statusEffectv1("Sensor Link") <= 0)
+		{
+			pc.removeStatusEffect("Sensor Link");
+			pc.aimMod -= 5;
+			output("<b>Your equipments connection to Anno's wanes as combat draws on, your improved accuracy diminishing.</b>");
+		}
+	}
+	
+	if (pc.hasStatusEffect("HP Boost CD"))
+	{
+		pc.addStatusValue("HP Boost CD", 1, -1);
+		if (pc.statusEffectv1("HP Boost CD") <= 0)
+		{
+			pc.removeStatusEffect("HP Boost CD");
+		}
+	}
+	
 	//ENEMY STATUSES!
 	for(var x:int = 0; x < foes.length; x++)
 	{
@@ -553,6 +642,11 @@ function processCombat():void
 		saendraInjuredHelperAI();
 	}
 	
+	if (pc.hasStatusEffect("Annoquest Helper AI") && combatStage == 1)
+	{
+		annoBonusCombatAttackShit();
+	}
+	
 	//If enemies still remain, do their AI routine.
 	if(combatStage-1 < foes.length) {
 		output("\n");
@@ -608,8 +702,10 @@ function grappleStruggle():void {
 	{
 		if(pc.reflexes() + rand(20) + 6 + pc.statusEffectv1("Grappled") * 5 > pc.statusEffectv2("Grappled"))
 		{
-			if(foes[0] is SexBot) output("You almost dislocate an arm doing it, but, ferret-like, you manage to wriggle out of the sexbot’s coils. Once your hands are free the droid does not seem to know how to respond and you are able to grapple the rest of your way out easily, ripping away from its molesting grip. The sexbot clicks and stutters a few times before going back to staring at you blankly, swinging its fibrous limbs over its head.");
-			else output("With a mighty heave, you tear your way out of the grappled and onto your [pc.feet].");
+			if (foes[0] is SexBot) output("You almost dislocate an arm doing it, but, ferret-like, you manage to wriggle out of the sexbot’s coils. Once your hands are free the droid does not seem to know how to respond and you are able to grapple the rest of your way out easily, ripping away from its molesting grip. The sexbot clicks and stutters a few times before going back to staring at you blankly, swinging its fibrous limbs over its head.");
+			else if (foes[0] is MaidenVanae || foes[0] is HuntressVanae) vanaeEscapeGrapple();
+			else if (foes[0] is GrayPrime) grayPrimeEscapeGrapple();
+			else output("With a mighty heave, you tear your way out of the grapple and onto your [pc.feet].");
 			pc.removeStatusEffect("Grappled");
 		}
 	}
@@ -617,7 +713,9 @@ function grappleStruggle():void {
 	if(pc.hasStatusEffect("Grappled"))
 	{
 		if(foes[0] is SexBot) output("You struggle as hard as you can against the sexbot’s coils but the synthetic fibre is utterly unyielding.");
-		else if(foes[0] is Kaska) failToStruggleKaskaBoobs();
+		else if (foes[0] is Kaska) failToStruggleKaskaBoobs();
+		else if (foes[0] is MaidenVanae || foes[0] is HuntressVanae) output("You wriggle in futility, helpless as she lubes you up with her sensuous strokes. This is serious!");
+		else if (foes[0] is GrayPrime) grayPrimeFailEscape();
 		else output("You struggle madly to escape from the pin but ultimately fail. The pin does feel a little looser as a result, however.");
 		pc.addStatusValue("Grappled",1,1);
 	}
@@ -655,9 +753,11 @@ function allFoesDefeated():Boolean
 	return true;
 }
 
-function combatMiss(attacker:Creature, target:Creature):Boolean 
+function combatMiss(attacker:Creature, target:Creature, overrideAttack:Number = -1, missModifier:Number = 1):Boolean 
 {
-	if(rand(100) + attacker.physique()/5 + attacker.meleeWeapon.attack - target.reflexes()/5 < 10 && !target.isImmobilized()) 
+	if (overrideAttack == -1) overrideAttack = attacker.meleeWeapon.attack;
+	
+	if(rand(100) + attacker.physique()/5 + overrideAttack - target.reflexes()/5 < 10 * missModifier && !target.isImmobilized()) 
 	{
 		return true;
 	}
@@ -667,11 +767,11 @@ function combatMiss(attacker:Creature, target:Creature):Boolean
 		return true;
 	}
 	//10% miss chance for lucky breaks!
-	if(target.hasPerk("Lucky Breaks") && rand(100) <= 9) return true;
+	if (target.hasPerk("Lucky Breaks") && rand(100) <= 9) return true;
 	if(target.hasPerk("Melee Immune")) return true;
 	return false;
 }
-function rangedCombatMiss(attacker:Creature, target:Creature, overrideAttack:Number = -1):Boolean 
+function rangedCombatMiss(attacker:Creature, target:Creature, overrideAttack:Number = -1, missModifier:Number = 1):Boolean 
 {
 	if (overrideAttack == -1) overrideAttack = attacker.rangedWeapon.attack;
 	
@@ -679,7 +779,7 @@ function rangedCombatMiss(attacker:Creature, target:Creature, overrideAttack:Num
 	if (target.hasPerk("Ranged Immune")) return true;
 	
 	//Standard miss chance
-	if(rand(100) + attacker.aim()/5 + overrideAttack - target.reflexes()/3 < 10 && !target.isImmobilized()) 
+	if(rand(100) + attacker.aim()/5 + overrideAttack - target.reflexes()/3 < 10 * missModifier && !target.isImmobilized()) 
 	{
 		return true;
 	}
@@ -738,7 +838,41 @@ function playerAttack(target:Creature):void
 	attack(pc, target, true);
 	mimbraneHandBonusAttack(target);
 	playerMimbraneCloudAttack();
+	//Cleave only triggers off the last swing before round completion.
+	if(pc.hasPerk("Cleave") && (target.plural || foes.length > 1)) 
+	{
+		output("<b>Cleave!</b>\n");
+		attack(pc, target, true, 1);
+	}
 	processCombat();
+}
+
+function concentratedFire(hit:Boolean = true):void
+{
+	if(pc.hasPerk("Concentrate Fire"))
+	{
+		//Reset bonus damage if miss
+		if(!hit) 
+		{
+			pc.removeStatusEffect("Concentrated Fire");
+		}
+		//If a hit, add bonus damage
+		else 
+		{
+			//Create Concentrated Fire Status if not yet active.
+			if(!pc.hasStatusEffect("Concentrated Fire")) pc.createStatusEffect("Concentrated Fire",0,0,0,0,false,"OffenseUp","",true);
+			//Add up the new bonus.
+			var bonus:int = Math.round(pc.level/2) + pc.statusEffectv1("Concentrated Fire");
+			if(bonus > pc.level) bonus = pc.level;
+			trace("CONCENTRATED FIRE BONUS: " + bonus);
+			//Set updated bonus damage.
+			pc.setStatusValue("Concentrated Fire",1,bonus);
+			//Set status = to round counter - used to track if a round is skipped.
+			pc.setStatusValue("Concentrated Fire",2,pc.statusEffectv1("Round"));
+			//Update tooltip
+			pc.setStatusTooltip("Concentrated Fire","Shooting on target repeatedly is boosting your damage. Current ranged damage bonus: " + bonus);
+		}
+	}
 }
 
 function playerRangedAttack(target:Creature):void 
@@ -753,7 +887,7 @@ function attack(attacker:Creature, target:Creature, noProcess:Boolean = false, s
 	if (foes[0].short == "female zil") flags["HIT_A_ZILGIRL"] = 1;
 	if (attacker == pc)
 	{
-		if (!attacker.hasStatusEffect("Multiple Attacks") && !attacker.hasStatusEffect("Mimbrane Bonus Attack"))
+		if (!attacker.hasStatusEffect("Multiple Attacks") && !attacker.hasStatusEffect("Mimbrane Bonus Attack") && special == 0)
 		{
 			clearOutput();
 			if (attacker.hasPerk("Riposte")) attacker.createStatusEffect("Riposting", 0, 0, 0, 0, true, "", "", true, 0);
@@ -817,11 +951,12 @@ function attack(attacker:Creature, target:Creature, noProcess:Boolean = false, s
 		else if(!attacker.plural) output(attacker.capitalA + attacker.short + " connects with " + attacker.mfn("his","her","its") + " " + attacker.meleeWeapon.longName + "!");
 		else output(attacker.capitalA + attacker.short + " connect with their " + attacker.meleeWeapon.longName + "!");
 		//Damage bonuses:
-		var damage:int = attacker.meleeWeapon.damage + attacker.physique()/2;
+		var damage:int = attacker.damage() + attacker.physique()/2;
 		//Bonus damage for "sneak attack perk!"
 		if((target.hasStatusEffect("Stunned") || target.hasStatusEffect("Blind")) && attacker.hasPerk("Sneak Attack")) {
 			output("\n<b>Sneak attack!</b>");
 			damage += attacker.level * 2;
+			if(attacker.hasStatusEffect("Take Advantage")) damage += attacker.level * 2;
 			if(target.hasStatusEffect("Stunned") && target.hasStatusEffect("Blind")) damage += attacker.level;
 		}
 		//Randomize +/- 15%
@@ -874,7 +1009,7 @@ function rangedAttack(attacker:Creature, target:Creature, noProcess:Boolean = fa
 	//Set drone target
 	setDroneTarget(target);
 	if(!attacker.hasStatusEffect("Multiple Shots") && attacker == pc && special != 2) clearOutput();
-	trace("Has multiple shots? " + String(!attacker.hasStatusEffect("Multiple Shots")) + "Attacker = PC? " + String(attacker == pc) + " special? " + special);
+	trace("Has multiple shots? " + String(!attacker.hasStatusEffect("Multiple Shots")) + " Attacker = PC? " + String(attacker == pc) + " special? " + special);
 	//Run with multiple attacks!
 	if (((attacker.hasPerk("Multiple Shots")) || (attacker.hasPerk("Shoot First") && attacker.statusEffectv1("Round") <= 1)) && special != 1 && special != 2) {
 		//Start up
@@ -903,20 +1038,32 @@ function rangedAttack(attacker:Creature, target:Creature, noProcess:Boolean = fa
 	//Blind prevents normal dodginess & makes your attacks miss 90% of the time.
 	else if(rangedCombatMiss(attacker,target)) {
 		if(target.customDodge == "") {
-			if (attacker == pc) output("You " + pc.rangedWeapon.attackVerb + " at " + target.a + target.short + " with your " + pc.rangedWeapon.longName + ", but just can't connect.");
+			if (attacker == pc) 
+			{
+				output("You " + pc.rangedWeapon.attackVerb + " at " + target.a + target.short + " with your " + pc.rangedWeapon.longName + ", but just can't connect.");
+				concentratedFire(false);
+			}
 			else output("You manage to avoid " + attacker.a + possessive(attacker.short) + " " + attacker.rangedWeapon.attackVerb + ".");
 		}
 		else output(target.customDodge)
 	}
 	//Extra miss for blind
 	else if(attacker.hasStatusEffect("Blind") && rand(10) > 0) {
-		if(attacker == pc) output("None of your blind-fired shots manage to connect.");
+		if(attacker == pc) 
+		{
+			output("None of your blind-fired shots manage to connect.");
+			concentratedFire(false);
+		}
 		else output(attacker.capitalA + possessive(attacker.short) + " blinded shots fail to connect!");
 	}
 	//Additional Miss chances for if target isn't stunned and this is a special flurry attack (special == 1)
 	else if((special == 1 || special == 2) && rand(100) <= 45 && !target.isImmobilized()) {
 		if(target.customDodge == "") {
-			if(attacker == pc) output("You " + pc.rangedWeapon.attackVerb + " at " + target.a + target.short + " with your " + pc.rangedWeapon.longName + ", but just can't connect.");
+			if(attacker == pc) 
+			{
+				output("You " + pc.rangedWeapon.attackVerb + " at " + target.a + target.short + " with your " + pc.rangedWeapon.longName + ", but just can't connect.");
+				concentratedFire(false);
+			}
 			else output("You manage to avoid " + attacker.a + possessive(attacker.short) + " " + attacker.rangedWeapon.attackVerb + ".");
 		}
 		else output(target.customDodge);
@@ -928,17 +1075,20 @@ function rangedAttack(attacker:Creature, target:Creature, noProcess:Boolean = fa
 	//Attack connected!
 	else {
 		if(attacker == pc) output("You land a hit on " + target.a + target.short + " with your " + pc.rangedWeapon.longName + "!");
-		else if(attacker.plural) output(attacker.capitalA + attacker.short + " connects with their " + attacker.rangedWeapon.longName + "!");
+		else if(attacker.plural) output(attacker.capitalA + attacker.short + " connect with their " + attacker.rangedWeapon.longName + "!");
 		else output(attacker.capitalA + attacker.short + " connects with " + attacker.mfn("his", "her", "its") + " " + attacker.rangedWeapon.longName + "!");
 		
 		if (!(attacker.rangedWeapon is Goovolver))
 		{
 			//Damage bonuses:
-			var damage:int = attacker.rangedWeapon.damage + attacker.aim()/2;
+			var damage:int = attacker.damage(false) + attacker.aim()/2;
+			//Now that damage values are grabbed, check for "Concentrated Fire" stuff
+			concentratedFire();
 			//Bonus damage for "sneak attack perk!"
 			if((target.hasStatusEffect("Stunned") || target.hasStatusEffect("Blind")) && attacker.hasPerk("Aimed Shot")) {
 				output("\n<b>Aimed shot!</b>");
 				damage += attacker.level * 2;
+				if(attacker.hasStatusEffect("Take Advantage")) damage += attacker.level * 2;
 				if(target.hasStatusEffect("Stunned") && target.hasStatusEffect("Blind")) damage += attacker.level;
 			}
 			//Randomize +/- 15%
@@ -947,7 +1097,7 @@ function rangedAttack(attacker:Creature, target:Creature, noProcess:Boolean = fa
 			var sDamage:Array = new Array();
 			//Apply damage reductions
 			if(target.shieldsRaw > 0) {
-				sDamage = shieldDamage(target,damage,attacker.meleeWeapon.damageType);
+				sDamage = shieldDamage(target,damage,attacker.rangedWeapon.damageType);
 				//Set damage to leftoverDamage from shieldDamage
 				damage = sDamage[1];
 				if(attacker == pc) {
@@ -955,7 +1105,7 @@ function rangedAttack(attacker:Creature, target:Creature, noProcess:Boolean = fa
 					else output(" There is a concussive boom and tingling aftershock of energy as you disperse " + target.a + possessive(target.short) + " defenses. (<b>" + sDamage[0] + "</b>)");
 				}
 				else {
-					if(target.shieldsRaw > 0) output(" Your shield cracles but holds. (<b>" + sDamage[0] + "</b>)");
+					if(target.shieldsRaw > 0) output(" Your shield crackles but holds. (<b>" + sDamage[0] + "</b>)");
 					else output(" There is a concussive boom and tingling aftershock of energy as your shield is breached. (<b>" + sDamage[0] + "</b>)");
 				}
 			}
@@ -977,7 +1127,7 @@ function rangedAttack(attacker:Creature, target:Creature, noProcess:Boolean = fa
 			var lustDamage:int = 0;
 			var randomiser:Number = (rand(31) + 85) / 100;
 
-			if (target.lustVuln == 0)
+			if (target.lustDamageMultiplier() == 0)
 			{
 				output("\n<b>" + target.capitalA + target.short + " ");
 				if (target.plural) output("don’t");
@@ -988,7 +1138,7 @@ function rangedAttack(attacker:Creature, target:Creature, noProcess:Boolean = fa
 			{
 				lustDamage += 15;
 				lustDamage *= randomiser;
-				lustDamage *= target.lustVuln;
+				lustDamage *= target.lustDamageMultiplier();
 
 				if (target.lust() + lustDamage > target.lustMax()) lustDamage = target.lustMax() - target.lust();
 				damage = Math.ceil(lustDamage);
@@ -1217,8 +1367,10 @@ function teaseCrotch(target:Creature):void {
 }
 
 //Name, long descript, lust descript, and '"
+// NO SIDEEFFECTS TO GAME DATA YO
 function displayMonsterStatus(targetFoe):void 
 {
+	clearOutput();
 	if(targetFoe.HP() <= 0) {
 		output("<b>You've knocked the resistance out of " + targetFoe.a + targetFoe.short + ".</b>\n");
 	}
@@ -1328,6 +1480,10 @@ function enemyAI(aggressor:Creature):void
 	else if(aggressor is CaptainKhorganMech) khorganSuitAI();
 	else if(aggressor is CaptainKhorgan) actualKhorganAI();
 	else if(aggressor is Kaska) kaskaFightAI();
+	else if (aggressor is MaidenVanae || aggressor is HuntressVanae) vanaeAI();
+	else if (aggressor is SecurityDroids) securityDroidAI();
+	else if (aggressor is GrayPrime) grayPrimeAI();
+	else if (aggressor is GigaGoo) gigaGooAI();
 	else enemyAttack(aggressor);
 }
 function victoryRouting():void 
@@ -1415,6 +1571,22 @@ function victoryRouting():void
 	{
 		defeatKaska();
 	}
+	else if (foes[0] is MaidenVanae || foes[0] is HuntressVanae)
+	{
+		vanaePCVictory();
+	}
+	else if (foes[0] is SecurityDroids)
+	{
+		victoryOverSecurityDroid();
+	}
+	else if (foes[0] is GrayPrime)
+	{
+		victoryOverGrayPrime();
+	}
+	else if (foes[0] is GigaGoo)
+	{
+		victoryOverGigaGoo();
+	}
 	else genericVictory();
 }
 
@@ -1500,6 +1672,26 @@ function defeatRouting():void
 	else if(foes[0] is Kaska)
 	{
 		defeatedByKaska();
+	}
+	else if (foes[0] is MaidenVanae)
+	{
+		vanaeMaidenPCDefeat();
+	}
+	else if (foes[0] is HuntressVanae)
+	{
+		vanaeHuntressPCDefeat();
+	}
+	else if (foes[0] is SecurityDroids)
+	{
+		lossToSecurityDroid();
+	}
+	else if (foes[0] is GrayPrime)
+	{
+		lossToGrayPrime();
+	}
+	else if (foes[0] is GigaGoo)
+	{
+		loseToGigaGoo();
 	}
 	else {
 		output("You lost!  You rouse yourself after an hour and a half, quite bloodied.");
@@ -1721,6 +1913,21 @@ function startCombat(encounter:String):void
 		case "Kaska":
 			chars["KASKA"].prepForCombat();
 			break;
+		case "HUNTRESS_VANAE":
+			chars["HUNTRESS_VANAE"].prepForCombat();
+			break;
+		case "MAIDEN_VANAE":
+			chars["MAIDEN_VANAE"].prepForCombat();
+			break;
+		case "securitydroids":
+			chars["SECURITYDROIDS"].prepForCombat();
+			break;
+		case "grayprime":
+			chars["GRAYPRIME"].prepForCombat();
+			break;
+		case "gigagoo":
+			chars["GIGAGOO"].prepForCombat();
+			break;
 		default:
 			throw new Error("Tried to configure combat encounter for '" + encounter + "' but couldn't find an appropriate setup method!");
 			break;
@@ -1741,8 +1948,8 @@ function runAway():void {
 		output("You cannot run while you are immobilized!\n");
 		processCombat();
 	}
-	else if(pc.hasStatusEffect("Flee Disabled")) {
-		output("You cannot escape from this fight!\n");
+	else if(pc.hasStatusEffect("Flee Disabled") || foes[0].hasStatusEffect("Flee Disabled")) {
+		output("<b>You cannot escape from this fight!</b>\n");
 		processCombat();
 	}
 	else if(debug) {
@@ -1823,7 +2030,8 @@ function fantasize():void {
 function wait():void {
 	clearOutput();
 	output("You choose not to act.\n");
-	if(foes[0] is Kaska && pc.hasStatusEffect("Grappled")) doNothingWhileTittyGrappled();
+	if (foes[0] is Kaska && pc.hasStatusEffect("Grappled")) doNothingWhileTittyGrappled();
+	else if (foes[0] is MaidenVanae || foes[0] is HuntressVanae) vanaeWaitWhilstGrappled();
 	processCombat();
 }
 
@@ -1925,6 +2133,8 @@ function tease(target:Creature, part:String = "chest"):void {
 			likeAdjustments[likeAdjustments.length] = target.sexualPreferences.getPref(GLOBAL.SEXPREF_VAGINAL_WETNESS);
 		if(pc.hasVagina() && pc.driestVaginalWetness() >= 4 && target.sexualPreferences.getPref(GLOBAL.SEXPREF_VAGINAL_DRYNESS) > 0) 
 			likeAdjustments[likeAdjustments.length] = target.sexualPreferences.getPref(GLOBAL.SEXPREF_VAGINAL_DRYNESS);
+		if (!pc.hasCock() && !pc.hasVagina() && target.sexualPreferences.getPref(GLOBAL.SEXPREF_NEUTER) > 0)
+			likeAdjustments[likeAdjustments.length] = target.sexualPreferences.getPref(GLOBAL.SEXPREF_NEUTER);
 		clearOutput();
 		crotchTeaseText(target);
 	}
@@ -1942,18 +2152,25 @@ function tease(target:Creature, part:String = "chest"):void {
 	if(!(target is Celise)) 
 	{
 		//Does the enemy resist?
-		if(target.willpower()/2 + rand(20) + 1 > pc.level * 2.5 * totalFactor + 10 + teaseCount/10 || target.lustVuln == 0)
+		if(target.willpower()/2 + rand(20) + 1 > pc.level * 2.5 * totalFactor + 10 + teaseCount/10 + pc.sexiness() || target.lustDamageMultiplier() == 0)
 		{
 			if(target is HandSoBot)
 			{
 				output("\n\n“<i>An attempt to confuse and overwhelm an enemy with an overt display of sexual dominance,</i>” says So. She sounds genuinely interested. “<i>An unorthodox but effective strategy in many known organic cultures’ approach to war. I was unaware sentients of a human upbringing had any experience of such a thing, however. Perhaps that explains why you are attempting it against a foe that cannot in any way feel desire.</i>”\n");
 			}
-			else if(target.lustVuln == 0) 
+			else if(target.lustDamageMultiplier() == 0) 
 			{
 				output("\n<b>" + target.capitalA + target.short + " ");
 				if(target.plural) output("don't");
 				else output("doesn't");
 				output(" seem to care to care for your eroticly-charged display. (0)</b>\n");
+			}
+			else if (target is HuntressVanae || target is MaidenVanae)
+			{
+				output("\n");
+				output(teaseReactions(0, target));
+				output(" (0)\n");
+				teaseSkillUp(part);
 			}
 			else {
 				output("\n" + target.capitalA + target.short + " ");
@@ -1967,18 +2184,15 @@ function tease(target:Creature, part:String = "chest"):void {
 		//Success!
 		else {
 			//Calc base damage
-			damage += 10 * (teaseCount/100 + 1);
+			damage += 10 * (teaseCount/100 + 1) + pc.sexiness()/2;
 			//Any perks or shit go below here.
 			//Apply randomization
 			damage *= randomizer;
 			//Apply like adjustments
 			damage *= totalFactor;
-			damage *= target.lustVuln;
+			damage *= target.lustDamageMultiplier();
 			if(target.lust() + damage > target.lustMax()) damage = target.lustMax() - target.lust();
 			damage = Math.ceil(damage);
-			if(damage <= 5) {
-
-			}
 
 			output("\n");
 			output(teaseReactions(damage,target));
@@ -2002,7 +2216,42 @@ function teaseSkillUp(part:String):void {
 
 function teaseReactions(damage:Number,target:Creature):String {
 	var buffer:String = "";
-	if (target.plural) {
+	var textRands:Array = [];
+	if (target is HuntressVanae)
+	{
+		if (damage == 0)
+		{
+			textRands = [
+				"The blind huntress snorts at your display and makes a quick jab at you with her spear. You leap out of the way just in time. “<i>All you're doing is leaving yourself open, " + ((pc.zilScore() >= 4 || pc.naleenScore >= 5) ? "[pc.race]" : "outsider") + "!</i>” she exclaims.",
+				"You utterly fail to entice the huntress. You barely dodge an attack that causes you to cease your efforts. You're going to have to do better, or try something else...",
+				"The alien huntress seems to be getting into it, moving towards you... only to swipe her spear at your head. You barely duck in time. Seems she didn't go for it at all!"
+			];
+			
+			buffer = textRands[rand(textRands.length)];
+		}
+		else if (damage < 4) buffer = "The busty huntress moans and begins cupping one of her [monster.breasts], clearly titillated by your performance.";
+		else if (damage < 10) buffer = "Your stacked opponent huskily moans and slips a webbed hand between her thighs, lewdly stroking her slit. She snaps out of it a few seconds later, biting her lip.";
+		else if (damage < 20) buffer = "The alien huntress clenches her thighs together as she watches you, rubbing them together as she desperately tries to hide her arousal. Clearly you're having an effect on her!"
+		else buffer = "The busty amazon parts her thighs and begins to stroke her twin clits to your lewd display, unable to stop herself. A few seconds later she jerks her webbed hand back, flushing wildly.";
+	}
+	else if (target is MaidenVanae)
+	{
+		if (damage == 0)
+		{
+			textRands = [
+				"The young alien huntress jabs at you with her spear, forcing you to leap out of the way. “<i>Hey, this may be my first time, but I'm not </i>that<i> easy!</i>” she exclaims.",
+				"The virgin huntress quirks her head, clearly baffled by your actions. It seems you utterly failed to entice her....",
+				"The alien huntress fans her face with a webbed hand and moves closer to you. “<i>Oooh, I think I'm getting the vapors... </i>psyche<i>!</i>”",
+			];
+			
+			buffer = textRands[rand(textRands.length)];
+		}
+		else if (damage < 4) buffer = "The virgin huntress blushes and begins eagerly touching one of her [vanaeMaiden.nipples]. She's clearly aroused by your performance.";
+		else if (damage < 10) buffer = "The virgin huntress lets out a little moan and slips one of her webbed hands between her thighs. She awkwardly teases her glistening slit, getting all worked up.";
+		else if (damage < 20) buffer = "The young alien huntress places a hand over her loins and rubs her thighs together. She's desperately trying to hide her rather obvious arousal. The sweet scent of her arousal fills the air.";
+		else buffer = "The wispy amazon parts her thighs and begins to stroke her twin clits to your lewd display, unable to stop herself. A few seconds later she jerks her webbed back, flushing wildly.";
+	}
+	else if (target.plural) {
 		if (damage == 0) buffer = target.capitalA + target.short + " seem unimpressed.";
 		else if (damage < 4) buffer = target.capitalA + target.short + " look intrigued by what they see.";
 		else if (damage < 10) buffer = target.capitalA + target.short + " definitely seem to be enjoying the show.";
@@ -2183,7 +2432,7 @@ function hipsTeaseText():void {
 function sense(target:Creature):void {
 	clearOutput();
 	output("You try to get a feel for " + possessive(target.a + target.short) + " likes and dislikes!\n");
-	if(target.lustVuln == 0) output("You don't think sexuality can win this fight!\n");
+	if(target.lustDamageMultiplier() == 0) output("You don't think sexuality can win this fight!\n");
 	var buffer:String = "";
 	var PCBonus:Number = pc.intelligence()/2 + pc.libido()/20;
 	if(pc.hasPerk("Fuck Sense")) PCBonus = pc.libido();
@@ -2304,7 +2553,7 @@ function overcharge(target:Creature):void {
 		output("You <b>overcharge</b> your " + pc.rangedWeapon.longName + " and land a hit on " + target.a + target.short + "!");
 		//else output(attacker.capitalA + attacker.short + " connects with " + attacker.mfn("his","her","its") + " <b>overcharged</b>" + attacker.rangedWeapon.longName + "!");
 		//Damage bonuses:
-		var damage:int = pc.rangedWeapon.damage + pc.aim()/2;
+		var damage:int = pc.damage(false) + pc.aim()/2;
 		//OVER CHAAAAAARGE
 		damage *= 1.5;
 		//Randomize +/- 15%
@@ -2334,7 +2583,7 @@ function NPCOvercharge():void {
 	else {
 		output(foes[0].capitalA + foes[0].short + " connects with " + foes[0].mfn("his","her","its") + " <b>overcharged</b> " + foes[0].rangedWeapon.attackVerb + "!");
 		//Damage bonuses:
-		var damage:int = foes[0].rangedWeapon.damage + foes[0].aim()/2;
+		var damage:int = foes[0].damage(false) + foes[0].aim()/2;
 		//OVER CHAAAAAARGE
 		damage *= 1.75;
 		//Randomize +/- 15%
@@ -2394,7 +2643,7 @@ function flashGrenade(target:Creature):void {
 	pc.energy(-10);
 	clearOutput();
 	if(silly) output("With a cry of <i>\"Pocket sand!\"</i> you produce a handful of sand and throw it at " + target.a + target.short + ".");
-	else output("You produce one of your rechargible flash grenades and huck it in the direction of " + target.a + target.short + ".");
+	else output("You produce one of your rechargeable flash grenades and huck it in the direction of " + target.a + target.short + ".");
 	//Chance of bliiiiiiiind
 	if(pc.aim()/2 + rand(20) + 6 >= target.reflexes()/2 + 10 && !target.hasStatusEffect("Blind")) {
 		if(target.plural) output("\n<b>" + target.capitalA + target.short + " are blinded by </b>");
@@ -2500,7 +2749,7 @@ function lowBlow(target:Creature):void {
 		output("You connect with your target!");
 		//else output(attacker.capitalA + attacker.short + " connects with " + attacker.mfn("his","her","its") + " <b>overcharged</b>" + attacker.rangedWeapon.longName + "!");
 		//Damage bonuses:
-		var damage:int = pc.meleeWeapon.damage + pc.physique()/2;
+		var damage:int = pc.damage() + pc.physique()/2;
 		//Randomize +/- 15%
 		var randomizer = (rand(31)+ 85)/100;
 		damage *= randomizer;
@@ -2581,7 +2830,7 @@ function gasGrenade(target:Creature):void
 	var damage:Number = 14 + pc.level + rand(10);
 
 	//Any perks or shit go below here.
-	damage *= target.lustVuln;
+	damage *= target.lustDamageMultiplier();
 	if(target.lust() + damage > target.lustMax()) damage = target.lustMax() - target.lust();
 	damage = Math.ceil(damage);
 	output("\n");
@@ -2615,7 +2864,7 @@ function goozookaCannon(target:Creature):void
 			var heal:Number = target.HPMax() * 0.2;
 			if (target.HP() + heal > target.HPMax()) heal = target.HPMax() - target.HP();
 			
-			damage = 5 * target.lustVuln;
+			damage = 5 * target.lustDamageMultiplier();
 			if (target.lust() + damage > target.lustMax()) damage = target.lustMax() - target.lust();
 			
 			output("The Gray Goo absorbs her smaller twin on contact.");
@@ -2629,7 +2878,7 @@ function goozookaCannon(target:Creature):void
 		{
 			output("\n\nThe gray goo splatters across " + target.a + target.short + ", quickly congealing into a miniature googirl who quickly goes to work, attacking your enemy's most sensitive spots with gusto. ");
 		
-			damage = 33 * target.lustVuln;
+			damage = 33 * target.lustDamageMultiplier();
 			if (target.lust() + damage > target.lustMax()) damage = target.lustMax() - target.lust();
 			damage = Math.ceil(damage);
 			output(teaseReactions(damage, target));
@@ -2648,6 +2897,24 @@ function secondWind():void
 	pc.HP(Math.round(pc.HPMax()/2));
 	pc.createStatusEffect("Used Second Wind",0,0,0,0,true,"","",true,0);
 	output("You draw on your innermost reserves of strength, taking a second wind!\n");
+	processCombat();
+}
+
+function burstOfEnergy():void
+{
+	clearOutput();
+	
+	pc.energy(60);
+	pc.createStatusEffect("Used Burst of Energy",0,0,0,0,true,"","",true,0);
+	output("You dig deep and find a reserve of energy from deep within yourself!\n");
+	processCombat();
+}
+
+function struggledStimulant():void
+{
+	clearOutput();
+	pc.createStatusEffect("Used Smuggled Stimulant",3,0,0,0,true,"","",true,0);
+	output("You inject yourself with a smuggled stimulant!\n");
 	processCombat();
 }
 
@@ -2685,7 +2952,7 @@ function powerStrike(target:Creature):void {
 		output("You <b>draw back</b> your " + pc.meleeWeapon.longName + " and land a hit on " + target.a + target.short + "!");
 		//else output(attacker.capitalA + attacker.short + " connects with " + attacker.mfn("his","her","its") + " <b>overcharged</b>" + attacker.rangedWeapon.longName + "!");
 		//Damage bonuses:
-		var damage:int = pc.meleeWeapon.damage + pc.physique()/2;
+		var damage:int = pc.damage() + pc.physique()/2;
 		//OVER CHAAAAAARGE
 		damage *= 2;
 		//Randomize +/- 15%
@@ -2719,6 +2986,7 @@ function carpetGrenades():void
 		if(foes[x].plural) genericDamageApply(damage*2,pc,foes[x],GLOBAL.THERMAL);
 		else genericDamageApply(damage,pc,foes[x],GLOBAL.THERMAL);
 	}
+	aoeAttack(damage);
 	output("\n");
 	processCombat();
 }
@@ -2731,4 +2999,56 @@ function detCharge(target:Creature):void
 	genericDamageApply(damage,pc,target,GLOBAL.THERMAL);
 	output("\n");
 	processCombat();
+}
+
+function shieldHack(target:Creature):void 
+{
+	clearOutput();
+	pc.energy(-25);
+	if(target.shields() <= 0)
+	{
+		output("You attempt to hack the nonexistent shield protecting " + target.a + target.short + "! It doesn't work - <b>there's no shield there.</b>\n");
+		processCombat();
+		return;
+	}
+	output("You attempt to wirelessly hack the shield protecting " + target.a + target.short + "! ");
+	var damage:Number = Math.round(25 + pc.level*5);
+	var randomizer = (rand(31)+ 85)/100;
+	damage *= randomizer;
+	var sDamage:Array = new Array();
+	sDamage = shieldDamage(target,damage,GLOBAL.ELECTRIC);
+	if(target.shields() > 0)
+	{
+		if(target.plural) output(" " + target.a + possessive(target.short) + " shields crackle but hold. (<b>" + sDamage[0] + "</b>)");
+		else output(" " + target.a + possessive(target.short) + " shield crackles but holds. (<b>" + sDamage[0] + "</b>)");
+	}
+	else
+	{
+		if(!target.plural) output(" There is a concussive boom and tingling aftershock of energy as " + target.a + possessive(target.short) + " shield is breached. (<b>" + sDamage[0] + "</b>)");
+		else output(" There is a concussive boom and tingling aftershock of energy as " + target.a + possessive(target.short) + " shields are breached. (<b>" + sDamage[0] + "</b>)");
+	}
+	output("\n");
+	processCombat();
+}
+
+function weaponHack(target:Creature):void {
+	clearOutput();
+	pc.energy(-20);
+	if(target.hasStatusEffect("Disarm Immune")) output("You try to hack " + target.a + target.short + " but can't. <b>It's physically impossible!</b>\n");
+	else if(target.hasStatusEffect("Disarmed")) output("You try to hack " + target.a + target.short + " but can't. <b>You already did!</b>\n");
+	else if(!target.hasEnergyWeapon()) output("You try to hack " + target.a + target.short + " but there are no energy weapons to shut down!");
+	else {
+		output("You hack " + possessive(target.a + target.short) + " weapon, disarming them.\n");
+		target.createStatusEffect("Disarmed",4+rand(2),0,0,0,false,"Disarmed","Cannot use normal melee or ranged attacks!",true,0);
+	}
+	processCombat();
+}
+
+function aoeAttack(damage:int):void
+{
+	// Add function to anything that does AOE damage so we can cheese shit
+	if (damage > 0)
+	{
+		if (foes[0].hasStatusEffect("Gooclones")) foes[0].removeStatusEffect("Gooclones");
+	}
 }

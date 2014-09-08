@@ -1250,7 +1250,8 @@ public function mimbranesComplainAndShit():void
 		{
 			if (mimbraneDebug) trace("Mimbrane Cock is sweaing!");
 
-			addMimbraneEvent("The ever-present moist spot on your [pc.lowerGarment] is the telltale sign that your [pc.cock] is absolutely soaked in oily, sexual sweat. The Mimbrane member occasionally rubs against your inner thighs or slides up your waist, tickling you with moist perversion while simultaneously arousing you with each well-lubricated stroke.");
+			if(pc.isCrotchGarbed()) addMimbraneEvent("The ever-present moist spot on your [pc.lowerGarment] is the telltale sign that your [pc.cock] is absolutely soaked in oily, sexual sweat. The Mimbrane member occasionally rubs against your inner thighs or slides up your waist, tickling you with moist perversion while simultaneously arousing you with each well-lubricated stroke.");
+			else addMimbraneEvent("Your [pc.cock] is absolutely soaked in oily, sexual sweat. If you had anything on, it would probably clearly display a wet spot for anyone to see. The Mimbrane member occasionally rubs against your inner thighs or slides up your waist, tickling you with moist perversion while simultaneously arousing you with each well-lubricated stroke.");
 		}
 
 		if (pc.hasStatusEffect("Mimbrane Pussy") && pc.statusEffectv1("Mimbrane Pussy") >= 3 && rand(100) <= 3)
@@ -1263,8 +1264,11 @@ public function mimbranesComplainAndShit():void
 		if (pc.hasStatusEffect("Mimbrane Ass") && pc.statusEffectv1("Mimbrane Ass") >= 3 && rand(100) <= 3)
 		{
 			if (mimbraneDebug) trace("Mimbrane Ass is sweating!");
-
-			addMimbraneEvent("Coated in oily Mimbrane persuasion, your [pc.ass] no longer seems to form any sort of traction against your [pc.armor]. Instead, each of your steps merely glides each cheek against the surface, tantalizing you with each whimsical caress. Occasionally small pink clouds of moist, humid, dense lust will escape out into the open, showing a fairly clear trail of where you’ve been. You suspect the parasitic [pc.asshole] is enjoying itself.");
+			var textBuffer:String = "Coated in oily Mimbrane persuasion, your [pc.ass]";
+			if(pc.armor.shortName != "") textBuffer += " no longer seems to form any sort of traction against your [pc.armor]. Instead, each of your steps merely glides each cheek against the surface, tantalizing you with each whimsical caress.";
+			else textBuffer += "gleams dully in the slight, so slick that any garment you were to put on would glide effortlessly across its cheeks, tantalizing you with whimsical caresses.";
+			textBuffer += " Occasionally small pink clouds of moist, humid, dense lust will escape out into the open, showing a fairly clear trail of where you’ve been. You suspect the parasitic [pc.asshole] is enjoying itself.";
+			addMimbraneEvent(textBuffer);
 		}
 
 		if (pc.hasStatusEffect("Mimbrane Balls") && pc.statusEffectv1("Mimbrane Balls") >= 3 && rand(100) <= 3)
@@ -1278,7 +1282,8 @@ public function mimbranesComplainAndShit():void
 		{
 			if (mimbraneDebug) trace("Mimbrane Boobs are sweating!");
 
-			addMimbraneEvent("The amusement from having your [pc.fullChest] constantly covered in oily Mimbrane sweat hasn’t gotten old to you yet. Your bosom glides freely about in your [pc.upperGarment], seeming to not even understand the meaning of the word “friction.” Not only that, but occasional clouds of strawberry-scented salaciousness escape your garments and tickle your senses.");
+			if(pc.isChestGarbed()) addMimbraneEvent("The amusement from having your [pc.fullChest] constantly covered in oily Mimbrane sweat hasn’t gotten old to you yet. Your bosom glides freely about in your [pc.upperGarment], seeming to not even understand the meaning of the word “friction.” Not only that, but occasional clouds of strawberry-scented salaciousness escape your garments and tickle your senses.");
+			else addMimbraneEvent("The amusement from having your [pc.fullChest] constantly covered in oily Mimbrane sweat hasn’t gotten old to you yet. Not only that, but occasional clouds of strawberry-scented salaciousness tickle your senses, given off by your bare chest.");
 		}
 
 		if (((pc.hasStatusEffect("Mimbrane Hand Left") && !pc.hasStatusEffect("Mimbrane Hand Right") && pc.statusEffectv1("Mimbrane Hand Left") >= 3)
@@ -1741,7 +1746,7 @@ public function mimbraneSleepEvents():void
 				output(" eyes. Your");
 				if (!bothFeet) output(" [pc.foot] has");
 				else output(" [pc.feet] have");
-				output(" been looking pretty swollen lately. It must be time to split off some offspring, you figure. Normally Mimbranes handle this when their hosts are snoozing away, but it would yours");
+				output(" been looking pretty swollen lately. It must be time to split off some offspring, you figure. Normally Mimbranes handle this when their hosts are snoozing away, but it would seem yours");
 				if (!bothFeet) output(" doesn’t");
 				else output(" don’t");
 				output(" mind the company.");
@@ -1780,7 +1785,7 @@ public function mimbraneSleepEvents():void
 				if (bothFeet) output("s");
 				output(" must be using it as a lubricant. It only takes a few more minutes of peeling, wiggling, sliding and contracting until you seemingly have a");
 				if (bothFeet) output(" pair of");
-				output(" [pc.skinadj] socks....");
+				output(" [pc.skinTone] socks....");
 				output("\n\nYour");
 				if (!bothFeet) output(" [pc.foot] flicks");
 				else output(" [pc.feet] flick");
@@ -2050,7 +2055,7 @@ public function mimbraneFaceReproduction():void
 
 	//[Talk to subconscious] [Orgy] [Find Follower] [Find Victor] [Fly in Space]
 	clearMenu();
-	addButton(0, "Talk to Subc.", mimbraneFaceReproductionGo, true);
+	addButton(0, "Talk to Subc.", mimbraneFaceReproductionGo, true, "Talk to your subconscious", "Talk to your subconscious mind.");
 	addButton(1, "Orgy", mimbraneFaceReproductionGo, true);
 	addButton(2, "Find Follower", mimbraneFaceReproductionGo, true);
 	addButton(3, "Find Victor", mimbraneFaceReproductionGo, true);
@@ -4272,14 +4277,21 @@ public function mimbraneMenu():void
 		{
 			output2("\nIt's also offered to disguise itself as a set of lip piercings.");
 
-			addGhostButton(12, "Lip Pc.Ing", function():void {
-				clearOutput2();
-				//userInterface.showBust("MIMBRANE");
-				flags["MIMBRANE_FACE_APPEARANCE"] = 2;
-				output2("You ask the Mimbrane surrounding your noggin to change its eye bumps to resemble a metal piercing.");
-				clearGhostMenu();
-				addGhostButton(0, "Back", mimbraneMenu);
-			});
+			if (flags["MIMBRANE_FACE_APPEARANCE"] != 2)
+			{
+				addGhostButton(12, "Lip Pc.Ing", function():void {
+					clearOutput2();
+					//userInterface.showBust("MIMBRANE");
+					flags["MIMBRANE_FACE_APPEARANCE"] = 2;
+					output2("You ask the Mimbrane surrounding your noggin to change its eye bumps to resemble a metal piercing.");
+					clearGhostMenu();
+					addGhostButton(0, "Back", mimbraneMenu);
+				});
+			}
+			else
+			{
+				addDisabledGhostButton(12, "Lip Pc.Ing");
+			}
 		}
 		else
 		{

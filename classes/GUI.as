@@ -1200,6 +1200,7 @@
 		public function hideMinimap():void
 		{
 			_leftSideBar.HideMiniMap();
+			this.removeBigMapFromContainer(this.primaryOutputModule);
 		}
 		
 		public function deglow():void 
@@ -1314,6 +1315,21 @@
 			if (_currentModule is GameTextModule)
 			{
 				(_currentModule as GameTextModule).endScrollText();
+			}
+		}
+		
+		public function refreshFontSize(fSize:int):void
+		{
+			// Get the main text module
+			var module:GameTextModule = this._availableModules["PrimaryOutput"];
+			
+			// Get the stylesheet from the text display
+			var cStyle:StyleSheet = module.mainTextField.styleSheet;
+			
+			if (cStyle.getStyle(".words").fontSize != fSize)
+			{
+				cStyle.setStyle(".words", { fontFamily: "Lato", fontSize: fSize, color: "#FFFFFF", marginRight: 5 } );
+				module.mainTextField.styleSheet = cStyle;
 			}
 		}
 	}

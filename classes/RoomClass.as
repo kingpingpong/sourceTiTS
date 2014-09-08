@@ -63,8 +63,10 @@
 		}
 		
 		public static function loadRoomFlags(save:Object, titsObj:TiTS):void {
-			if(save.rooms == null) return;
-			if(!save.rooms is Array) return;
+			if(save.rooms == null || !(save.rooms is Array)) {
+				kGAMECLASS.initializeRooms();
+				return;
+			}
 			for each(var dataArray:Array in save.rooms) {
 				titsObj.rooms[dataArray["name"]].loadFlags(dataArray);
 			}

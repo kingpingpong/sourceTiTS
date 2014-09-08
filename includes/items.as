@@ -111,8 +111,12 @@ function combatUseItem(item:ItemSlotClass, targetCreature:Creature = null, using
 			}
 		}
 	}
-	
-	processCombat();
+	if(pc.hasPerk("Quickdraw") && (item.type == GLOBAL.RANGED_WEAPON || item.type == GLOBAL.MELEE_WEAPON))
+	{
+		clearMenu();
+		addButton(0,"Next",combatInventoryMenu);
+	}
+	else processCombat();
 }
 
 function shop(keeper:Creature):void {
@@ -134,7 +138,13 @@ function shop(keeper:Creature):void {
 	}
 	if(keeper is Anno)
 	{
-		repeatAnnoApproach();
+		if (!annoIsCrew()) repeatAnnoApproach();
+		else annoFollowerApproach();
+		return;
+	}
+	if(keeper is Ellie)
+	{
+		ellieMenu();
 		return;
 	}
 	clearOutput();
@@ -224,10 +234,16 @@ function sellItemGo(arg:ItemSlotClass):void {
 }
 
 function getSellPrice(keeper:Creature,basePrice:Number):Number {
-	return Math.round(basePrice * keeper.buyMarkdown * pc.sellMarkup);
+	var sellPrice:Number = basePrice * keeper.buyMarkdown * pc.sellMarkup;
+	if(pc.hasPerk("Supply And Demand")) sellPrice *= 1.1;
+	sellPrice = Math.round(sellPrice);
+	return sellPrice;
 }
 function getBuyPrice(keeper:Creature,basePrice:Number):Number {
-	return Math.round(basePrice * keeper.sellMarkup * pc.buyMarkdown);
+	var buyPrice:Number = basePrice * keeper.sellMarkup * pc.buyMarkdown;
+	if(pc.hasPerk("Supply And Demand")) buyPrice *= .95;
+	buyPrice = Math.round(buyPrice);
+	return buyPrice;
 }
 
 function generalInventoryMenu():void
@@ -427,6 +443,19 @@ function equipItem(arg:ItemSlotClass):void {
 	
 	clearOutput();
 	output("You equip your " + arg.longName + ".");
+	//Clear disarm if appropriate.
+	if(pc.hasStatusEffect("Disarmed") && (arg.type == GLOBAL.MELEE_WEAPON || arg.type == GLOBAL.RANGED_WEAPON))
+	{
+		if(pc.hasCombatStatusEffect("Disarmed"))
+		{
+			output("<b> You are no longer disarmed!</b>");
+			pc.removeStatusEffect("Disarmed");
+		}
+		else
+		{
+			output("<b> Once you get your gear back, this will be equipped.</b>");
+		}
+	}
 	//Set the quantity to 1 for the equipping, then set it back to holding - 1 for inventory!
 	if(arg.type == GLOBAL.ARMOR || arg.type == GLOBAL.CLOTHING) 
 	{

@@ -181,6 +181,17 @@ function crew(counter:Boolean = false):Number {
 			crewMessages += "\n\nReaha is currently meandering around the ship, arms clutched under her hefty bosom, her nipples hooked up to a small portable milker.";
 		}
 	}
+	if (annoIsCrew())
+	{
+		count++;
+		if (!counter)
+		{
+			addButton(count - 1, "Anno", annoFollowerApproach);
+			if (hours >= 6 && hours <= 7 || hours >= 19 && hours <= 20) crewMessages += "\n\nAnno is walking about in her quarters, sorting through her inventory and organizing some of her equipment.";
+			else if (hours >= 12 || hours <= 13) crewMessages += "\n\nAnno's busy doing a quick workout in her quarters to the beat of some fast-paced ausar heavy metal. “<i>Gotta keep in shape!</i>” she says.";
+			else crewMessages += "\n\nAnno is sitting in the common area with her nose buried in half a dozen different data slates. It looks like she's splitting her attention between the latest Warp Gate research and several different field tests of experimental shield generators.";
+		}
+	}
 	if(!counter) {
 		if(count > 0) {
 			output("Who of your crew do you wish to interact with?" + crewMessages);
@@ -208,6 +219,7 @@ function rest():void {
 }
 
 function sleep(outputs:Boolean = true):void {
+	
 	//Turn encounters back on.
 	flags["ENCOUNTERS_DISABLED"] = undefined;
 	
@@ -217,7 +229,14 @@ function sleep(outputs:Boolean = true):void {
 	{
 		clearOutput();
 		
-		if ((pc.XPRaw >= pc.XPMax()) && pc.level < 5 && flags["LEVEL_UP_AVAILABLE"] == undefined)
+		// Anno interjection
+		if (flags["ANNO_SLEEPWITH_INTRODUCED"] == undefined && annoIsCrew())
+		{
+			annoSleepWithIntroduce();
+			return;
+		}
+		
+		if ((pc.XPRaw >= pc.XPMax()) && pc.level < 7 && flags["LEVEL_UP_AVAILABLE"] == undefined)
 		{
 			(pc as PlayerCharacter).unspentStatPoints += 13;
 			(pc as PlayerCharacter).unclaimedClassPerks += 1;
@@ -234,23 +253,34 @@ function sleep(outputs:Boolean = true):void {
 		}
 		
 		//CELISE NIGHT TIME BEDTIMEZ
-		if(celiseIsCrew() && rand(3) == 0)
+		if(celiseIsCrew() && rand(3) == 0 && flags["CREWMEMBER_SLEEP_WITH"] == undefined)
 		{
 			celiseOffersToBeYourBedSenpai();
 			return;
 		}
+		else if (annoIsCrew() && rand(3) == 0 && flags["CREWMEMBER_SLEEP_WITH"] == "ANNO")
+		{
+			annoSleepSexyTimes();
+			return;
+		}
+		
 		output("You lie down and sleep for about " + num2Text(Math.round(minutes/60)) + " hours.");
 	}
-	if(this.chars["PC"].HPRaw < this.chars["PC"].HPMax()) {
+	
+	if (this.chars["PC"].HPRaw < this.chars["PC"].HPMax()) 
+	{
 		this.chars["PC"].HP(Math.round(this.chars["PC"].HPMax()));
 	}
-	if(this.chars["PC"].energy() < this.chars["PC"].energyMax()) this.chars["PC"].energyRaw = this.chars["PC"].energyMax()
+	
+	if (this.chars["PC"].energy() < this.chars["PC"].energyMax()) this.chars["PC"].energyRaw = this.chars["PC"].energyMax();
+	
 	processTime(minutes);
 
 	mimbraneSleepEvents();
 	
 	this.clearMenu();
-	this.addButton(0,"Next",mainGameMenu);
+	if (flags["ANNO_SLEEPWITH_DOMORNING"] != undefined) this.addButton(0, "Next", annoMorningRouter);
+	else this.addButton(0,"Next",mainGameMenu);
 }
 
 function shipMenu():Boolean {
@@ -264,7 +294,7 @@ function shipMenu():Boolean {
 		setLocation("SHIP\nINTERIOR","MHEN'GA","SYSTEM: ARA ARA");
 	}
 	else if(shipLocation == "201") setLocation("SHIP\nINTERIOR","TARKUS","SYSTEM: REDACTED");
-	else if(shipLocation == "TEXAS CUSTOMS") setLocation("SHIP\nINTERIOR","NEW TEXAS","SYSTEM: NYE");
+	else if(shipLocation == "500") setLocation("SHIP\nINTERIOR","NEW TEXAS","SYSTEM: NYE");
 	if(currentLocation == "SHIP INTERIOR") {
 		if(crew(true) > 0) {
 			this.addButton(8,"Crew",crew);
@@ -275,6 +305,13 @@ function shipMenu():Boolean {
 
 function flyMenu():void {
 	clearOutput();
+	if(pc.hasStatusEffect("Disarmed"))
+	{
+		output("<b>Your gear is still locked up in customs. You should go grab it before you jump out of system.");
+		clearMenu();
+		addButton(14,"Back",mainGameMenu);
+		return;
+	}
 	output("Where do you want to go?");
 	this.clearMenu();
 	if(shipLocation != "TAVROS HANGAR") 
@@ -290,7 +327,7 @@ function flyMenu():void {
 		else addDisabledButton(2,"Tarkus");
 	}
 	else addDisabledButton(2,"Locked","Locked","You need to find your father's probe on Mhen'ga to get this planet's coordinates.");
-	if(shipLocation != "TEXAS CUSTOMS") addButton(3,"New Texas",flyTo,"New Texas");
+	if(shipLocation != "500") addButton(3,"New Texas",flyTo,"New Texas");
 	else addDisabledButton(3,"New Texas","New Texas","You're already there.");
 	this.addButton(14,"Back",mainGameMenu);
 }
@@ -333,10 +370,9 @@ function flyTo(arg:String):void {
 		output("\n\nYour nav beacon guides you in most of the way, directing you towards what looks like a derelict capital ship in the middle of a great red wasteland, littered with debris from all manner of machines and vessels. This whole planet is little more than a junkyard, a once-ripe world ravished by the march of a civilization that has left little more than its garbage in its wake. You shudder at the sight of the ruined landscape as you're guided in toward an open docking bay on the side of the ancient-looking, monolithic ship, flying past a glowing hull plate reading NOVA. It looks vaguely like a human vessel, but not of a make or model you've ever seen, and it looks centuries old, a derelict of ancient days. How'd it get all the way out here? Benching the question for now, you loop around the broadside of the capsized capital ship, easing into your appointed docking bay - a hastily spray-painted square on the deck, surrounded by other explorers' ships.");
 	}
 	else if(arg == "New Texas") {
-		shipLocation = "TEXAS CUSTOMS";
-		currentLocation = "TEXAS CUSTOMS";
-		output("You fly to New Texas");
-		output(" and step out of your ship.");
+		shipLocation = "500";
+		currentLocation = "500";
+		landOnNewTexas();
 	}
 	processTime(600 + rand(30));
 	this.clearMenu();
@@ -388,6 +424,14 @@ function statusTick():void {
 				{
 					var pill = new HorsePill();
 					eventQueue[eventQueue.length] = pill.lastPillTF;
+				}
+				//Boobswell ends!
+				if(this.chars["PC"].statusEffects[x].storageName == "Boobswell Pads")
+				{
+					//Message text, last boob size increase. 7 days later.
+					eventBuffer += "\n\nUnfortunately, as you admire your now-larger bosom, you realize that the gentle, wet rumble of the pads has come to a stop. <b>It looks like you’ve exhausted the BoobSwell Pads";
+					if(pc.bRows() > 1) eventBuffer += "on your " + num2Text2(this.chars["PC"].statusEffects[x].value1+1) + " row of breasts";
+					eventBuffer += "!</b> You peel them off your [pc.skinFurScales] and toss them away.";
 				}
 				if(this.chars["PC"].statusEffects[x].storageName == "Mead") 
 				{
@@ -469,10 +513,41 @@ public function variableRoomUpdateCheck():void
 		//Add Kelly icon in the bar
 		if(!rooms["BURT'S BACK END"].hasFlag(GLOBAL.NPC)) rooms["BURT'S BACK END"].addFlag(GLOBAL.NPC);
 	}
+
 	//Sexbot factory opeeeeeen.
 	if(flags["SEXBOTS_SCANNED_FOR_COLENSO"] != undefined && flags["SEXBOTS_SCANNED_FOR_COLENSO"] >= 4)
 	{
 		rooms["256"].southExit = "294";
+	}
+	
+	// Annos shop
+	if (!steeleTechTarkusShopAvailable())
+	{
+		rooms["303"].removeFlag(GLOBAL.NPC);
+	}
+	else
+	{
+		rooms["303"].addFlag(GLOBAL.NPC);
+	}
+	
+	// Deck 13 Reactor -> Databank room
+	if (flags["DECK13_REACTOR_DOOR_OPEN"] == undefined)
+	{
+		rooms["DECK 13 REACTOR"].northExit = undefined;
+	}
+	else
+	{
+		rooms["DECK 13 REACTOR"].northExit = "DECK 13 SECONDARY REACTOR";
+	}
+
+	// Deck 13 Reactor -> Vents
+	if (flags["DECK13_REACTOR_DOOR_OPEN"] != undefined)
+	{
+		rooms["DECK 13 REACTOR"].eastExit = undefined;
+	}
+	else
+	{
+		rooms["DECK 13 REACTOR"].eastExit = "DECK 13 VENTS";
 	}
 }
 
@@ -521,6 +596,9 @@ public function processTime(arg:int):void {
 		flags["MIMBRANES BITCH TIMER"] = 0;
 		mimbranesComplainAndShit();
 	}
+
+	//Queue up procs for boobswell shit
+	if(pc.hasStatusEffect("Boobswell Pads")) boobswellStuff(arg);
 
 	//loop through every minute
 	while(arg > 0) {
@@ -583,9 +661,9 @@ public function processTime(arg:int):void {
 					tightnessChanged = false;
 					if(this.chars["PC"].vaginas[x].loosenessRaw < 2) {}
 					else if(this.chars["PC"].vaginas[x].loosenessRaw <= 2 && this.chars["PC"].vaginas[x].shrinkCounter >= 200) tightnessChanged = true;
-					else if(this.chars["PC"].vaginas[0].loosenessRaw < 4 && this.chars["PC"].vaginas[x].shrinkCounter >= 150) tightnessChanged = true;
-					else if(this.chars["PC"].vaginas[0].loosenessRaw < 5 && this.chars["PC"].vaginas[x].shrinkCounter >= 110) tightnessChanged = true;
-					else if(this.chars["PC"].vaginas[0].loosenessRaw >= 5 && this.chars["PC"].vaginas[x].shrinkCounter >= 75) tightnessChanged = true;
+					else if(this.chars["PC"].vaginas[x].loosenessRaw < 4 && this.chars["PC"].vaginas[x].shrinkCounter >= 150) tightnessChanged = true;
+					else if(this.chars["PC"].vaginas[x].loosenessRaw < 5 && this.chars["PC"].vaginas[x].shrinkCounter >= 110) tightnessChanged = true;
+					else if(this.chars["PC"].vaginas[x].loosenessRaw >= 5 && this.chars["PC"].vaginas[x].shrinkCounter >= 75) tightnessChanged = true;
 					if(tightnessChanged) {
 						this.chars["PC"].vaginas[x].loosenessRaw--;
 						eventBuffer += "\n\n<b>Your </b>";
@@ -667,7 +745,49 @@ public function processTime(arg:int):void {
 			eventQueue[eventQueue.length] = procDumbfuckStuff;
 		}
 	}
+	
 	updatePCStats();
+}
+
+function boobswellStuff(time:Number = 0):void
+{
+	//Message text, boob size+. Every 6 hours or so.
+	//Every minute = .003 breastRating. = 5.5 hours per cup size.
+	var swelledRows:Array = new Array();
+	//Loop through statuses and find out which boobs are covered.
+	for(var x:Number = 0; x < pc.statusEffects.length; x++)
+	{
+		//Boobswell on!
+		if(pc.statusEffects[x].storageName == "Boobswell Pads")
+		{
+			//Add to the list of covered rows.
+			swelledRows.push(pc.statusEffects[x].value1);
+		}
+	}
+	//While rows remain that need processed.
+	while(swelledRows.length > 0)
+	{
+		//Bonus lust for each extra row:
+		pc.lust(time/10);
+		//Use x to hold the original value for later comparison.
+		x = pc.breastRows[swelledRows[swelledRows.length-1]].breastRating();
+		trace("BOOBSWELL! Original titty: " + x);
+		trace("Time: " + time + " Amount grown from time: " + (time * 0.003));
+		//Actually change it
+		pc.breastRows[swelledRows[swelledRows.length-1]].breastRatingRaw += time * 0.003;
+		trace("BOOBSWELL! Post titty: " + pc.breastRows[swelledRows[swelledRows.length-1]].breastRating());
+		
+		if(Math.floor(pc.breastRows[swelledRows[swelledRows.length-1]].breastRating()) > Math.floor(x) 
+			&& (Math.floor(pc.breastRows[swelledRows[swelledRows.length-1]].breastRating()) % 2 == 0 || Math.floor(pc.breastRows[swelledRows[swelledRows.length-1]].breastRating()) < 6))
+		{
+			trace("BOOBSWELL OUTPUT TRIGGERED");
+			eventBuffer += "\n\nThanks to the BoobSwell pads you’re wearing, your chest is slowly but steadily filling out! <b>You figure that ";
+			if(pc.bRows() == 1) eventBuffer += "you ";
+			else eventBuffer += "your " + num2Text2(swelledRows[swelledRows.length-1]+1) + " row of breasts ";
+			eventBuffer += "could now fit into an [pc.breastCupSize " + swelledRows[swelledRows.length-1] + "] bra!</b>";
+		}
+		swelledRows.splice(swelledRows.length-1,1);
+	}
 }
 
 //Notes about milk gain increases
@@ -684,7 +804,7 @@ function milkGainNotes():void
 			if(pc.breastRows[x].breastRatingRaw >= 5) pc.breastRows[x].breastRatingLactationMod = 1.5;
 			else pc.breastRows[x].breastRatingLactationMod = 1;
 		}
-		eventBuffer = "\n\nThere's no way you could miss how your [pc.fullChest] have swollen up with [pc.milk]. You figure it won't be long before they're completely full. It might be a good idea to milk them soon. <b>With all that extra weight, ";
+		eventBuffer += "\n\nThere's no way you could miss how your [pc.fullChest] have swollen up with [pc.milk]. You figure it won't be long before they're completely full. It might be a good idea to milk them soon. <b>With all that extra weight, ";
 
 		if(pc.bRows() > 1) eventBuffer += "the top row is ";
 		else eventBuffer += "they're ";
@@ -716,7 +836,10 @@ function milkGainNotes():void
 			if(pc.breastRows[x].breastRatingRaw >= 5) pc.breastRows[x].breastRatingLactationMod = 3.5;
 			else pc.breastRows[x].breastRatingLactationMod = 2;
 		}
-		eventBuffer += "\n\nYour [pc.nipples] are extraordinarily puffy at the moment, practically suffused with your neglected [pc.milk]. It's actually getting kind of painful to hold in all that liquid weight, and if you don't take care of it soon, a loss of production is likely. Right now, they're swollen up to [pc.breastCupSize]s.";
+		eventBuffer += "\n\nYour [pc.nipples] are extraordinarily puffy at the moment, practically suffused with your neglected [pc.milk]. It's actually getting kind of painful to hold in all that liquid weight, and if ";
+		if(pc.upperUndergarment is BountyBra) eventBuffer += "you weren't wearing a <b>Bounty Bra</b>, your body would be slowing down production";
+		else eventBuffer += "you don't take care of it soon, a loss of production is likely";
+		eventBuffer += ". Right now, they're swollen up to [pc.breastCupSize]s.";
 		pc.removeStatusEffect("Pending Gain Milk Note: 150");
 	}
 	//Hit 200% milk fullness cap + 3 cups
@@ -729,7 +852,9 @@ function milkGainNotes():void
 			if(pc.breastRows[x].breastRatingRaw >= 5) pc.breastRows[x].breastRatingLactationMod = 4.5;
 			else pc.breastRows[x].breastRatingLactationMod = 3;
 		}
-		eventBuffer += "\n\nThe tightness in your [pc.fullChest] is almost overwhelming. You feel so full – so achingly stuffed – that every movement is a torture of breast-swelling delirium. You can't help but wish for relief or a cessation of your lactation, whichever comes first. <b>If you don't tend to them, your [pc.breastCupSize]s will stop producing [pc.milk].</b>";
+		eventBuffer += "\n\nThe tightness in your [pc.fullChest] is almost overwhelming. You feel so full – so achingly stuffed – that every movement is a torture of breast-swelling delirium. You can't help but wish for relief or a cessation of your lactation, whichever comes first. ";
+		if(pc.upperUndergarment is BountyBra) eventBuffer += "<b>Your Bounty Bra will keep your [pc.fullChest] producing despite the uncomfortable fullness.</b>";
+		else eventBuffer += "<b>If you don't tend to them, your [pc.breastCupSize]s will stop producing [pc.milk].</b>";
 		pc.removeStatusEffect("Pending Gain Milk Note: 200");
 	}
 }
@@ -741,17 +866,25 @@ function lactationUpdateHourTick():void
 	//Drops .5 an hour above 150 fullness. 1 above 200 fullness
 	//Milk Rate drops by .1 an hour above 200.
 	var originalMultiplier = pc.milkMultiplier;
-	if(pc.milkFullness >= 200) 
+	//Bounty bra never loses milkMultiplier!
+	if(pc.upperUndergarment is BountyBra)
 	{
-		if(pc.hasPerk("Milky")) pc.milkMultiplier -= .2;
-		else pc.milkMultiplier -= 1;
+
 	}
-	else if(pc.milkFullness >= 150) 
+	else
 	{
-		if(!pc.hasPerk("Milky")) pc.milkMultiplier -= .5;
+		if(pc.milkFullness >= 200) 
+		{
+			if(pc.hasPerk("Milky")) pc.milkMultiplier -= .2;
+			else pc.milkMultiplier -= 1;
+		}
+		else if(pc.milkFullness >= 150) 
+		{
+			if(!pc.hasPerk("Milky")) pc.milkMultiplier -= .5;
+		}
 	}
 	//Drops a tiny amount if below 50.
-	if(pc.milkMultiplier < 50) {
+	if(pc.milkMultiplier < 50 && !(pc.upperUndergarment is BountyBra)) {
 		if(!pc.hasPerk("Milky")) pc.milkMultiplier -= 0.1;
 		else pc.milkMultiplier -= 0.02;
 		if(pc.milkFullness > 0) 

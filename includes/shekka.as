@@ -271,7 +271,7 @@ function talkToShekkaAboutTarkus():void
 		output("\n\nShekka nods. <i>\"Really. We can't help it. When we see something broken - the more technological the better - we get almost like this itch in the back of our heads. We have to go poke around it, prod it, and try to fix it. It's impossible not to! And then when we do fix something?\"</i> She sags a little bit against the bench, her fingers gripping it hard. <i>\"It's almost as good as sex. Not as passionate or pleasure-filled, but the satisfaction... ohhh, the satisfaction. You ever have a nice meal after having to go hungry for a while? Turning something from garbage into a working, productive machine is at least twice that good.\"</i> Her pink, slitted eyes twinkle. <i>\"Why do you think I'm here, making my living fixing and selling gadgets?\"</i>");
 		output("\n\nYou tell her she ought to consider lowering her prices.");
 		output("\n\n<i>\"Not on your life, [pc.name]. I'm the best mechanic in Novahome, and you're nuts if you think that I'm going to cheapen my skills just because I get a thrill out of practicing them!\"</i> She shakes her head. <i>\"Anyways, the goblins fucked this planet up something fierce. Some of 'em live in the filth around us, but a fair portion of them moved up into their space station. Now they just make us mine up resources or enslave us while the rest of us try to make a living off their garbage.\"</i> Scowling, Shekka pushes off her workbench and paces. <i>\"They treat us like animals.\"</i>");
-		output("\n\nA gout of steam issues forth from a device that looks like little more than tangled pipes strapped to a display, starting the both of you. Shekka straightens, though her shoulders seem burdened by unspoken responsibility. <i>\"Looks like duty calls, [pc.name]. Talk later, 'kay?\"</i>");
+		output("\n\nA gout of steam issues forth from a device that looks like little more than tangled pipes strapped to a display, startling the both of you. Shekka straightens, though her shoulders seem burdened by unspoken responsibility. <i>\"Looks like duty calls, [pc.name]. Talk later, 'kay?\"</i>");
 	}
 	else
 	{
@@ -289,7 +289,7 @@ function talkToShekkaAboutTarkus():void
 		output("\n\nShekka nods. <i>\"Really. We can't help it. When we see something broken - the more technological the better - we get almost like this itch in the back of our heads. We have to go poke around it, prod it, and try to fix it. It's impossible not to! And then when we do fix something?\"</i> She sags a little bit against the bench, her fingers gripping it hard. <i>\"It's almost as good as sex. Not as passionate or pleasure-filled, but the satisfaction... ohhh, the satisfaction. You ever have a nice meal after having to go hungry for a while? Turning something from garbage into a working, productive machine is at least twice that good.\"</i> Her pink, slitted eyes twinkle. <i>\"Why do you think I'm here, making my living fixing and selling gadgets?\"</i>");
 		output("\n\nYou tell her she ought to consider lowering her prices.");
 		output("\n\n<i>\"Not on your life, [pc.name]. I'm the best mechanic in Novahome, and you're nuts if you think that I'm going to cheapen my skills just because I get a thrill out of practicing them!\"</i> She shakes her head. <i>\"Anyways, the planet's gone now. All that's left of us are the ones living in this ship, and maybe a few over in the goblin's station.");
-		output("\n\nA gout of steam issues forth from a device that looks like little more than tangled pipes strapped to a display, starting the both of you. Shekka straightens, though her shoulders seem burdened by unspoken responsibility. <i>\"Looks like duty calls, [pc.name]. Talk later, 'kay?\"</i>");
+		output("\n\nA gout of steam issues forth from a device that looks like little more than tangled pipes strapped to a display, startling the both of you. Shekka straightens, though her shoulders seem burdened by unspoken responsibility. <i>\"Looks like duty calls, [pc.name]. Talk later, 'kay?\"</i>");
 	}
 	flags["SHEKKA_TALKED_TARKUS"] = 1;
 	processTime(15+rand(10));
@@ -933,7 +933,7 @@ function bendShekkaOverHerWorkbenchAndHaveHerFixWhileYouBang():void
 		}
 		output("\n\nYou go limp, your ardor spent, but your knot");
 		if(knots) output("s hold");
-		else output("holds");
+		else output(" holds");
 		output(" you secure inside of her, giving you time to appreciate the outlines of her shoulderblades and the natural fragrance of her feathery hair.");
 	}
 	//No knot for you, come back next year.
@@ -2116,7 +2116,7 @@ function pcWinsVsNewShekkaBots():void
 	output("As you contemplate your next choice, you hear Shekka’s breathing become deeper and more lust-filled. You watch as she again clutches the controller against her, muscles locking up as orgasm rocks her body. Now that she’s lost, theres no harm in helping her along, right? You reach over between the cleft of her ass and tickle her rear clit with your forefingers. This sets her off again, her voice peaking in a shout as her legs splay out around the robot’s hips. Her tail beats against your forearm when it tries to wag");
 	output("\n\n<i>\"You just love letting me win, don’t you?”</i> you ask teasingly as you attend to her. She nods weakly as the spasms slow down enough for her to regain motor control. Suddenly, you remember your own pleasure, but it’s too late to keep a cap on it. You squeeze the rosey raskvel’s butt-cushions as you cum, ");
 	if(pc.hasCock() && pc.hasVagina()) output("[pc.girlCum] leaking from [pc.eachVagina] as [pc.eachCock] paints the floor [pc.cumColor]");
-	if(pc.hasCock()) output("splattering the floor as [pc.eachCock] blows a load beneath you");
+	else if(pc.hasCock()) output("splattering the floor as [pc.eachCock] blows a load beneath you");
 	else output("spattering the robot’s hips with your [pc.girlCum]");
 	output(".");
 

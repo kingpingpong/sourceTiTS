@@ -271,7 +271,7 @@ function warhammerBuyTalk():void
 	output("\nAccuracy Bonus: -4");
 	output("\nDamage Type: Piercing");
 	clearMenu();
-	if(pc.credits >= 750) addButton(0,"Buy",buyFromCarl,"warhammer");
+	if(pc.credits >= 550) addButton(0,"Buy",buyFromCarl,"warhammer");
 	else addDisabledButton(0,"Buy");
 	addButton(14,"Back",crazyCarlShop);
 }
@@ -286,7 +286,7 @@ function machetteBuyTalk():void
 	output("\n\nDamage Rating: 8");
 	output("\nDamage Type: Slashing");
 	clearMenu();
-	if(pc.credits >= 750) addButton(0,"Buy",buyFromCarl,"machette");
+	if(pc.credits >= 550) addButton(0,"Buy",buyFromCarl,"machette");
 	else addDisabledButton(0,"Buy");
 	addButton(14,"Back",crazyCarlShop);
 }
@@ -304,7 +304,7 @@ function shortswordBuyTalk():void
 	output("\nDamage Type: Piercing");
 
 	clearMenu();
-	if(pc.credits >= 750) addButton(0,"Buy",buyFromCarl,"shortsword");
+	if(pc.credits >= 550) addButton(0,"Buy",buyFromCarl,"shortsword");
 	else addDisabledButton(0,"Buy");
 	addButton(14,"Back",crazyCarlShop);
 }
@@ -411,17 +411,17 @@ function buyFromCarl(arg:String = "ERROR"):void {
 	}
 	else if(arg == "warhammer")
 	{
-		cost = 750;
+		cost = 550;
 		eventQueue[eventQueue.length] = lootWarhammer;
 	}
 	else if(arg == "machette")
 	{
-		cost = 750;
+		cost = 550;
 		eventQueue[eventQueue.length] = lootMachette;
 	}
 	else if(arg == "shortsword")
 	{
-		cost = 750;
+		cost = 550;
 		eventQueue[eventQueue.length] = lootShortsword;
 	}
 	clearOutput();
@@ -722,7 +722,7 @@ function suicideBullshit():void {
 			sDamage = shieldDamage(pc,damage,foes[0].meleeWeapon.damageType);
 			//Set damage to leftoverDamage from shieldDamage
 			damage = sDamage[1];
-			if(pc.shieldsRaw > 0) output(" Your shield cracles but holds. (<b>" + sDamage[0] + "</b>)");
+			if(pc.shieldsRaw > 0) output(" Your shield crackles but holds. (<b>" + sDamage[0] + "</b>)");
 			else output(" There is a concussive boom and tingling aftershock of energy as your shield is breached. (<b>" + sDamage[0] + "</b>)");
 		}
 		if(damage >= 1) {

@@ -135,6 +135,10 @@
 		public static const TYPE_SYDIAN:int 								   = 43;
 		public static const TYPE_LAPINARA:int 							   = 44;
 		public static const TYPE_BADGER:int 								   = 45;
+		public static const TYPE_VANAE:int									= 46;
+		public static const TYPE_VANAE_MAIDEN:int							= 47;
+		public static const TYPE_VANAE_HUNTRESS:int							= 48;
+		public static const TYPE_LEITHAN:int 							    = 49;
 		
 		public static const TYPE_NAMES:Array = [
 			"Human",
@@ -180,6 +184,9 @@
 			"Sydian",
 			"Lapinara",
 			"Badger",
+			"Vanae",
+			"Vanae Maiden",
+			"Vanae Huntress",
 		];
 		
 		public static const VALID_FACE_TYPES:Array = [
@@ -441,16 +448,18 @@
 		];
 				
 		//CUM & MILK TYPES
-		public static const FLUID_TYPE_MILK:int                                   = 0;
-		public static const FLUID_TYPE_HONEY:int                                  = 1;
-		public static const FLUID_TYPE_CUM:int                                    = 2;
-		public static const FLUID_TYPE_OIL:int                                    = 3;
-		public static const FLUID_TYPE_MILKSAP:int                                = 4;
-		public static const FLUID_TYPE_GIRLCUM:int                                = 5;
-		public static const FLUID_TYPE_CUMSAP:int								   = 6;
-		public static const FLUID_TYPE_CHOCOLATE_MILK:int 						   = 7;
-		public static const FLUID_TYPE_STRAWBERRY_MILK:int 					   = 8;
-		public static const FLUID_TYPE_SYDIAN_CUM:int 							   = 9;
+		public static const FLUID_TYPE_MILK:int                                 = 0;
+		public static const FLUID_TYPE_HONEY:int                                = 1;
+		public static const FLUID_TYPE_CUM:int                                  = 2;
+		public static const FLUID_TYPE_OIL:int                                  = 3;
+		public static const FLUID_TYPE_MILKSAP:int                              = 4;
+		public static const FLUID_TYPE_GIRLCUM:int                              = 5;
+		public static const FLUID_TYPE_CUMSAP:int								= 6;
+		public static const FLUID_TYPE_CHOCOLATE_MILK:int 						= 7;
+		public static const FLUID_TYPE_STRAWBERRY_MILK:int 					   	= 8;
+		public static const FLUID_TYPE_SYDIAN_CUM:int 							= 9;
+		public static const FLUID_TYPE_VANAE_MAIDEN_MILK:int					= 10;
+		public static const FLUID_TYPE_VANAE_HUNTRESS_MILK:int					= 11;
 		
 		public static const FLUID_TYPE_NAMES:Array = [
 			"Milk",
@@ -463,6 +472,8 @@
 			"Chocolate Milk",
 			"Strawberry Milk",
 			"Sydian Cum",
+			"Vanae Maiden Milk",
+			"Vanae Huntress Milk",
 		];
 		
 		public static const VALID_CUM_TYPES:Array = [
@@ -625,6 +636,8 @@
 		public static const UNDISCOVERED:int                           = 12;
 		public static const UNVISITED:int                              = 13;
 		public static const UNREACHABLE:int                            = 14;
+		// Temp flag alias whilst the asset gets introduced
+		public static const LIFT:int = OBJECTIVE;
 
 		//PLOT FLAGS
 		public static const RECRUITED_CELISE:int                       = 0;
@@ -703,7 +716,7 @@
 		public static const SEXPREF_PUSSIES:int = 10;
 		public static const SEXPREF_BALLS:int = 11;
 		public static const SEXPREF_BIG_MALEBITS:int = 12;
-		public static const SEXPREF_SMALL_MALEBITS:int = 13; // Because Vladimir Snoutin' aka Savin would want dis!
+		public static const SEXPREF_SMALL_MALEBITS:int = 13;
 		public static const SEXPREF_MULTIPLES:int = 14;
 		public static const SEXPREF_HYPER:int = 15;
 		public static const SEXPREF_GAPE:int = 16;
@@ -716,8 +729,9 @@
 		public static const SEXPREF_EXOTIC_BODYSHAPE:int = 23;
 		public static const SEXPREF_BALDNESS:int = 24;
 		public static const SEXPREF_LONG_HAIR:int = 25;
+		public static const SEXPREF_NEUTER:int = 26
 		
-		public static const MAX_SEXPREF_VALUE:int = 26; // Keep this as a book-end on the values. Check penny for how you'd random shit
+		public static const MAX_SEXPREF_VALUE:int = 27; // Keep this as a book-end on the values. Check penny for how you'd random shit
 		
 		// Not ideal, but it's possibly better than using switch statements, plus it keeps the Keys ^ with Descriptors \/
 		// The two will have to forever be in the same order though, but I can probably rig up some better system.
@@ -749,6 +763,7 @@
 			"Exotic bodyshapes like nagas and taurs",
 			"Baldness",
 			"Long hair",
+			"Neuters",
 			"ERROR ERROR ABORT ABORT"
 		];
 		
