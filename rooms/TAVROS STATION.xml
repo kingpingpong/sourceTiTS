@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Planet>
+	<DisplayName>TAVROS STATION</DisplayName>
+	<System>KALAS</System>
+	
+	<Room name="MI AMOUR">
+		<Title>"MI\nAMOUR</Title>
+		<Description>"</Description>
+		<Exit type="s" to="110"></Exit>
+		<Flag>INDOOR</Flag>
+		<Flag>NPC</Flag>
+		<Function>miAmoreBonusShit</Function>
+	</Room>
+	
+	<Room name="DARK CHRYSALIS">
+		<Title>"SHOP: DARK\nCHRYSALIS</Title>
+		<Description>"The interior of this shop is difficult to make out thanks to a combination of dim lighting and a smoky haze that smells vaguely of walnuts. Looking around, you manage to locate the source of the illumination - four custom glowbulbs pumping out an unnatural-looking blue-black aura. The walls are covered in shelves with dozens of perverted-looking nicknames, many of them demonic in theme, and the lone counter in the back of the store is similarly decorated.</Description>
+		<Exit type="e" to="MERCHANT'S THOROUGHFARE"></Exit>
+		<Flag>INDOOR</Flag>
+		<Flag>COMMERCE</Flag>
+		<Function>seraBonusFunction</Function>
+	</Room>
+	
+	<Room name="TAVROS LIFT">
+		<Title>"LIFT: HANGAR\nDECK</Title>
+		<Description>"Steady, mechanical thrums suffice the stuffy air inside this tube of metal and and plastic. There is a brass-hued railing to stablize oneself with during the highspeed travel through the kilometers-long station and a sturdy mechanical keypad with which to designate your target level. Much of the lift stations look to be inactive; right now, the hangar and the merchant's thoroughfare are the only areas reachable by lift.</Description>
+		<Exit type="out" to="TAVROS HANGAR"></Exit>
+		<Flag>INDOOR</Flag>
+		<Function>hangarBonus</Function>
+	</Room>
+	
+	<Room name="FUR EFFECT">
+		<Title>"SHOP:\nFUR EFFECT</Title>
+		<Description>"The sign declared this store to be \"Fur Effect,\" and you can see why. Your [pc.feet] sink ankle-deep into thick, pink shag. The plush, pink rug covers the entire floor of the shop, giving way to a fuzzy-looking maroon wall treatment. Even the light sources appear to be wispy, vase-bound feathers, emitting a steady rainbow glow. There are also dozens of pictures and holos of attractive looking furred beings in various poses. One showcases a slinky ferret-girl bending her entire body backwards into an 'o' in a display of supreme flexibility. Another is a floating, holographic cow-girl modelling a straining set of overalls. Behind it, there is a velvety countertop and hardlight projected register.</Description>
+		<Exit type="e" to="110"></Exit>
+		<Flag>INDOOR</Flag>
+		<Flag>COMMERCE</Flag>
+		<Function>furEffectBonusFunction</Function>
+	</Room>
+	
+	<Room name="BETHS BROADS">
+		<Title>"BETH'S\nBUSTY BROADS</Title>
+		<Description>"You're inside Beth's Busty Broads, which seems to be doing good business for itself. Several patrons are gathered around the stage in the center of the show floor, watching a particularly well-endowed ausar girl strut her stuff on the pole. A desk has been set up near the door, where a bored-looking human woman is flipping through a data-slate, barely acknowledging your presence.</Description>
+		<Exit type="n" to="MERCHANT'S THOROUGHFARE"></Exit>
+		<Flag>INDOOR</Flag>
+		<Flag>NPC</Flag>
+		<Function>reahaBonusFunction</Function>
+	</Room>
+	
+	<Room name="LIFT: MERCHANT DECK">
+		<Title>"LIFT: MERCHANT\nDECK</Title>
+		<Description>"Steady, mechanical thrums suffice the stuffy air inside this tube of metal and and plastic. There is a brass-hued railing to stablize oneself with during the highspeed travel through the kilometers-long station and a sturdy mechanical keypad with which to designate your target level. Much of the lift stations look to be inactive; right now, the hangar and the merchant's thoroughfare are the only areas reachable by lift.</Description>
+		<Exit type="out" to="MERCHANT'S THOROUGHFARE"></Exit>
+		<Flag>INDOOR</Flag>
+		<Function>hangarBonus</Function>
+	</Room>
+	
+	<Room name="ANON'S BOARD HALL">
+		<Title>"ANON'S BOARD\nHALL</Title>
+		<Description>"Located at the top of a stairway above the bar, this short hallway stretches briefly to the north before coming to an unremarkable, metallic dead-end. Automated portals line the east and west sides, connecting to different rooms, their surfaces kept moderately clean but pitted with rust here or there. This isn't the kind of place you'd want to stay for long, if you could help it. Anon's Bar and Board lies down the steel-grated stairwell to the south.</Description>
+		<Exit type="s" to="ANON'S BAR AND BOARD"></Exit>
+		<Flag>INDOOR</Flag>
+	</Room>
+	
+	<Room name="HOTEL ROOM">
+		<Title>"HOTEL\nROOM</Title>
+		<Description>"This small, station-bound room is attached to Anon's Bar and Board. The quarters are cramped, there are no windows, and worst of all, your cousin has a headstart on locking down your deceased father's fortune. Luckily, the galaxy is vast. Your cousin won't be claiming if anything for at least a few months if the scale of your father's challenge is anything like you expect. The door to the east is unlocked, leading back into the hallway above the bar. <b>Once you leave, it will seal shut behind you, since you only payed for one night.</b></Description>
+		<Exit type="e" to="ANON'S BOARD HALL"></Exit>
+		<Flag>INDOOR</Flag>
+	</Room>
+	
+	<Room name="ANON'S BAR AND BOARD">
+		<Title>"ANON'S BAR\nAND BOARD</Title>
+		<Description>"Heady alcoholic scents combine with drug-laced smoke and salty food to give this place the unquestionable aroma of a seedy bar. Three-breasted waitresses balancing trays full of drinks one-handed sashay around in short skirts and sheer tops, their gait made awkward by their three legs and small feet. A rickety metal stairway rises up to the north, leading to the board portion of the this establishment. You've already roomed there once, and the accomodations were far from great. A door to the west opens out into a central thoroughfare.</Description>
+		<Exit type="n" to="ANON'S BOARD HALL"></Exit>
+		<Exit type="w" to="MERCHANT'S THOROUGHFARE"></Exit>
+		<Function>anonsBarAddendums</Function>
+		<Flag>INDOOR</Flag>
+		<Flag>BAR</Flag>
+	</Room>
+	
+	<Room name="MERCHANT'S THOROUGHFARE">
+		<Title>"MERCHANT'S\nTHOROUGHFARE</Title>
+		<Description>"The crowds in this part of the station would normally be particularly thick, but it looks like many of the local business have been shuttered, their owners likely trying their business out on the rim, profiteering off the planet rush. For now, Anon's Bar and Board looks to be open out the east. Its interior promises cheap but delicious foods likely to broaden the waistline, but then again, what are you to expect from bar food? The express lifts have entrances here, able to take you to any level on the station if you head <b>in</b> the door.</Description>
+		<Exit type="e" to="ANON'S BAR AND BOARD"></Exit>
+		<Exit type="w" to="DARK CHRYSALIS"></Exit>
+		<Exit type="s" to="BETHS BROADS"></Exit>
+		<Exit type="n" to="110"></Exit>
+		<Exit type="in" to="LIFT: MERCHANT DECK">
+			<Text>Lift</Text>
+		</Exit>
+		<Flag>INDOOR</Flag>
+	</Room>
+	
+	<Room name="110">
+		<Title>"MERCHANT'S\nTHOROUGHFARE</Title>
+		<Description>"The merchant's thoroughfare twists through the center of the station in a circular pattern, though the way north of here is blocked off for now by a shop called \"Mi Amour\". To the west, you see a brightly-lit shop labelled as \"Fur Effect.\" The east wall is bare, likely filled by a side room in from one of the larger businesses.</Description>
+		<Exit type="n" to="MI AMOUR"></Exit>
+		<Exit type="s" to="MERCHANT'S THOROUGHFARE"></Exit>
+		<Exit type="w" to="FUR EFFECT"></Exit>
+		<Flag>INDOOR</Flag>
+	</Room>
+	
+	<Room name="TAVROS HANGAR">
+		<Title>"THE\nHANGAR</Title>
+		<Description>"A sprawling, brightly lit hangar greets your eyes, empty save for a single ship near the back. Your gaze is pulled away from the distant craft by the sheer size of the enclosure. A hangar like this must have cost your father a veritable fortune to buy out - not much considering how wealthy he was, but no insignificant chunk of change. Magnetically-bounded plasma shields hold in the atmosphere while remaining transparent enough for you to view the nearby warp gate and inky blackness beyond. Perhaps the only thing this place couldn't hold would be a capital ship, but a number of moorings with connective umbilicals stand by to tether one outside in that extreme scenario.</Description>
+		<Exit type="in" to="TAVROS LIFT">
+			<Text>Lift</Text>
+		</Exit>
+		<Flag>INDOOR)</Flag>
+		<Function>tavrosHangarStuff</Function>
+	</Room>
+</Planet>

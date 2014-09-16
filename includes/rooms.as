@@ -190,7 +190,7 @@ function initializeRooms():void
 	//1 - Spaceport Elevator
 	rooms["SPACEPORT ELEVATOR"] = new RoomClass(this, "SPACEPORT ELEVATOR");
 	rooms["SPACEPORT ELEVATOR"].roomName = "SPACEPORT\nELEVATOR";
-	rooms["SPACEPORT ELEVATOR"].description = "A standard self-assembling cargo elevator towers overhead, connected to dozens of landing pads covered with brilliantly flashing lights. The supporting girders are stamped with the logo of Pyrite Heavy Industries, the subgroup of Pyrite Industries that handles the largest constructions. The whole thing still gleams like new, even in an environment so damp that the metal is sweating drops of condensation. The doors to the elevator are open, all you need to do is push the button to go back to your ship. Fences and the wall of a building to the east keep you penned in this area, but a doorway marked 窶廚ustoms窶�to the east could be entered if you wish to explore.";
+	rooms["SPACEPORT ELEVATOR"].description = "A standard self-assembling cargo elevator towers overhead, connected to dozens of landing pads covered with brilliantly flashing lights. The supporting girders are stamped with the logo of Pyrite Heavy Industries, the subgroup of Pyrite Industries that handles the largest constructions. The whole thing still gleams like new, even in an environment so damp that the metal is sweating drops of condensation. The doors to the elevator are open, all you need to do is push the button to go back to your ship. Fences and the wall of a building to the east keep you penned in this area, but a doorway marked \"customs\" to the east could be entered if you wish to explore.";
 	rooms["SPACEPORT ELEVATOR"].planet = "PLANET: MHEN'GA";
 	rooms["SPACEPORT ELEVATOR"].system = "SYSTEM: ARA ARA";
 	rooms["SPACEPORT ELEVATOR"].inExit = "SHIP HANGAR";
@@ -1167,7 +1167,7 @@ function initializeRooms():void
 	rooms["OVERGROWN ROCK 6"].description = "The humidity is almost overpowering here. It makes the ground damp, it makes the rock shine, and it makes your [pc.skinFurScales] uncomfortably clammy. Leaves the size of small cars hang off the side of a trunk as big around as a small room. You could probably push past them if it wasn't for the thorny bushes and toothed flowers underneath. Even if you cut into the deep jungle that way, you'd be lost in no time. It'd be better to follow the open space along the sides of this rock to the east and west.";
 	rooms["OVERGROWN ROCK 6"].planet = "PLANET: MHEN'GA";
 	rooms["OVERGROWN ROCK 6"].system = "SYSTEM: ARA ARA";
-	rooms["OVERGROWN ROCK 6"].westExit ="OVERGROWN ROCK 7";
+	rooms["OVERGROWN ROCK 6"].westExit = "OVERGROWN ROCK 7";
 	rooms["OVERGROWN ROCK 6"].eastExit = "OVERGROWN ROCK 5";
 	rooms["OVERGROWN ROCK 6"].addFlag(GLOBAL.OUTDOOR);
 	rooms["OVERGROWN ROCK 6"].addFlag(GLOBAL.HAZARD);
