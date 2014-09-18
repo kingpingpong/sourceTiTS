@@ -32,6 +32,7 @@
 	import flash.utils.ByteArray;
 	import flash.utils.Dictionary;
 	import classes.RoomClass;
+	import classes.PlanetClass;
 	
 	// Game content managers
 	import classes.GameData.TooltipManager;
@@ -78,7 +79,6 @@
 		include "../includes/NPCTemplates.as";
 		include "../includes/burt.as";
 		include "../includes/appearance.as";
-		include "../includes/rooms.as";
 		include "../includes/roomFunctions.as";
 		include "../includes/zilMale.as";
 		include "../includes/zilFemale.as";
@@ -144,6 +144,7 @@
 
 		// Room data
 		public var rooms:Object;
+		public var planets:Object;
 
 		public var temp:int;
 		public var items:Object;
@@ -246,7 +247,7 @@
 			flags = new Dictionary();
 
 			// Major class variable setup: ------------------------------------------------------------
-			initializeRooms();
+			PlanetClass.loadPlanets(this);
 
 			//Lazy man shortcuts! Need reset after reinitialization of data.
 			//pc = chars[0];

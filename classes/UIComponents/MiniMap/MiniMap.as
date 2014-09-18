@@ -360,10 +360,10 @@
 			trace("Parent Dimensions (x,y):(" + this.parent.width + "," + this.parent.height + ")");
 		}
 		
-		private function roomConnection(sourceExit:String, targetExit:String):int
+		private function roomConnection(sourceExit:String, targetExit:String, roomsObj:*):int
 		{
-			if(kGAMECLASS.rooms[sourceExit].hasFlag(GLOBAL.UNDISCOVERED) || kGAMECLASS.rooms[sourceExit].hasFlag(GLOBAL.UNREACHABLE)) return -1;
-			if(kGAMECLASS.rooms[targetExit].hasFlag(GLOBAL.UNDISCOVERED) || kGAMECLASS.rooms[targetExit].hasFlag(GLOBAL.UNREACHABLE)) return -1;
+			if(roomsObj[sourceExit].hasFlag(GLOBAL.UNDISCOVERED) || roomsObj[sourceExit].hasFlag(GLOBAL.UNREACHABLE)) return -1;
+			if(roomsObj[targetExit].hasFlag(GLOBAL.UNDISCOVERED) || roomsObj[targetExit].hasFlag(GLOBAL.UNREACHABLE)) return -1;
 			if(sourceExit && targetExit) return LINK_PASSAGE;
 			if(sourceExit && !targetExit) return LINK_TARGET2NEIGHBOUR;
 			if(!sourceExit && targetExit) return LINK_NEIGHBOUR2TARGET;
@@ -380,7 +380,7 @@
 			if(xPos == -1) xPos = _childNumX / 2;
 			if(yPos == -1) yPos = _childNumY / 2;
 			
-			mapRoom(room, xPos, yPos, kGAMECLASS.rooms, anim);
+			mapRoom(room, xPos, yPos, room.planet.rooms, anim);
 			_focusRoom = _childElements[xPos][(_childNumY - 1) - yPos];
 			
 			if(_trackerData != null)
@@ -392,7 +392,7 @@
 				}
 				var path:Array = track(kGAMECLASS.rooms[kGAMECLASS.currentLocation], _trackerData);
 				if(path == null) return;
-				lightUpPath(path);
+				lightUpPath(path, kGAMECLASS.rooms[kGAMECLASS.currentLocation].planet.rooms);
 			}
 		}
 		
@@ -458,9 +458,9 @@
 
 			if(room.hasFlag(GLOBAL.UNREACHABLE) || room.hasFlag(GLOBAL.UNDISCOVERED)) return;
 			if(yPos <= 0) return;
-			if(room.southExit) _childLinksY[xPos][(_childNumY - 1) - yPos].setLink(roomConnection(room.southExit, roomsObj[room.southExit].northExit));	
+			if(room.southExit) _childLinksY[xPos][(_childNumY - 1) - yPos].setLink(roomConnection(room.southExit, roomsObj[room.southExit].northExit, roomsObj));	
 			if(xPos >= _childNumX - 1) return;
-			if(room.eastExit)  _childLinksX[xPos][(_childNumY - 1) - yPos].setLink(roomConnection(room.eastExit, roomsObj[room.eastExit].westExit));
+			if(room.eastExit)  _childLinksX[xPos][(_childNumY - 1) - yPos].setLink(roomConnection(room.eastExit, roomsObj[room.eastExit].westExit, roomsObj));
 		}
 		
 		private function mapRoomAnimFinished(room:RoomClass, xPos:int, yPos:int, roomsObj:*, completeRooms, animate:Boolean = true)
@@ -480,9 +480,9 @@
 				
 				if(room.hasFlag(GLOBAL.UNREACHABLE) || room.hasFlag(GLOBAL.UNDISCOVERED)) return;
 				if(yPos <= 0) return;
-				if(room.southExit) _childLinksY[xPos][(_childNumY - 1) - yPos].setLink(roomConnection(room.southExit, roomsObj[room.southExit].northExit));	
+				if(room.southExit) _childLinksY[xPos][(_childNumY - 1) - yPos].setLink(roomConnection(room.southExit, roomsObj[room.southExit].northExit, roomsObj));	
 				if(xPos >= _childNumX - 1) return;
-				if(room.eastExit)  _childLinksX[xPos][(_childNumY - 1) - yPos].setLink(roomConnection(room.eastExit, roomsObj[room.eastExit].westExit));
+				if(room.eastExit)  _childLinksX[xPos][(_childNumY - 1) - yPos].setLink(roomConnection(room.eastExit, roomsObj[room.eastExit].westExit, roomsObj));
 			};
 		}
 		
@@ -733,7 +733,7 @@
 		}
 		
 		//Doesn't work for starting locations other than current location, sorry!
-		public function lightUpPath(path:Array, resetChildren:Boolean = true, color:ColorTransform = null):void
+		public function lightUpPath(path:Array, rooms:*, resetChildren:Boolean = true, color:ColorTransform = null):void
 		{
 			this._trackerData = path[path.length - 1];
 			if(resetChildren) resetChildrenColors();
@@ -758,22 +758,22 @@
 			for(; j < path.length; j++)
 			{
 				var nextRoom:RoomClass = path[j];
-				if(nextRoom == kGAMECLASS.rooms[path[j - 1].northExit])
+				if(nextRoom == rooms[path[j - 1].northExit])
 				{
 					lightUpVerticalLink(coordX, coordY - 1, UIStyleSettings.gMinimapTrackerColorTransform);
 					coordY--;
 				}
-				if(nextRoom == kGAMECLASS.rooms[path[j - 1].southExit])
+				if(nextRoom == rooms[path[j - 1].southExit])
 				{
 					lightUpVerticalLink(coordX, coordY, UIStyleSettings.gMinimapTrackerColorTransform);
 					coordY++;
 				}
-				if(nextRoom == kGAMECLASS.rooms[path[j - 1].eastExit])
+				if(nextRoom == rooms[path[j - 1].eastExit])
 				{
 					lightUpHorizontalLink(coordX, coordY, UIStyleSettings.gMinimapTrackerColorTransform);
 					coordX++;
 				}
-				if(nextRoom == kGAMECLASS.rooms[path[j - 1].westExit])
+				if(nextRoom == rooms[path[j - 1].westExit])
 				{
 					lightUpHorizontalLink(coordX - 1, coordY, UIStyleSettings.gMinimapTrackerColorTransform);
 					coordX--;

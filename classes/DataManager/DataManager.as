@@ -586,7 +586,7 @@
 			}
 			
 			//Update room placement:
-			RoomClass.loadRoomFlags(obj, kGAMECLASS);
+			RoomClass.loadRoomFlags(obj);
 			kGAMECLASS.variableRoomUpdateCheck();
 			// Returns the backup
 			return false;

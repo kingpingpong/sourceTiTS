@@ -28,6 +28,7 @@ function chasmfallBonusFunction():Boolean
 	else if(flags["STELLAR_TETHER_CLOSED"] == 1)
 	{
 		output("\n\nLooks like the place is sealed up pretty tightly now. There's no getting back inside.");
+		rooms["351"].addFlag(GLOBAL.UNREACHABLE);
 	}
 	return false;
 }
@@ -688,9 +689,9 @@ function badEndToTamWulfAndTamAndMaybeAlsoTamPartII():void
 		output(" Thanks the to the pressure on your prostate, your own [pc.cocks] twitch");
 		if(pc.cockTotal() == 1) output("es");
 		output(" between your legs, thankfully unrestrained as ");
-		if(pc.cockTotal() == 1) output("it");
-		else output("they");
-		output(" pokes through the crotchless leather suit Mistress has bound you up in.");
+		if(pc.cockTotal() == 1) output("it pokes");
+		else output("they poke");
+		output(" through the crotchless leather suit Mistress has bound you up in.");
 	}
 	output(" Watching you curl up, content to endure your sexual torment.");
 
@@ -763,13 +764,16 @@ function bombAlertBonusFunction():Boolean
 		addButton(0,"Next",mainGameMenu);
 		return true;
 	}
-	if(currentLocation == "353") addButton(0,"LiftDown",liftDownEvent,undefined,"Down","Hop on the elevator and ride it down to the core.");
+	if(currentLocation == "353") {
+		addButton(0,"LiftDown",liftDownEvent,undefined,"Down","Hop on the elevator and ride it down to the core.");
+	}
 	return false;
 }
 
 //[Lift Down] (First time: prepare for ass-assination)
 function liftDownEvent():void
 {
+	//if(userInterface.buttonTray.buttons[7].arg != "353") return;
 	pc.energy(75);
 	clearOutput();
 	author("Savin");
@@ -859,6 +863,7 @@ You press your back to the edge of the cart, and ride it the rest of the way dow
 
 function coreWalkWayBonus():Boolean
 {
+	removeButton(7);
 	if(flags["ROCKET_PODS_ENCOUNTERED"] == undefined)
 	{
 		clearOutput();
