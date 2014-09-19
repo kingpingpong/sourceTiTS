@@ -6,7 +6,7 @@
 	
 	<Room name="528">
 		<Title>BARBEQUE\nPIT</Title>
-		<Description>"</Description>
+		<Description></Description>
 		<Function>NTBarbequeBonusFunc</Function>
 		<Exit type="w" to="526"></Exit>
 		<Flag>INDOOR</Flag>
@@ -15,7 +15,7 @@
 	
 	<Room name="529">
 		<Title>SECRETARY'S\nOFFICE</Title>
-		<Description>"At the top of the stairs is a small, cozy room decorated with several hunting trophies, swords, old-earth guns, and a large wooden desk with a subtly built-in holoterminal. Behind is sits an abnormally flat-chest cow-girl, barely sporting D-cups, dressed much more conservatively than the scantily (if at all) clad cows on the ranch proper. <i>\"Are you here to see Mr. T.?\"</i> she asks, looking up from her work, <i>\"He'd be happy to see you. Go on through.\"</i></Description>
+		<Description>At the top of the stairs is a small, cozy room decorated with several hunting trophies, swords, old-earth guns, and a large wooden desk with a subtly built-in holoterminal. Behind is sits an abnormally flat-chest cow-girl, barely sporting D-cups, dressed much more conservatively than the scantily (if at all) clad cows on the ranch proper. <i>\"Are you here to see Mr. T.?\"</i> she asks, looking up from her work, <i>\"He'd be happy to see you. Go on through.\"</i></Description>
 		<Exit type="s" to="526"></Exit>
 		<Exit type="n" to="530"></Exit>
 		<Flag>INDOOR</Flag>
@@ -24,7 +24,7 @@
 	
 	<Room name="500">
 		<Title>LANDING\nBARN</Title>
-		<Description>"The landing zone on T.'s Ranch in New Texas is as rustic as you could realistically make it: from the outside, the building looks like a monstrously large barn, complete with shingled roof and bright red paint job. From the inside, though, you can see it's clearly been designed as a landing zone for private starships: the roof retracts on a pair of powerful metal arms, opening and closing to allow access. The stalls where stallions or cows might be kept have been dramatically sized up like the rest of the barn, large enough to snugly house most commercial freighters and pleasure yachts. To the west, you can see several bull-men hefting crates and moving cargo from visiting ships.</Description>
+		<Description>The landing zone on T.'s Ranch in New Texas is as rustic as you could realistically make it: from the outside, the building looks like a monstrously large barn, complete with shingled roof and bright red paint job. From the inside, though, you can see it's clearly been designed as a landing zone for private starships: the roof retracts on a pair of powerful metal arms, opening and closing to allow access. The stalls where stallions or cows might be kept have been dramatically sized up like the rest of the barn, large enough to snugly house most commercial freighters and pleasure yachts. To the west, you can see several bull-men hefting crates and moving cargo from visiting ships.</Description>
 		<Exit type="w" to="501"></Exit>
 		<Flag>INDOOR</Flag>
 		<Flag>SHIPHANGAR</Flag>
@@ -32,7 +32,7 @@
 	
 	<Room name="501">
 		<Title>CARGO\nTHOROUGHFARE</Title>
-		<Description>"Naturally, next to the space dock you have the cargo deck. Here, crates full of offworld goods and local produce are going back and forth on conveyer belts, overseen by several bull-men in overalls and caps. Most of the out-going produce is labeled \"milk,\" packaged in huge, temperature-controlled barrels. To the north, a small office has been set off from the rest of the barn with a big, friendly sign over the door labeled \"Customs\". Your ship is parked back to the east.</Description>
+		<Description>Naturally, next to the space dock you have the cargo deck. Here, crates full of offworld goods and local produce are going back and forth on conveyer belts, overseen by several bull-men in overalls and caps. Most of the out-going produce is labeled \"milk,\" packaged in huge, temperature-controlled barrels. To the north, a small office has been set off from the rest of the barn with a big, friendly sign over the door labeled \"Customs\". Your ship is parked back to the east.</Description>
 		<Exit type="e" to="500"></Exit>
 		<Exit type="n" to="TEXAS CUSTOMS"></Exit>
 		<Flag>INDOOR</Flag>
@@ -40,7 +40,7 @@
 	
 	<Room name="527">
 		<Title>GIFT\nSHOP</Title>
-		<Description>"</Description>
+		<Description></Description>
 		<Function>NTGiftShopBonusFunc</Function>
 		<Exit type="e" to="526"></Exit>
 		<Flag>INDOOR</Flag>
@@ -49,7 +49,7 @@
 	
 	<Room name="513">
 		<Title>THE\nBARN</Title>
-		<Description>"It's not often you get to see buildings constructed in the ancients' styles, built with nothing more than beams of hewn wood, sweat, and a few metal bolts. Of course, here and there you see hints of modern technology running through it. New Texas may be an upper-class tourist hotspot advertised as getting back to nature, but they're obviously spending their credits on securing the best milking technology available. Judging by the deep groans of pleasure coming from the sealed stall to the west, they're milking more than milk too. The door to the east is marked \"occupied\" as well.</Description>
+		<Description>It's not often you get to see buildings constructed in the ancients' styles, built with nothing more than beams of hewn wood, sweat, and a few metal bolts. Of course, here and there you see hints of modern technology running through it. New Texas may be an upper-class tourist hotspot advertised as getting back to nature, but they're obviously spending their credits on securing the best milking technology available. Judging by the deep groans of pleasure coming from the sealed stall to the west, they're milking more than milk too. The door to the east is marked \"occupied\" as well.</Description>
 		<Exit type="s" to="512"></Exit>
 		<Exit type="n" to="514"></Exit>
 		<Flag>INDOOR</Flag>
@@ -57,7 +57,7 @@
 	
 	<Room name="526">
 		<Title>RANCH\nFOYER</Title>
-		<Description>"The central room of the ranch house is a huge, wood-paneled affair, with old-school lever guns, tribal totems, and stuffed animals adorning the walls in between advertisements for the Treatment and for Texan Milk. A huge staircase in front of you leads upwards to the second floor, helpfully labeled \"Manager's Office.\" A door to the right leads to the gift shop, which seems to be pretty busy; to the left is a wide open set of double doors leading into what looks like a steakhouse, complete with a longhorn skull and horseshoes nailed to the barn-like door.</Description>
+		<Description>The central room of the ranch house is a huge, wood-paneled affair, with old-school lever guns, tribal totems, and stuffed animals adorning the walls in between advertisements for the Treatment and for Texan Milk. A huge staircase in front of you leads upwards to the second floor, helpfully labeled \"Manager's Office.\" A door to the right leads to the gift shop, which seems to be pretty busy; to the left is a wide open set of double doors leading into what looks like a steakhouse, complete with a longhorn skull and horseshoes nailed to the barn-like door.</Description>
 		<Exit type="s" to="525"></Exit>
 		<Exit type="n" to="529"></Exit>
 		<Exit type="e" to="528"></Exit>
@@ -67,7 +67,7 @@
 	
 	<Room name="510">
 		<Title>BARN\nENTRANCE</Title>
-		<Description>"A hand painted piece of what looks like oak hangs above the barn's single sliding door, declaring it to be the \"Milk Barn\". Even stranger, the door is transparent. You can see right down the barn's central path, covered as it is by a bed of straw. You can only assume that the stalls along either side are equally carpeted with the stuff. You hear pleased-sounding moos and moans in equal proportion, and the air is heady with the scent of milk. The roadway leads west, back towards the farmhouse, and is blocked by a checkpoint to the east. The guards working it inform you that visitors aren't permitted past without a visa.</Description>
+		<Description>A hand painted piece of what looks like oak hangs above the barn's single sliding door, declaring it to be the \"Milk Barn\". Even stranger, the door is transparent. You can see right down the barn's central path, covered as it is by a bed of straw. You can only assume that the stalls along either side are equally carpeted with the stuff. You hear pleased-sounding moos and moans in equal proportion, and the air is heady with the scent of milk. The roadway leads west, back towards the farmhouse, and is blocked by a checkpoint to the east. The guards working it inform you that visitors aren't permitted past without a visa.</Description>
 		<Exit type="w" to="509"></Exit>
 		<Exit type="n" to="511"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -75,7 +75,7 @@
 	
 	<Room name="511">
 		<Title>THE\nBARN</Title>
-		<Description>"The inside of barn assaults your senses with two things above all else: indecent moans and the scent of milk. A not-so-subtle undercurrent of sexual musk runs beneath them, tickling at your nose and making it impossible to ignore the sexual pleasure surrounding you. Despite the lurid scents and smells, the floor of the barn is clean. It's covered with a fine layer of hay that will undoubtedly keep things dry in case of an accident, not that you've seen one yet. A massive sliding door is positioned on the southern wall, leading back out to the road. Empty stalls sit east and west of here, and more of them line the passageway to the north.</Description>
+		<Description>The inside of barn assaults your senses with two things above all else: indecent moans and the scent of milk. A not-so-subtle undercurrent of sexual musk runs beneath them, tickling at your nose and making it impossible to ignore the sexual pleasure surrounding you. Despite the lurid scents and smells, the floor of the barn is clean. It's covered with a fine layer of hay that will undoubtedly keep things dry in case of an accident, not that you've seen one yet. A massive sliding door is positioned on the southern wall, leading back out to the road. Empty stalls sit east and west of here, and more of them line the passageway to the north.</Description>
 		<Exit type="s" to="510"></Exit>
 		<Exit type="n" to="512"></Exit>
 		<Exit type="w" to="515"></Exit>
@@ -85,7 +85,7 @@
 	
 	<Room name="530">
 		<Title>BIG T'S\nOFFICE</Title>
-		<Description>"The office of the planetary governor, Big T., is a warm, spacious office with plenty of seats and couches and several bookshelves, looking more like an aristocrat's study than a government office. The room is dominated by a huge, oaken desk facing the door, a semi-circle of wood alight with monitors, holo-displays, and other readouts, all angled towards a huge, comfy-looking chair. The towering bull-like governor is sitting at his desk, busily talking and typing, managing the world's affairs all from his desk.</Description>
+		<Description>The office of the planetary governor, Big T., is a warm, spacious office with plenty of seats and couches and several bookshelves, looking more like an aristocrat's study than a government office. The room is dominated by a huge, oaken desk facing the door, a semi-circle of wood alight with monitors, holo-displays, and other readouts, all angled towards a huge, comfy-looking chair. The towering bull-like governor is sitting at his desk, busily talking and typing, managing the world's affairs all from his desk.</Description>
 		<Exit type="s" to="529"></Exit>
 		<Flag>INDOOR</Flag>
 		<Flag>NPC</Flag>
@@ -93,7 +93,7 @@
 	
 	<Room name="512">
 		<Title>THE\nBARN</Title>
-		<Description>"You're standing square in the middle of a wide passage that runs north-south through the center of the barn. Stalls line it on either side along its whole length, but what really catches your eye is the bank of blinking lights built into the eastern wall. Flat panel displays, blinking lights, and various keypads all vie for your attention. It looks like you've found the controls for the barn's machinery. The stall next to the console is closed, and marked \"occupied\". Faint moans emanate from within. Opposite, the door hangs open. You could step inside if you wished.</Description>
+		<Description>You're standing square in the middle of a wide passage that runs north-south through the center of the barn. Stalls line it on either side along its whole length, but what really catches your eye is the bank of blinking lights built into the eastern wall. Flat panel displays, blinking lights, and various keypads all vie for your attention. It looks like you've found the controls for the barn's machinery. The stall next to the console is closed, and marked \"occupied\". Faint moans emanate from within. Opposite, the door hangs open. You could step inside if you wished.</Description>
 		<Exit type="s" to="511"></Exit>
 		<Exit type="n" to="513"></Exit>
 		<Exit type="w" to="517"></Exit>
@@ -103,7 +103,7 @@
 	
 	<Room name="525">
 		<Title>THE\nPORCH</Title>
-		<Description>"Big T.'s ranch house is like a super-sized version of an old Texas one, complete with a longhorn skull hanging over the door and a pair of rocking chairs on the front porch. An electric mosquito net hangs around the doorframe, the only sign of advanced technology around. Several cow-girls, bull-boys, and more human tourists are making their way in and out, many with black-and-white-splotched bags from the gift shop.</Description>
+		<Description>Big T.'s ranch house is like a super-sized version of an old Texas one, complete with a longhorn skull hanging over the door and a pair of rocking chairs on the front porch. An electric mosquito net hangs around the doorframe, the only sign of advanced technology around. Several cow-girls, bull-boys, and more human tourists are making their way in and out, many with black-and-white-splotched bags from the gift shop.</Description>
 		<Exit type="s" to="504"></Exit>
 		<Exit type="n" to="526"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -111,21 +111,21 @@
 	
 	<Room name="515">
 		<Title>MILKING\nSTALL</Title>
-		<Description>"A thickly-spread layer of hair makes every step you take a rustling, shuffling affair. The walls are surprisingly modern, covered in liquid and stain resistant tile. A large, industrial-sized milking device is built into the wall to the west, but it is currently powered down and retracted. There's a padded table that a potential milkee could sit or recline upon during the process. An activation button labelled \"Moo\" is recessed next to the machinery. Its purpose seems obvious. You can leave out the door to the east.</Description>
+		<Description>A thickly-spread layer of hair makes every step you take a rustling, shuffling affair. The walls are surprisingly modern, covered in liquid and stain resistant tile. A large, industrial-sized milking device is built into the wall to the west, but it is currently powered down and retracted. There's a padded table that a potential milkee could sit or recline upon during the process. An activation button labelled \"Moo\" is recessed next to the machinery. Its purpose seems obvious. You can leave out the door to the east.</Description>
 		<Exit type="e" to="511"></Exit>
 		<Flag>INDOOR</Flag>
 	</Room>
 	
 	<Room name="514">
 		<Title>THE\nBARN</Title>
-		<Description>"The barn's central thoroughfare comes to an abrupt end here at the north wall. Worse yet, the stalls on either side are closed and occupied. You can hear two cow-girls to the west. One is giggling while the other screams in what can only be pleasure. If only the swinging door wasn't locked, you'd be able to find out. To the east, there's rhythmic slapping along with the occasional grunt of male pleasure. Sometimes a quivering moan can be heard as well. The air is particularly thick with the musky scent of heated bodies writhing against one another back here. You'll need to head south if you want to clear your head.</Description>
+		<Description>The barn's central thoroughfare comes to an abrupt end here at the north wall. Worse yet, the stalls on either side are closed and occupied. You can hear two cow-girls to the west. One is giggling while the other screams in what can only be pleasure. If only the swinging door wasn't locked, you'd be able to find out. To the east, there's rhythmic slapping along with the occasional grunt of male pleasure. Sometimes a quivering moan can be heard as well. The air is particularly thick with the musky scent of heated bodies writhing against one another back here. You'll need to head south if you want to clear your head.</Description>
 		<Exit type="s" to="513"></Exit>
 		<Flag>INDOOR</Flag>
 	</Room>
 	
 	<Room name="TEXAS CUSTOMS">
 		<Title>CUSTOMS\nOFFICE</Title>
-		<Description>"</Description>
+		<Description></Description>
 		<Function>customsAndCheckInOnNewTexas</Function>
 		<Exit type="s" to="501"></Exit>
 		<Exit type="n" to="503"></Exit>
@@ -135,7 +135,7 @@
 	
 	<Room name="516">
 		<Title>MILKING\nSTALL</Title>
-		<Description>"Unlike most of the stalls in the Milk Barn, this one isn't closed or empty. A single auburn-haired cow is sitting on a stool near the door, dressed up in a cow-print corset, panties, and stockings, but otherwise the stall is empty. The center of the room is dominated by what looks like a padded steel vaulting horse with several holes drilled into the top. Pipes lead from the holes to drains and other machines along the walls. Looming overhead is a large, powerful-looking mechanical arm, from which dangles a huge floppy pink dildo.\n\nA sign overtop the stall reads in faded letters, \"Male Milker.\" Doesn't take a genius to figure out what that means... </Description>
+		<Description>Unlike most of the stalls in the Milk Barn, this one isn't closed or empty. A single auburn-haired cow is sitting on a stool near the door, dressed up in a cow-print corset, panties, and stockings, but otherwise the stall is empty. The center of the room is dominated by what looks like a padded steel vaulting horse with several holes drilled into the top. Pipes lead from the holes to drains and other machines along the walls. Looming overhead is a large, powerful-looking mechanical arm, from which dangles a huge floppy pink dildo.\n\nA sign overtop the stall reads in faded letters, \"Male Milker.\" Doesn't take a genius to figure out what that means... </Description>
 		<Function>manMilkerRoomBonusFunc</Function>
 		<Exit type="w" to="511"></Exit>
 		<Flag>INDOOR</Flag>
@@ -144,7 +144,7 @@
 	
 	<Room name="509">
 		<Title>THE\nROAD</Title>
-		<Description>"This close to the barn, you're able to appreciate the work that went into its construction. Every beam is perfectly straight. The paint is smooth as if freshly washed. It's even been patterned after the cows that undoubtedly lie within, with white spots interrupting its more normal, crimson exterior. Rather than having the typical cow-print shape, the spots' edges follow the joints and braces of the wood, making the structure vaguely resemble some kind of blocky, strawberry cow. The doors in aren't far to the east. You can also follow the road west towards the ranch house and landing barn.</Description>
+		<Description>This close to the barn, you're able to appreciate the work that went into its construction. Every beam is perfectly straight. The paint is smooth as if freshly washed. It's even been patterned after the cows that undoubtedly lie within, with white spots interrupting its more normal, crimson exterior. Rather than having the typical cow-print shape, the spots' edges follow the joints and braces of the wood, making the structure vaguely resemble some kind of blocky, strawberry cow. The doors in aren't far to the east. You can also follow the road west towards the ranch house and landing barn.</Description>
 		<Exit type="w" to="508"></Exit>
 		<Exit type="e" to="510"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -152,14 +152,14 @@
 	
 	<Room name="517">
 		<Title>MILKING\nSTALL</Title>
-		<Description>"Hay covers every square inch of the floor, there to catch any stray fluids and be quickly cleaned away. A gleaming machine of metal and plastic has been built into the wall. It appears to be built to pop out into the stall in order to more readily service any available cows. It only has a single button that you can see - a simple green circle with a picture of a cow on its face. You don't push it, yet, but it seems the only option available to you besides leaving. At least there's a comfortable-looking table for the prospective cow to sit or lie upon.</Description>
+		<Description>Hay covers every square inch of the floor, there to catch any stray fluids and be quickly cleaned away. A gleaming machine of metal and plastic has been built into the wall. It appears to be built to pop out into the stall in order to more readily service any available cows. It only has a single button that you can see - a simple green circle with a picture of a cow on its face. You don't push it, yet, but it seems the only option available to you besides leaving. At least there's a comfortable-looking table for the prospective cow to sit or lie upon.</Description>
 		<Exit type="e" to="512"></Exit>
 		<Flag>INDOOR</Flag>
 	</Room>
 	
 	<Room name="503">
 		<Title>NEW\nTEXAS</Title>
-		<Description>"</Description>
+		<Description></Description>
 		<Function>newTexasRoadFirstTime</Function>
 		<Exit type="s" to="TEXAS CUSTOMS"></Exit>
 		<Exit type="e" to="504"></Exit>
@@ -168,7 +168,7 @@
 	
 	<Room name="508">
 		<Title>THE\nROAD</Title>
-		<Description>"A prairie breeze hits you as you walk, carrying the smell of straw and milk on an eastern breeze. Just to the northeast, you can see what is likely the source of the farmland scents: a red and white barn. You can vaguely hear the sound of mooing from within. The whole place has a fresh, wholesome air that's entirely at odds with the message you received and the attitudes of the customs agents.</Description>
+		<Description>A prairie breeze hits you as you walk, carrying the smell of straw and milk on an eastern breeze. Just to the northeast, you can see what is likely the source of the farmland scents: a red and white barn. You can vaguely hear the sound of mooing from within. The whole place has a fresh, wholesome air that's entirely at odds with the message you received and the attitudes of the customs agents.</Description>
 		<Exit type="w" to="507"></Exit>
 		<Exit type="e" to="509"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -176,7 +176,7 @@
 	
 	<Room name="505">
 		<Title>THE\nROAD</Title>
-		<Description>"Little puffs of dust kick up with each step you take on this east-west thoroughfare. The roadway is a simple affair of cleared dirt that's been weatherworn into a what feels more like a series of ruts than a transportation hub. A gleaming white post protrudes from the waving grasses to the north, anchoring the eastmost side of an expansive porch. Behind it sits a large farmhouse; many of the passersby look to be heading towards its entrance - just to the west.</Description>
+		<Description>Little puffs of dust kick up with each step you take on this east-west thoroughfare. The roadway is a simple affair of cleared dirt that's been weatherworn into a what feels more like a series of ruts than a transportation hub. A gleaming white post protrudes from the waving grasses to the north, anchoring the eastmost side of an expansive porch. Behind it sits a large farmhouse; many of the passersby look to be heading towards its entrance - just to the west.</Description>
 		<Exit type="w" to="504"></Exit>
 		<Exit type="e" to="506"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -184,7 +184,7 @@
 	
 	<Room name="506">
 		<Title>THE\nROAD</Title>
-		<Description>"Wooden fence posts line the roadside, polished to such a gleaming sheen that you can see your face reflected across patterned grain. They're at least eight feet tall and connected by slats inches thick. New Texans either have immense livestock or value size more than the rest of the galaxy. The result is a barrier tall enough to give even the largest beasts pause and strong enough to arrest a speeding hovertruck. Behind the posts, there are acres of rolling fields; you get the impression that wandering off the beaten paths might run you afoul of the locals. It's best to stay on the road for now.</Description>
+		<Description>Wooden fence posts line the roadside, polished to such a gleaming sheen that you can see your face reflected across patterned grain. They're at least eight feet tall and connected by slats inches thick. New Texans either have immense livestock or value size more than the rest of the galaxy. The result is a barrier tall enough to give even the largest beasts pause and strong enough to arrest a speeding hovertruck. Behind the posts, there are acres of rolling fields; you get the impression that wandering off the beaten paths might run you afoul of the locals. It's best to stay on the road for now.</Description>
 		<Exit type="w" to="505"></Exit>
 		<Exit type="e" to="507"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -192,7 +192,7 @@
 	
 	<Room name="504">
 		<Title>A DIRT\nROAD</Title>
-		<Description>"Just walking along this pockmarked road has you wishing that the locals would do a better job maintaining their infrastructure. They don't seem to mind, though. All too often, you see guys walking by, escorting curvy, wiggly cow-girls with a well-placed, squeezing palm or casually groping fingers. Their vehicles, boxy-looking hovertrucks, occasionally zip by, undoubtedly on some errand. Wooden steps to the north lead up onto a white porch that makes up the facade of an impressive looking ranch house. Plenty of foot traffic is going in and out, and you're pretty sure you can make out a doormat with \"Welcome, Y'all\" spelled out on it.</Description>
+		<Description>Just walking along this pockmarked road has you wishing that the locals would do a better job maintaining their infrastructure. They don't seem to mind, though. All too often, you see guys walking by, escorting curvy, wiggly cow-girls with a well-placed, squeezing palm or casually groping fingers. Their vehicles, boxy-looking hovertrucks, occasionally zip by, undoubtedly on some errand. Wooden steps to the north lead up onto a white porch that makes up the facade of an impressive looking ranch house. Plenty of foot traffic is going in and out, and you're pretty sure you can make out a doormat with \"Welcome, Y'all\" spelled out on it.</Description>
 		<Exit type="w" to="503"></Exit>
 		<Exit type="e" to="505"></Exit>
 		<Exit type="n" to="525"></Exit>
@@ -201,7 +201,7 @@
 	
 	<Room name="507">
 		<Title>THE\nROAD</Title>
-		<Description>"Despite the rumblings of the occasional, passing hovertruck, this straight and narrow thoroughfare is quite peaceful. The pitted, unkept earth of the roadway has just enough give beneath your [pc.feet] to make your passage one of relative peace so long as you keep from tripping in the rare deep divot. Immense fences protect you on either side, guarding over fields of waving grasses to the north and the south. A decent-sized barn isn't far to the northeast, and an impressive ranch house stands off the road to the northwest.</Description>
+		<Description>Despite the rumblings of the occasional, passing hovertruck, this straight and narrow thoroughfare is quite peaceful. The pitted, unkept earth of the roadway has just enough give beneath your [pc.feet] to make your passage one of relative peace so long as you keep from tripping in the rare deep divot. Immense fences protect you on either side, guarding over fields of waving grasses to the north and the south. A decent-sized barn isn't far to the northeast, and an impressive ranch house stands off the road to the northwest.</Description>
 		<Exit type="w" to="506"></Exit>
 		<Exit type="e" to="508"></Exit>
 		<Flag>OUTDOOR</Flag>

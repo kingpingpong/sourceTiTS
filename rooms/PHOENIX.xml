@@ -6,7 +6,7 @@
 	
 	<Room name="PHOENIX RECROOM">
 		<Title>"PHOENIX:\nREC ROOM</Title>
-		<Description>"</Description>
+		<Description></Description>
 		<Function>phoenixRecRoom</Function>
 		<Exit type="n" to="PHOENIX QUARTERS"></Exit>
 		<Exit type="e" to="PHOENIX CARGO"></Exit>
@@ -16,7 +16,7 @@
 	
 	<Room name="PHOENIX LIFT L1">
 		<Title>"PHOENIX:\nLIFT L1</Title>
-		<Description>"</Description>
+		<Description></Description>
 		<Exit type="out" to="PHOENIX LIFT L2">
 			<Text>Down</Text>
 		</Exit>
@@ -26,7 +26,7 @@
 	
 	<Room name="PHOENIX CARGO">
 		<Title>"PHOENIX:\nCARGO BAY</Title>
-		<Description>"</Description>
+		<Description></Description>
 		<Function>phoenixCargo</Function>
 		<Exit type="e" to="PHOENIX LIFT L1"></Exit>
 		<Exit type="w" to="PHOENIX RECROOM"></Exit>
@@ -35,7 +35,7 @@
 	
 	<Room name="PHOENIX BRIDGE">
 		<Title>"PHOENIX:\nBRIDGE</Title>
-		<Description>"</Description>
+		<Description></Description>
 		<Function>phoenixBridge</Function>
 		<Exit type="e" to="PHOENIX RECROOM"></Exit>
 		<Flag>INDOOR</Flag>
@@ -43,7 +43,7 @@
 	
 	<Room name="PHOENIX LIFT L2">
 		<Title>"PHOENIX:\nLIFT L2</Title>
-		<Description>"</Description>
+		<Description></Description>
 		<Exit type="in" to="PHOENIX LIFT L1"></Exit>
 		<Exit type="e" to="PHOENIX ENGINEERING"></Exit>
 		<Flag>INDOOR</Flag>
@@ -51,7 +51,7 @@
 	
 	<Room name="PHOENIX ENGINEERING">
 		<Title>"PHOENIX:\nENGINEERING</Title>
-		<Description>"</Description>
+		<Description></Description>
 		<Function>phoenixEngineering</Function>
 		<Exit type="w" to="PHOENIX LIFT L2"></Exit>
 		<Flag>INDOOR</Flag>
@@ -59,7 +59,7 @@
 	
 	<Room name="PHOENIX QUARTERS">
 		<Title>"PHOENIX:\nQUARTERS</Title>
-		<Description>"</Description>
+		<Description></Description>
 		<Function>phoenixCrewQuarters</Function>
 		<Exit type="s" to="PHOENIX RECROOM"></Exit>
 		<Flag>INDOOR</Flag>

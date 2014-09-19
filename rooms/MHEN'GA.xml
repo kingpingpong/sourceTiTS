@@ -6,7 +6,7 @@
 	
 	<Room name="VALLEY FLOOR">
 		<Title>VALLEY\nFLOOR</Title>
-		<Description>"You are standing at the bottom of a thick, misty valley, surrounded by colossal trees covered in luminous lichen. The pulsing colors light up the eerily thick mist. This doesn't feel like a safe place to be standing. The temperature here is very cold and wet.\n\nTo the north there is a path leading up and out of the fog filled valley. You seem free to move in any other direction, but the fog makes it hard to see what awaits you there.</Description>
+		<Description>You are standing at the bottom of a thick, misty valley, surrounded by colossal trees covered in luminous lichen. The pulsing colors light up the eerily thick mist. This doesn't feel like a safe place to be standing. The temperature here is very cold and wet.\n\nTo the north there is a path leading up and out of the fog filled valley. You seem free to move in any other direction, but the fog makes it hard to see what awaits you there.</Description>
 		<Function>mhengaVanaeCombatZone</Function>
 		<Exit type="n" to="VALLEY DESCENT 2"></Exit>
 		<Exit type="e" to="MISTY VALLEY 3"></Exit>
@@ -20,7 +20,7 @@
 	
 	<Room name="VINED JUNGLE 2">
 		<Title>VINED\nJUNGLE</Title>
-		<Description>"The path through the tentacles takes a gentle curve to the north and east underfoot. It seems almost mechanical in the smoothness of its arc, and the none of the vines bother you in the slightest as you consider your options. You hear the crack of an insect falling prey to the wriggling plantlife, ominously encouraging you to leave this place behind.</Description>
+		<Description>The path through the tentacles takes a gentle curve to the north and east underfoot. It seems almost mechanical in the smoothness of its arc, and the none of the vines bother you in the slightest as you consider your options. You hear the crack of an insect falling prey to the wriggling plantlife, ominously encouraging you to leave this place behind.</Description>
 		<Exit type="n" to="VINED JUNGLE 1"></Exit>
 		<Exit type="w" to="VINED JUNGLE 3"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -32,7 +32,7 @@
 	
 	<Room name="DEBUG1">
 		<Title>\nDEBUG ROOM</Title>
-		<Description>"</Description>
+		<Description></Description>
 		<Exit type="e" to="WEST ESBETH 1"></Exit>
 		<Flag>INDOOR</Flag>
 		<Function>debugMenus</Function>
@@ -40,7 +40,7 @@
 	
 	<Room name="JUNGLE EDGE">
 		<Title>JUNGLE\nEDGE</Title>
-		<Description>"The shadows of alien trees shroud you in darkness here, though your eyes soon adjust. The path, which is obviously man-made on its way back to the west. Here, it has an offshoot to the south and a simple footpath to the east. Neither seems particularly straight, perhaps due to the huge trees, some of which are well over ten feet around. Foreign howls, birdcalls, and rustling vegetation keep your nerves on end. <b>This is not a safe place.</b></Description>
+		<Description>The shadows of alien trees shroud you in darkness here, though your eyes soon adjust. The path, which is obviously man-made on its way back to the west. Here, it has an offshoot to the south and a simple footpath to the east. Neither seems particularly straight, perhaps due to the huge trees, some of which are well over ten feet around. Foreign howls, birdcalls, and rustling vegetation keep your nerves on end. <b>This is not a safe place.</b></Description>
 		<Exit type="e" to="FERNGROWTH PATH 1"></Exit>
 		<Exit type="w" to="EAST ESBETH EXIT"></Exit>
 		<Exit type="s" to="PURPLE FLOWERS 4"></Exit>
@@ -50,7 +50,7 @@
 	
 	<Room name="DENSE ORANGE 3">
 		<Title>THE DENSE\nORANGE</Title>
-		<Description>"Caterpillars as big as your thumb are swarming all over a crimson-trunked tree. A closer look reveals that the arboreal victim is already missing all its leaves and likely dead. The odd insects chitter noisily as they devour the bark, completely oblivious to your presence. You leave them and consider the trail before you; it snakes north-south through the vibrant jungle. The babbling of a brook or river can be heard distantly to the west, but there is no way through the brush in that direction.</Description>
+		<Description>Caterpillars as big as your thumb are swarming all over a crimson-trunked tree. A closer look reveals that the arboreal victim is already missing all its leaves and likely dead. The odd insects chitter noisily as they devour the bark, completely oblivious to your presence. You leave them and consider the trail before you; it snakes north-south through the vibrant jungle. The babbling of a brook or river can be heard distantly to the west, but there is no way through the brush in that direction.</Description>
 		<Exit type="n" to="DENSE ORANGE 2"></Exit>
 		<Exit type="s" to="DENSE ORANGE 4"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -62,7 +62,7 @@
 	
 	<Room name="SOUTHEAST ESBETH">
 		<Title>SOUTHEAST\nESBETH</Title>
-		<Description>"The packed earth of Esbeth's only path veers north and west away from you on its circuit of the town. To the southeast, you can see a simple tower built of plain girders that supports an automated turret. It swivels this way and that, a silent sentinel that protects the town from whatever horrors lurk in the jungle. There are blessedly few craters around the burned-out periphery, indicating that they haven't had to fire all that often, thankfully.</Description>
+		<Description>The packed earth of Esbeth's only path veers north and west away from you on its circuit of the town. To the southeast, you can see a simple tower built of plain girders that supports an automated turret. It swivels this way and that, a silent sentinel that protects the town from whatever horrors lurk in the jungle. There are blessedly few craters around the burned-out periphery, indicating that they haven't had to fire all that often, thankfully.</Description>
 		<Exit type="n" to="EAST ESBETH"></Exit>
 		<Exit type="w" to="SOUTH ESBETH 3"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -70,7 +70,7 @@
 	
 	<Room name="BLADED FERNS 1">
 		<Title>BLADED\nFERNS</Title>
-		<Description>"The fog here has a thin but pervasive quality, shrouding everything in a layer of light white. You can pick up vague impressions of familiar shapes around you that you assume are trees and bushes.\n\nDue to the mist you almost brush against a mass of pale shrubs and ferns lined with silvery, blade-like leaves. You can see crimson blood smeared across a good portion of the razor edged foliage.\n\nThere seems to be gaps in the vicious vegetation to the north and south. Any other direction looks to be a death trap.</Description>
+		<Description>The fog here has a thin but pervasive quality, shrouding everything in a layer of light white. You can pick up vague impressions of familiar shapes around you that you assume are trees and bushes.\n\nDue to the mist you almost brush against a mass of pale shrubs and ferns lined with silvery, blade-like leaves. You can see crimson blood smeared across a good portion of the razor edged foliage.\n\nThere seems to be gaps in the vicious vegetation to the north and south. Any other direction looks to be a death trap.</Description>
 		<Function>mhengaVanaeFernDamage</Function>
 		<Exit type="n" to="NARROW GORGE 1"></Exit>
 		<Exit type="s" to="BLADED FERNS 2"></Exit>
@@ -82,7 +82,7 @@
 	
 	<Room name="NARROW PATH 2">
 		<Title>NARROW\nJUNGLE PATH</Title>
-		<Description>"The scorch marks that marred the trees high above to the north continue down and to the south here. You can see them dipping closer and closer to the jungle floor, and it truly is a jungle here. The air is far more humid than it is to the north. The buzz from the myriad life-forms, many of them insectile, is nearly deafening this deep in the jungle. The trunks of the trees seem thicker, the plant-life denser. This is unquestionably what you'd classify as 'deep jungle'. To the north, the path to a slightly less overgrown area. To the south, the jungle worsens.</Description>
+		<Description>The scorch marks that marred the trees high above to the north continue down and to the south here. You can see them dipping closer and closer to the jungle floor, and it truly is a jungle here. The air is far more humid than it is to the north. The buzz from the myriad life-forms, many of them insectile, is nearly deafening this deep in the jungle. The trunks of the trees seem thicker, the plant-life denser. This is unquestionably what you'd classify as 'deep jungle'. To the north, the path to a slightly less overgrown area. To the south, the jungle worsens.</Description>
 		<Exit type="n" to="NARROW BEND 1"></Exit>
 		<Exit type="s" to="NARROW PATH 3"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -94,7 +94,7 @@
 	
 	<Room name="SOUTH ESBETH 3">
 		<Title>SOUTH\nESBETH</Title>
-		<Description>"A gust of pollen tickles a sneeze out of your nose as you traverse the southern edge of the town of Esbeth. The structures to the north and south are simple and plain, guarded with closed, locked doors that make it obvious there's nothing to be done inside. Townspeople give you a respectful nod as they pass but otherwise want nothing to do with you. While the road goes east and west, just east of here it doglegs north.</Description>
+		<Description>A gust of pollen tickles a sneeze out of your nose as you traverse the southern edge of the town of Esbeth. The structures to the north and south are simple and plain, guarded with closed, locked doors that make it obvious there's nothing to be done inside. Townspeople give you a respectful nod as they pass but otherwise want nothing to do with you. While the road goes east and west, just east of here it doglegs north.</Description>
 		<Exit type="w" to="SOUTH ESBETH 2"></Exit>
 		<Exit type="e" to="SOUTHEAST ESBETH"></Exit>
 		<Exit type="n" to="PENNY'S OFFICE"></Exit>
@@ -103,7 +103,7 @@
 	
 	<Room name="DENSE ORANGE 4">
 		<Title>THE DENSE\nORANGE</Title>
-		<Description>"Treading carefully, you do your best to traverse Mhen'ga's less-than-hospitable terrain without injuring yourself, and thus far, it's going fairly well. This small trail is the only way through the dense orange undergrowth that surrounds it. With enough time and effort it might be possible to blaze your own trail through the shimmering, peach-hued leaves, but it would take so long that by the time you got anywhere, the planet rush would be over and Mhen'ga colonized. You can follow the path north and south.</Description>
+		<Description>Treading carefully, you do your best to traverse Mhen'ga's less-than-hospitable terrain without injuring yourself, and thus far, it's going fairly well. This small trail is the only way through the dense orange undergrowth that surrounds it. With enough time and effort it might be possible to blaze your own trail through the shimmering, peach-hued leaves, but it would take so long that by the time you got anywhere, the planet rush would be over and Mhen'ga colonized. You can follow the path north and south.</Description>
 		<Exit type="n" to="DENSE ORANGE 3"></Exit>
 		<Exit type="s" to="ORANGE INTERSECTION 1"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -115,7 +115,7 @@
 	
 	<Room name="ESBETH MEDICAL OFFICE">
 		<Title>MEDICAL\nOFFICE</Title>
-		<Description>"The inside of the medical office is about as ramshackle and rundown as the outside of the shack. Standard manufactured alumiplate forms the walls, and the floor is made of the same bland, reflective stuff. Discarded wrappers and bits of clothing are scattered everywhere. There isn't even a trash receptacle anywhere to clean it up with. More importantly, a single bed is built into the east wall, covered in fresh fabric of some kind or another. The only piece of equipment that looks moderately well-maintained is a seemingly worn chair close to the bed.\n\nThe door to the west leads back to the streets of Esbeth.</Description>
+		<Description>The inside of the medical office is about as ramshackle and rundown as the outside of the shack. Standard manufactured alumiplate forms the walls, and the floor is made of the same bland, reflective stuff. Discarded wrappers and bits of clothing are scattered everywhere. There isn't even a trash receptacle anywhere to clean it up with. More importantly, a single bed is built into the east wall, covered in fresh fabric of some kind or another. The only piece of equipment that looks moderately well-maintained is a seemingly worn chair close to the bed.\n\nThe door to the west leads back to the streets of Esbeth.</Description>
 		<Function>mhengaMedicalThingerBonusFunc</Function>
 		<Exit type="w" to="EAST ESBETH"></Exit>
 		<Flag>INDOOR</Flag>
@@ -124,7 +124,7 @@
 	
 	<Room name="LICHENS 3">
 		<Title>LICHEN\nJUNGLE</Title>
-		<Description>"Glowing lights of all colors assault your senses as you travel through this segment of humid forest, nearly dazzling you with their natural variations and shifting palettes. The lichens that have overgrown everything here are the source of the unearthly auras. At least you have something pretty to look at while you explore. Between the durable brambles to the west and some dense, boring-looking trees to the east, you're hemmed onto the surprisingly open path you now tread. It leads north and south.</Description>
+		<Description>Glowing lights of all colors assault your senses as you travel through this segment of humid forest, nearly dazzling you with their natural variations and shifting palettes. The lichens that have overgrown everything here are the source of the unearthly auras. At least you have something pretty to look at while you explore. Between the durable brambles to the west and some dense, boring-looking trees to the east, you're hemmed onto the surprisingly open path you now tread. It leads north and south.</Description>
 		<Exit type="n" to="LICHENS BEND 2"></Exit>
 		<Exit type="s" to="LICHENS 4"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -136,7 +136,7 @@
 	
 	<Room name="THICK MIST 2">
 		<Title>THICK\nMIST</Title>
-		<Description>"</Description>
+		<Description></Description>
 		<Function>mhengaThickMist2RoomFunc</Function>
 		<Exit type="n" to="MISTY VALLEY 3"></Exit>
 		<Exit type="s" to="NARROW GORGE 1"></Exit>
@@ -149,7 +149,7 @@
 	
 	<Room name="OVERGROWN ROCK 3">
 		<Title>GIGANTIC\nROCK</Title>
-		<Description>"A flat, almost featureless rock wall rises up to the south of here, towering over you by hundreds of feet. Its cracks and crevices are almost entirely filled with colorful forms of plant life, but for some reason, nothing has grown that close to it, enabled you to walk by it to the east and the west as you wish. To the north, there's thousands of vines bundled together. Most hang there limply, yet some are moving, squirming like tentacles. A path leads north between them, if you dare head through them.</Description>
+		<Description>A flat, almost featureless rock wall rises up to the south of here, towering over you by hundreds of feet. Its cracks and crevices are almost entirely filled with colorful forms of plant life, but for some reason, nothing has grown that close to it, enabled you to walk by it to the east and the west as you wish. To the north, there's thousands of vines bundled together. Most hang there limply, yet some are moving, squirming like tentacles. A path leads north between them, if you dare head through them.</Description>
 		<Exit type="n" to="VINED JUNGLE 4"></Exit>
 		<Exit type="e" to="OVERGROWN ROCK 2"></Exit>
 		<Exit type="w" to="OVERGROWN ROCK 12"></Exit>
@@ -162,7 +162,7 @@
 	
 	<Room name="FERNS AT LICHENS 1">
 		<Title>FERNS AND\nLICHENS</Title>
-		<Description>"The ferns that hug the pathway to the west die off here under the weight of some very aggressive lichens that have scoured them away. The western path fades here, but the ground is open to the north and south so that you can tread across soft earth in whichever direction you like. A copse of gray trees covered in bioluminescent lichens grows to the east, the trunks so close together that there's no decent way to travel past them. The colorful composite organisms also carpet the ground in a blanket of shifting, almost psychedelic hues.</Description>
+		<Description>The ferns that hug the pathway to the west die off here under the weight of some very aggressive lichens that have scoured them away. The western path fades here, but the ground is open to the north and south so that you can tread across soft earth in whichever direction you like. A copse of gray trees covered in bioluminescent lichens grows to the east, the trunks so close together that there's no decent way to travel past them. The colorful composite organisms also carpet the ground in a blanket of shifting, almost psychedelic hues.</Description>
 		<Exit type="n" to="LICHENS 4"></Exit>
 		<Exit type="s" to="LICHENS BEND 1"></Exit>
 		<Exit type="w" to="FERNGROWTH PATH 4"></Exit>
@@ -175,7 +175,7 @@
 	
 	<Room name="DEEP INTERSECTION 1">
 		<Title>DEEP\nINTERSECTION</Title>
-		<Description>"The well-packed earth splits off in a 'T' intersection - an east fork, a south fork, and a west fork. In the east-west route, the trail remains steady and smooth through the near darkness. To the south, you can see shafts of sunlight flickering down through the treetops, but it also smells thick and damp with humidity, pollen, and spores. A babbling brook crosses the path just east of here. It's barely a few inches deep and so placid that the crossing would be little more than a damp footnote on your journey.</Description>
+		<Description>The well-packed earth splits off in a 'T' intersection - an east fork, a south fork, and a west fork. In the east-west route, the trail remains steady and smooth through the near darkness. To the south, you can see shafts of sunlight flickering down through the treetops, but it also smells thick and damp with humidity, pollen, and spores. A babbling brook crosses the path just east of here. It's barely a few inches deep and so placid that the crossing would be little more than a damp footnote on your journey.</Description>
 		<Exit type="e" to="DEEP FOREST 1"></Exit>
 		<Exit type="w" to="DEEP FOREST 2"></Exit>
 		<Exit type="s" to="DEEP JUNGLE 1"></Exit>
@@ -188,7 +188,7 @@
 	
 	<Room name="VINED JUNGLE 1">
 		<Title>VINED\nJUNGLE</Title>
-		<Description>"A vine lashes out at your [pc.foot]. Kicking it away, you briefly stumble, but nothing seems to capitalize on your momentary loss of balance. You're probably not the prey it was looking for. There's so many of those plant-like tentacles here that they may as well be impenetrable walls of squirming flesh. Something has been keeping them pruned back from this path enough to navigate. You can go north and south from here.</Description>
+		<Description>A vine lashes out at your [pc.foot]. Kicking it away, you briefly stumble, but nothing seems to capitalize on your momentary loss of balance. You're probably not the prey it was looking for. There's so many of those plant-like tentacles here that they may as well be impenetrable walls of squirming flesh. Something has been keeping them pruned back from this path enough to navigate. You can go north and south from here.</Description>
 		<Exit type="n" to="FORKED DEEP JUNGLE 1"></Exit>
 		<Exit type="s" to="VINED JUNGLE 2"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -200,7 +200,7 @@
 	
 	<Room name="ORANGE INTERSECTION 1">
 		<Title>ORANGE\nINTERSECTION</Title>
-		<Description>"The tangerine-dyed foilage is split by the meeting of two paths here. One, a narrow, old path, travels north and south through the candy-colored growth. The other snakes off to the east. It looks much less traveled. Indeed, you might not have noticed it if the gap in the plant-life wasn't so obviously illuminated thanks to the dayglow tone of the surrounding leaves.</Description>
+		<Description>The tangerine-dyed foilage is split by the meeting of two paths here. One, a narrow, old path, travels north and south through the candy-colored growth. The other snakes off to the east. It looks much less traveled. Indeed, you might not have noticed it if the gap in the plant-life wasn't so obviously illuminated thanks to the dayglow tone of the surrounding leaves.</Description>
 		<Exit type="n" to="DENSE ORANGE 4"></Exit>
 		<Exit type="s" to="DENSE ORANGE 5"></Exit>
 		<Exit type="e" to="NARROW PATH 1"></Exit>
@@ -213,7 +213,7 @@
 	
 	<Room name="DENSE ORANGE 2">
 		<Title>THE DENSE\nORANGE</Title>
-		<Description>"The jungle on either side is flooded with orangish plants of all sizes and descriptions. There are waist-high, peach-colored ferns. There are trees with tangerine vines covering their trunks. There's even tufts of round-bladed, orange grass under[pc.foot]. The way through this mess of spectacularly hued organic growth looks well traveled, though no obvious tracks reveal themselves. You can continue north and south from here.</Description>
+		<Description>The jungle on either side is flooded with orangish plants of all sizes and descriptions. There are waist-high, peach-colored ferns. There are trees with tangerine vines covering their trunks. There's even tufts of round-bladed, orange grass under[pc.foot]. The way through this mess of spectacularly hued organic growth looks well traveled, though no obvious tracks reveal themselves. You can continue north and south from here.</Description>
 		<Exit type="n" to="DENSE ORANGE 1"></Exit>
 		<Exit type="s" to="DENSE ORANGE 3"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -225,7 +225,7 @@
 	
 	<Room name="BLADED FERNS 2">
 		<Title></Title>
-		<Description>"Here the air is rife with mist and the ground littered with razor leaved shrubs and bushes. Only the glimmering of silver leaves warns you of impending danger; each step an exercise in extreme caution.\n\nIt seems like a natural defense against unprotected intruders. You spot the skeleton of a massive creature surrounded by the bladed ferns. You suspect they did not exercise the same level of prudence.\n\nThrough the maze-like foliage, you can see a path leading north and another west. Everywhere else is filled with painful looking thickets packed close together.</Description>
+		<Description>Here the air is rife with mist and the ground littered with razor leaved shrubs and bushes. Only the glimmering of silver leaves warns you of impending danger; each step an exercise in extreme caution.\n\nIt seems like a natural defense against unprotected intruders. You spot the skeleton of a massive creature surrounded by the bladed ferns. You suspect they did not exercise the same level of prudence.\n\nThrough the maze-like foliage, you can see a path leading north and another west. Everywhere else is filled with painful looking thickets packed close together.</Description>
 		<Function>mhengaVanaeFernDamage</Function>
 		<Exit type="n" to="BLADED FERNS 1"></Exit>
 		<Exit type="w" to="CLOUD FOREST 1"></Exit>
@@ -237,7 +237,7 @@
 	
 	<Room name="WEST ESBETH 1">
 		<Title>WEST\nESBETH</Title>
-		<Description>"The western side of Esbeth is barely more than the tamped down path you now tread. Self-assembling, pre-fabricated houses have been set up here and there by the settlers brave enough to try their luck on a new, untested planet. Thus far, Mhen'ga has not sent its jungles in to claim the small town, but that doesn't mean it won't. The path bends forther to the north and continues straight on to the south. The western building is closed and locked, for now.\n\nTo the east you see one of the many pre-fabricated buildings in the colony, somewhat out of place among the shacks and more nondescript buildings. A pair of industrial stacks spewing out harmless wafts of steam denotes use, while the colorful and somewhat stretched sign up front purpose: <i>Crazy Carl's Crude Cylinder Collection Cache</i>. The crude neon outline of a handgun helps you fill in the blanks.</Description>
+		<Description>The western side of Esbeth is barely more than the tamped down path you now tread. Self-assembling, pre-fabricated houses have been set up here and there by the settlers brave enough to try their luck on a new, untested planet. Thus far, Mhen'ga has not sent its jungles in to claim the small town, but that doesn't mean it won't. The path bends forther to the north and continues straight on to the south. The western building is closed and locked, for now.\n\nTo the east you see one of the many pre-fabricated buildings in the colony, somewhat out of place among the shacks and more nondescript buildings. A pair of industrial stacks spewing out harmless wafts of steam denotes use, while the colorful and somewhat stretched sign up front purpose: <i>Crazy Carl's Crude Cylinder Collection Cache</i>. The crude neon outline of a handgun helps you fill in the blanks.</Description>
 		<Exit type="s" to="WEST ESBETH 2"></Exit>
 		<Exit type="n" to="NORTHWEST ESBETH"></Exit>
 		<Exit type="e" to="CRAZY CARLS"></Exit>
@@ -246,7 +246,7 @@
 	
 	<Room name="NARROW PATH 3">
 		<Title>NARROW\nJUNGLE PATH</Title>
-		<Description>"Droplets of water fall from higher up in this verdant, almost claustrophobic jungle. Everything seems to be coated in a fine layer of humidity from the omnipresent moisture. Perhaps it would explain why the scorched leaves on either side of the path never caught fire. A divot in the ground starts here, burrowing away to the south. It doesn't look to get much deeper, but it does look to have charred the earth with carbon as it went. The source lies to the south.</Description>
+		<Description>Droplets of water fall from higher up in this verdant, almost claustrophobic jungle. Everything seems to be coated in a fine layer of humidity from the omnipresent moisture. Perhaps it would explain why the scorched leaves on either side of the path never caught fire. A divot in the ground starts here, burrowing away to the south. It doesn't look to get much deeper, but it does look to have charred the earth with carbon as it went. The source lies to the south.</Description>
 		<Exit type="n" to="NARROW PATH 2"></Exit>
 		<Exit type="s" to="METAL POD 1"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -258,7 +258,7 @@
 	
 	<Room name="SOUTH ESBETH 2">
 		<Title>SOUTH\nESBETH</Title>
-		<Description>"Traffic on these hard-packed paths is light the whole way around the small town of Esbeth. No matter where you are, you usually don't see more than a few people. Most of them appear to be townsfolk on the way to some errand or in the process of improving a ramshackle abode, but every now and again you see someone who is out hunting and prospecting like yourself, kitted out for a fight and looking at everything with sharp eyes. The building to the north is a monolithic looking thing labelled 'Xenogen Biotech.' A large doorway to the north provides access, and the road goes on to the east and west.</Description>
+		<Description>Traffic on these hard-packed paths is light the whole way around the small town of Esbeth. No matter where you are, you usually don't see more than a few people. Most of them appear to be townsfolk on the way to some errand or in the process of improving a ramshackle abode, but every now and again you see someone who is out hunting and prospecting like yourself, kitted out for a fight and looking at everything with sharp eyes. The building to the north is a monolithic looking thing labelled 'Xenogen Biotech.' A large doorway to the north provides access, and the road goes on to the east and west.</Description>
 		<Exit type="w" to="SOUTH ESBETH 1"></Exit>
 		<Exit type="e" to="SOUTH ESBETH 3"></Exit>
 		<Exit type="n" to="KELLY'S OFFICE"></Exit>
@@ -268,7 +268,7 @@
 	
 	<Room name="LICHENS 4">
 		<Title>LICHEN\nJUNGLE</Title>
-		<Description>"As you travel through the glowing vegetation, it reacts to you in certain places, brightening as you near some lichenous outcroppings and dimming as you approach others. Regardless, the stuff has grown over everything, even the tough-looking trees that bar the way to the east like silent sentinels and thick, prickly thorn bushes that have grown as tall as you to the west. The lichen-carpeted path between the two travels north and south.</Description>
+		<Description>As you travel through the glowing vegetation, it reacts to you in certain places, brightening as you near some lichenous outcroppings and dimming as you approach others. Regardless, the stuff has grown over everything, even the tough-looking trees that bar the way to the east like silent sentinels and thick, prickly thorn bushes that have grown as tall as you to the west. The lichen-carpeted path between the two travels north and south.</Description>
 		<Exit type="n" to="LICHENS 3"></Exit>
 		<Exit type="s" to="FERNS AT LICHENS 1"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -280,7 +280,7 @@
 	
 	<Room name="BURT'S MAIN HALL">
 		<Title>BURT'S BADASS\nMEAD HALL</Title>
-		<Description>"A cloud of smoky inhalants hangs around the rafters of this high-ceilinged chamber to lend this place an air of mystery. The obnoxious music playing from an illuminated audio system in the corner along with the noisy beeps of a gaming system dispel that notion immediately. A huge bar lines the western wall, shining dully in the artificial lighting. It's obviously the most well-maintained and cared for object in the entire establishment. A doorway to the south leads back out onto the streets of Mhen'ga.</Description>
+		<Description>A cloud of smoky inhalants hangs around the rafters of this high-ceilinged chamber to lend this place an air of mystery. The obnoxious music playing from an illuminated audio system in the corner along with the noisy beeps of a gaming system dispel that notion immediately. A huge bar lines the western wall, shining dully in the artificial lighting. It's obviously the most well-maintained and cared for object in the entire establishment. A doorway to the south leads back out onto the streets of Mhen'ga.</Description>
 		<Exit type="s" to="NORTH ESBETH 2"></Exit>
 		<Exit type="n" to="BURT'S BACK END"></Exit>
 		<Function>burtsBarFunc</Function>
@@ -290,7 +290,7 @@
 	
 	<Room name="OVERGROWN ROCK 4">
 		<Title>GIGANTIC\nROCK</Title>
-		<Description>"The rock face is jagged and uneven as you crest this corner of the mountainous boulder. Its craggy surface is rough and broken, and a number of boulders have fallen into a crude pile around it. There's about fifteen feet of relatively clear space hugging its base that you can easily travel through. To the south, the jungle is so thick and dense that it would be difficult if not impossible to traverse without first burning back the overgrowth. The air here is almost as dank as the visibility is poor.</Description>
+		<Description>The rock face is jagged and uneven as you crest this corner of the mountainous boulder. Its craggy surface is rough and broken, and a number of boulders have fallen into a crude pile around it. There's about fifteen feet of relatively clear space hugging its base that you can easily travel through. To the south, the jungle is so thick and dense that it would be difficult if not impossible to traverse without first burning back the overgrowth. The air here is almost as dank as the visibility is poor.</Description>
 		<Exit type="w" to="OVERGROWN ROCK 5"></Exit>
 		<Exit type="n" to="OVERGROWN ROCK 1"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -302,7 +302,7 @@
 	
 	<Room name="VINED JUNGLE 4">
 		<Title>VINED\nJUNGLE</Title>
-		<Description>"There's so many vines here that you can barely see the trees responsible for the light-obscuring canopy high above. One thing you can be sure of is that there are almost no other kinds of plants this low to the ground; the wriggling mass of botanical tentacles has consumed it all. One snaps into the air to snag a fist-sized bug as you walk, popping its exoskeleton a moment later. It lowers its prey out of sight before you can see any more. The path opens up next to a large rock to the south, or you can follow the trail to the east, through the vines.</Description>
+		<Description>There's so many vines here that you can barely see the trees responsible for the light-obscuring canopy high above. One thing you can be sure of is that there are almost no other kinds of plants this low to the ground; the wriggling mass of botanical tentacles has consumed it all. One snaps into the air to snag a fist-sized bug as you walk, popping its exoskeleton a moment later. It lowers its prey out of sight before you can see any more. The path opens up next to a large rock to the south, or you can follow the trail to the east, through the vines.</Description>
 		<Exit type="s" to="OVERGROWN ROCK 3"></Exit>
 		<Exit type="e" to="VINED JUNGLE 5"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -314,7 +314,7 @@
 	
 	<Room name="EAST ESBETH">
 		<Title>EAST\nESBETH</Title>
-		<Description>"There are few people around this area of town and even fewer houses. Perhaps this is due to this place's proximity to the town's eastern exit. Just to the north, a path splits off to the east towards the jungle. Now and again, you can see individuals like yourself venturing out to brave the dangers and discover what treasures they can. Watchtowers guard the town's safekeeping, and the jungle has been burnt back far enough to give the autoguns on top of them a good sight line. You suppose this town is about as safe a place as you can find in the untamed wilderness.\n\nThere is a small shack to the east painted pure, alabaster white. The door has a crimson cross, the universal symbol for medical aid, adhered to it. It must be what passes for a hospital on this planet.</Description>
+		<Description>There are few people around this area of town and even fewer houses. Perhaps this is due to this place's proximity to the town's eastern exit. Just to the north, a path splits off to the east towards the jungle. Now and again, you can see individuals like yourself venturing out to brave the dangers and discover what treasures they can. Watchtowers guard the town's safekeeping, and the jungle has been burnt back far enough to give the autoguns on top of them a good sight line. You suppose this town is about as safe a place as you can find in the untamed wilderness.\n\nThere is a small shack to the east painted pure, alabaster white. The door has a crimson cross, the universal symbol for medical aid, adhered to it. It must be what passes for a hospital on this planet.</Description>
 		<Exit type="s" to="SOUTHEAST ESBETH"></Exit>
 		<Exit type="e" to="ESBETH MEDICAL OFFICE"></Exit>
 		<Exit type="n" to="EAST ESBETH ENTRANCE"></Exit>
@@ -323,7 +323,7 @@
 	
 	<Room name="OVERGROWN ROCK 5">
 		<Title>GIGANTIC\nROCK</Title>
-		<Description>"Climbing high up into the canopy, this gray-colored, monolithic slab of rock almost seems to have burst from the grown ages ago, perhaps forced out by Mhen'ga's unearthly subterranean forces. Its surface is relatively unmarked aside from some tiny fissures that the plants have worked into it. The open space around it continues to the east and west; in the latter direction, the rock has broken apart enough to create a pile of rocks around its base.</Description>
+		<Description>Climbing high up into the canopy, this gray-colored, monolithic slab of rock almost seems to have burst from the grown ages ago, perhaps forced out by Mhen'ga's unearthly subterranean forces. Its surface is relatively unmarked aside from some tiny fissures that the plants have worked into it. The open space around it continues to the east and west; in the latter direction, the rock has broken apart enough to create a pile of rocks around its base.</Description>
 		<Exit type="w" to="OVERGROWN ROCK 6"></Exit>
 		<Exit type="e" to="OVERGROWN ROCK 4"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -335,7 +335,7 @@
 	
 	<Room name="IRONWOODS 3">
 		<Title>THE\nIRONWOODS</Title>
-		<Description>"Between the huge trunks of the red-tinted ironwoods, a large amount of vegetation has grown. Exotic bushes two feet high rustle on either side of the damp path, their leaves a matte blue. You can hear the sound of running water to the west, indicating the stream you crossed to get out this far. You idly brush a flake of rust from your [pc.skinFurScales] as you walk, frowning up at the tree that's shedding such filth. You can go east and west.</Description>
+		<Description>Between the huge trunks of the red-tinted ironwoods, a large amount of vegetation has grown. Exotic bushes two feet high rustle on either side of the damp path, their leaves a matte blue. You can hear the sound of running water to the west, indicating the stream you crossed to get out this far. You idly brush a flake of rust from your [pc.skinFurScales] as you walk, frowning up at the tree that's shedding such filth. You can go east and west.</Description>
 		<Exit type="e" to="IRONWOODS BEND 2"></Exit>
 		<Exit type="w" to="BABBLING BROOK 1"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -347,7 +347,7 @@
 	
 	<Room name="CUSTOMS OFFICE">
 		<Title>CUSTOMS\nOFFICE</Title>
-		<Description>"This office is one of many set up around the spaceport to process customs both coming and going. Other identical rooms can be spotted through doorways to the north, but they appear to be closed down or currently occupied at the moment. A single, large desk sits on the east side of the room, kept fairly tidy aside from a mug filled with lollipops and candy. A name placard proclaims the desk's owner to be Flahne. A doorway to the west opens out back into the jungle at the base of an elevator. The door to the south is labelled 'Out to Esbeth.'</Description>
+		<Description>This office is one of many set up around the spaceport to process customs both coming and going. Other identical rooms can be spotted through doorways to the north, but they appear to be closed down or currently occupied at the moment. A single, large desk sits on the east side of the room, kept fairly tidy aside from a mug filled with lollipops and candy. A name placard proclaims the desk's owner to be Flahne. A doorway to the west opens out back into the jungle at the base of an elevator. The door to the south is labelled 'Out to Esbeth.'</Description>
 		<Exit type="w" to="SPACEPORT ELEVATOR"></Exit>
 		<Exit type="s" to="ESBETH'S NORTH PATH"></Exit>
 		<Function>meetingFlahne</Function>
@@ -357,7 +357,7 @@
 	
 	<Room name="NARROW BEND 1">
 		<Title>NARROW\nBEND</Title>
-		<Description>"This unkempt, small trail bends south and west here. The foliage on either side is closing in dangerously, making it difficult to move forward without much risk, and the air here is rather stuffy. High above, you can see a number of broken branches and the odd scorch marks here and there. They seem to descend towards the south - the same direction this path is leading. You can go south, deeper into the humid jungle, or west, where the air is a little clearer.</Description>
+		<Description>This unkempt, small trail bends south and west here. The foliage on either side is closing in dangerously, making it difficult to move forward without much risk, and the air here is rather stuffy. High above, you can see a number of broken branches and the odd scorch marks here and there. They seem to descend towards the south - the same direction this path is leading. You can go south, deeper into the humid jungle, or west, where the air is a little clearer.</Description>
 		<Exit type="w" to="NARROW PATH 1"></Exit>
 		<Exit type="s" to="NARROW PATH 2"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -369,7 +369,7 @@
 	
 	<Room name="MISTY VALLEY 3">
 		<Title>MISTY VALLEY</Title>
-		<Description>"Towering, titan-sized trees surround you from every direction, each one pale as death and lined with luminous lichen. The omnipresent mist has almost completely deprived you of sight - you can barely see five feet in front of you. \n\nInstead of vision, you are left with sounds of dripping water, rustling leaves, and clicking insects. It only looks safe to walk west or south; elsewhere the ground looks treacherous.</Description>
+		<Description>Towering, titan-sized trees surround you from every direction, each one pale as death and lined with luminous lichen. The omnipresent mist has almost completely deprived you of sight - you can barely see five feet in front of you. \n\nInstead of vision, you are left with sounds of dripping water, rustling leaves, and clicking insects. It only looks safe to walk west or south; elsewhere the ground looks treacherous.</Description>
 		<Function>mhengaVanaeCombatZone</Function>
 		<Exit type="s" to="THICK MIST 2"></Exit>
 		<Exit type="w" to="VALLEY FLOOR"></Exit>
@@ -381,7 +381,7 @@
 	
 	<Room name="GIANT LEAVES 3">
 		<Title>GIANT\nLEAVES</Title>
-		<Description>"There's nothing but leaves in every direction except north. Every other way is just a wall of torso-sized, shimmering fronds. They're even above you, glistening dully with collected moisture. It looks like a dead end, for now. You can either hang around here or go back through the dense plants to the north.</Description>
+		<Description>There's nothing but leaves in every direction except north. Every other way is just a wall of torso-sized, shimmering fronds. They're even above you, glistening dully with collected moisture. It looks like a dead end, for now. You can either hang around here or go back through the dense plants to the north.</Description>
 		<Exit type="n" to="GIANT LEAVES 2"></Exit>
 		<Flag>OUTDOOR</Flag>
 		<Flag>HAZARD</Flag>
@@ -392,7 +392,7 @@
 	
 	<Room name="PURPLE FLOWERS 4">
 		<Title>PURPLE\nFLOWERS</Title>
-		<Description>"All around this gently winding woodpath, there are numerous flowers growing, all in bloom. It isn't too bad here. They tint the air pleasantly with their sweet aroma, and they haven't grown up enough to truly stop you from wandering off the trail if you wanted. However, the jungle changes to the south. The trees are taller, the canopy is thicker, the air is humid, and the flowers have overgrown everything except the path. You could back north, toward Esbeth, or south, into the <b>deep jungle</b>.</Description>
+		<Description>All around this gently winding woodpath, there are numerous flowers growing, all in bloom. It isn't too bad here. They tint the air pleasantly with their sweet aroma, and they haven't grown up enough to truly stop you from wandering off the trail if you wanted. However, the jungle changes to the south. The trees are taller, the canopy is thicker, the air is humid, and the flowers have overgrown everything except the path. You could back north, toward Esbeth, or south, into the <b>deep jungle</b>.</Description>
 		<Exit type="n" to="JUNGLE EDGE"></Exit>
 		<Exit type="s" to="PURPLE FLOWERS 3"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -404,7 +404,7 @@
 	
 	<Room name="WEST ESBETH 2">
 		<Title>WEST\nESBETH</Title>
-		<Description>"The western path continues north and south along the western edge of town. You can see guard towers rising to the west, mounted with automated guns. The ground here is scorched black; whenever they cleared the jungle, they obviously burned this part a bit too long. You can still smell the charred carbon hanging in the air.</Description>
+		<Description>The western path continues north and south along the western edge of town. You can see guard towers rising to the west, mounted with automated guns. The ground here is scorched black; whenever they cleared the jungle, they obviously burned this part a bit too long. You can still smell the charred carbon hanging in the air.</Description>
 		<Exit type="n" to="WEST ESBETH 1"></Exit>
 		<Exit type="s" to="SOUTHWEST ESBETH"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -412,7 +412,7 @@
 	
 	<Room name="EAST ESBETH ENTRANCE">
 		<Title>EAST ESBETH\nENTRANCE</Title>
-		<Description>"The entrance to Esbeth is positioned just to the east of here. It is only an entrance in name, however. The town has no proper walls just yet, just a sets of towers providing overwatch against the ever-growing foliage. The entrance is a narrow, barely-trod path that disappears into the trees to the east. Midway towards the forest, there's a small sign staked, though you're still too far away to read it. Esbeth's circuitous path continues north and south from here, following the edge of the town.</Description>
+		<Description>The entrance to Esbeth is positioned just to the east of here. It is only an entrance in name, however. The town has no proper walls just yet, just a sets of towers providing overwatch against the ever-growing foliage. The entrance is a narrow, barely-trod path that disappears into the trees to the east. Midway towards the forest, there's a small sign staked, though you're still too far away to read it. Esbeth's circuitous path continues north and south from here, following the edge of the town.</Description>
 		<Exit type="s" to="EAST ESBETH"></Exit>
 		<Exit type="n" to="NORTHEAST ESBETH"></Exit>
 		<Exit type="e" to="EAST ESBETH EXIT"></Exit>
@@ -421,7 +421,7 @@
 	
 	<Room name="BABBLING BROOK 1">
 		<Title>BABBLING\nBROOK</Title>
-		<Description>"Gleaming waters ripple as they flow past you, travelling from north to south in a winding torrent of liquid refreshment. Of course, this is a jungle, so the waters are probably full of parasites in spite of their apparent clarity. Ferns, bushes, and flowers of exotic colorations and appearances line the banks, and the stream itself is only a few inches deep. You should be able to cross it without issue. The path picks up on the other side, winding east and west past the gigantic ironwoods that seem so prevalent here.</Description>
+		<Description>Gleaming waters ripple as they flow past you, travelling from north to south in a winding torrent of liquid refreshment. Of course, this is a jungle, so the waters are probably full of parasites in spite of their apparent clarity. Ferns, bushes, and flowers of exotic colorations and appearances line the banks, and the stream itself is only a few inches deep. You should be able to cross it without issue. The path picks up on the other side, winding east and west past the gigantic ironwoods that seem so prevalent here.</Description>
 		<Exit type="e" to="IRONWOODS 3"></Exit>
 		<Exit type="w" to="IRONWOODS 2"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -433,7 +433,7 @@
 	
 	<Room name="SOUTH ESBETH 1">
 		<Title>SOUTH\nESBETH</Title>
-		<Description>"The southern portion of Esbeth's lone, circular road stretches east and west from here. To the west, it curls up to the north in a 90 degree bend. The scent of sweet alien flowers graces your nose here, a pleasant distraction from the aroma of charred-away vegetation and freshly installed plumbing that plagues most of this place. You can see the trees in the distance, dark and foreboding but undoubtedly full of life and riches. To the south is what looks like a small, rambling junkyard, overflowing with spaceship and auto scrap. There is a flat-roofed stone hut buried in the detritus - a wooden sign bolted onto the front declares it to be THE ART OF SCRAPYARD MAINTENANCE. The 遯ｶ讌ｼ' is a painted Yin-Yang symbol.</Description>
+		<Description>The southern portion of Esbeth's lone, circular road stretches east and west from here. To the west, it curls up to the north in a 90 degree bend. The scent of sweet alien flowers graces your nose here, a pleasant distraction from the aroma of charred-away vegetation and freshly installed plumbing that plagues most of this place. You can see the trees in the distance, dark and foreboding but undoubtedly full of life and riches. To the south is what looks like a small, rambling junkyard, overflowing with spaceship and auto scrap. There is a flat-roofed stone hut buried in the detritus - a wooden sign bolted onto the front declares it to be THE ART OF SCRAPYARD MAINTENANCE. The 遯ｶ讌ｼ' is a painted Yin-Yang symbol.</Description>
 		<Exit type="w" to="SOUTHWEST ESBETH"></Exit>
 		<Exit type="e" to="SOUTH ESBETH 2"></Exit>
 		<Exit type="s" to="SCRAPYARD MAINTENANCE"></Exit>
@@ -442,7 +442,7 @@
 	
 	<Room name="NORTHWEST ESBETH">
 		<Title>NORTHWEST\nESBETH</Title>
-		<Description>"Turning 90 degrees, the hard-packed path that serves as Esbeth's only road hooks south and east from here, marking the northwest-most portion of town. A secure, barbed-wire-topped fence blocks off the north, though you can see the space port's cargo elevator stretching skyward on the other side. Farther to the northwest, you can see a series of towers with cannons mounted atop them, swiveling this way and that as they eye the burned-back jungle for danger.</Description>
+		<Description>Turning 90 degrees, the hard-packed path that serves as Esbeth's only road hooks south and east from here, marking the northwest-most portion of town. A secure, barbed-wire-topped fence blocks off the north, though you can see the space port's cargo elevator stretching skyward on the other side. Farther to the northwest, you can see a series of towers with cannons mounted atop them, swiveling this way and that as they eye the burned-back jungle for danger.</Description>
 		<Exit type="s" to="WEST ESBETH 1"></Exit>
 		<Exit type="e" to="ESBETH'S NORTH PATH"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -450,7 +450,7 @@
 	
 	<Room name="VINED JUNGLE 3">
 		<Title>VINED\nJUNGLE</Title>
-		<Description>"The unnatural, squirming walls on either side undulate like the waves of an ocean stuck on its side. It's enough to set one's nerves on edge, and the darkness of the deep jungle's atmosphere doesn't really help. A lazily buzzing bug with at least twelve finger-sized legs crosses your way, but it doesn't stop to pay you any attention. To the west, the vines thin. To the east, the both the tendrils and the path continue on much the same.</Description>
+		<Description>The unnatural, squirming walls on either side undulate like the waves of an ocean stuck on its side. It's enough to set one's nerves on edge, and the darkness of the deep jungle's atmosphere doesn't really help. A lazily buzzing bug with at least twelve finger-sized legs crosses your way, but it doesn't stop to pay you any attention. To the west, the vines thin. To the east, the both the tendrils and the path continue on much the same.</Description>
 		<Exit type="e" to="VINED JUNGLE 2"></Exit>
 		<Exit type="w" to="OVERGROWN ROCK 1"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -462,7 +462,7 @@
 	
 	<Room name="OVERGROWN ROCK 6">
 		<Title>GIGANTIC\nROCK</Title>
-		<Description>"The humidity is almost overpowering here. It makes the ground damp, it makes the rock shine, and it makes your [pc.skinFurScales] uncomfortably clammy. Leaves the size of small cars hang off the side of a trunk as big around as a small room. You could probably push past them if it wasn't for the thorny bushes and toothed flowers underneath. Even if you cut into the deep jungle that way, you'd be lost in no time. It'd be better to follow the open space along the sides of this rock to the east and west.</Description>
+		<Description>The humidity is almost overpowering here. It makes the ground damp, it makes the rock shine, and it makes your [pc.skinFurScales] uncomfortably clammy. Leaves the size of small cars hang off the side of a trunk as big around as a small room. You could probably push past them if it wasn't for the thorny bushes and toothed flowers underneath. Even if you cut into the deep jungle that way, you'd be lost in no time. It'd be better to follow the open space along the sides of this rock to the east and west.</Description>
 		<Exit type="w" to="OVERGROWN ROCK 7"></Exit>
 		<Exit type="e" to="OVERGROWN ROCK 5"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -474,7 +474,7 @@
 	
 	<Room name="FORKED DEEP JUNGLE 1">
 		<Title>DEEP JUNGLE\nFORK</Title>
-		<Description>"There's three distinct paths that you could follow from this point: one to east, one to the south, and one to the west. The latter two show a distinct difference in the bordering plant-life; it's almost entirely vines covered in flowers. You can spot the odd tree-trunk here or there, but they're completely overgrown by the green tendrils. They seem almost... strangled. It would be wise not to stray too far from the openings in that direction. To the east, the trail looks a little less threatening, but it is still in the deep, dark jungle.</Description>
+		<Description>There's three distinct paths that you could follow from this point: one to east, one to the south, and one to the west. The latter two show a distinct difference in the bordering plant-life; it's almost entirely vines covered in flowers. You can spot the odd tree-trunk here or there, but they're completely overgrown by the green tendrils. They seem almost... strangled. It would be wise not to stray too far from the openings in that direction. To the east, the trail looks a little less threatening, but it is still in the deep, dark jungle.</Description>
 		<Exit type="e" to="DEEP JUNGLE 2"></Exit>
 		<Exit type="s" to="VINED JUNGLE 1"></Exit>
 		<Exit type="w" to="VINED JUNGLE 6"></Exit>
@@ -487,7 +487,7 @@
 	
 	<Room name="OVERGROWN ROCK 10">
 		<Title>GIGANTIC\nROCK</Title>
-		<Description>"You stand at one corner of the giant stone. From where you're standing, you can't even make out the top, but you can see that it's surface is riddled with mosses and lichen-like growths. You wager that it has been here for quite a long time, though you'd need a geologist for an accurate guess. The surrounding plant life has stayed away from the rocky protrusion for some reason, leaving a fifteen foot wide path that you can follow around it. There is also a small, maybe three foot wide, trail in between a few dozen person-sized leaves.</Description>
+		<Description>You stand at one corner of the giant stone. From where you're standing, you can't even make out the top, but you can see that it's surface is riddled with mosses and lichen-like growths. You wager that it has been here for quite a long time, though you'd need a geologist for an accurate guess. The surrounding plant life has stayed away from the rocky protrusion for some reason, leaving a fifteen foot wide path that you can follow around it. There is also a small, maybe three foot wide, trail in between a few dozen person-sized leaves.</Description>
 		<Exit type="s" to="OVERGROWN ROCK 9"></Exit>
 		<Exit type="e" to="OVERGROWN ROCK 11"></Exit>
 		<Exit type="w" to="GIANT LEAVES 1"></Exit>
@@ -500,7 +500,7 @@
 	
 	<Room name="CRAZY CARLS">
 		<Title>CRAZY\nCARL'S</Title>
-		<Description>"</Description>
+		<Description></Description>
 		<Function>carlsShopDescription</Function>
 		<Exit type="w" to="WEST ESBETH 1"></Exit>
 		<Flag>INDOOR</Flag>
@@ -509,7 +509,7 @@
 	
 	<Room name="LICHENS AND IRONWOODS 1">
 		<Title>IRONWOODS\nAND LICHENS</Title>
-		<Description>"There's plenty of space to explore on this north-south causeway thanks to the lichen that seems to have eaten back most of the other plant-life. Tight clusters of trees block the way west, and another gigantic variety sprouts up to the east, covered in rust-red bark that closer inspection reveals to be actual iron. The lichens bathe everything but the trees to the east in gentle bioluminescence. They can't seem to grow on the ferrous coverings of the eastern trunks and die off that way.</Description>
+		<Description>There's plenty of space to explore on this north-south causeway thanks to the lichen that seems to have eaten back most of the other plant-life. Tight clusters of trees block the way west, and another gigantic variety sprouts up to the east, covered in rust-red bark that closer inspection reveals to be actual iron. The lichens bathe everything but the trees to the east in gentle bioluminescence. They can't seem to grow on the ferrous coverings of the eastern trunks and die off that way.</Description>
 		<Exit type="s" to="LICHENS AT IRONWOODS 1"></Exit>
 		<Exit type="n" to="LICHENS AND IRONWOODS 2"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -521,7 +521,7 @@
 	
 	<Room name="IRONWOODS 2">
 		<Title>THE\nIRONWOODS</Title>
-		<Description>"A fair amount of underbrush has grown here, and the soil is fairly damp. As you might expect, you can hear the babbling of a gentle-sounding brook somewhere to the east. It is likely responsible for the surge in vegetation around you, even in the dim light the ironwoods allow to reach the jungle floor. There's still enough open ground to move to the east and the west without much issue.</Description>
+		<Description>A fair amount of underbrush has grown here, and the soil is fairly damp. As you might expect, you can hear the babbling of a gentle-sounding brook somewhere to the east. It is likely responsible for the surge in vegetation around you, even in the dim light the ironwoods allow to reach the jungle floor. There's still enough open ground to move to the east and the west without much issue.</Description>
 		<Exit type="e" to="BABBLING BROOK 1"></Exit>
 		<Exit type="w" to="IRONWOODS BEND 1"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -533,7 +533,7 @@
 	
 	<Room name="DENSE ORANGE 5">
 		<Title>THE DENSE\nORANGE</Title>
-		<Description>"Orange plants of every shape and size grow in droves around you. Though some bear fruit of crimson or green, most types are a nearly matching shade of tangerine, perhaps to camouflage them against their peers or some other unknown purpose. Regardless, the path you're standing on leads north towards an intersection and south towards a westward bend.</Description>
+		<Description>Orange plants of every shape and size grow in droves around you. Though some bear fruit of crimson or green, most types are a nearly matching shade of tangerine, perhaps to camouflage them against their peers or some other unknown purpose. Regardless, the path you're standing on leads north towards an intersection and south towards a westward bend.</Description>
 		<Exit type="n" to="ORANGE INTERSECTION 1"></Exit>
 		<Exit type="s" to="DARK ORANGE CORNER 1"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -545,7 +545,7 @@
 	
 	<Room name="PENNY'S OFFICE">
 		<Title>U.G.C. PEACE-\nKEEPERS</Title>
-		<Description>"This interior of this office is painted a cool, soothing blue, but even that can't hide the fact that nobody wants to have to spend much time here. The whole place looks stout and secure, even the doors and windows. The latter of which bear solid metal bars. A few doors occupy the far side of the room, but they're on the opposite side of a large, imposing desk. Computer equipment sits in a high pile, capped with an inactive light, the kind of which you'd expect to see on top of a hovercar or police cruiser.</Description>
+		<Description>This interior of this office is painted a cool, soothing blue, but even that can't hide the fact that nobody wants to have to spend much time here. The whole place looks stout and secure, even the doors and windows. The latter of which bear solid metal bars. A few doors occupy the far side of the room, but they're on the opposite side of a large, imposing desk. Computer equipment sits in a high pile, capped with an inactive light, the kind of which you'd expect to see on top of a hovercar or police cruiser.</Description>
 		<Function>pennysOffice</Function>
 		<Exit type="s" to="SOUTH ESBETH 3"></Exit>
 		<Flag>INDOOR</Flag>
@@ -554,7 +554,7 @@
 	
 	<Room name="NARROW PATH 1">
 		<Title>NARROW\nPATH</Title>
-		<Description>"There's so much plant-life surrounding this path that it's very difficult to follow. Under[pc.foot], you spot recently trampled grasses and mushroom-like growth. Whoever blazed this trail did it not so long ago, and judging by how some of the vegetation is growing back in, there hasn't been enough traffic to keep the jungle from coming in to reclaim it. A junction with a more travelled route lies to the west. To the east, the narrow way continues.</Description>
+		<Description>There's so much plant-life surrounding this path that it's very difficult to follow. Under[pc.foot], you spot recently trampled grasses and mushroom-like growth. Whoever blazed this trail did it not so long ago, and judging by how some of the vegetation is growing back in, there hasn't been enough traffic to keep the jungle from coming in to reclaim it. A junction with a more travelled route lies to the west. To the east, the narrow way continues.</Description>
 		<Exit type="w" to="ORANGE INTERSECTION 1"></Exit>
 		<Exit type="e" to="NARROW BEND 1"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -566,7 +566,7 @@
 	
 	<Room name="NORTH ESBETH 1">
 		<Title>NORTH\nESBETH</Title>
-		<Description>"Prefabricated structures line this busy road to the north and south. It's busier here than it is much further east, most likely due to the mead hall that lies northwest of here. The other buildings all appear to be residences, with closed, locked doors. Either their owners are out and about or they don't wish to be disturbed by a random explorer. A guard tower can be seen to the northeast, looming over the city to provide protection.</Description>
+		<Description>Prefabricated structures line this busy road to the north and south. It's busier here than it is much further east, most likely due to the mead hall that lies northwest of here. The other buildings all appear to be residences, with closed, locked doors. Either their owners are out and about or they don't wish to be disturbed by a random explorer. A guard tower can be seen to the northeast, looming over the city to provide protection.</Description>
 		<Exit type="w" to="NORTH ESBETH 2"></Exit>
 		<Exit type="e" to="NORTHEAST ESBETH"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -574,7 +574,7 @@
 	
 	<Room name="NARROW GORGE 1">
 		<Title>NARROW\nGORGE</Title>
-		<Description>"The fog seems a bit thinner here. You're standing on the edge of a narrow gorge that runs from the east. You can hear a trickling at the bottom and can see an easy way down. There's also a fallen tree spanning  the gorge offering an easy way across.\n\nYou could follow the gorge to the east and downstream, or head north or south. The felled tree looks sturdy so you're fairly sure it will hold your weight. </Description>
+		<Description>The fog seems a bit thinner here. You're standing on the edge of a narrow gorge that runs from the east. You can hear a trickling at the bottom and can see an easy way down. There's also a fallen tree spanning  the gorge offering an easy way across.\n\nYou could follow the gorge to the east and downstream, or head north or south. The felled tree looks sturdy so you're fairly sure it will hold your weight. </Description>
 		<Function>mhengaVanaeCombatZone</Function>
 		<Exit type="n" to="THICK MIST 2"></Exit>
 		<Exit type="e" to="NARROW GORGE 2"></Exit>
@@ -587,7 +587,7 @@
 	
 	<Room name="OVERGROWN ROCK 11">
 		<Title>GIGANTIC\nROCK</Title>
-		<Description>"There's a gigantic rock here; its sheer walls almost stretch up to the canopy itself. Though covered in moss and small vines, it does not look to have succumbed to the jungle's clutches just yet. There is a path around it, leading east and west, and another path leads away to the north. That trail leads between an army of blooming purple flowers. There's so many of them that it looks almost like a sea of amethyst, rustling slightly in gentle breezes.</Description>
+		<Description>There's a gigantic rock here; its sheer walls almost stretch up to the canopy itself. Though covered in moss and small vines, it does not look to have succumbed to the jungle's clutches just yet. There is a path around it, leading east and west, and another path leads away to the north. That trail leads between an army of blooming purple flowers. There's so many of them that it looks almost like a sea of amethyst, rustling slightly in gentle breezes.</Description>
 		<Exit type="w" to="OVERGROWN ROCK 10"></Exit>
 		<Exit type="e" to="OVERGROWN ROCK 12"></Exit>
 		<Exit type="n" to="PURPLE FLOWERS 1"></Exit>
@@ -600,7 +600,7 @@
 	
 	<Room name="DEEP FOREST 2">
 		<Title>DEEP\nFOREST</Title>
-		<Description>"The shadows here move with a kind of unnerving motion, twisting this way and that as unseen breezes rustle the leaves some hundreds of feet above. You continually flick your gaze around, and in a way, you're thankful that the darkness has kept the bushes down to minimum here. There's less places for potential foes to lurk. Unless... they're above you? You jerk back, staring at the trees in alarm. Emptiness. Well, you can always follow the path east through the darkness or west towards a more illuminated bend.</Description>
+		<Description>The shadows here move with a kind of unnerving motion, twisting this way and that as unseen breezes rustle the leaves some hundreds of feet above. You continually flick your gaze around, and in a way, you're thankful that the darkness has kept the bushes down to minimum here. There's less places for potential foes to lurk. Unless... they're above you? You jerk back, staring at the trees in alarm. Emptiness. Well, you can always follow the path east through the darkness or west towards a more illuminated bend.</Description>
 		<Exit type="e" to="DEEP INTERSECTION 1"></Exit>
 		<Exit type="w" to="IRON AND DARK CORNER 1"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -612,7 +612,7 @@
 	
 	<Room name="CAMP EDGE">
 		<Title></Title>
-		<Description>"The colossal Saole trees are further apart here, allowing for more light to stream down to the forest floor. Because of this, it is easy to spot the broken regional shield generator with a spear sticking out of it.\n\nGiven the trajectory of the spear, it seems to have been thrown from above into the device. There is a well worn path to the west of the device. On the other, it curves and fades off to the south.</Description>
+		<Description>The colossal Saole trees are further apart here, allowing for more light to stream down to the forest floor. Because of this, it is easy to spot the broken regional shield generator with a spear sticking out of it.\n\nGiven the trajectory of the spear, it seems to have been thrown from above into the device. There is a well worn path to the west of the device. On the other, it curves and fades off to the south.</Description>
 		<Function>mhengaVanaeCombatZone</Function>
 		<Exit type="s" to="CLOUD FOREST 2"></Exit>
 		<Exit type="w" to="ABANDONED CAMP"></Exit>
@@ -624,7 +624,7 @@
 	
 	<Room name="CLOUD FOREST 1">
 		<Title></Title>
-		<Description>"You are surrounded by pale, majestic trees of impossible height that stretch skyward and out of view. The area is misty but in chunks, fog lining the ground like a blanket while other portions wrap intimately around the ancient monoliths.\n\nThis whole area seems peaceful and the air is crisp and cool. It feels oddly peaceful, unlike the rest of the Mhen'gan jungle. You're aware that appearances can be deceiving.\n\nA mess of tree roots to the north and south bar your path. Everywhere else seems fair game.</Description>
+		<Description>You are surrounded by pale, majestic trees of impossible height that stretch skyward and out of view. The area is misty but in chunks, fog lining the ground like a blanket while other portions wrap intimately around the ancient monoliths.\n\nThis whole area seems peaceful and the air is crisp and cool. It feels oddly peaceful, unlike the rest of the Mhen'gan jungle. You're aware that appearances can be deceiving.\n\nA mess of tree roots to the north and south bar your path. Everywhere else seems fair game.</Description>
 		<Function>mhengaVanaeCombatZone</Function>
 		<Exit type="e" to="BLADED FERNS 2"></Exit>
 		<Exit type="w" to="CLOUD FOREST 2"></Exit>
@@ -636,7 +636,7 @@
 	
 	<Room name="DEEP MIST 2">
 		<Title>DEEP\nMIST</Title>
-		<Description>"Your visibility has been reduced to the point you can barely see your own hand in front of your [pc.face]. Even the luminous lichen are barely visible as you are completely surrounded by mist. There is a sharp chill to the air and you think you hear footsteps nearby.\n\nYou consult your Codex, and it tells you that you came from the north. Aided by your digital compass, all you can really do is retrace your steps.</Description>
+		<Description>Your visibility has been reduced to the point you can barely see your own hand in front of your [pc.face]. Even the luminous lichen are barely visible as you are completely surrounded by mist. There is a sharp chill to the air and you think you hear footsteps nearby.\n\nYou consult your Codex, and it tells you that you came from the north. Aided by your digital compass, all you can really do is retrace your steps.</Description>
 		<Function>mhengaVanaeCombatZone</Function>
 		<Exit type="n" to="THICK MIST 1"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -647,7 +647,7 @@
 	
 	<Room name="NORTH ESBETH 2">
 		<Title>NORTH\nESBETH</Title>
-		<Description>"The simple path you tread upon heads straight to the east and west from here. Foot traffic is high here, either because of the customs building to the northwest or the bar to the north. Closer inspection reveals the northern building to actually be a mead hall of some description - \"Burt's Badass Mead Hall\" it says on the sign. This building actually integrates some wood from the jungle into its construction, contrasting quite noticeably with its neighbors.</Description>
+		<Description>The simple path you tread upon heads straight to the east and west from here. Foot traffic is high here, either because of the customs building to the northwest or the bar to the north. Closer inspection reveals the northern building to actually be a mead hall of some description - \"Burt's Badass Mead Hall\" it says on the sign. This building actually integrates some wood from the jungle into its construction, contrasting quite noticeably with its neighbors.</Description>
 		<Exit type="w" to="ESBETH'S NORTH PATH"></Exit>
 		<Exit type="e" to="NORTH ESBETH 1"></Exit>
 		<Exit type="n" to="BURT'S MAIN HALL"></Exit>
@@ -656,7 +656,7 @@
 	
 	<Room name="OVERGROWN ROCK 7">
 		<Title>GIGANTIC\nROCK</Title>
-		<Description>"A nest of overgrown beetles erupts off the side of the rock like water from a geyser, exploding out in all directions. Their translucent wings shimmer where they cross some of the few rays of light lucky enough to penetrate this far. You wait for them to flutter off before advancing much farther, wiping some of the accumulated moisture from your brow. You can follow along the rock to the east and west. It blocks the way north, and going south into the rustling wall of alien plants would likely be a bad idea.</Description>
+		<Description>A nest of overgrown beetles erupts off the side of the rock like water from a geyser, exploding out in all directions. Their translucent wings shimmer where they cross some of the few rays of light lucky enough to penetrate this far. You wait for them to flutter off before advancing much farther, wiping some of the accumulated moisture from your brow. You can follow along the rock to the east and west. It blocks the way north, and going south into the rustling wall of alien plants would likely be a bad idea.</Description>
 		<Exit type="w" to="OVERGROWN ROCK 8"></Exit>
 		<Exit type="e" to="OVERGROWN ROCK 6"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -668,7 +668,7 @@
 	
 	<Room name="SCRAPYARD MAINTENANCE">
 		<Title>SCRAPYARD\nMAINTENANCE</Title>
-		<Description>"</Description>
+		<Description></Description>
 		<Function>scrapyardMaintenance</Function>
 		<Exit type="n" to="SOUTH ESBETH 1"></Exit>
 		<Flag>INDOOR</Flag>
@@ -677,7 +677,7 @@
 	
 	<Room name="FERNGROWTH BEND 1">
 		<Title>FERNGROWTH\nBEND</Title>
-		<Description>"The claustrophobic path twists here, cocked to wind north and west around the trunk of a giant, gray-barked tree. The lower branches are covered with leaves of the deepest purple, large, wet looking leaves that seem to dip under their own weight. No sunlight reaches past the upper canopy to fall on them, but the tree is producing them all the same. The ferns around the path are tall and alien but undoubtedly similar to Earth's. Convergent evolution at work, you suppose.</Description>
+		<Description>The claustrophobic path twists here, cocked to wind north and west around the trunk of a giant, gray-barked tree. The lower branches are covered with leaves of the deepest purple, large, wet looking leaves that seem to dip under their own weight. No sunlight reaches past the upper canopy to fall on them, but the tree is producing them all the same. The ferns around the path are tall and alien but undoubtedly similar to Earth's. Convergent evolution at work, you suppose.</Description>
 		<Exit type="s" to="FERNGROWTH PATH 2"></Exit>
 		<Exit type="e" to="FERNGROWTH PATH 3"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -689,7 +689,7 @@
 	
 	<Room name="UTHRA BIRCH">
 		<Title>UTHRA\nBIRCH</Title>
-		<Description>"You are standing underneath a short, stubbly tree that looks positively squashed compared to its towering peers. The gnarled branches are warped and sickly looking, almost as if giant hands have molded it without a single care for aesthetics.</Description>
+		<Description>You are standing underneath a short, stubbly tree that looks positively squashed compared to its towering peers. The gnarled branches are warped and sickly looking, almost as if giant hands have molded it without a single care for aesthetics.</Description>
 		<Function>mhengaUthraBirch</Function>
 		<Exit type="s" to="NARROW GORGE 3"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -700,7 +700,7 @@
 	
 	<Room name="BURT'S BACK END">
 		<Title>THE BACK\nOF BURT'S</Title>
-		<Description>"This secluded area of the bar is mostly empty. The few people bothering to hang out back here don't seem to have any interest in communicating, leaving you with only the darkness for company. Empty tables abound, but the better-lit hall to the south looks infinitely more companionable.</Description>
+		<Description>This secluded area of the bar is mostly empty. The few people bothering to hang out back here don't seem to have any interest in communicating, leaving you with only the darkness for company. Empty tables abound, but the better-lit hall to the south looks infinitely more companionable.</Description>
 		<Exit type="s" to="BURT'S MAIN HALL"></Exit>
 		<Flag>INDOOR</Flag>
 		<Flag>NPC</Flag>
@@ -709,7 +709,7 @@
 	
 	<Room name="OVERGROWN ROCK 2">
 		<Title>GIGANTIC\nROCK</Title>
-		<Description>"You stand at what could be called the corner of the mountainous boulder if it was less jagged and more orderly in its change of direction. There's enough clear space around it for you to keep going to the south or the west along the rock face. An infestation of vines, more tentacles really, blocks the way to the north and the east. Looking at how they move, you don't have any desire to get too close to them.</Description>
+		<Description>You stand at what could be called the corner of the mountainous boulder if it was less jagged and more orderly in its change of direction. There's enough clear space around it for you to keep going to the south or the west along the rock face. An infestation of vines, more tentacles really, blocks the way to the north and the east. Looking at how they move, you don't have any desire to get too close to them.</Description>
 		<Exit type="s" to="OVERGROWN ROCK 1"></Exit>
 		<Exit type="w" to="OVERGROWN ROCK 3"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -721,7 +721,7 @@
 	
 	<Room name="ESBETH'S NORTH PATH">
 		<Title>ESBETH'S\nNORTH PATH</Title>
-		<Description>"This small jungle town, Esbeth, doesn't even have proper roads. There's a hard-packed path underfoot, still blackened in places from when some kind of torch was used to burn away the omnipresent overgrowth. Prefabricated buildings have sprung up on all sides of this east-west path, though the one to the north is the biggest and most secure looking by far. A sign marking it as the 'Office of Customs and Governance' hangs above the entrance, letting you know exactly what it is.</Description>
+		<Description>This small jungle town, Esbeth, doesn't even have proper roads. There's a hard-packed path underfoot, still blackened in places from when some kind of torch was used to burn away the omnipresent overgrowth. Prefabricated buildings have sprung up on all sides of this east-west path, though the one to the north is the biggest and most secure looking by far. A sign marking it as the 'Office of Customs and Governance' hangs above the entrance, letting you know exactly what it is.</Description>
 		<Exit type="n" to="CUSTOMS OFFICE"></Exit>
 		<Exit type="w" to="NORTHWEST ESBETH"></Exit>
 		<Exit type="e" to="NORTH ESBETH 2"></Exit>
@@ -731,7 +731,7 @@
 	
 	<Room name="PURPLE FLOWERS 2">
 		<Title>PURPLE\nFLOWERS</Title>
-		<Description>"The air is almost sickeningly sweet here. Between the humid jungle air and the densely packed flowering plants, it feels almost as if there's no oxygen in here to breathe! Something - or someone - has kept the blooming plants from encroaching onto this trail. You're secretly thankful for whatever has kept the plants pruned back as you consider your options: east or west.</Description>
+		<Description>The air is almost sickeningly sweet here. Between the humid jungle air and the densely packed flowering plants, it feels almost as if there's no oxygen in here to breathe! Something - or someone - has kept the blooming plants from encroaching onto this trail. You're secretly thankful for whatever has kept the plants pruned back as you consider your options: east or west.</Description>
 		<Exit type="w" to="PURPLE FLOWERS 3"></Exit>
 		<Exit type="e" to="PURPLE FLOWERS 1"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -743,7 +743,7 @@
 	
 	<Room name="FERNGROWTH PATH 2">
 		<Title>FERNGROWTH\nPATH</Title>
-		<Description>"The air here is thick with pollen, nearly bringing a sneeze to your nose as you look about. Dozens of gigantic trees stretch toward the sky, so high that you're not even sure how high they reach. You'd need some decent equipment to even begin to hazard a guess. Ferns nearly as tall as you have grown up on all sides. The path itself is narrow and packed hard by traffic, unlike the soft earth alongside it.</Description>
+		<Description>The air here is thick with pollen, nearly bringing a sneeze to your nose as you look about. Dozens of gigantic trees stretch toward the sky, so high that you're not even sure how high they reach. You'd need some decent equipment to even begin to hazard a guess. Ferns nearly as tall as you have grown up on all sides. The path itself is narrow and packed hard by traffic, unlike the soft earth alongside it.</Description>
 		<Exit type="s" to="FERNGROWTH PATH 1"></Exit>
 		<Exit type="n" to="FERNGROWTH BEND 1"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -755,7 +755,7 @@
 	
 	<Room name="DEEP MIST 1">
 		<Title>DEEP\nMIST</Title>
-		<Description>"The fog here is so thick you can barely see in front of your nose, and that's dangerous. You're not sure if your next step is going to meet solid ground, or be over the edge of a ravine. Given that you can't see where you're going, it seems smart to turn back.\n\nYou're pretty sure you came from the north. Thankfully, your Codex remembers which way that is.</Description>
+		<Description>The fog here is so thick you can barely see in front of your nose, and that's dangerous. You're not sure if your next step is going to meet solid ground, or be over the edge of a ravine. Given that you can't see where you're going, it seems smart to turn back.\n\nYou're pretty sure you came from the north. Thankfully, your Codex remembers which way that is.</Description>
 		<Function>mhengaVanaeCombatZone</Function>
 		<Exit type="n" to="MISTY VALLEY 1"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -766,7 +766,7 @@
 	
 	<Room name="DEEP FOREST 1">
 		<Title>DEEP\nFOREST</Title>
-		<Description>"Navigation is tricky with so little light to illuminate the way, but the lack of visible light assists you in other ways, keeping brush and undergrowth to an absolute minimum. If you were so inclined, you could easily wander around the gloomy wood. It would be wise not to wander too far, however; you don't want to get lost on such a wild planet. The woodland trail makes a straight line east to west. In the former direction, the forest lightens. In the latter, a small brook crosses the trail. The waters are crystal clear and shallow enough to cross without issue.</Description>
+		<Description>Navigation is tricky with so little light to illuminate the way, but the lack of visible light assists you in other ways, keeping brush and undergrowth to an absolute minimum. If you were so inclined, you could easily wander around the gloomy wood. It would be wise not to wander too far, however; you don't want to get lost on such a wild planet. The woodland trail makes a straight line east to west. In the former direction, the forest lightens. In the latter, a small brook crosses the trail. The waters are crystal clear and shallow enough to cross without issue.</Description>
 		<Exit type="e" to="DARK ORANGE CORNER 1"></Exit>
 		<Exit type="w" to="DEEP INTERSECTION 1"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -778,7 +778,7 @@
 	
 	<Room name="VINED JUNGLE 5">
 		<Title>VINED\nJUNGLE</Title>
-		<Description>"Placing your [pc.feet] very carefully, you take great pains not to step on any of the vines around you, lest they turn out to be predatory monstrosities. Whatever cleared the path must have instilled a healthy fear in the tendrils, because while some flail through the air above or alongside you, none reach out after you. You suspect you are mostly safe so long as you stay on the path. It leads east and west away from here.</Description>
+		<Description>Placing your [pc.feet] very carefully, you take great pains not to step on any of the vines around you, lest they turn out to be predatory monstrosities. Whatever cleared the path must have instilled a healthy fear in the tendrils, because while some flail through the air above or alongside you, none reach out after you. You suspect you are mostly safe so long as you stay on the path. It leads east and west away from here.</Description>
 		<Exit type="w" to="VINED JUNGLE 4"></Exit>
 		<Exit type="e" to="VINED JUNGLE 6"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -790,7 +790,7 @@
 	
 	<Room name="OVERGROWN ROCK 12">
 		<Title>GIGANTIC\nROCK</Title>
-		<Description>"The jungle to the north of this stone behemoth looks increasingly odd the further you go to the east. Giant flowers and vines give way to squirming masses of tentacles, some of which appear to be predatory from the way they swat at some of the passing bugs. The smooth, mossy surface of the rock is here to the south as always, and the loamy dirt alongside it never seems to become too tangled with growth. You can go east and west from here.</Description>
+		<Description>The jungle to the north of this stone behemoth looks increasingly odd the further you go to the east. Giant flowers and vines give way to squirming masses of tentacles, some of which appear to be predatory from the way they swat at some of the passing bugs. The smooth, mossy surface of the rock is here to the south as always, and the loamy dirt alongside it never seems to become too tangled with growth. You can go east and west from here.</Description>
 		<Exit type="w" to="OVERGROWN ROCK 11"></Exit>
 		<Exit type="e" to="OVERGROWN ROCK 3"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -802,7 +802,7 @@
 	
 	<Room name="MISTY VALLEY 1">
 		<Title>MISTY\nVALLEY</Title>
-		<Description>"Gigantic, ghostly trees tower around you, looming within the pervasive mist. Flickering sparks which you know to be lichen wink at you from every direction, like a million glowing eyes staring at you from every direction.\n\nIt's hard to find your way here. There's mist in every direction, and the ground is flat and wet. Which way will you go?</Description>
+		<Description>Gigantic, ghostly trees tower around you, looming within the pervasive mist. Flickering sparks which you know to be lichen wink at you from every direction, like a million glowing eyes staring at you from every direction.\n\nIt's hard to find your way here. There's mist in every direction, and the ground is flat and wet. Which way will you go?</Description>
 		<Function>mhengaVanaeCombatZone</Function>
 		<Exit type="n" to="VALLEY FLOOR"></Exit>
 		<Exit type="e" to="THICK MIST 2"></Exit>
@@ -816,7 +816,7 @@
 	
 	<Room name="GIANT LEAVES 1">
 		<Title>GIANT\nLEAVES</Title>
-		<Description>"Leaves of the deepest emerald surround you on all sides, growing off of corded stalks that resemble miniature trees. Moisture beads off the leaves, trickling down into muddy puddles around their base. To the east of here, you can make out what looks like a cliff wall towering up into the canopy. Winding south, the gap between the leaves leads even deeper into this humid jungle.</Description>
+		<Description>Leaves of the deepest emerald surround you on all sides, growing off of corded stalks that resemble miniature trees. Moisture beads off the leaves, trickling down into muddy puddles around their base. To the east of here, you can make out what looks like a cliff wall towering up into the canopy. Winding south, the gap between the leaves leads even deeper into this humid jungle.</Description>
 		<Exit type="s" to="GIANT LEAVES 2"></Exit>
 		<Exit type="e" to="OVERGROWN ROCK 10"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -828,7 +828,7 @@
 	
 	<Room name="ABANDONED CAMP">
 		<Title></Title>
-		<Description>"You walk into the remains of what was clearly a Xenogen research camp. The protective shield is down and the temporary habitation they were using has been wrecked. There are empty crates and bodies lying everywhere. Spears are jutting out of nearly everything.\n\nYou spot some empty cages that look as if they were designed for humanoid captives. Everything around here is utterly wrecked and you're not sure you'll find anything of value.</Description>
+		<Description>You walk into the remains of what was clearly a Xenogen research camp. The protective shield is down and the temporary habitation they were using has been wrecked. There are empty crates and bodies lying everywhere. Spears are jutting out of nearly everything.\n\nYou spot some empty cages that look as if they were designed for humanoid captives. Everything around here is utterly wrecked and you're not sure you'll find anything of value.</Description>
 		<Function>mhengaVanaeAbandonedCamp</Function>
 		<Exit type="e" to="CAMP EDGE"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -839,7 +839,7 @@
 	
 	<Room name="SPACEPORT ELEVATOR">
 		<Title>SPACEPORT\nELEVATOR</Title>
-		<Description>"A standard self-assembling cargo elevator towers overhead, connected to dozens of landing pads covered with brilliantly flashing lights. The supporting girders are stamped with the logo of Pyrite Heavy Industries, the subgroup of Pyrite Industries that handles the largest constructions. The whole thing still gleams like new, even in an environment so damp that the metal is sweating drops of condensation. The doors to the elevator are open, all you need to do is push the button to go back to your ship. Fences and the wall of a building to the east keep you penned in this area, but a doorway marked \"customs\" to the east could be entered if you wish to explore.</Description>
+		<Description>A standard self-assembling cargo elevator towers overhead, connected to dozens of landing pads covered with brilliantly flashing lights. The supporting girders are stamped with the logo of Pyrite Heavy Industries, the subgroup of Pyrite Industries that handles the largest constructions. The whole thing still gleams like new, even in an environment so damp that the metal is sweating drops of condensation. The doors to the elevator are open, all you need to do is push the button to go back to your ship. Fences and the wall of a building to the east keep you penned in this area, but a doorway marked \"customs\" to the east could be entered if you wish to explore.</Description>
 		<Exit type="in" to="SHIP HANGAR">
 			<Text>Up</Text>
 		</Exit>
@@ -849,7 +849,7 @@
 	
 	<Room name="EAST ESBETH EXIT">
 		<Title>EAST ESBETH\nEXIT</Title>
-		<Description>"This scorched path is half as wide as the ones in the town of Esbeth. Grass is already growing back along the edges of it. Jutting up alongside, a single sign post warns: <i>Danger! Do not enter the jungle unarmed. Native creatures are proven to be both hostile and extremely sexual.</i> Huge trees loom up to the east where the burn-out ends, swallowing the path as it winds between them. If you go east, you'll be in the jungle. The town of Esbeth lies a short walk to the west.</Description>
+		<Description>This scorched path is half as wide as the ones in the town of Esbeth. Grass is already growing back along the edges of it. Jutting up alongside, a single sign post warns: <i>Danger! Do not enter the jungle unarmed. Native creatures are proven to be both hostile and extremely sexual.</i> Huge trees loom up to the east where the burn-out ends, swallowing the path as it winds between them. If you go east, you'll be in the jungle. The town of Esbeth lies a short walk to the west.</Description>
 		<Exit type="w" to="EAST ESBETH ENTRANCE"></Exit>
 		<Exit type="e" to="JUNGLE EDGE"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -857,7 +857,7 @@
 	
 	<Room name="NARROW GORGE 2">
 		<Title>NARROW\nGORGE</Title>
-		<Description>"This narrow gorge runs to the east with a small creek running through its center. It trickles down from the west where a small path leads up and out of the gorge. Walls of earth surround you on the other sides, looming like the sides of a massive grave.\n\nIt's hard to walk here without getting your [pc.feet] wet. The temperature is noticeably cooler, but at least there's less mist about. </Description>
+		<Description>This narrow gorge runs to the east with a small creek running through its center. It trickles down from the west where a small path leads up and out of the gorge. Walls of earth surround you on the other sides, looming like the sides of a massive grave.\n\nIt's hard to walk here without getting your [pc.feet] wet. The temperature is noticeably cooler, but at least there's less mist about. </Description>
 		<Function>mhengaVanaeCombatZone</Function>
 		<Exit type="e" to="NARROW GORGE 3"></Exit>
 		<Exit type="w" to="NARROW GORGE 1"></Exit>
@@ -869,7 +869,7 @@
 	
 	<Room name="KELLY'S OFFICE">
 		<Title>XENOGEN\nOFFICE</Title>
-		<Description>"The inside of this office is decorated in the style of high class terrans, with wood grain floors and eggshell-toned walls illuminated by angled glowbulbs. A few potted plants sit around the periphery, obviously non-native. Well-conceiled vents in the ceilings feed a steady influx of purified, cooled air into this chamber to keep it comfortable. Across the room is an expansive desk equipped with everything you would expect to find on a classy secretary's desk: a terminal, old-fashioned writing utensils, holopaper, and even a small statue of a busty centaur. A monolithic white door sits framed in the western wall and a simpler one on the south, leading back outside.</Description>
+		<Description>The inside of this office is decorated in the style of high class terrans, with wood grain floors and eggshell-toned walls illuminated by angled glowbulbs. A few potted plants sit around the periphery, obviously non-native. Well-conceiled vents in the ceilings feed a steady influx of purified, cooled air into this chamber to keep it comfortable. Across the room is an expansive desk equipped with everything you would expect to find on a classy secretary's desk: a terminal, old-fashioned writing utensils, holopaper, and even a small statue of a busty centaur. A monolithic white door sits framed in the western wall and a simpler one on the south, leading back outside.</Description>
 		<Exit type="w" to="JULIAN'S OFFICE"></Exit>
 		<Exit type="s" to="SOUTH ESBETH 2"></Exit>
 		<Function>kellysOfficeBonusFunction</Function>
@@ -879,7 +879,7 @@
 	
 	<Room name="LICHENS BEND 2">
 		<Title>LICHEN\nBEND</Title>
-		<Description>"You nearly stumble face first into a mess of brambles, hidden behind a camouflaging layer of brown-green lichens that covers them like camo netting. They seem to go on forever to the north and west, effectively arresting any travel in that direction for now. Meanwhile, the path you're now striding across twists away to the east and south, both directions equally overgrown with the odd life.</Description>
+		<Description>You nearly stumble face first into a mess of brambles, hidden behind a camouflaging layer of brown-green lichens that covers them like camo netting. They seem to go on forever to the north and west, effectively arresting any travel in that direction for now. Meanwhile, the path you're now striding across twists away to the east and south, both directions equally overgrown with the odd life.</Description>
 		<Exit type="e" to="LICHENS 2"></Exit>
 		<Exit type="s" to="LICHENS 3"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -891,7 +891,7 @@
 	
 	<Room name="PURPLE FLOWERS 3">
 		<Title>PURPLE\nFLOWERS</Title>
-		<Description>"Both sides of the trail are ringed in curtains of amethyst blooms. The violet flowers are so densely packed, and the air so humid and heavily scented, that you can barely breathe. Their smell would normally be pleasant, but there are just too many of them! The local bugs don't seem to mind; they're here in droves. You can pass through the buzzing insects to the east, deeper into the deep jungle, or go north to Esbeth.</Description>
+		<Description>Both sides of the trail are ringed in curtains of amethyst blooms. The violet flowers are so densely packed, and the air so humid and heavily scented, that you can barely breathe. Their smell would normally be pleasant, but there are just too many of them! The local bugs don't seem to mind; they're here in droves. You can pass through the buzzing insects to the east, deeper into the deep jungle, or go north to Esbeth.</Description>
 		<Exit type="n" to="PURPLE FLOWERS 4"></Exit>
 		<Exit type="e" to="PURPLE FLOWERS 2"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -903,7 +903,7 @@
 	
 	<Room name="IRONWOODS 1">
 		<Title>THE\nIRONWOODS</Title>
-		<Description>"There really isn't any name more fitting for this section of Mhen'ga's wilderness than the ironwoods. The trees here are gigantic enough to be awe-inspiring and tough enough to give more than a few lumber harvesting devices trouble. Rust is caked all over their bark, but if you brush it away, you can expose the silvery sheen of their metallic bark. The natural path you follow between them is barely obstructed by any brush as the dense canopy high above keeps things shaded enough to discourage new growth.</Description>
+		<Description>There really isn't any name more fitting for this section of Mhen'ga's wilderness than the ironwoods. The trees here are gigantic enough to be awe-inspiring and tough enough to give more than a few lumber harvesting devices trouble. Rust is caked all over their bark, but if you brush it away, you can expose the silvery sheen of their metallic bark. The natural path you follow between them is barely obstructed by any brush as the dense canopy high above keeps things shaded enough to discourage new growth.</Description>
 		<Exit type="n" to="IRONWOODS BEND 1"></Exit>
 		<Exit type="s" to="LICHENS AT IRONWOODS 2"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -915,7 +915,7 @@
 	
 	<Room name="OVERGROWN ROCK 8">
 		<Title>GIGANTIC\nROCK</Title>
-		<Description>"There's a series of half-broken, hard corners around the edge of this granite-like monolith. You can follow it to the north and east; there's plenty of room around it to walk, so long as you don't mind the humidity and darkness of this part of the jungle. High as it is, the column-like trees stretch higher still and cover it all with their dense wall of greenery. You doubt that even if you had the means to climb up there that there would be any more illumination to be found. You'll have to find your way out of the deep jungle if you ever want decent lighting again.</Description>
+		<Description>There's a series of half-broken, hard corners around the edge of this granite-like monolith. You can follow it to the north and east; there's plenty of room around it to walk, so long as you don't mind the humidity and darkness of this part of the jungle. High as it is, the column-like trees stretch higher still and cover it all with their dense wall of greenery. You doubt that even if you had the means to climb up there that there would be any more illumination to be found. You'll have to find your way out of the deep jungle if you ever want decent lighting again.</Description>
 		<Exit type="n" to="OVERGROWN ROCK 9"></Exit>
 		<Exit type="e" to="OVERGROWN ROCK 7"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -927,7 +927,7 @@
 	
 	<Room name="OVERGROWN ROCK 1">
 		<Title>GIGANTIC\nROCK</Title>
-		<Description>"A rock, almost mountain-like in proportions, towers overhead to the west of here. It's so tall that you would be in its shadow if it everything wasn't already so deeply steeped in darkness. You wager it rises up at least a few hundred feet into the air, its walls almost completely sheer. It's been there long enough to have accumulated a healthy covering of mosses, fungus, and other growths. You can go north and south around it or east on a trail that's surrounded by tentacles.</Description>
+		<Description>A rock, almost mountain-like in proportions, towers overhead to the west of here. It's so tall that you would be in its shadow if it everything wasn't already so deeply steeped in darkness. You wager it rises up at least a few hundred feet into the air, its walls almost completely sheer. It's been there long enough to have accumulated a healthy covering of mosses, fungus, and other growths. You can go north and south around it or east on a trail that's surrounded by tentacles.</Description>
 		<Exit type="n" to="OVERGROWN ROCK 2"></Exit>
 		<Exit type="e" to="VINED JUNGLE 3"></Exit>
 		<Exit type="s" to="OVERGROWN ROCK 4"></Exit>
@@ -940,7 +940,7 @@
 	
 	<Room name="SOUTHWEST ESBETH">
 		<Title>SOUTHWEST\nESBETH</Title>
-		<Description>"Here, Esbeth's single road bends north and east, wrapping around this corner of the town. There isn't much to see here, just some locked domiciles to the south and west and the same guard towers that ring the rest of the settlement. Distantly, you can make out the spaceport that towers over the north side of the town and your ship perched high on its landing pad.</Description>
+		<Description>Here, Esbeth's single road bends north and east, wrapping around this corner of the town. There isn't much to see here, just some locked domiciles to the south and west and the same guard towers that ring the rest of the settlement. Distantly, you can make out the spaceport that towers over the north side of the town and your ship perched high on its landing pad.</Description>
 		<Exit type="n" to="WEST ESBETH 2"></Exit>
 		<Exit type="e" to="SOUTH ESBETH 1"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -948,7 +948,7 @@
 	
 	<Room name="VALLEY DESCENT 2">
 		<Title>VALLEY\nDESCENT</Title>
-		<Description>"The foliage is thinner here than the rest of the jungle. In every direction there are thick, ancient looking trees, possibly centuries old. Their pale trunks are covered in bioluminescent lichen. This is rather helpful as the whole area is covered in dewy fog.\n\nThe path here continues north and upward, or south to what looks like the valley floor. The mist seems thinner to the north.</Description>
+		<Description>The foliage is thinner here than the rest of the jungle. In every direction there are thick, ancient looking trees, possibly centuries old. Their pale trunks are covered in bioluminescent lichen. This is rather helpful as the whole area is covered in dewy fog.\n\nThe path here continues north and upward, or south to what looks like the valley floor. The mist seems thinner to the north.</Description>
 		<Function>mhengaVanaeCombatZone</Function>
 		<Exit type="n" to="VALLEY DESCENT 1"></Exit>
 		<Exit type="s" to="VALLEY FLOOR"></Exit>
@@ -960,7 +960,7 @@
 	
 	<Room name="IRONWOODS BEND 1">
 		<Title>IRONWOODS\nBEND</Title>
-		<Description>"Turning a sharp corner, the way between these gigantic trees veers away to the east and south. They grow like walls in their own right thanks to their tremendous size, and the branches above are so high that ones as thick as terran tree trunks look like little more than twigs. You shudder at the scale of it all as you plan your next move.</Description>
+		<Description>Turning a sharp corner, the way between these gigantic trees veers away to the east and south. They grow like walls in their own right thanks to their tremendous size, and the branches above are so high that ones as thick as terran tree trunks look like little more than twigs. You shudder at the scale of it all as you plan your next move.</Description>
 		<Exit type="e" to="IRONWOODS 2"></Exit>
 		<Exit type="s" to="IRONWOODS 1"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -972,7 +972,7 @@
 	
 	<Room name="FERNGROWTH PATH 1">
 		<Title>FERNGROWTH\nPATH</Title>
-		<Description>"Stepping carefully through the brush, you do your best to stay on the trail. The foliage is so thick that if you were to leave it, you'd be lost in no time. Huge, alien ferns gird the sides of the path, and you can see that something has been cutting them back to keep the path clear. Whether other adventurers from Esbeth are responsible or some of the locals is unclear. The air is humid and hot, not oppressively so. The path winds northward, deeper into the jungle, and west, back towards the open air around Esbeth.</Description>
+		<Description>Stepping carefully through the brush, you do your best to stay on the trail. The foliage is so thick that if you were to leave it, you'd be lost in no time. Huge, alien ferns gird the sides of the path, and you can see that something has been cutting them back to keep the path clear. Whether other adventurers from Esbeth are responsible or some of the locals is unclear. The air is humid and hot, not oppressively so. The path winds northward, deeper into the jungle, and west, back towards the open air around Esbeth.</Description>
 		<Exit type="n" to="FERNGROWTH PATH 2"></Exit>
 		<Exit type="w" to="JUNGLE EDGE"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -984,7 +984,7 @@
 	
 	<Room name="LICHENS BEND 1">
 		<Title>LICHENS\nBEND</Title>
-		<Description>"Twisting away, the wall of grown-over trees curves north and east from here, leaving you free to walk in either direction unhindered. Unfortunately, thorny bushes nearly six-feet high have grown up out of the lichen-covered ground to the west and south. What little you can see beyond them seems deeper, darker, and danker than the area you now inhabit. Glowing yellow lichens bathe the area around you in gentle luminance as you weigh your options.</Description>
+		<Description>Twisting away, the wall of grown-over trees curves north and east from here, leaving you free to walk in either direction unhindered. Unfortunately, thorny bushes nearly six-feet high have grown up out of the lichen-covered ground to the west and south. What little you can see beyond them seems deeper, darker, and danker than the area you now inhabit. Glowing yellow lichens bathe the area around you in gentle luminance as you weigh your options.</Description>
 		<Exit type="n" to="FERNS AT LICHENS 1"></Exit>
 		<Exit type="e" to="LICHENS 1"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -996,7 +996,7 @@
 	
 	<Room name="VINED JUNGLE 6">
 		<Title>VINED\nJUNGLE</Title>
-		<Description>"Between the darkness, the squirming plants, and the gigantic bugs that constantly flit by, you're ready to step somewhere that doesn't seem so obviously dangerous. A few rays of amber sunlight do trickle down, but they only serve to highlight the moist sheen that covers the green mounds. To the east, there appears to be three-way fork. The path continues to the west unbroken.</Description>
+		<Description>Between the darkness, the squirming plants, and the gigantic bugs that constantly flit by, you're ready to step somewhere that doesn't seem so obviously dangerous. A few rays of amber sunlight do trickle down, but they only serve to highlight the moist sheen that covers the green mounds. To the east, there appears to be three-way fork. The path continues to the west unbroken.</Description>
 		<Exit type="w" to="VINED JUNGLE 5"></Exit>
 		<Exit type="e" to="FORKED DEEP JUNGLE 1"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -1008,7 +1008,7 @@
 	
 	<Room name="SHIP HANGAR">
 		<Title>SHIP\nHANGAR</Title>
-		<Description>"Though dubbed a hangar, this suspended platform is little more than an exposed landing pad. It's a hexagonal, steelcrete plate, one of dozens that ring the central elevator spire. Blinking lights ring the edges to guide you when taking off or landing, and to keep other ships from clipping the platform when seeking their own. An elevator door hangs open to the south, waiting for you to press the button that will take you back to the ground, while your ship remains parked here, ready to be entered.</Description>
+		<Description>Though dubbed a hangar, this suspended platform is little more than an exposed landing pad. It's a hexagonal, steelcrete plate, one of dozens that ring the central elevator spire. Blinking lights ring the edges to guide you when taking off or landing, and to keep other ships from clipping the platform when seeking their own. An elevator door hangs open to the south, waiting for you to press the button that will take you back to the ground, while your ship remains parked here, ready to be entered.</Description>
 		<Function>mhengaShipHangarFunc</Function>
 		<Exit type="out" to="SPACEPORT ELEVATOR">
 			<Text>Down</Text>
@@ -1019,7 +1019,7 @@
 	
 	<Room name="MISTY VALLEY 2">
 		<Title>MISTY\nVALLEY</Title>
-		<Description>"Pale, monolithic trees loom all around you, like ancient gods watching your every move. You can't see the canopy at all, nor much of anything else through the thick fog that surrounds you. Bioluminescent lines run up each tree like arteries of light, blinking and pulsing.\n\nYou almost step into a small river to the north-east as you are blinded by the opaque mist. The only safe ways to walk seem to be east or south.</Description>
+		<Description>Pale, monolithic trees loom all around you, like ancient gods watching your every move. You can't see the canopy at all, nor much of anything else through the thick fog that surrounds you. Bioluminescent lines run up each tree like arteries of light, blinking and pulsing.\n\nYou almost step into a small river to the north-east as you are blinded by the opaque mist. The only safe ways to walk seem to be east or south.</Description>
 		<Function>mhengaVanaeCombatZone</Function>
 		<Exit type="e" to="VALLEY FLOOR"></Exit>
 		<Exit type="s" to="THICK MIST 1"></Exit>
@@ -1031,7 +1031,7 @@
 	
 	<Room name="GIANT LEAVES 2">
 		<Title>GIANT\nLEAVES</Title>
-		<Description>"You can see that the leaves to either side into you have been chewed away, probably by some native herbivore. Threading between them, the path rolls on to the north and to the south. The ground is mushy and soft with the amount of humidity, almost like mud, and the leaves grow in even thicker the farther south you go.</Description>
+		<Description>You can see that the leaves to either side into you have been chewed away, probably by some native herbivore. Threading between them, the path rolls on to the north and to the south. The ground is mushy and soft with the amount of humidity, almost like mud, and the leaves grow in even thicker the farther south you go.</Description>
 		<Exit type="n" to="GIANT LEAVES 1"></Exit>
 		<Exit type="s" to="GIANT LEAVES 3"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -1043,7 +1043,7 @@
 	
 	<Room name="NARROW GORGE 3">
 		<Title>NARROW\nGORGE</Title>
-		<Description>"The sides of the chasm are quite high here and the canopy thick. Very little light reaches where you stand, making it hard to see about. Icy water splashes up and against your [pc.feet]. The creek running through the heart of the gorge runs quite fast here.\n\nYou can continue up or downstream. To the north, there is a root-lined break in the gorge you could use to climb up and out.</Description>
+		<Description>The sides of the chasm are quite high here and the canopy thick. Very little light reaches where you stand, making it hard to see about. Icy water splashes up and against your [pc.feet]. The creek running through the heart of the gorge runs quite fast here.\n\nYou can continue up or downstream. To the north, there is a root-lined break in the gorge you could use to climb up and out.</Description>
 		<Function>mhengaVanaeCombatZone</Function>
 		<Exit type="n" to="UTHRA BIRCH"></Exit>
 		<Exit type="w" to="NARROW GORGE 2"></Exit>
@@ -1055,7 +1055,7 @@
 	
 	<Room name="DENSE ORANGE 1">
 		<Title>THE DENSE\nORANGE</Title>
-		<Description>"Orange-hued plants of all descriptions grow thickly here, forcing you to struggle past crimson vines and trample the occasional green sprout on your way. It's rough traveling, but at least there's still the path. It seems to have been kept clear by animals of some kind; more than a few vibrant leaves have bite-shaped chunks missing out of them. The path struggles through to the north and south.</Description>
+		<Description>Orange-hued plants of all descriptions grow thickly here, forcing you to struggle past crimson vines and trample the occasional green sprout on your way. It's rough traveling, but at least there's still the path. It seems to have been kept clear by animals of some kind; more than a few vibrant leaves have bite-shaped chunks missing out of them. The path struggles through to the north and south.</Description>
 		<Exit type="n" to="IRONWOODS BEND 2"></Exit>
 		<Exit type="s" to="DENSE ORANGE 2"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -1067,7 +1067,7 @@
 	
 	<Room name="DEEP JUNGLE 2">
 		<Title>DEEP\nJUNGLE</Title>
-		<Description>"At first this area looks like a bend, only allowing passage north or west. However, on second glance there is a tiny passage east through the incredibly overgrown vegetation. It hardly seems safe to squeeze through such a tight path, since it leaves you open to attack by carnivorous flora and fauna.\n\nSmall shafts of sunlight sometimes illuminate the odd patch of forest floor, but they are more like candles on a dark night than the floodlights you desire.</Description>
+		<Description>At first this area looks like a bend, only allowing passage north or west. However, on second glance there is a tiny passage east through the incredibly overgrown vegetation. It hardly seems safe to squeeze through such a tight path, since it leaves you open to attack by carnivorous flora and fauna.\n\nSmall shafts of sunlight sometimes illuminate the odd patch of forest floor, but they are more like candles on a dark night than the floodlights you desire.</Description>
 		<Exit type="n" to="DEEP JUNGLE 1"></Exit>
 		<Exit type="w" to="FORKED DEEP JUNGLE 1"></Exit>
 		<Exit type="e" to="A TURNING POINT"></Exit>
@@ -1080,7 +1080,7 @@
 	
 	<Room name="OVERGROWN ROCK 9">
 		<Title>GIGANTIC\nROCK</Title>
-		<Description>"Following alongside the stone protrusion, you're treated to all manner of exotic sights and sounds. You hear animal calls that sound like high-pitched whistles. There's a bird whose squawk reminds you of the sound of discharge of a laser weapon. You even see a flower that pivots to follow you, its petals glowing an almost ultraviolet color. This truly is a strange and wonderful planet, but a touch dangerous too. The path leads north and south.</Description>
+		<Description>Following alongside the stone protrusion, you're treated to all manner of exotic sights and sounds. You hear animal calls that sound like high-pitched whistles. There's a bird whose squawk reminds you of the sound of discharge of a laser weapon. You even see a flower that pivots to follow you, its petals glowing an almost ultraviolet color. This truly is a strange and wonderful planet, but a touch dangerous too. The path leads north and south.</Description>
 		<Exit type="n" to="OVERGROWN ROCK 10"></Exit>
 		<Exit type="s" to="OVERGROWN ROCK 8"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -1092,7 +1092,7 @@
 	
 	<Room name="A TURNING POINT">
 		<Title>TURNING\nPOINT</Title>
-		<Description>"You are in a narrow passageway in the jungle. The vegetation curves in an arc heading from the west to the south. The south end dips on a slow descent. The temperature here is cool and moist. There is glowing bioluminescent lichen growing on the trees here.\n\nSouth looks a little misty. It might get a little hard to see if you head in that direction.</Description>
+		<Description>You are in a narrow passageway in the jungle. The vegetation curves in an arc heading from the west to the south. The south end dips on a slow descent. The temperature here is cool and moist. There is glowing bioluminescent lichen growing on the trees here.\n\nSouth looks a little misty. It might get a little hard to see if you head in that direction.</Description>
 		<Function>mhengaVanaeCombatZone</Function>
 		<Exit type="s" to="VALLEY DESCENT 1"></Exit>
 		<Exit type="w" to="DEEP JUNGLE 2"></Exit>
@@ -1104,7 +1104,7 @@
 	
 	<Room name="LICHENS AT IRONWOODS 2">
 		<Title>IRONWOODS\nAND LICHENS</Title>
-		<Description>"While the path you now tread is fairly devoid of undergrowth due to some aggressive, alien lichens, there is no shortage of tree life to bar your way. A copse of gray trunks so thick that a child would be challenged to squeeze between them stands defiantly among the lichens to the southwest, even if there's a path that circumnavigates their northern edge to your west. To the east, huge trees at least thirty feet around dot the landscape, covered in what appears to be rusty red bark. If you touch it, the red comes away like old rust, revealing a gleaming, metallic tree-trunk below.</Description>
+		<Description>While the path you now tread is fairly devoid of undergrowth due to some aggressive, alien lichens, there is no shortage of tree life to bar your way. A copse of gray trunks so thick that a child would be challenged to squeeze between them stands defiantly among the lichens to the southwest, even if there's a path that circumnavigates their northern edge to your west. To the east, huge trees at least thirty feet around dot the landscape, covered in what appears to be rusty red bark. If you touch it, the red comes away like old rust, revealing a gleaming, metallic tree-trunk below.</Description>
 		<Exit type="n" to="IRONWOODS 1"></Exit>
 		<Exit type="w" to="LICHENS 2"></Exit>
 		<Exit type="s" to="LICHENS AND IRONWOODS 3"></Exit>
@@ -1117,7 +1117,7 @@
 	
 	<Room name="IRON AND DARK CORNER 1">
 		<Title>IRONWOOD &\nDARK CORNER</Title>
-		<Description>"Twisting, the path curves away to the north and the east. To the east, the canopy above has grown in so thick that the forest floor is in a perpetual nightfall. To the north, strange, reddish trees clash with all varieties of colored lichens. Bits of sunlight do stream down to illuminate the area you're standing in, but it is neither as bright or as gloomy as the north and the east respectively.</Description>
+		<Description>Twisting, the path curves away to the north and the east. To the east, the canopy above has grown in so thick that the forest floor is in a perpetual nightfall. To the north, strange, reddish trees clash with all varieties of colored lichens. Bits of sunlight do stream down to illuminate the area you're standing in, but it is neither as bright or as gloomy as the north and the east respectively.</Description>
 		<Exit type="n" to="LICHENS AT IRONWOODS 1"></Exit>
 		<Exit type="e" to="DEEP FOREST 2"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -1129,7 +1129,7 @@
 	
 	<Room name="FERNGROWTH PATH 4">
 		<Title>FERNGROWTH\nPATH</Title>
-		<Description>"Ferns sprout up on all sides of the path, but for some reason, they haven't encroached on it just yet. These particular specimens reach up about four feet, but just to the west there is a patch of them so giant that they tower overhead. You can also see that the vegetation and terrain around the path changes wildly to the east. There, the paths are much more open and the vegetation less dense. How odd.</Description>
+		<Description>Ferns sprout up on all sides of the path, but for some reason, they haven't encroached on it just yet. These particular specimens reach up about four feet, but just to the west there is a patch of them so giant that they tower overhead. You can also see that the vegetation and terrain around the path changes wildly to the east. There, the paths are much more open and the vegetation less dense. How odd.</Description>
 		<Exit type="w" to="FERNGROWTH PATH 3"></Exit>
 		<Exit type="e" to="FERNS AT LICHENS 1"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -1141,7 +1141,7 @@
 	
 	<Room name="IRONWOODS BEND 2">
 		<Title>IRONWOODS\nBEND</Title>
-		<Description>"A trunk as wide as a small graffball court towers above to the northeast, and the winding little trail you've been following curves around to the west and south. This seems to be the last of the immense rusty trunks if you go south, though a great many can be seen along the way to the west. Orange-leaved plants glimmer along either side of this trail to the south. You even spot some tracks, though you are unable to determine what kind of animal left them. They definitely don't belong to any species you're familiar with.</Description>
+		<Description>A trunk as wide as a small graffball court towers above to the northeast, and the winding little trail you've been following curves around to the west and south. This seems to be the last of the immense rusty trunks if you go south, though a great many can be seen along the way to the west. Orange-leaved plants glimmer along either side of this trail to the south. You even spot some tracks, though you are unable to determine what kind of animal left them. They definitely don't belong to any species you're familiar with.</Description>
 		<Exit type="w" to="IRONWOODS 3"></Exit>
 		<Exit type="s" to="DENSE ORANGE 1"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -1153,7 +1153,7 @@
 	
 	<Room name="DEEP JUNGLE 1">
 		<Title>DEEP\nJUNGLE</Title>
-		<Description>"There is so much pollen in the air here that you can't help but stifle a series of uncontrollable sneezes. The entire place is covered in vines, flowers, and overgrowth that lacks a decent word in your language to describe it. Some of the dangling cords of plant matter even appear to be prehensile, twitching to grap a fist-sized insect out of the air. You hear the crack of an exoskeleton break after. <b>You had best be on guard here.</b></Description>
+		<Description>There is so much pollen in the air here that you can't help but stifle a series of uncontrollable sneezes. The entire place is covered in vines, flowers, and overgrowth that lacks a decent word in your language to describe it. Some of the dangling cords of plant matter even appear to be prehensile, twitching to grap a fist-sized insect out of the air. You hear the crack of an exoskeleton break after. <b>You had best be on guard here.</b></Description>
 		<Exit type="n" to="DEEP INTERSECTION 1"></Exit>
 		<Exit type="s" to="DEEP JUNGLE 2"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -1165,7 +1165,7 @@
 	
 	<Room name="DARK ORANGE CORNER 1">
 		<Title>DARK ORANGE\nCORNER</Title>
-		<Description>"You stand on the edge of darkness and light (relative to this jungle, anyway). If you follow the path to the west, the forest turns almost unacceptably dark. The canopy above that part of the woods is so dense that only a few, weak beams of light penetrate down to the forest floor. To the north, the woods lighten to a dramatic degree thanks to brilliant, almost neon plant-life that grows on all sides of the well-trod path.</Description>
+		<Description>You stand on the edge of darkness and light (relative to this jungle, anyway). If you follow the path to the west, the forest turns almost unacceptably dark. The canopy above that part of the woods is so dense that only a few, weak beams of light penetrate down to the forest floor. To the north, the woods lighten to a dramatic degree thanks to brilliant, almost neon plant-life that grows on all sides of the well-trod path.</Description>
 		<Exit type="n" to="DENSE ORANGE 5"></Exit>
 		<Exit type="w" to="DEEP FOREST 1"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -1177,7 +1177,7 @@
 	
 	<Room name="LICHENS 1">
 		<Title>LICHEN\nJUNGLE</Title>
-		<Description>"Hardly anything seems to grow here but trees, thorns, and lichens, and the lichens have grown over both of the former. The trees grow so closely together to the north that it would be impossible to squeeze between, while the thorns to the south are so large and thick that getting through them would be a huge pain. Purplish lights twinkle from some of the lichens around you, and it seems like every new step exposes you to a new color or trait from the oddly earth-like, indigenous life-form.</Description>
+		<Description>Hardly anything seems to grow here but trees, thorns, and lichens, and the lichens have grown over both of the former. The trees grow so closely together to the north that it would be impossible to squeeze between, while the thorns to the south are so large and thick that getting through them would be a huge pain. Purplish lights twinkle from some of the lichens around you, and it seems like every new step exposes you to a new color or trait from the oddly earth-like, indigenous life-form.</Description>
 		<Exit type="w" to="LICHENS BEND 1"></Exit>
 		<Exit type="e" to="LICHENS AT IRONWOODS 1"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -1189,7 +1189,7 @@
 	
 	<Room name="VALLEY DESCENT 1">
 		<Title>VALLEY\nDESCENT</Title>
-		<Description>"The path here heads directly north to south on a steep slant. The more you move south, the more you seem to descend into a natural valley. The trees here seem to be defying the incline, strangely growing taller and thicker the further the path descends.\n\nThis area is thin with mist. It seems to get thicker further down. Even then, you can still see the flickering of the luminous tree lichen.</Description>
+		<Description>The path here heads directly north to south on a steep slant. The more you move south, the more you seem to descend into a natural valley. The trees here seem to be defying the incline, strangely growing taller and thicker the further the path descends.\n\nThis area is thin with mist. It seems to get thicker further down. Even then, you can still see the flickering of the luminous tree lichen.</Description>
 		<Function>mhengaVanaeCombatZone</Function>
 		<Exit type="n" to="A TURNING POINT"></Exit>
 		<Exit type="s" to="VALLEY DESCENT 2"></Exit>
@@ -1201,7 +1201,7 @@
 	
 	<Room name="LICHENS AND IRONWOODS 3">
 		<Title>IRONWOODS\nAND LICHENS</Title>
-		<Description>"The jungle here is marvelously colorful. Hues of verdant green swim between vibrant yellows and lurid reds, shining up from the interwoven lichens in a rainbow of beauteous light. Whenever you press down upon some of it, the light brightens, lighting the way as you go. Ferrous trees as big as buildings rise up to the east, and smaller gray ones to the west cluster so tightly that you cannot go in that direction.</Description>
+		<Description>The jungle here is marvelously colorful. Hues of verdant green swim between vibrant yellows and lurid reds, shining up from the interwoven lichens in a rainbow of beauteous light. Whenever you press down upon some of it, the light brightens, lighting the way as you go. Ferrous trees as big as buildings rise up to the east, and smaller gray ones to the west cluster so tightly that you cannot go in that direction.</Description>
 		<Exit type="s" to="LICHENS AND IRONWOODS 2"></Exit>
 		<Exit type="n" to="LICHENS AT IRONWOODS 2"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -1213,7 +1213,7 @@
 	
 	<Room name="LICHENS AT IRONWOODS 1">
 		<Title>IRONWOODS\nAND LICHENS</Title>
-		<Description>"Here, dozens of multihued lichens clash against a larger and entirely different type of jungle life. Gigantic trees, each at least a dozen feet around, tower over you. Their rusty red bark gives them a surprisingly familiar appearance until you brush your hand against one. The stuff flakes right off on your fingers! Underneath where you touched shines a silvery metallic color. These trees' bark is literally iron hard.</Description>
+		<Description>Here, dozens of multihued lichens clash against a larger and entirely different type of jungle life. Gigantic trees, each at least a dozen feet around, tower over you. Their rusty red bark gives them a surprisingly familiar appearance until you brush your hand against one. The stuff flakes right off on your fingers! Underneath where you touched shines a silvery metallic color. These trees' bark is literally iron hard.</Description>
 		<Exit type="w" to="LICHENS 1"></Exit>
 		<Exit type="n" to="LICHENS AND IRONWOODS 1"></Exit>
 		<Exit type="s" to="IRON AND DARK CORNER 1"></Exit>
@@ -1226,7 +1226,7 @@
 	
 	<Room name="PURPLE FLOWERS 1">
 		<Title>PURPLE\nFLOWERS</Title>
-		<Description>"You're on a path that winds its way through masses of purple blooms of all sizes and descriptions. Some are almost as big as an average man, others are so tiny you could fit two or three on a pinky finger. Insects swarm around them, content to harvest the flower's nectar instead of bothering you. You're grateful; some of them seem to be packing dangerous-looking stingers. You can go south and west along the path.</Description>
+		<Description>You're on a path that winds its way through masses of purple blooms of all sizes and descriptions. Some are almost as big as an average man, others are so tiny you could fit two or three on a pinky finger. Insects swarm around them, content to harvest the flower's nectar instead of bothering you. You're grateful; some of them seem to be packing dangerous-looking stingers. You can go south and west along the path.</Description>
 		<Exit type="w" to="PURPLE FLOWERS 2"></Exit>
 		<Exit type="s" to="OVERGROWN ROCK 11"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -1238,7 +1238,7 @@
 	
 	<Room name="JULIAN'S OFFICE">
 		<Title>SCIENTIST'S\nOFFICE</Title>
-		<Description>"The pure white, self-illuminating walls, floor, and ceiling provide a perfectly uniform distribution of luminance, lending the whole space a dream-like, heavenly quality. More strange than the lighting is the desk that curves through the northern half of this chamber. It's carved from one solid piece of translucent material that reflects the light into dazzling patterns of hypnotizing shine. The doorway to the east is the same featureless alabaster. It doesn't even have a doorknob, instead relying on proximity scanners and motorized retractors to slide it out of the way and into the wall. This place feels nothing like the rest of Esbeth.</Description>
+		<Description>The pure white, self-illuminating walls, floor, and ceiling provide a perfectly uniform distribution of luminance, lending the whole space a dream-like, heavenly quality. More strange than the lighting is the desk that curves through the northern half of this chamber. It's carved from one solid piece of translucent material that reflects the light into dazzling patterns of hypnotizing shine. The doorway to the east is the same featureless alabaster. It doesn't even have a doorknob, instead relying on proximity scanners and motorized retractors to slide it out of the way and into the wall. This place feels nothing like the rest of Esbeth.</Description>
 		<Function>juliansOffice</Function>
 		<Exit type="e" to="KELLY'S OFFICE"></Exit>
 		<Flag>INDOOR</Flag>
@@ -1247,7 +1247,7 @@
 	
 	<Room name="CLOUD FOREST 2">
 		<Title></Title>
-		<Description>"Ancient Saole trees tower around you in every direction, each with countless branches weaving a tapestry of wood above you. Thick, ethereal fog slips through every gap the wooden spider web offers. A blanket of mist licks your [pc.feet] and steals them from view.\n\nThere is a jutting rock face here with water trickling down it. You can head either north or east.</Description>
+		<Description>Ancient Saole trees tower around you in every direction, each with countless branches weaving a tapestry of wood above you. Thick, ethereal fog slips through every gap the wooden spider web offers. A blanket of mist licks your [pc.feet] and steals them from view.\n\nThere is a jutting rock face here with water trickling down it. You can head either north or east.</Description>
 		<Function>mhengaVanaeCombatZone</Function>
 		<Exit type="n" to="CAMP EDGE"></Exit>
 		<Exit type="e" to="CLOUD FOREST 1"></Exit>
@@ -1259,7 +1259,7 @@
 	
 	<Room name="FERNGROWTH PATH 3">
 		<Title>FERNGROWTH\nPATH</Title>
-		<Description>"Hanging ominously overhead, gigantic ferns tower over the path. While this casts the area into deep shadow, it also broadens the navigable area quite nicely, allowing you to see something besides bushy green leaves for a chance. The ground on either side is a deep, rich brown, and moist with water that constantly seems to drip from the plants above. It is bare except for the ferns and flat, round disks that you surmise are mushroom-like in nature.</Description>
+		<Description>Hanging ominously overhead, gigantic ferns tower over the path. While this casts the area into deep shadow, it also broadens the navigable area quite nicely, allowing you to see something besides bushy green leaves for a chance. The ground on either side is a deep, rich brown, and moist with water that constantly seems to drip from the plants above. It is bare except for the ferns and flat, round disks that you surmise are mushroom-like in nature.</Description>
 		<Exit type="w" to="FERNGROWTH BEND 1"></Exit>
 		<Exit type="e" to="FERNGROWTH PATH 4"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -1271,7 +1271,7 @@
 	
 	<Room name="THICK MIST 1">
 		<Title>THICK\nMIST</Title>
-		<Description>"</Description>
+		<Description></Description>
 		<Function>mhengaThickMistRoom1</Function>
 		<Exit type="n" to="MISTY VALLEY 2"></Exit>
 		<Exit type="e" to="MISTY VALLEY 1"></Exit>
@@ -1284,7 +1284,7 @@
 	
 	<Room name="NORTHEAST ESBETH">
 		<Title>NORTHEAST\nESBETH</Title>
-		<Description>"Esbeth's single road twists to the south and west here, spoking out in straight lines that run in those directions. The path here is as barren and burned-out as everywhere else in town, but the houses on either side are fresh and new, though a few show places of rust already. To the south, you can see the eastern exit of town splitting off from the roadway. There are occasional other adventurers, like you on their way, but they pay you no mind.</Description>
+		<Description>Esbeth's single road twists to the south and west here, spoking out in straight lines that run in those directions. The path here is as barren and burned-out as everywhere else in town, but the houses on either side are fresh and new, though a few show places of rust already. To the south, you can see the eastern exit of town splitting off from the roadway. There are occasional other adventurers, like you on their way, but they pay you no mind.</Description>
 		<Exit type="w" to="NORTH ESBETH 1"></Exit>
 		<Exit type="s" to="EAST ESBETH ENTRANCE"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -1292,7 +1292,7 @@
 	
 	<Room name="SHIP INTERIOR">
 		<Title>SHIP\nINTERIOR</Title>
-		<Description>"The inside of your father's old Casstech Z14 is in remarkably great shape for such an old ship; the mechanics that were working on this really ought to be proud of themselves. Seats for two lie in the cockpit, and there is a servicable but small shower near the back. Three bunks are scattered around the cramped interior, providing barely ample room for you and your crew.</Description>
+		<Description>The inside of your father's old Casstech Z14 is in remarkably great shape for such an old ship; the mechanics that were working on this really ought to be proud of themselves. Seats for two lie in the cockpit, and there is a servicable but small shower near the back. Three bunks are scattered around the cramped interior, providing barely ample room for you and your crew.</Description>
 		<Exit type="out" to="">
 			<Variable>shipLocation</Variable>
 			<Text>Exit</Text>
@@ -1304,7 +1304,7 @@
 	
 	<Room name="LICHENS AND IRONWOODS 2">
 		<Title>IRONWOODS\nAND LICHENS</Title>
-		<Description>"Springing lightly under your [pc.feet] as you move, the soft soil and lichenous mulch below makes your journey surprisingly pleasant, aside from the omnipresent humidity. A wall of gray trees blocks the way west, and a trunk as big as three tanks put together blocks the east. Buzzing insects swirl around everywhere, busy on their own errands. Thankful they don't seem to have much interest in you, perhaps due to your alien physiology.</Description>
+		<Description>Springing lightly under your [pc.feet] as you move, the soft soil and lichenous mulch below makes your journey surprisingly pleasant, aside from the omnipresent humidity. A wall of gray trees blocks the way west, and a trunk as big as three tanks put together blocks the east. Buzzing insects swirl around everywhere, busy on their own errands. Thankful they don't seem to have much interest in you, perhaps due to your alien physiology.</Description>
 		<Exit type="s" to="LICHENS AND IRONWOODS 1"></Exit>
 		<Exit type="n" to="LICHENS AND IRONWOODS 3"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -1316,7 +1316,7 @@
 	
 	<Room name="METAL POD 1">
 		<Title>METAL\nPOD</Title>
-		<Description>"Buried halfway in a small crater of its own creation sits an oblong metal pod, perhaps ten feet long and three across. The surface is still glossy after its obviously hot reentry; you can see the way it blackened the ground and the plants around it. You immediately recognize it as one of the probes your father sent out - one of the keys to his fortune.</Description>
+		<Description>Buried halfway in a small crater of its own creation sits an oblong metal pod, perhaps ten feet long and three across. The surface is still glossy after its obviously hot reentry; you can see the way it blackened the ground and the plants around it. You immediately recognize it as one of the probes your father sent out - one of the keys to his fortune.</Description>
 		<Exit type="n" to="NARROW PATH 3"></Exit>
 		<Flag>OUTDOOR</Flag>
 		<Flag>HAZARD</Flag>
@@ -1327,7 +1327,7 @@
 	
 	<Room name="LICHENS 2">
 		<Title>LICHEN\nJUNGLE</Title>
-		<Description>"There is little plant-growth here aside from the multi-hued lichens that drape everything in their almost luminescent hues, yet somehow a group of gray-barked trees has managed to endure in the center of it all, clustered closely enough to block anyone not driving a lumber harvester. Thick thorns obscure the way north from view. Luckily, the open path you now stand upon continues both east and west of here, though it opens up for more in the former direction.</Description>
+		<Description>There is little plant-growth here aside from the multi-hued lichens that drape everything in their almost luminescent hues, yet somehow a group of gray-barked trees has managed to endure in the center of it all, clustered closely enough to block anyone not driving a lumber harvester. Thick thorns obscure the way north from view. Luckily, the open path you now stand upon continues both east and west of here, though it opens up for more in the former direction.</Description>
 		<Exit type="e" to="LICHENS AT IRONWOODS 2"></Exit>
 		<Exit type="w" to="LICHENS BEND 2"></Exit>
 		<Flag>OUTDOOR</Flag>
