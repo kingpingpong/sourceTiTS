@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Planet>
 	<Name>Mhen'ga</Name>
 	<DisplayName>PLANET: MHEN'GA</DisplayName>
@@ -851,7 +851,7 @@
 		<Title>EAST ESBETH\nEXIT</Title>
 		<Description>"This scorched path is half as wide as the ones in the town of Esbeth. Grass is already growing back along the edges of it. Jutting up alongside, a single sign post warns: <i>Danger! Do not enter the jungle unarmed. Native creatures are proven to be both hostile and extremely sexual.</i> Huge trees loom up to the east where the burn-out ends, swallowing the path as it winds between them. If you go east, you'll be in the jungle. The town of Esbeth lies a short walk to the west.</Description>
 		<Exit type="w" to="EAST ESBETH ENTRANCE"></Exit>
-		<Exit type="e" to="JUNGLE EDGE;"></Exit>
+		<Exit type="e" to="JUNGLE EDGE"></Exit>
 		<Flag>OUTDOOR</Flag>
 	</Room>
 	
