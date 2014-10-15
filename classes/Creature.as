@@ -1540,6 +1540,9 @@
 				case "toes":
 					buffer = toes();
 					break;
+				case "knee":
+					buffer = kneeDescript();
+					break;
 				case "knees":
 					buffer = kneesDescript();
 					break;
@@ -3120,6 +3123,14 @@
 		public function hasKnees():Boolean
 		{
 			return (hasLegFlag(GLOBAL.FLAG_DIGITIGRADE) || hasLegFlag(GLOBAL.FLAG_PLANTIGRADE));
+		}
+		public function kneeDescript():String {
+			var select: Number = 0;
+			var output: String = "";
+			//Noun
+			if (hasLegFlag(GLOBAL.FLAG_AMORPHOUS) && legType == GLOBAL.TYPE_GOOEY) output += "cilium";
+			else output += "knee";
+			return output;
 		}
 		public function kneesDescript(): String {
 			var select: Number = 0;
