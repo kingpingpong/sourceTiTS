@@ -118,14 +118,17 @@
 				}
 				
 				//Flags
-				for each(var flagXML:XML in roomXML.Flag) {
-					try {
-						room.addFlag(GLOBAL[flagXML]);
-					} catch(e:ReferenceError) {
-						trace("Flag \"" + flagXML + "\" does not exist");
+				if(roomXML.Flag != undefined) {
+					for each(var flagXML:XML in roomXML.Flag) {
+						try {
+							room.addFlag(GLOBAL[flagXML]);
+						} catch(e:ReferenceError) {
+							trace("Flag \"" + flagXML + "\" does not exist");
+						}
 					}
+				} else {
+					room.addFlag(GLOBAL.OUTDOOR);
 				}
-				
 				rooms[room.name] = room;
 				kGAMECLASS.rooms[room.name] = room;
 			}
