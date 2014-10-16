@@ -444,7 +444,7 @@
 				setTimeout(mapRoomAnimNext, animationTime / 1, room, xPos, yPos, roomsObj, completeRooms);
 				tarSprite.addEventListener(Animations.ANIMATION_FINISHED, mapRoomAnimFinished(room, xPos, yPos, roomsObj, completeRooms));
 				
-				Animations.animateZoom(tarSprite, 0, 1, .5, animationTime);
+				Animations.animateZoom(tarSprite, 0, 1, .09, 1, .5, animationTime);
 				this._animations.push(tarSprite);
 				return;
 			}

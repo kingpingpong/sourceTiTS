@@ -64,15 +64,19 @@
 			animations[target] = setTimeout(animateSimple, 1, target, fromX, fromY, toX, toY, beginFade, endFade, time - 1, rotate);
 		}
 		
-		public static function animateZoom(target:Sprite, fromScale:Number, toScale:Number, overlap:Number, time:int):void {
-			if((fromScale == toScale && overlap <= 0) || time == 0) {
+		public static function animateZoom(target:Sprite, fromScale:Number, toScale:Number, beginFade:Number, endFade:Number, overlap:Number, time:int):void {
+			if((fromScale == toScale && beginFade == endFade && overlap <= 0) || time == 0) {
 				target.scaleX = toScale;
 				target.scaleY = toScale;
+				target.alpha = endFade;
 				
 				setTimeout(target.dispatchEvent, 1, new Event(ANIMATION_FINISHED));
 				animations[target] = undefined;
 				return;
-			} else if (overlap > 0 && fromScale >= toScale + overlap){
+			} else if (overlap > 0 && fromScale >= toScale + overlap) {
+				overlap = 0;
+				target.dispatchEvent(new Event(ANIMATION_OVERLAP));
+			} else if (overlap < 0 && fromScale <= toScale - overlap) {
 				overlap = 0;
 				target.dispatchEvent(new Event(ANIMATION_OVERLAP));
 			}
@@ -81,8 +85,9 @@
 			fromScale += (toScale + overlap - fromScale + overlap) / time;
 			target.scaleX = fromScale;
 			target.scaleY = fromScale;
+			target.alpha = beginFade += (endFade - beginFade) / time;
 			
-			animations[target] = setTimeout(animateZoom, 1, target, fromScale, toScale, overlap, time - 1);
+			animations[target] = setTimeout(animateZoom, 1, target, fromScale, toScale, beginFade, endFade, overlap, time - 1);
 		}
 
 	}

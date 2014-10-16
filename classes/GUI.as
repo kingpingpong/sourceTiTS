@@ -613,8 +613,6 @@
 				bigM.removeEventListener(Animations.ANIMATION_FINISHED, trackerFunc);
 				bigM.showTooltips();
 				if(allowInteraction) bigM.addTrackers(mapLink);
-			
-				addGhostButton(14, "Back", removeBigMap, bigM);
 			};
 			/*var centerFunc:Function = function(e:Event):void
 			{
@@ -629,6 +627,7 @@
 			bigM.addEventListener(Animations.ANIMATION_FINISHED, trackerFunc);
 			
 			clearGhostMenu();
+			addGhostButton(14, "Back", removeBigMap, bigM);
 			
 			return bigM;
 		}
