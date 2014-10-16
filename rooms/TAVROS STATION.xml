@@ -10,7 +10,7 @@
 		<Exit type="s" to="110"></Exit>
 		<Flag>INDOOR</Flag>
 		<Flag>NPC</Flag>
-		<Function>miAmoreBonusShit</Function>
+		<Function type="ON_ENTER">miAmoreBonusShit</Function>
 	</Room>
 	
 	<Room name="DARK CHRYSALIS">
@@ -19,7 +19,7 @@
 		<Exit type="e" to="MERCHANT'S THOROUGHFARE"></Exit>
 		<Flag>INDOOR</Flag>
 		<Flag>COMMERCE</Flag>
-		<Function>seraBonusFunction</Function>
+		<Function type="ON_ENTER">seraBonusFunction</Function>
 	</Room>
 	
 	<Room name="TAVROS LIFT">
@@ -27,7 +27,7 @@
 		<Description>Steady, mechanical thrums suffice the stuffy air inside this tube of metal and and plastic. There is a brass-hued railing to stablize oneself with during the highspeed travel through the kilometers-long station and a sturdy mechanical keypad with which to designate your target level. Much of the lift stations look to be inactive; right now, the hangar and the merchant's thoroughfare are the only areas reachable by lift.</Description>
 		<Exit type="out" to="TAVROS HANGAR"></Exit>
 		<Flag>INDOOR</Flag>
-		<Function>hangarBonus</Function>
+		<Function type="ON_ENTER">hangarBonus</Function>
 	</Room>
 	
 	<Room name="FUR EFFECT">
@@ -36,7 +36,7 @@
 		<Exit type="e" to="110"></Exit>
 		<Flag>INDOOR</Flag>
 		<Flag>COMMERCE</Flag>
-		<Function>furEffectBonusFunction</Function>
+		<Function type="ON_ENTER">furEffectBonusFunction</Function>
 	</Room>
 	
 	<Room name="BETHS BROADS">
@@ -45,7 +45,7 @@
 		<Exit type="n" to="MERCHANT'S THOROUGHFARE"></Exit>
 		<Flag>INDOOR</Flag>
 		<Flag>NPC</Flag>
-		<Function>reahaBonusFunction</Function>
+		<Function type="ON_ENTER">reahaBonusFunction</Function>
 	</Room>
 	
 	<Room name="LIFT: MERCHANT DECK">
@@ -53,7 +53,7 @@
 		<Description>Steady, mechanical thrums suffice the stuffy air inside this tube of metal and and plastic. There is a brass-hued railing to stablize oneself with during the highspeed travel through the kilometers-long station and a sturdy mechanical keypad with which to designate your target level. Much of the lift stations look to be inactive; right now, the hangar and the merchant's thoroughfare are the only areas reachable by lift.</Description>
 		<Exit type="out" to="MERCHANT'S THOROUGHFARE"></Exit>
 		<Flag>INDOOR</Flag>
-		<Function>hangarBonus</Function>
+		<Function type="ON_ENTER">hangarBonus</Function>
 	</Room>
 	
 	<Room name="ANON'S BOARD HALL">
@@ -75,7 +75,7 @@
 		<Description>Heady alcoholic scents combine with drug-laced smoke and salty food to give this place the unquestionable aroma of a seedy bar. Three-breasted waitresses balancing trays full of drinks one-handed sashay around in short skirts and sheer tops, their gait made awkward by their three legs and small feet. A rickety metal stairway rises up to the north, leading to the board portion of the this establishment. You've already roomed there once, and the accomodations were far from great. A door to the west opens out into a central thoroughfare.</Description>
 		<Exit type="n" to="ANON'S BOARD HALL"></Exit>
 		<Exit type="w" to="MERCHANT'S THOROUGHFARE"></Exit>
-		<Function>anonsBarAddendums</Function>
+		<Function type="ON_ENTER">anonsBarAddendums</Function>
 		<Flag>INDOOR</Flag>
 		<Flag>BAR</Flag>
 	</Room>
@@ -108,7 +108,7 @@
 		<Exit type="in" to="TAVROS LIFT">
 			<Text>Lift</Text>
 		</Exit>
-		<Flag>INDOOR)</Flag>
-		<Function>tavrosHangarStuff</Function>
+		<Flag>INDOOR</Flag>
+		<Function type="ON_ENTER">tavrosHangarStuff</Function>
 	</Room>
 </Planet>

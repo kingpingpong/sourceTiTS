@@ -25,8 +25,10 @@
 		public var description:String = "";
 		//Text used for tooltips when a room is discovered, but not visited yet
 		public var teaserText:String = "An untold adventure awaits...";
-		//runOnEnter holds functions that overlay the normal functioning
-		public var runOnEnter = undefined;
+		
+		//Holds arrays of functions, mapped to the name of the call, such as runOnEnter, etc.
+		private var _functions:Object = new Object;
+		public function get functions():Object { return _functions; }
 				
 		//Information
 		public var moveMinutes:Number = 5;
@@ -100,6 +102,37 @@
 		
 		public function get isCurrentLocation():Boolean {
 			return name == kGAMECLASS.currentLocation;
+		}
+		
+		public function addFunction(call:String, func:Function):void {
+			if(functions[call] == undefined || !(functions[call] is Array)) {
+				functions[call] = new Array();
+			}
+			var funcArr:Array = functions[call];
+			if(funcArr.indexOf(func) != -1) return;
+			funcArr.push(func);
+		}
+		
+		public function callFunctions(call:String):Boolean {
+			if(functions[call] == undefined || !(functions[call] is Array)) return true;
+			
+			//Returns whether or not the functions will let the event happen
+			var re:Boolean = true;
+			//Each function should return -1, 0, or 1 (or void)
+			//-1 means that the function doesn't influence whether or not the event should happen
+			//0 means the event shouldn't happen
+			//1 means the even should happen
+			for each(var func:Function in functions[call]) {
+				var _re:int = -1;
+				try {
+					_re = func(re);
+				} catch (e:ArgumentError) {
+					func();
+				}
+				if(_re == 0) re = false;
+				if(_re == 1) re = true;
+			}
+			return re;
 		}
 		
 		public static function loadRoomFlags(save:Object):void {

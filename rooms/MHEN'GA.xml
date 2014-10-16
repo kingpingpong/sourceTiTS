@@ -7,7 +7,7 @@
 	<Room name="VALLEY FLOOR">
 		<Title>VALLEY\nFLOOR</Title>
 		<Description>You are standing at the bottom of a thick, misty valley, surrounded by colossal trees covered in luminous lichen. The pulsing colors light up the eerily thick mist. This doesn't feel like a safe place to be standing. The temperature here is very cold and wet.\n\nTo the north there is a path leading up and out of the fog filled valley. You seem free to move in any other direction, but the fog makes it hard to see what awaits you there.</Description>
-		<Function>mhengaVanaeCombatZone</Function>
+		<Function type="ON_ENTER">mhengaVanaeCombatZone</Function>
 		<Exit type="n" to="VALLEY DESCENT 2"></Exit>
 		<Exit type="e" to="MISTY VALLEY 3"></Exit>
 		<Exit type="s" to="MISTY VALLEY 1"></Exit>
@@ -27,7 +27,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleDeepEncounters</Function>
+		<Function type="ON_ENTER">jungleDeepEncounters</Function>
 	</Room>
 	
 	<Room name="DEBUG1">
@@ -35,7 +35,7 @@
 		<Description></Description>
 		<Exit type="e" to="WEST ESBETH 1"></Exit>
 		<Flag>INDOOR</Flag>
-		<Function>debugMenus</Function>
+		<Function type="ON_ENTER">debugMenus</Function>
 	</Room>
 	
 	<Room name="JUNGLE EDGE">
@@ -57,7 +57,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleMiddleEncounters</Function>
+		<Function type="ON_ENTER">jungleMiddleEncounters</Function>
 	</Room>
 	
 	<Room name="SOUTHEAST ESBETH">
@@ -71,7 +71,7 @@
 	<Room name="BLADED FERNS 1">
 		<Title>BLADED\nFERNS</Title>
 		<Description>The fog here has a thin but pervasive quality, shrouding everything in a layer of light white. You can pick up vague impressions of familiar shapes around you that you assume are trees and bushes.\n\nDue to the mist you almost brush against a mass of pale shrubs and ferns lined with silvery, blade-like leaves. You can see crimson blood smeared across a good portion of the razor edged foliage.\n\nThere seems to be gaps in the vicious vegetation to the north and south. Any other direction looks to be a death trap.</Description>
-		<Function>mhengaVanaeFernDamage</Function>
+		<Function type="ON_ENTER">mhengaVanaeFernDamage</Function>
 		<Exit type="n" to="NARROW GORGE 1"></Exit>
 		<Exit type="s" to="BLADED FERNS 2"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -89,7 +89,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleMiddleEncounters</Function>
+		<Function type="ON_ENTER">jungleMiddleEncounters</Function>
 	</Room>
 	
 	<Room name="SOUTH ESBETH 3">
@@ -110,13 +110,13 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleMiddleEncounters</Function>
+		<Function type="ON_ENTER">jungleMiddleEncounters</Function>
 	</Room>
 	
 	<Room name="ESBETH MEDICAL OFFICE">
 		<Title>MEDICAL\nOFFICE</Title>
 		<Description>The inside of the medical office is about as ramshackle and rundown as the outside of the shack. Standard manufactured alumiplate forms the walls, and the floor is made of the same bland, reflective stuff. Discarded wrappers and bits of clothing are scattered everywhere. There isn't even a trash receptacle anywhere to clean it up with. More importantly, a single bed is built into the east wall, covered in fresh fabric of some kind or another. The only piece of equipment that looks moderately well-maintained is a seemingly worn chair close to the bed.\n\nThe door to the west leads back to the streets of Esbeth.</Description>
-		<Function>mhengaMedicalThingerBonusFunc</Function>
+		<Function type="ON_ENTER">mhengaMedicalThingerBonusFunc</Function>
 		<Exit type="w" to="EAST ESBETH"></Exit>
 		<Flag>INDOOR</Flag>
 		<Flag>MEDICAL</Flag>
@@ -131,13 +131,13 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleEncounterChances</Function>
+		<Function type="ON_ENTER">jungleEncounterChances</Function>
 	</Room>
 	
 	<Room name="THICK MIST 2">
 		<Title>THICK\nMIST</Title>
 		<Description></Description>
-		<Function>mhengaThickMist2RoomFunc</Function>
+		<Function type="ON_ENTER">mhengaThickMist2RoomFunc</Function>
 		<Exit type="n" to="MISTY VALLEY 3"></Exit>
 		<Exit type="s" to="NARROW GORGE 1"></Exit>
 		<Exit type="w" to="MISTY VALLEY 1"></Exit>
@@ -157,7 +157,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleDeepEncounters</Function>
+		<Function type="ON_ENTER">jungleDeepEncounters</Function>
 	</Room>
 	
 	<Room name="FERNS AT LICHENS 1">
@@ -170,7 +170,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleEncounterChances</Function>
+		<Function type="ON_ENTER">jungleEncounterChances</Function>
 	</Room>
 	
 	<Room name="DEEP INTERSECTION 1">
@@ -183,7 +183,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleMiddleEncounters</Function>
+		<Function type="ON_ENTER">jungleMiddleEncounters</Function>
 	</Room>
 	
 	<Room name="VINED JUNGLE 1">
@@ -195,7 +195,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleDeepEncounters</Function>
+		<Function type="ON_ENTER">jungleDeepEncounters</Function>
 	</Room>
 	
 	<Room name="ORANGE INTERSECTION 1">
@@ -208,7 +208,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleMiddleEncounters</Function>
+		<Function type="ON_ENTER">jungleMiddleEncounters</Function>
 	</Room>
 	
 	<Room name="DENSE ORANGE 2">
@@ -220,13 +220,13 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleMiddleEncounters</Function>
+		<Function type="ON_ENTER">jungleMiddleEncounters</Function>
 	</Room>
 	
 	<Room name="BLADED FERNS 2">
 		<Title></Title>
 		<Description>Here the air is rife with mist and the ground littered with razor leaved shrubs and bushes. Only the glimmering of silver leaves warns you of impending danger; each step an exercise in extreme caution.\n\nIt seems like a natural defense against unprotected intruders. You spot the skeleton of a massive creature surrounded by the bladed ferns. You suspect they did not exercise the same level of prudence.\n\nThrough the maze-like foliage, you can see a path leading north and another west. Everywhere else is filled with painful looking thickets packed close together.</Description>
-		<Function>mhengaVanaeFernDamage</Function>
+		<Function type="ON_ENTER">mhengaVanaeFernDamage</Function>
 		<Exit type="n" to="BLADED FERNS 1"></Exit>
 		<Exit type="w" to="CLOUD FOREST 1"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -253,7 +253,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleMiddleEncounters</Function>
+		<Function type="ON_ENTER">jungleMiddleEncounters</Function>
 	</Room>
 	
 	<Room name="SOUTH ESBETH 2">
@@ -263,7 +263,7 @@
 		<Exit type="e" to="SOUTH ESBETH 3"></Exit>
 		<Exit type="n" to="KELLY'S OFFICE"></Exit>
 		<Flag>OUTDOOR</Flag>
-		<Function>xenogenOutsideBlurb</Function>
+		<Function type="ON_ENTER">xenogenOutsideBlurb</Function>
 	</Room>
 	
 	<Room name="LICHENS 4">
@@ -275,7 +275,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleEncounterChances</Function>
+		<Function type="ON_ENTER">jungleEncounterChances</Function>
 	</Room>
 	
 	<Room name="BURT'S MAIN HALL">
@@ -283,7 +283,7 @@
 		<Description>A cloud of smoky inhalants hangs around the rafters of this high-ceilinged chamber to lend this place an air of mystery. The obnoxious music playing from an illuminated audio system in the corner along with the noisy beeps of a gaming system dispel that notion immediately. A huge bar lines the western wall, shining dully in the artificial lighting. It's obviously the most well-maintained and cared for object in the entire establishment. A doorway to the south leads back out onto the streets of Mhen'ga.</Description>
 		<Exit type="s" to="NORTH ESBETH 2"></Exit>
 		<Exit type="n" to="BURT'S BACK END"></Exit>
-		<Function>burtsBarFunc</Function>
+		<Function type="ON_ENTER">burtsBarFunc</Function>
 		<Flag>INDOOR</Flag>
 		<Flag>BAR</Flag>
 	</Room>
@@ -297,7 +297,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleDeepEncounters</Function>
+		<Function type="ON_ENTER">jungleDeepEncounters</Function>
 	</Room>
 	
 	<Room name="VINED JUNGLE 4">
@@ -309,7 +309,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleDeepEncounters</Function>
+		<Function type="ON_ENTER">jungleDeepEncounters</Function>
 	</Room>
 	
 	<Room name="EAST ESBETH">
@@ -330,7 +330,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleDeepEncounters</Function>
+		<Function type="ON_ENTER">jungleDeepEncounters</Function>
 	</Room>
 	
 	<Room name="IRONWOODS 3">
@@ -342,7 +342,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleEncounterChances</Function>
+		<Function type="ON_ENTER">jungleEncounterChances</Function>
 	</Room>
 	
 	<Room name="CUSTOMS OFFICE">
@@ -350,7 +350,7 @@
 		<Description>This office is one of many set up around the spaceport to process customs both coming and going. Other identical rooms can be spotted through doorways to the north, but they appear to be closed down or currently occupied at the moment. A single, large desk sits on the east side of the room, kept fairly tidy aside from a mug filled with lollipops and candy. A name placard proclaims the desk's owner to be Flahne. A doorway to the west opens out back into the jungle at the base of an elevator. The door to the south is labelled 'Out to Esbeth.'</Description>
 		<Exit type="w" to="SPACEPORT ELEVATOR"></Exit>
 		<Exit type="s" to="ESBETH'S NORTH PATH"></Exit>
-		<Function>meetingFlahne</Function>
+		<Function type="ON_ENTER">meetingFlahne</Function>
 		<Flag>INDOOR</Flag>
 		<Flag>NPC</Flag>
 	</Room>
@@ -364,13 +364,13 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleMiddleEncounters</Function>
+		<Function type="ON_ENTER">jungleMiddleEncounters</Function>
 	</Room>
 	
 	<Room name="MISTY VALLEY 3">
 		<Title>MISTY VALLEY</Title>
 		<Description>Towering, titan-sized trees surround you from every direction, each one pale as death and lined with luminous lichen. The omnipresent mist has almost completely deprived you of sight - you can barely see five feet in front of you. \n\nInstead of vision, you are left with sounds of dripping water, rustling leaves, and clicking insects. It only looks safe to walk west or south; elsewhere the ground looks treacherous.</Description>
-		<Function>mhengaVanaeCombatZone</Function>
+		<Function type="ON_ENTER">mhengaVanaeCombatZone</Function>
 		<Exit type="s" to="THICK MIST 2"></Exit>
 		<Exit type="w" to="VALLEY FLOOR"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -387,7 +387,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>carlsEncounterStart</Function>
+		<Function type="ON_ENTER">carlsEncounterStart</Function>
 	</Room>
 	
 	<Room name="PURPLE FLOWERS 4">
@@ -399,7 +399,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleEncounterChances</Function>
+		<Function type="ON_ENTER">jungleEncounterChances</Function>
 	</Room>
 	
 	<Room name="WEST ESBETH 2">
@@ -428,7 +428,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleEncounterChances</Function>
+		<Function type="ON_ENTER">jungleEncounterChances</Function>
 	</Room>
 	
 	<Room name="SOUTH ESBETH 1">
@@ -457,7 +457,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleDeepEncounters</Function>
+		<Function type="ON_ENTER">jungleDeepEncounters</Function>
 	</Room>
 	
 	<Room name="OVERGROWN ROCK 6">
@@ -469,7 +469,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>findOxoniumOnMhenga</Function>
+		<Function type="ON_ENTER">findOxoniumOnMhenga</Function>
 	</Room>
 	
 	<Room name="FORKED DEEP JUNGLE 1">
@@ -482,7 +482,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleDeepEncounters</Function>
+		<Function type="ON_ENTER">jungleDeepEncounters</Function>
 	</Room>
 	
 	<Room name="OVERGROWN ROCK 10">
@@ -495,13 +495,13 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleDeepEncounters</Function>
+		<Function type="ON_ENTER">jungleDeepEncounters</Function>
 	</Room>
 	
 	<Room name="CRAZY CARLS">
 		<Title>CRAZY\nCARL'S</Title>
 		<Description></Description>
-		<Function>carlsShopDescription</Function>
+		<Function type="ON_ENTER">carlsShopDescription</Function>
 		<Exit type="w" to="WEST ESBETH 1"></Exit>
 		<Flag>INDOOR</Flag>
 		<Flag>COMMERCE</Flag>
@@ -516,7 +516,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleEncounterChances</Function>
+		<Function type="ON_ENTER">jungleEncounterChances</Function>
 	</Room>
 	
 	<Room name="IRONWOODS 2">
@@ -528,7 +528,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleEncounterChances</Function>
+		<Function type="ON_ENTER">jungleEncounterChances</Function>
 	</Room>
 	
 	<Room name="DENSE ORANGE 5">
@@ -540,13 +540,13 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleMiddleEncounters</Function>
+		<Function type="ON_ENTER">jungleMiddleEncounters</Function>
 	</Room>
 	
 	<Room name="PENNY'S OFFICE">
 		<Title>U.G.C. PEACE-\nKEEPERS</Title>
 		<Description>This interior of this office is painted a cool, soothing blue, but even that can't hide the fact that nobody wants to have to spend much time here. The whole place looks stout and secure, even the doors and windows. The latter of which bear solid metal bars. A few doors occupy the far side of the room, but they're on the opposite side of a large, imposing desk. Computer equipment sits in a high pile, capped with an inactive light, the kind of which you'd expect to see on top of a hovercar or police cruiser.</Description>
-		<Function>pennysOffice</Function>
+		<Function type="ON_ENTER">pennysOffice</Function>
 		<Exit type="s" to="SOUTH ESBETH 3"></Exit>
 		<Flag>INDOOR</Flag>
 		<Flag>NPC</Flag>
@@ -561,7 +561,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleMiddleEncounters</Function>
+		<Function type="ON_ENTER">jungleMiddleEncounters</Function>
 	</Room>
 	
 	<Room name="NORTH ESBETH 1">
@@ -575,7 +575,7 @@
 	<Room name="NARROW GORGE 1">
 		<Title>NARROW\nGORGE</Title>
 		<Description>The fog seems a bit thinner here. You're standing on the edge of a narrow gorge that runs from the east. You can hear a trickling at the bottom and can see an easy way down. There's also a fallen tree spanning  the gorge offering an easy way across.\n\nYou could follow the gorge to the east and downstream, or head north or south. The felled tree looks sturdy so you're fairly sure it will hold your weight. </Description>
-		<Function>mhengaVanaeCombatZone</Function>
+		<Function type="ON_ENTER">mhengaVanaeCombatZone</Function>
 		<Exit type="n" to="THICK MIST 2"></Exit>
 		<Exit type="e" to="NARROW GORGE 2"></Exit>
 		<Exit type="s" to="BLADED FERNS 1"></Exit>
@@ -595,7 +595,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleDeepEncounters</Function>
+		<Function type="ON_ENTER">jungleDeepEncounters</Function>
 	</Room>
 	
 	<Room name="DEEP FOREST 2">
@@ -607,13 +607,13 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleMiddleEncounters</Function>
+		<Function type="ON_ENTER">jungleMiddleEncounters</Function>
 	</Room>
 	
 	<Room name="CAMP EDGE">
 		<Title></Title>
 		<Description>The colossal Saole trees are further apart here, allowing for more light to stream down to the forest floor. Because of this, it is easy to spot the broken regional shield generator with a spear sticking out of it.\n\nGiven the trajectory of the spear, it seems to have been thrown from above into the device. There is a well worn path to the west of the device. On the other, it curves and fades off to the south.</Description>
-		<Function>mhengaVanaeCombatZone</Function>
+		<Function type="ON_ENTER">mhengaVanaeCombatZone</Function>
 		<Exit type="s" to="CLOUD FOREST 2"></Exit>
 		<Exit type="w" to="ABANDONED CAMP"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -625,7 +625,7 @@
 	<Room name="CLOUD FOREST 1">
 		<Title></Title>
 		<Description>You are surrounded by pale, majestic trees of impossible height that stretch skyward and out of view. The area is misty but in chunks, fog lining the ground like a blanket while other portions wrap intimately around the ancient monoliths.\n\nThis whole area seems peaceful and the air is crisp and cool. It feels oddly peaceful, unlike the rest of the Mhen'gan jungle. You're aware that appearances can be deceiving.\n\nA mess of tree roots to the north and south bar your path. Everywhere else seems fair game.</Description>
-		<Function>mhengaVanaeCombatZone</Function>
+		<Function type="ON_ENTER">mhengaVanaeCombatZone</Function>
 		<Exit type="e" to="BLADED FERNS 2"></Exit>
 		<Exit type="w" to="CLOUD FOREST 2"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -637,7 +637,7 @@
 	<Room name="DEEP MIST 2">
 		<Title>DEEP\nMIST</Title>
 		<Description>Your visibility has been reduced to the point you can barely see your own hand in front of your [pc.face]. Even the luminous lichen are barely visible as you are completely surrounded by mist. There is a sharp chill to the air and you think you hear footsteps nearby.\n\nYou consult your Codex, and it tells you that you came from the north. Aided by your digital compass, all you can really do is retrace your steps.</Description>
-		<Function>mhengaVanaeCombatZone</Function>
+		<Function type="ON_ENTER">mhengaVanaeCombatZone</Function>
 		<Exit type="n" to="THICK MIST 1"></Exit>
 		<Flag>OUTDOOR</Flag>
 		<Flag>HAZARD</Flag>
@@ -663,13 +663,13 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleDeepEncounters</Function>
+		<Function type="ON_ENTER">jungleDeepEncounters</Function>
 	</Room>
 	
 	<Room name="SCRAPYARD MAINTENANCE">
 		<Title>SCRAPYARD\nMAINTENANCE</Title>
 		<Description></Description>
-		<Function>scrapyardMaintenance</Function>
+		<Function type="ON_ENTER">scrapyardMaintenance</Function>
 		<Exit type="n" to="SOUTH ESBETH 1"></Exit>
 		<Flag>INDOOR</Flag>
 		<Flag>COMMERCE</Flag>
@@ -684,13 +684,13 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleEncounterChances</Function>
+		<Function type="ON_ENTER">jungleEncounterChances</Function>
 	</Room>
 	
 	<Room name="UTHRA BIRCH">
 		<Title>UTHRA\nBIRCH</Title>
 		<Description>You are standing underneath a short, stubbly tree that looks positively squashed compared to its towering peers. The gnarled branches are warped and sickly looking, almost as if giant hands have molded it without a single care for aesthetics.</Description>
-		<Function>mhengaUthraBirch</Function>
+		<Function type="ON_ENTER">mhengaUthraBirch</Function>
 		<Exit type="s" to="NARROW GORGE 3"></Exit>
 		<Flag>OUTDOOR</Flag>
 		<Flag>OBJECTIVE</Flag>
@@ -704,7 +704,7 @@
 		<Exit type="s" to="BURT'S MAIN HALL"></Exit>
 		<Flag>INDOOR</Flag>
 		<Flag>NPC</Flag>
-		<Function>barBackRoomBonus</Function>
+		<Function type="ON_ENTER">barBackRoomBonus</Function>
 	</Room>
 	
 	<Room name="OVERGROWN ROCK 2">
@@ -716,7 +716,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleDeepEncounters</Function>
+		<Function type="ON_ENTER">jungleDeepEncounters</Function>
 	</Room>
 	
 	<Room name="ESBETH'S NORTH PATH">
@@ -725,7 +725,7 @@
 		<Exit type="n" to="CUSTOMS OFFICE"></Exit>
 		<Exit type="w" to="NORTHWEST ESBETH"></Exit>
 		<Exit type="e" to="NORTH ESBETH 2"></Exit>
-		<Function>bountyBoardExtra</Function>
+		<Function type="ON_ENTER">bountyBoardExtra</Function>
 		<Flag>OUTDOOR</Flag>
 	</Room>
 	
@@ -738,7 +738,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleDeepEncounters</Function>
+		<Function type="ON_ENTER">jungleDeepEncounters</Function>
 	</Room>
 	
 	<Room name="FERNGROWTH PATH 2">
@@ -750,13 +750,13 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleEncounterChances</Function>
+		<Function type="ON_ENTER">jungleEncounterChances</Function>
 	</Room>
 	
 	<Room name="DEEP MIST 1">
 		<Title>DEEP\nMIST</Title>
 		<Description>The fog here is so thick you can barely see in front of your nose, and that's dangerous. You're not sure if your next step is going to meet solid ground, or be over the edge of a ravine. Given that you can't see where you're going, it seems smart to turn back.\n\nYou're pretty sure you came from the north. Thankfully, your Codex remembers which way that is.</Description>
-		<Function>mhengaVanaeCombatZone</Function>
+		<Function type="ON_ENTER">mhengaVanaeCombatZone</Function>
 		<Exit type="n" to="MISTY VALLEY 1"></Exit>
 		<Flag>OUTDOOR</Flag>
 		<Flag>HAZARD</Flag>
@@ -773,7 +773,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleMiddleEncounters</Function>
+		<Function type="ON_ENTER">jungleMiddleEncounters</Function>
 	</Room>
 	
 	<Room name="VINED JUNGLE 5">
@@ -785,7 +785,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleDeepEncounters</Function>
+		<Function type="ON_ENTER">jungleDeepEncounters</Function>
 	</Room>
 	
 	<Room name="OVERGROWN ROCK 12">
@@ -797,13 +797,13 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleDeepEncounters</Function>
+		<Function type="ON_ENTER">jungleDeepEncounters</Function>
 	</Room>
 	
 	<Room name="MISTY VALLEY 1">
 		<Title>MISTY\nVALLEY</Title>
 		<Description>Gigantic, ghostly trees tower around you, looming within the pervasive mist. Flickering sparks which you know to be lichen wink at you from every direction, like a million glowing eyes staring at you from every direction.\n\nIt's hard to find your way here. There's mist in every direction, and the ground is flat and wet. Which way will you go?</Description>
-		<Function>mhengaVanaeCombatZone</Function>
+		<Function type="ON_ENTER">mhengaVanaeCombatZone</Function>
 		<Exit type="n" to="VALLEY FLOOR"></Exit>
 		<Exit type="e" to="THICK MIST 2"></Exit>
 		<Exit type="s" to="DEEP MIST 1"></Exit>
@@ -823,13 +823,13 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleDeepEncounters</Function>
+		<Function type="ON_ENTER">jungleDeepEncounters</Function>
 	</Room>
 	
 	<Room name="ABANDONED CAMP">
 		<Title></Title>
 		<Description>You walk into the remains of what was clearly a Xenogen research camp. The protective shield is down and the temporary habitation they were using has been wrecked. There are empty crates and bodies lying everywhere. Spears are jutting out of nearly everything.\n\nYou spot some empty cages that look as if they were designed for humanoid captives. Everything around here is utterly wrecked and you're not sure you'll find anything of value.</Description>
-		<Function>mhengaVanaeAbandonedCamp</Function>
+		<Function type="ON_ENTER">mhengaVanaeAbandonedCamp</Function>
 		<Exit type="e" to="CAMP EDGE"></Exit>
 		<Flag>OUTDOOR</Flag>
 		<Flag>OBJECTIVE</Flag>
@@ -858,7 +858,7 @@
 	<Room name="NARROW GORGE 2">
 		<Title>NARROW\nGORGE</Title>
 		<Description>This narrow gorge runs to the east with a small creek running through its center. It trickles down from the west where a small path leads up and out of the gorge. Walls of earth surround you on the other sides, looming like the sides of a massive grave.\n\nIt's hard to walk here without getting your [pc.feet] wet. The temperature is noticeably cooler, but at least there's less mist about. </Description>
-		<Function>mhengaVanaeCombatZone</Function>
+		<Function type="ON_ENTER">mhengaVanaeCombatZone</Function>
 		<Exit type="e" to="NARROW GORGE 3"></Exit>
 		<Exit type="w" to="NARROW GORGE 1"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -872,7 +872,7 @@
 		<Description>The inside of this office is decorated in the style of high class terrans, with wood grain floors and eggshell-toned walls illuminated by angled glowbulbs. A few potted plants sit around the periphery, obviously non-native. Well-conceiled vents in the ceilings feed a steady influx of purified, cooled air into this chamber to keep it comfortable. Across the room is an expansive desk equipped with everything you would expect to find on a classy secretary's desk: a terminal, old-fashioned writing utensils, holopaper, and even a small statue of a busty centaur. A monolithic white door sits framed in the western wall and a simpler one on the south, leading back outside.</Description>
 		<Exit type="w" to="JULIAN'S OFFICE"></Exit>
 		<Exit type="s" to="SOUTH ESBETH 2"></Exit>
-		<Function>kellysOfficeBonusFunction</Function>
+		<Function type="ON_ENTER">kellysOfficeBonusFunction</Function>
 		<Flag>INDOOR</Flag>
 		<Flag>NPC</Flag>
 	</Room>
@@ -886,7 +886,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleEncounterChances</Function>
+		<Function type="ON_ENTER">jungleEncounterChances</Function>
 	</Room>
 	
 	<Room name="PURPLE FLOWERS 3">
@@ -898,7 +898,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleDeepEncounters</Function>
+		<Function type="ON_ENTER">jungleDeepEncounters</Function>
 	</Room>
 	
 	<Room name="IRONWOODS 1">
@@ -910,7 +910,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleEncounterChances</Function>
+		<Function type="ON_ENTER">jungleEncounterChances</Function>
 	</Room>
 	
 	<Room name="OVERGROWN ROCK 8">
@@ -922,7 +922,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleDeepEncounters</Function>
+		<Function type="ON_ENTER">jungleDeepEncounters</Function>
 	</Room>
 	
 	<Room name="OVERGROWN ROCK 1">
@@ -935,7 +935,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleDeepEncounters</Function>
+		<Function type="ON_ENTER">jungleDeepEncounters</Function>
 	</Room>
 	
 	<Room name="SOUTHWEST ESBETH">
@@ -949,7 +949,7 @@
 	<Room name="VALLEY DESCENT 2">
 		<Title>VALLEY\nDESCENT</Title>
 		<Description>The foliage is thinner here than the rest of the jungle. In every direction there are thick, ancient looking trees, possibly centuries old. Their pale trunks are covered in bioluminescent lichen. This is rather helpful as the whole area is covered in dewy fog.\n\nThe path here continues north and upward, or south to what looks like the valley floor. The mist seems thinner to the north.</Description>
-		<Function>mhengaVanaeCombatZone</Function>
+		<Function type="ON_ENTER">mhengaVanaeCombatZone</Function>
 		<Exit type="n" to="VALLEY DESCENT 1"></Exit>
 		<Exit type="s" to="VALLEY FLOOR"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -967,7 +967,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleEncounterChances</Function>
+		<Function type="ON_ENTER">jungleEncounterChances</Function>
 	</Room>
 	
 	<Room name="FERNGROWTH PATH 1">
@@ -979,7 +979,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleEncounterChances</Function>
+		<Function type="ON_ENTER">jungleEncounterChances</Function>
 	</Room>
 	
 	<Room name="LICHENS BEND 1">
@@ -991,7 +991,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleEncounterChances</Function>
+		<Function type="ON_ENTER">jungleEncounterChances</Function>
 	</Room>
 	
 	<Room name="VINED JUNGLE 6">
@@ -1003,13 +1003,13 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleDeepEncounters</Function>
+		<Function type="ON_ENTER">jungleDeepEncounters</Function>
 	</Room>
 	
 	<Room name="SHIP HANGAR">
 		<Title>SHIP\nHANGAR</Title>
 		<Description>Though dubbed a hangar, this suspended platform is little more than an exposed landing pad. It's a hexagonal, steelcrete plate, one of dozens that ring the central elevator spire. Blinking lights ring the edges to guide you when taking off or landing, and to keep other ships from clipping the platform when seeking their own. An elevator door hangs open to the south, waiting for you to press the button that will take you back to the ground, while your ship remains parked here, ready to be entered.</Description>
-		<Function>mhengaShipHangarFunc</Function>
+		<Function type="ON_ENTER">mhengaShipHangarFunc</Function>
 		<Exit type="out" to="SPACEPORT ELEVATOR">
 			<Text>Down</Text>
 		</Exit>
@@ -1020,7 +1020,7 @@
 	<Room name="MISTY VALLEY 2">
 		<Title>MISTY\nVALLEY</Title>
 		<Description>Pale, monolithic trees loom all around you, like ancient gods watching your every move. You can't see the canopy at all, nor much of anything else through the thick fog that surrounds you. Bioluminescent lines run up each tree like arteries of light, blinking and pulsing.\n\nYou almost step into a small river to the north-east as you are blinded by the opaque mist. The only safe ways to walk seem to be east or south.</Description>
-		<Function>mhengaVanaeCombatZone</Function>
+		<Function type="ON_ENTER">mhengaVanaeCombatZone</Function>
 		<Exit type="e" to="VALLEY FLOOR"></Exit>
 		<Exit type="s" to="THICK MIST 1"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -1038,13 +1038,13 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleDeepEncounters</Function>
+		<Function type="ON_ENTER">jungleDeepEncounters</Function>
 	</Room>
 	
 	<Room name="NARROW GORGE 3">
 		<Title>NARROW\nGORGE</Title>
 		<Description>The sides of the chasm are quite high here and the canopy thick. Very little light reaches where you stand, making it hard to see about. Icy water splashes up and against your [pc.feet]. The creek running through the heart of the gorge runs quite fast here.\n\nYou can continue up or downstream. To the north, there is a root-lined break in the gorge you could use to climb up and out.</Description>
-		<Function>mhengaVanaeCombatZone</Function>
+		<Function type="ON_ENTER">mhengaVanaeCombatZone</Function>
 		<Exit type="n" to="UTHRA BIRCH"></Exit>
 		<Exit type="w" to="NARROW GORGE 2"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -1062,7 +1062,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleMiddleEncounters</Function>
+		<Function type="ON_ENTER">jungleMiddleEncounters</Function>
 	</Room>
 	
 	<Room name="DEEP JUNGLE 2">
@@ -1075,7 +1075,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleDeepEncounters</Function>
+		<Function type="ON_ENTER">jungleDeepEncounters</Function>
 	</Room>
 	
 	<Room name="OVERGROWN ROCK 9">
@@ -1087,13 +1087,13 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleDeepEncounters</Function>
+		<Function type="ON_ENTER">jungleDeepEncounters</Function>
 	</Room>
 	
 	<Room name="A TURNING POINT">
 		<Title>TURNING\nPOINT</Title>
 		<Description>You are in a narrow passageway in the jungle. The vegetation curves in an arc heading from the west to the south. The south end dips on a slow descent. The temperature here is cool and moist. There is glowing bioluminescent lichen growing on the trees here.\n\nSouth looks a little misty. It might get a little hard to see if you head in that direction.</Description>
-		<Function>mhengaVanaeCombatZone</Function>
+		<Function type="ON_ENTER">mhengaVanaeCombatZone</Function>
 		<Exit type="s" to="VALLEY DESCENT 1"></Exit>
 		<Exit type="w" to="DEEP JUNGLE 2"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -1112,7 +1112,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleEncounterChances</Function>
+		<Function type="ON_ENTER">jungleEncounterChances</Function>
 	</Room>
 	
 	<Room name="IRON AND DARK CORNER 1">
@@ -1124,7 +1124,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleMiddleEncounters</Function>
+		<Function type="ON_ENTER">jungleMiddleEncounters</Function>
 	</Room>
 	
 	<Room name="FERNGROWTH PATH 4">
@@ -1136,7 +1136,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleEncounterChances</Function>
+		<Function type="ON_ENTER">jungleEncounterChances</Function>
 	</Room>
 	
 	<Room name="IRONWOODS BEND 2">
@@ -1148,7 +1148,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleEncounterChances</Function>
+		<Function type="ON_ENTER">jungleEncounterChances</Function>
 	</Room>
 	
 	<Room name="DEEP JUNGLE 1">
@@ -1160,7 +1160,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleDeepEncounters</Function>
+		<Function type="ON_ENTER">jungleDeepEncounters</Function>
 	</Room>
 	
 	<Room name="DARK ORANGE CORNER 1">
@@ -1172,7 +1172,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleMiddleEncounters</Function>
+		<Function type="ON_ENTER">jungleMiddleEncounters</Function>
 	</Room>
 	
 	<Room name="LICHENS 1">
@@ -1184,13 +1184,13 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleEncounterChances</Function>
+		<Function type="ON_ENTER">jungleEncounterChances</Function>
 	</Room>
 	
 	<Room name="VALLEY DESCENT 1">
 		<Title>VALLEY\nDESCENT</Title>
 		<Description>The path here heads directly north to south on a steep slant. The more you move south, the more you seem to descend into a natural valley. The trees here seem to be defying the incline, strangely growing taller and thicker the further the path descends.\n\nThis area is thin with mist. It seems to get thicker further down. Even then, you can still see the flickering of the luminous tree lichen.</Description>
-		<Function>mhengaVanaeCombatZone</Function>
+		<Function type="ON_ENTER">mhengaVanaeCombatZone</Function>
 		<Exit type="n" to="A TURNING POINT"></Exit>
 		<Exit type="s" to="VALLEY DESCENT 2"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -1208,7 +1208,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleEncounterChances</Function>
+		<Function type="ON_ENTER">jungleEncounterChances</Function>
 	</Room>
 	
 	<Room name="LICHENS AT IRONWOODS 1">
@@ -1221,7 +1221,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleEncounterChances</Function>
+		<Function type="ON_ENTER">jungleEncounterChances</Function>
 	</Room>
 	
 	<Room name="PURPLE FLOWERS 1">
@@ -1233,13 +1233,13 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleDeepEncounters</Function>
+		<Function type="ON_ENTER">jungleDeepEncounters</Function>
 	</Room>
 	
 	<Room name="JULIAN'S OFFICE">
 		<Title>SCIENTIST'S\nOFFICE</Title>
 		<Description>The pure white, self-illuminating walls, floor, and ceiling provide a perfectly uniform distribution of luminance, lending the whole space a dream-like, heavenly quality. More strange than the lighting is the desk that curves through the northern half of this chamber. It's carved from one solid piece of translucent material that reflects the light into dazzling patterns of hypnotizing shine. The doorway to the east is the same featureless alabaster. It doesn't even have a doorknob, instead relying on proximity scanners and motorized retractors to slide it out of the way and into the wall. This place feels nothing like the rest of Esbeth.</Description>
-		<Function>juliansOffice</Function>
+		<Function type="ON_ENTER">juliansOffice</Function>
 		<Exit type="e" to="KELLY'S OFFICE"></Exit>
 		<Flag>INDOOR</Flag>
 		<Flag>NPC</Flag>
@@ -1248,7 +1248,7 @@
 	<Room name="CLOUD FOREST 2">
 		<Title></Title>
 		<Description>Ancient Saole trees tower around you in every direction, each with countless branches weaving a tapestry of wood above you. Thick, ethereal fog slips through every gap the wooden spider web offers. A blanket of mist licks your [pc.feet] and steals them from view.\n\nThere is a jutting rock face here with water trickling down it. You can head either north or east.</Description>
-		<Function>mhengaVanaeCombatZone</Function>
+		<Function type="ON_ENTER">mhengaVanaeCombatZone</Function>
 		<Exit type="n" to="CAMP EDGE"></Exit>
 		<Exit type="e" to="CLOUD FOREST 1"></Exit>
 		<Flag>OUTDOOR</Flag>
@@ -1266,13 +1266,13 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleEncounterChances</Function>
+		<Function type="ON_ENTER">jungleEncounterChances</Function>
 	</Room>
 	
 	<Room name="THICK MIST 1">
 		<Title>THICK\nMIST</Title>
 		<Description></Description>
-		<Function>mhengaThickMistRoom1</Function>
+		<Function type="ON_ENTER">mhengaThickMistRoom1</Function>
 		<Exit type="n" to="MISTY VALLEY 2"></Exit>
 		<Exit type="e" to="MISTY VALLEY 1"></Exit>
 		<Exit type="s" to="DEEP MIST 2"></Exit>
@@ -1297,7 +1297,7 @@
 			<Variable>shipLocation</Variable>
 			<Text>Exit</Text>
 		</Exit>
-		<Function>shipMenu</Function>
+		<Function type="ON_ENTER">shipMenu</Function>
 		<Flag>INDOOR</Flag>
 		<Flag>BED</Flag>
 	</Room>
@@ -1311,7 +1311,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleEncounterChances</Function>
+		<Function type="ON_ENTER">jungleEncounterChances</Function>
 	</Room>
 	
 	<Room name="METAL POD 1">
@@ -1322,7 +1322,7 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>approachRivalOnMhenga</Function>
+		<Function type="ON_ENTER">approachRivalOnMhenga</Function>
 	</Room>
 	
 	<Room name="LICHENS 2">
@@ -1334,6 +1334,6 @@
 		<Flag>HAZARD</Flag>
 		<Flag>UNDISCOVERED</Flag>
 		<Flag>UNVISITED</Flag>
-		<Function>jungleEncounterChances</Function>
+		<Function type="ON_ENTER">jungleEncounterChances</Function>
 	</Room>
 </Planet>

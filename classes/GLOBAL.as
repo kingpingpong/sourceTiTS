@@ -638,6 +638,9 @@
 		public static const UNREACHABLE:int                            = 14;
 		// Temp flag alias whilst the asset gets introduced
 		public static const LIFT:int = OBJECTIVE;
+		
+		public static const ON_ENTER:String                            = "runOnEnter";
+		public static const ON_EXIT:String                             = "runOnExit";
 
 		//PLOT FLAGS
 		public static const RECRUITED_CELISE:int                       = 0;

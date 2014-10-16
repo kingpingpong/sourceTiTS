@@ -47,10 +47,30 @@
 				room.roomName = roomXML.Title.toString().replace("\\n", "\n");
 				room.description = roomXML.Description;
 				room.planet = this;
-				try {
-					if(roomXML.Function != undefined) room.runOnEnter = functionContainer[roomXML.Function];
-				} catch(e:ReferenceError) {
-					trace("Function \"" + roomXML.Function + "\" on " + functionContainer + " does not exist");
+				
+				
+				if(roomXML.Function != undefined) {
+					for each(var funcXML:XML in roomXML.Function) {
+						var errorStage:int = 0;
+						try {	
+							errorStage = 0;
+							var call:String = GLOBAL[funcXML.attribute("type")];
+							
+							errorStage = 1;
+							var func:Function = functionContainer[roomXML.Function];
+
+							room.addFunction(call, func);
+						} catch(e:ReferenceError) {
+							switch(errorStage) {
+								case 0:
+									trace("Function type \"" + funcXML.attribute("type") + "\" on room " + roomName + " does not exist");
+									break;
+								case 1:
+									trace("Function \"" + roomXML.Function + "\" on " + functionContainer + " does not exist (" + roomName + ")");
+									break;
+							}
+						}
+					}
 				}
 				
 				if(center == null) center = room;

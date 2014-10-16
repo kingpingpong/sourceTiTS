@@ -33,14 +33,14 @@
 		<Exit type="e" to="KIROS SHIP ENGINEERING"></Exit>
 		<Exit type="s" to="KIROS SHIP AIRLOCK"></Exit>
 		<Exit type="w" to="KIROS SHIP TROPHYROOM"></Exit>
-		<Function>kirosShipInterior</Function>
+		<Function type="ON_ENTER">kirosShipInterior</Function>
 		<Flag>INDOOR</Flag>
 	</Room>
 	
 	<Room name="KIROS SHIP QUARTERS">
 		<Title>"LEAF SHIP\nINTERIOR</Title>
 		<Description>The ship's more than big enough to accommodate a crew of a few dozen, but most of the rooms are stripped bare; nothing left but spaces in the dust where furniture once was. The largest of the rooms -- the captain's quarters -- is still furnished. An overly large king-sized bed is pushed up against one wall, surrounded by a sea of dirty magazines and holo-vid boxes for a variety of big-booty porn. You see a bin beside the bed, full of tied-off condoms in a whole slew of colors, all filled to bursting with spooge. Nasty.</Description>
-		<Function>kirosShipQuarters</Function>
+		<Function type="ON_ENTER">kirosShipQuarters</Function>
 		<Exit type="s" to="KIROS SHIP INTERIOR"></Exit>
 		<Flag>INDOOR</Flag>
 	</Room>

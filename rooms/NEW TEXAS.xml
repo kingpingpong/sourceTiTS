@@ -7,7 +7,7 @@
 	<Room name="528">
 		<Title>BARBEQUE\nPIT</Title>
 		<Description></Description>
-		<Function>NTBarbequeBonusFunc</Function>
+		<Function type="ON_ENTER">NTBarbequeBonusFunc</Function>
 		<Exit type="w" to="526"></Exit>
 		<Flag>INDOOR</Flag>
 		<Flag>COMMERCE</Flag>
@@ -41,7 +41,7 @@
 	<Room name="527">
 		<Title>GIFT\nSHOP</Title>
 		<Description></Description>
-		<Function>NTGiftShopBonusFunc</Function>
+		<Function type="ON_ENTER">NTGiftShopBonusFunc</Function>
 		<Exit type="e" to="526"></Exit>
 		<Flag>INDOOR</Flag>
 		<Flag>COMMERCE</Flag>
@@ -126,7 +126,7 @@
 	<Room name="TEXAS CUSTOMS">
 		<Title>CUSTOMS\nOFFICE</Title>
 		<Description></Description>
-		<Function>customsAndCheckInOnNewTexas</Function>
+		<Function type="ON_ENTER">customsAndCheckInOnNewTexas</Function>
 		<Exit type="s" to="501"></Exit>
 		<Exit type="n" to="503"></Exit>
 		<Flag>INDOOR</Flag>
@@ -136,7 +136,7 @@
 	<Room name="516">
 		<Title>MILKING\nSTALL</Title>
 		<Description>Unlike most of the stalls in the Milk Barn, this one isn't closed or empty. A single auburn-haired cow is sitting on a stool near the door, dressed up in a cow-print corset, panties, and stockings, but otherwise the stall is empty. The center of the room is dominated by what looks like a padded steel vaulting horse with several holes drilled into the top. Pipes lead from the holes to drains and other machines along the walls. Looming overhead is a large, powerful-looking mechanical arm, from which dangles a huge floppy pink dildo.\n\nA sign overtop the stall reads in faded letters, \"Male Milker.\" Doesn't take a genius to figure out what that means... </Description>
-		<Function>manMilkerRoomBonusFunc</Function>
+		<Function type="ON_ENTER">manMilkerRoomBonusFunc</Function>
 		<Exit type="w" to="511"></Exit>
 		<Flag>INDOOR</Flag>
 		<Flag>NPC</Flag>
@@ -160,7 +160,7 @@
 	<Room name="503">
 		<Title>NEW\nTEXAS</Title>
 		<Description></Description>
-		<Function>newTexasRoadFirstTime</Function>
+		<Function type="ON_ENTER">newTexasRoadFirstTime</Function>
 		<Exit type="s" to="TEXAS CUSTOMS"></Exit>
 		<Exit type="e" to="504"></Exit>
 		<Flag>OUTDOOR</Flag>
