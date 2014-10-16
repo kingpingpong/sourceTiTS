@@ -249,7 +249,7 @@ public function hasFeedableMimbranes():Boolean
 	{
 		if (pc.hasStatusEffect(mimbraneEffects[i]))
 		{
-			if (pc.statusEffectv2(mimbraneEffects[i]) > 0) return true;
+			if (pc.statusEffectv2(mimbraneEffects[i]) > 0 && pc.statusEffectv3(mimbraneEffects[i]) < 15) return true;
 		}
 	}
 	return false;
