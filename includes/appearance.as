@@ -935,7 +935,7 @@ function appearance(target:Creature):void {
 				output2("You have " + num2Text(target.vaginas.length) + " " + plural(target.vaginasDescript()) + ", with " + num2Text(target.vaginas[0].clits) + " " + int(target.clitLength*10)/10 + "-inch clits each.  ");
 			}
 			//Variances based on lustiness & wetness & such. THE DETAIL!
-			if(target.libido() < 50 && target.lust() < 50) //not particularly horny
+			if(target.libido() < 50 && target.lust() < 50 && target.vaginas[0].wetness() > 0) //not particularly horny
 			{
 				//Wetness
 				if(target.vaginas[0].wetness() >= 2 && target.vaginas[0].wetness() < 4) output2("Moisture gleams in ");
@@ -945,7 +945,7 @@ function appearance(target:Creature):void {
 					output2("lubricant drip from ");
 				}				
 			}
-			else if(target.libido() < 80 && target.lust() < 80) //kinda horny
+			else if(target.libido() < 80 && target.lust() < 80 && target.vaginas[0].wetness() > 0) //kinda horny
 			{
 				//Wetness
 				if(target.vaginas[0].wetness() < 2) output2("Moisture gleams in ");
@@ -959,7 +959,7 @@ function appearance(target:Creature):void {
 					output2("lubricant occasionally dribble from ");
 				}
 			}
-			else  //WTF horny!
+			else if(target.vaginas[0].wetness() > 0) //WTF horny!
 			{
 				//Wetness
 				if(target.vaginas[0].wetness() < 2) 
