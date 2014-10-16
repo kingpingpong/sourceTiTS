@@ -114,23 +114,24 @@
 		}
 		
 		public function callFunctions(call:String):Boolean {
-			if(functions[call] == undefined || !(functions[call] is Array)) return true;
+			if(functions[call] == undefined || !(functions[call] is Array)) return false;
 			
 			//Returns whether or not the functions will let the event happen
-			var re:Boolean = true;
+			//Actually right now it returns whether or not the menu should be displayed
+			var re:Boolean = false;
 			//Each function should return -1, 0, or 1 (or void)
 			//-1 means that the function doesn't influence whether or not the event should happen
 			//0 means the event shouldn't happen
 			//1 means the even should happen
 			for each(var func:Function in functions[call]) {
-				var _re:int = -1;
-				try {
-					_re = func(re);
-				} catch (e:ArgumentError) {
-					func();
-				}
-				if(_re == 0) re = false;
-				if(_re == 1) re = true;
+				//var _re:int = -1;
+				//try {
+					//_re = func(re);
+				//} catch (e:ArgumentError) {
+					if(func()) re = true;
+				//}
+				//if(_re == 0) re = false;
+				//if(_re == 1) re = true;
 			}
 			return re;
 		}

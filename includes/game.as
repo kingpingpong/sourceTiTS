@@ -91,7 +91,7 @@ public function mainGameMenu():void {
 	else 
 		this.addButton(4,"Sleep",sleep);
 	//Display movement shits - after clear menu for extra options!
-	this.rooms[this.currentLocation].callFunctions(GLOBAL.ON_ENTER);
+	if(this.rooms[this.currentLocation].callFunctions(GLOBAL.ON_ENTER)) return;
 	//Turn off encounters since you're already here. Moving clears this.
 	flags["ENCOUNTERS_DISABLED"] = 1;
 

@@ -437,16 +437,14 @@
 			
 			if(animate)
 			{
-				var animationTime:int = 30; //Time in milliseconds that the animation takes to finish. The lower the number, the faster the animation (and the entire map loading)
-				var startX:Number = tarSprite.x + Math.random() * 200 - 100;
-				var startY:Number = tarSprite.y + Math.random() * 200 - 100;
-				var rotations:int = 0;
+				var animationTime:int = 15; //Time in milliseconds that the animation takes to finish. The lower the number, the faster the animation (and the entire map loading)
 				
 				if(!tarSprite.visible) animationTime = 0;
 				
-				tarSprite.addEventListener(Animations.ANIMATION_FINISHED, mapRoomAnimFinished(room, xPos, yPos, roomsObj, completeRooms, true));
+				setTimeout(mapRoomAnimNext, animationTime / 1, room, xPos, yPos, roomsObj, completeRooms);
+				tarSprite.addEventListener(Animations.ANIMATION_FINISHED, mapRoomAnimFinished(room, xPos, yPos, roomsObj, completeRooms));
 				
-				Animations.animateSimple(tarSprite, startX, startY, tarSprite.x, tarSprite.y, 0, tarSprite.alpha, animationTime, rotations);
+				Animations.animateZoom(tarSprite, 0, 1, .5, animationTime);
 				this._animations.push(tarSprite);
 				return;
 			}
@@ -463,18 +461,21 @@
 			if(room.eastExit)  _childLinksX[xPos][(_childNumY - 1) - yPos].setLink(roomConnection(room.eastExit, roomsObj[room.eastExit].westExit, roomsObj));
 		}
 		
-		private function mapRoomAnimFinished(room:RoomClass, xPos:int, yPos:int, roomsObj:*, completeRooms, animate:Boolean = true)
+		private function mapRoomAnimNext(room:RoomClass, xPos:int, yPos:int, roomsObj:*, completeRooms, animate:Boolean = true):void
+		{				
+			if(room.northExit) mapRoom(roomsObj[room.northExit], xPos, yPos + 1, roomsObj, animate, completeRooms);
+			if(room.southExit) mapRoom(roomsObj[room.southExit], xPos, yPos - 1, roomsObj, animate, completeRooms);
+			if(room.westExit)  mapRoom(roomsObj[room.westExit], xPos - 1, yPos, roomsObj, animate, completeRooms);
+			if(room.eastExit)  mapRoom(roomsObj[room.eastExit], xPos + 1, yPos, roomsObj, animate, completeRooms);
+		}
+		
+		private function mapRoomAnimFinished(room:RoomClass, xPos:int, yPos:int, roomsObj:*, completeRooms, animate:Boolean = true):Function
 		{
 			return function(e:Event):void
 			{
-				e.target.removeEventListener(Animations.ANIMATION_FINISHED, mapRoomAnimFinished(room, xPos, yPos, roomsObj, completeRooms, true));
+				e.target.removeEventListener(Animations.ANIMATION_FINISHED, mapRoomAnimFinished(room, xPos, yPos, roomsObj, completeRooms, animate));
 				
 				_animations.splice(_animations.indexOf(e.target), 1);
-				
-				if(room.northExit) mapRoom(roomsObj[room.northExit], xPos, yPos + 1, roomsObj, animate, completeRooms);
-				if(room.southExit) mapRoom(roomsObj[room.southExit], xPos, yPos - 1, roomsObj, animate, completeRooms);
-				if(room.westExit)  mapRoom(roomsObj[room.westExit], xPos - 1, yPos, roomsObj, animate, completeRooms);
-				if(room.eastExit)  mapRoom(roomsObj[room.eastExit], xPos + 1, yPos, roomsObj, animate, completeRooms);
 			
 				if(_animations.length == 0) dispatchEvent(new Event(Animations.ANIMATION_FINISHED));
 				
