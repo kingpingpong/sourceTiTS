@@ -136,8 +136,10 @@
 		public var minutes:int;
 
 		// Queued event system
-		public var eventBuffer:String;
 		public var eventQueue:Array;
+		private var _eventBuffer:String;
+		public function get eventBuffer():String { return _eventBuffer; }
+		public function set eventBuffer(buff:String):void { _eventBuffer = parser == null ? buff : parser.recursiveParser(buff); }
 
 		// Version string/value
 		public var version:String;

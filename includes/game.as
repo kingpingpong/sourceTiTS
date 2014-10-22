@@ -384,7 +384,7 @@ function flyTo(arg:String):void {
 }
 
 function move(arg:String, goToMainMenu:Boolean = true):void {
-	if(!this.rooms[this.currentLocation].callFunctions(GLOBAL.ON_EXIT)) return;
+	if(this.rooms[this.currentLocation].callFunctions(GLOBAL.ON_EXIT)) return;
 	
 	//Reset the thing that disabled encounters
 	flags["ENCOUNTERS_DISABLED"] = undefined;
