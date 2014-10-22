@@ -1879,17 +1879,17 @@ function pennySexMenu(outputT:Boolean = true):void {
 		this.addDisabledButton(1,"OverDeskFuck","OverDeskFuck","This scene requires you to have a penis.");
 		this.addDisabledButton(2,"Frottage","Frottage","This scene requires you to have a penis.");
 		this.addDisabledButton(3,"Pawjob","Pawjob","This scene requires you to have a penis.");
-		//this.addDisabledButton(4,"FaceFuckHer");
-		if(penny.hasCock()) this.addButton(4,"Catch Anal",getAssFuckedByPenny,undefined,"Catch Anal","Get ass-fucked by Penny.");
-		else addDisabledButton(4,"Catch Anal","Catch Anal","Penny needs a dick to fuck you in the ass.");
+		this.addDisabledButton(4,"FaceFuckHer","FaceFuckHer","This scene requires you to have a penis.");
+		if(penny.hasCock()) this.addButton(5,"Catch Anal",getAssFuckedByPenny,undefined,"Catch Anal","Get ass-fucked by Penny.");
+		else addDisabledButton(5,"Catch Anal","Catch Anal","Penny needs a dick to fuck you in the ass.");
 	}
-	this.addButton(5,"EatHerOut",gardeFordWritesPennySmex,undefined,"EatHerOut","Eat out Penny.");
-	if(flags["PENNY_IS_A_CUMSLUT"] != undefined) this.addButton(6,"Selfsuck",pennySelfSuckCumsluttery,undefined,"Selfsuck","Watch Penny suck herself off.");
-	else addDisabledButton(6,"Selfsuck","Selfsuck","Penny has to be a futanari cum-slut for this scene.");
-	if(flags["PENNY_IS_A_CUMSLUT"] != undefined && pc.hasCock()) this.addButton(7,"Bukkake",bukkakePenny,undefined,"Bukkake","Cooperatively cover Penny in spunk.");
-	else addDisabledButton(7,"Bukkake","Bukkake","This requires Penny to be a futanari cum-slut and for you to have a penis.");
-	if (flags["FLAHNE_TALKED_ABOUT_CUMSLUTPENNY"] != undefined && flags["PENNY_IS_A_CUMSLUT"] != undefined) addButton(8, "Invite Flahne", pennyVsFlahneWhoWillOutslutWho,undefined,"Invite Flahne","Invite Flahne over for a threesome with Penny.");
-	else addDisabledButton(8, "Invite Flahne","Invite Flahne","This scene requires Penny to be a cum-slut and Flahne to have been told about it.");
+	this.addButton(6,"EatHerOut",gardeFordWritesPennySmex,undefined,"EatHerOut","Eat out Penny.");
+	if(flags["PENNY_IS_A_CUMSLUT"] != undefined) this.addButton(7,"Selfsuck",pennySelfSuckCumsluttery,undefined,"Selfsuck","Watch Penny suck herself off.");
+	else addDisabledButton(7,"Selfsuck","Selfsuck","Penny has to be a futanari cum-slut for this scene.");
+	if(flags["PENNY_IS_A_CUMSLUT"] != undefined && pc.hasCock()) this.addButton(8,"Bukkake",bukkakePenny,undefined,"Bukkake","Cooperatively cover Penny in spunk.");
+	else addDisabledButton(8,"Bukkake","Bukkake","This requires Penny to be a futanari cum-slut and for you to have a penis.");
+	if (flags["FLAHNE_TALKED_ABOUT_CUMSLUTPENNY"] != undefined && flags["PENNY_IS_A_CUMSLUT"] != undefined) addButton(9, "Invite Flahne", pennyVsFlahneWhoWillOutslutWho,undefined,"Invite Flahne","Invite Flahne over for a threesome with Penny.");
+	else addDisabledButton(9, "Invite Flahne","Invite Flahne","This scene requires Penny to be a cum-slut and Flahne to have been told about it.");
 	this.addButton(14,"Back",approachGirlfriendPenny);
 }
 
