@@ -2802,7 +2802,7 @@ function bombExplodes():void
 	if(!pc.hasKeyItem("Kaska's Detonator") && !pc.hasKeyItem("Khorgan's Detonator"))
 	{
 		//Three hours later, after the bomb should have gone off
-		output("You codex buzzes, a priority message alert chiming through. You answer, and see a 2-D image coming through on the Codex's primitive screen: of all the people you didn't expect to see, it's the nutty cat-girl you beat down ");
+		output("\nYour codex buzzes, a priority message alert chiming through. You answer, and see a 2-D image coming through on the Codex's primitive screen: of all the people you didn't expect to see, it's the nutty cat-girl you beat down ");
 		if(flags["TAM_DISABLE_METHOD"] == 2) output("and fucked ");
 		output("in the control station.");
 		output("\n\n<i>\"Hey!\"</i> she cheers, beaming at you. Behind her, ");
