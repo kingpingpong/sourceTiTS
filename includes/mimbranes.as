@@ -1,4 +1,4 @@
-import classes.Characters.Mimbrane;
+﻿import classes.Characters.Mimbrane;
 import classes.Characters.PlayerCharacter;
 import classes.Creature;
 /*
@@ -249,7 +249,7 @@ public function hasFeedableMimbranes():Boolean
 	{
 		if (pc.hasStatusEffect(mimbraneEffects[i]))
 		{
-			if (pc.statusEffectv2(mimbraneEffects[i]) > 0) return true;
+			if (pc.statusEffectv2(mimbraneEffects[i]) > 0 && pc.statusEffectv3(mimbraneEffects[i]) < 15) return true;
 		}
 	}
 	return false;
@@ -989,7 +989,7 @@ public function mimbranesComplainAndShit():void
 						if (pc.hasStatusEffect("Mimbrane Hand Left") && pc.hasStatusEffect("Mimbrane Hand Right"))
 						{
 							// Both hands should following the same feeding/upgrading pattern
-							if (pc.statusEffectV1("Mimbrane Hand Left") <= 2)
+							if (pc.statusEffectv1("Mimbrane Hand Left") <= 2)
 							{
 								addMimbraneEvent("Your hands feel hungry, and you don’t understand it. Things may rise past this odd yearning if you don’t take care of it soon.");
 							}
@@ -3723,7 +3723,7 @@ public function attachAMimbrane():void
 	clearMenu();
 	addButton(0, "Next", mainGameMenu);
 
-	if (pc.hasCock() && pc.totalCocks() == 1 && !pc.hasStatusEffect("Mimbrane Cock")) attachCockMimbrane();
+	if (pc.hasCock() && pc.totalCocks() >= 1 && !pc.hasStatusEffect("Mimbrane Cock")) attachCockMimbrane();
 	else if (pc.hasVagina() && pc.totalVaginas() == 1 && !pc.hasStatusEffect("Mimbrane Pussy")) attachVagMimbrane();
 	else if (!pc.hasStatusEffect("Mimbrane Ass")) attachAssMimbrane();
 	else if (pc.balls > 0 && pc.ballSize() > 0 && !pc.hasStatusEffect("Mimbrane Balls") && pc.hasStatusEffect("Mimbrane Cock")) attachBallsMimbrane();

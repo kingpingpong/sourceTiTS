@@ -64,7 +64,7 @@ public function mainGameMenu():void {
 	//Display the room description
 	clearOutput();
 	output(this.rooms[this.currentLocation].description);
-	setLocation(this.rooms[this.currentLocation].roomName,this.rooms[this.currentLocation].planet,this.rooms[this.currentLocation].system);
+	setLocation(this.rooms[this.currentLocation].roomName,this.rooms[this.currentLocation].planet.name,this.rooms[this.currentLocation].planet.system);
 	if(inCombat()) 
 		output("\n\n<b>You're still in combat, you ninny!</b>");
 	if(pc.hasStatusEffect("Temporary Nudity Cheat"))
@@ -91,23 +91,27 @@ public function mainGameMenu():void {
 	else 
 		this.addButton(4,"Sleep",sleep);
 	//Display movement shits - after clear menu for extra options!
-	if(this.rooms[this.currentLocation].runOnEnter != undefined) {
-		if(this.rooms[this.currentLocation].runOnEnter()) return;
-	}
+	if(this.rooms[this.currentLocation].callFunctions(GLOBAL.ON_ENTER)) return;
 	//Turn off encounters since you're already here. Moving clears this.
 	flags["ENCOUNTERS_DISABLED"] = 1;
 
-	if(this.rooms[this.currentLocation].northExit && !this.rooms[this.rooms[this.currentLocation].northExit].hasFlag(GLOBAL.UNREACHABLE)) 
+	if(this.rooms[this.currentLocation].northExit && !this.rooms[this.rooms[this.currentLocation].northExit].hasFlag(GLOBAL.UNREACHABLE)
+		&& this.rooms[this.currentLocation].hiddenExits.indexOf(this.rooms[this.currentLocation].northExit) == -1) 
 		this.addButton(6,"North",move,this.rooms[this.currentLocation].northExit);
-	if(this.rooms[this.currentLocation].eastExit && !this.rooms[this.rooms[this.currentLocation].eastExit].hasFlag(GLOBAL.UNREACHABLE)) 
+	if(this.rooms[this.currentLocation].eastExit && !this.rooms[this.rooms[this.currentLocation].eastExit].hasFlag(GLOBAL.UNREACHABLE)
+		&& this.rooms[this.currentLocation].hiddenExits.indexOf(this.rooms[this.currentLocation].eastExit) == -1) 
 		this.addButton(12,"East",move,this.rooms[this.currentLocation].eastExit);
-	if(this.rooms[this.currentLocation].southExit && !this.rooms[this.rooms[this.currentLocation].southExit].hasFlag(GLOBAL.UNREACHABLE)) 
+	if(this.rooms[this.currentLocation].southExit && !this.rooms[this.rooms[this.currentLocation].southExit].hasFlag(GLOBAL.UNREACHABLE)
+		&& this.rooms[this.currentLocation].hiddenExits.indexOf(this.rooms[this.currentLocation].southExit) == -1) 
 		this.addButton(11,"South",move,this.rooms[this.currentLocation].southExit);
-	if(this.rooms[this.currentLocation].westExit && !this.rooms[this.rooms[this.currentLocation].westExit].hasFlag(GLOBAL.UNREACHABLE)) 
+	if(this.rooms[this.currentLocation].westExit && !this.rooms[this.rooms[this.currentLocation].westExit].hasFlag(GLOBAL.UNREACHABLE)
+		&& this.rooms[this.currentLocation].hiddenExits.indexOf(this.rooms[this.currentLocation].westExit) == -1) 
 		this.addButton(10,"West",move,this.rooms[this.currentLocation].westExit);
-	if(this.rooms[this.currentLocation].inExit && !this.rooms[this.rooms[this.currentLocation].inExit].hasFlag(GLOBAL.UNREACHABLE)) 
+	if(this.rooms[this.currentLocation].inExit && !this.rooms[this.rooms[this.currentLocation].inExit].hasFlag(GLOBAL.UNREACHABLE)
+		&& this.rooms[this.currentLocation].hiddenExits.indexOf(this.rooms[this.currentLocation].inExit) == -1) 
 		this.addButton(5,this.rooms[this.currentLocation].inText,move,this.rooms[this.currentLocation].inExit);
-	if(this.rooms[this.currentLocation].outExit && !this.rooms[this.rooms[this.currentLocation].outExit].hasFlag(GLOBAL.UNREACHABLE)) 
+	if(this.rooms[this.currentLocation].outExit && !this.rooms[this.rooms[this.currentLocation].outExit].hasFlag(GLOBAL.UNREACHABLE)
+		&& this.rooms[this.currentLocation].hiddenExits.indexOf(this.rooms[this.currentLocation].outExit) == -1) 
 		this.addButton(7,this.rooms[this.currentLocation].outText,move,this.rooms[this.currentLocation].outExit);
 	if(this.currentLocation == shipLocation) 
 		this.addButton(1,"Enter Ship",move,"SHIP INTERIOR");
@@ -380,6 +384,8 @@ function flyTo(arg:String):void {
 }
 
 function move(arg:String, goToMainMenu:Boolean = true):void {
+	if(this.rooms[this.currentLocation].callFunctions(GLOBAL.ON_EXIT)) return;
+	
 	//Reset the thing that disabled encounters
 	flags["ENCOUNTERS_DISABLED"] = undefined;
 	var moveMinutes:int = rooms[currentLocation].moveMinutes;
@@ -389,7 +395,7 @@ function move(arg:String, goToMainMenu:Boolean = true):void {
 	}
 	processTime(moveMinutes);
 	currentLocation = arg;
-	RoomClass.updateRoomFlags(this);
+	RoomClass.updateRoomFlags();
 	this.userInterface.setMapData(currentLocation);
 	
 	trace("Printing map for " + currentLocation);

@@ -9,11 +9,10 @@
 	public class Animations {
 		
 		public static const ANIMATION_FINISHED:String = "TiTS_Animation_Finish";
+		public static const ANIMATION_OVERLAP:String = "TiTS_Animation_Overlap";
 		
 		private static var animations:Dictionary = new Dictionary();
-		
-		public function Animations() {}
-		
+				
 		public static function animateSimple(target:Sprite, fromX:Number, fromY:Number, toX:Number, toY:Number, beginFade:Number, endFade:Number, time:int, rotate:int = 0):void
 		{
 			if((fromX == toX && fromY == toY && beginFade == endFade && rotate == 0) || time == 0) 
@@ -63,6 +62,32 @@
 			}
 			
 			animations[target] = setTimeout(animateSimple, 1, target, fromX, fromY, toX, toY, beginFade, endFade, time - 1, rotate);
+		}
+		
+		public static function animateZoom(target:Sprite, fromScale:Number, toScale:Number, beginFade:Number, endFade:Number, overlap:Number, time:int):void {
+			if((fromScale == toScale && beginFade == endFade && overlap <= 0) || time == 0) {
+				target.scaleX = toScale;
+				target.scaleY = toScale;
+				target.alpha = endFade;
+				
+				setTimeout(target.dispatchEvent, 1, new Event(ANIMATION_FINISHED));
+				animations[target] = undefined;
+				return;
+			} else if (overlap > 0 && fromScale >= toScale + overlap) {
+				overlap = 0;
+				target.dispatchEvent(new Event(ANIMATION_OVERLAP));
+			} else if (overlap < 0 && fromScale <= toScale - overlap) {
+				overlap = 0;
+				target.dispatchEvent(new Event(ANIMATION_OVERLAP));
+			}
+			if(animations[target]) clearTimeout(animations[target]);
+			
+			fromScale += (toScale + overlap - fromScale + overlap) / time;
+			target.scaleX = fromScale;
+			target.scaleY = fromScale;
+			target.alpha = beginFade += (endFade - beginFade) / time;
+			
+			animations[target] = setTimeout(animateZoom, 1, target, fromScale, toScale, beginFade, endFade, overlap, time - 1);
 		}
 
 	}
