@@ -59,7 +59,7 @@ public function encounterNyreaHuntress(forceType:uint = NYREA_UNKNOWN):void
 	if (pc.hasRangedWeapon()) output(" butt of your gun");
 	else if (pc.hasMeleeWeapon()) output(" hilt of your [melee.weapon]");
 	else output(" ground, picking up the meatiest rock you can find to defend yourself with");
-	output(") as your [pc.ears] perk up, listening for any trace of a possible assailant.");
+	output(" as your [pc.ears] perk up, listening for any trace of a possible assailant.");
 
 	output("\n\nYou turn, just in time to see something rushing out of the darkness at you!");
 
@@ -79,14 +79,14 @@ public function encounterNyreaHuntress(forceType:uint = NYREA_UNKNOWN):void
 	{
 		output(" tsking her tongue as she follows her wide-flying net with her eyes, clearly disappointed");
 	}
-	else output(" taking advantage of your vulnerable state to loom over you threateningly, spear leveled at you.");
+	else output(" taking advantage of your vulnerable state to loom over you threateningly, spear leveled at you");
 	if (nyreaEggs)
 	{
-		output(" <i>“I'm not too picky where I put my eggs,”</i> she growls, circling you, <i>“Even an offworlder will do in a pinch. So why don't you just make this easy on yourself and submit. You might even like it.”</i>");
+		output(". <i>“I'm not too picky where I put my eggs,”</i> she growls, circling you, <i>“Even an offworlder will do in a pinch. So why don't you just make this easy on yourself and submit. You might even like it.”</i>");
 	}
 	else
 	{
-		output(" <i>“You look like a healthy breeder,”</i> she growls, circling you, <i>“so why don't you just make this easy on yourself and submit. You might even like it.”</i>");
+		output(". <i>“You look like a healthy breeder,”</i> she growls, circling you, <i>“so why don't you just make this easy on yourself and submit. You might even like it.”</i>");
 	}
 
 	if (!CodexManager.entryUnlocked("Nyrea"))
@@ -185,7 +185,7 @@ public function nyreaAlphaUseGun():void
 public function nyreaSpearThrust():void
 {
 	//Basic Attack
-	output("\nThey nyrea charges forward, thrusting her heavy spear at you!\n");
+	output("\nThe nyrea charges forward, thrusting her heavy spear at you!\n");
 
 	if (combatMiss(foes[0], pc))
 	{
@@ -251,7 +251,7 @@ public function nyreaPowerStrike():void
 public function nyreaPoledance():void
 {
 	//Her preferred lust attack against males. 
-	output("\nThe nyrea plants her spear in the ground, leaning heavily on the sturdy shaft, pressing it between her impressive rack. <i>“Like what you see?”</i> she giggles, voice suddenly sultry as she leans back from the haft, twisting around you give you a full view of her taut ass and long, chitinous legs. She bends over, rubbing her spear through her crack, smearing it with her psuedo-cock’s ample pre. <i>“Come off it already... put your weapons down...");
+	output("\nThe nyrea plants her spear in the ground, leaning heavily on the sturdy shaft, pressing it between her impressive rack. <i>“Like what you see?”</i> she giggles, voice suddenly sultry as she leans back from the haft, twisting around to give you a full view of her taut ass and long, chitinous legs. She bends over, rubbing her spear through her crack, smearing it with her psuedo-cock’s ample pre. <i>“Come off it already... put your weapons down...");
 	if (foes[0] is NyreaBeta) output(" I promise you’ll be glad you did");
 	else if (foes[0] is NyreaAlpha) output(" You can’t win against a body like mine... I’m so above your class, offworlder. Just submit, like you know you want to");
 	output(".”</i>\n");
@@ -294,7 +294,7 @@ public function nyreaNetThrow():void
 public function nyreaMilkRub():void
 {
 	//Light lust attack, heals some of her HP
-	output("\nGiving you a cocky look, the nyrea pulls up the thin veneer of chain covering her ample bosom and cups her tits, giving them a long, obviously-pleasurable squeeze. A trickle of cream-colored milk spurts out at her touch, barely needing to be coaxed. She winks at you, bringing one of her teats to her lips and drinking long as the other drizzles all over her body, which she deftly rubs into her skin and armor.\n");
+	output("\nGiving you a cocky look, the nyrea pulls up the thin veneer of chain covering her ample bosom and cups her tits, giving them a long, obviously-pleasurable squeeze. A trickle of cream-colored milk spurts out at her touch, barely needing to be coaxed. She winks at you, bringing one of her teats to her lips and taking a long drink as the other drizzles all over her body, which she deftly rubs into her skin and armor.\n");
 
 	var lustDam:int = damageRand(15 * (pc.libido() / 100), 15);
 
@@ -318,9 +318,14 @@ public function pcLossToNyrea():void
 	nyreaHeaderFromCreature(foes[0]);
 	var pData:PregnancyData;
 
-	output("You give a cry of surprise and pain as the nyrea deftly knocks your [pc.weapon] out of your hand, shoving you back up against a cave wall - and pressing herself tight against you, already pulling the chain bikini off from around her hefty tits, letting them press against you as her fingers work into your [pc.gear], beginning to peel it off.");
-	
-	output("\n\n<i>“I knew you’d come around,”</i> she purrs. You suddenly become very aware of the pseudo-cock pressing into your thigh, already dribbling pre.");
+	output("You give a cry of surprise and pain as the nyrea deftly knocks your [pc.weapon] out of your hand, shoving you back up against a cave wall - and pressing herself tight against you, already pulling the chain bikini off from around her hefty tits, letting them press against you");
+	if (pc.isNude()) {
+		output("r [pc.chest]");	
+	else
+	{
+		output(" as her fingers work into your [pc.gear], beginning to peel it off");
+	}
+	output(".\n\n<i>“I knew you’d come around,”</i> she purrs. You suddenly become very aware of the pseudo-cock pressing into your thigh, already dribbling pre.");
 
 		output("\n\n<i>“It’s your lucky day, offworlder,”</i> the huntress grins, one of her chitinous hands wrapping over the pseudo-cock between her legs, too large to get her fingers completely around. <i>“I’ve got a belly full of eggs desperate for somewhere to go.”</i>");
 	
@@ -361,7 +366,7 @@ public function pcLossToNyrea():void
 	{
 		output("\n\n<i>“Not bad,”</i> she coos, grabbing you by the scruff of the neck and shoving you onto all fours. <i>“I can feel my eggs stirring... my young aching for release.”</i>");
 	
-		output("\n\nShe plants a chitinous foot on your back, pinning you down as she strokes herself overtop you. <i>“You’ll take good care of my eggs, won’t you, offworlder? Perhaps you’ll spread my spawn to the stars. Ah, they’ll be like gods to my people.”</i>");
+		output("\n\nShe plants a chitinous foot on your back, pinning you down as she strokes herself atop you. <i>“You’ll take good care of my eggs, won’t you, offworlder? Perhaps you’ll spread my spawn to the stars. Ah, they’ll be like gods to my people.”</i>");
 	}
 	else
 	{
@@ -458,7 +463,7 @@ public function pcLossToNyrea():void
 			
 			output("\n\n<i>“Finally free,”</i> the nyrean woman sighs, resting a hand on her own belly. <i>“Goodbye, my young. Live well and flourish.”</i>");
 			
-			output("\n\nYou groan as the huntress drags her barbed cock out of you, dragging those spines of hers back through your rectal passage and leaving you feeling loose and full at the same time. She stands, running a surprisingly affectionate hand across your [pc.belly] and down to your cunt, caressing the swell of your now-visible pregnancy. <i>“Take care of my young, hmm?”</i>");
+			output("\n\nYou groan as the huntress drags her barbed cock out of you, dragging those spines of hers back through your vaginal passage and leaving you feeling loose and full at the same time. She stands, running a surprisingly affectionate hand across your [pc.belly] and down to your cunt, caressing the swell of your now-visible pregnancy. <i>“Take care of my young, hmm?”</i>");
 			
 			output("\n\nAll you can do is groan weakly, trying to adjust to the added presence of the huntress’s eggs inside you. She winks at you and departs, slipping off into the darkness. ");
 		}
@@ -476,14 +481,14 @@ public function pcLossToNyrea():void
 			
 			output("\n\nYou bob your head along her length, sucking and licking faster, trying as hard as you can to bring the insectile amazon to orgasm. Thankfully, she doesn’t seem interested in resisting your advances, but lets you milk her until her ample chest is heaving against her chain bikini. She moans and caresses the top of your head, starting to thrust her hips against your lips. Her cock throbs, straining your throat with its sheer girth until with a cry of pleasure, you feel the nyrea cumming. ");
 			
-			output("\n\nYour eyes bulge as the huntress shoots a thick load of alien quasi-spooge down your throat. She grabs your hands, pulling them off of her knot, moaning <i>“Not there... can’t let you eat my eggs...”</i> You let her pull your hands away, grabbing your wrists and using your arms as leverage to thrust against while she cums. You swallow as quick as you can, letting your gut strain to hold the titanic load of nyrean seed she’s squirting out. ");
+			output("\n\nYour eyes bulge as the huntress shoots a thick load of alien quasi-spooge down your throat. She grabs your hands, pulling them off of her knot, moaning <i>“Not there... can’t let you eat my eggs...”</i> You let her pull your hands away, grabbing your wrists and using your arms as leverage to thrust against you while she cums. You swallow as quick as you can, letting your gut strain to hold the titanic load of nyrean seed she’s squirting out. ");
 			
-			output("\n\nWhen she’s done, you’re left coughing and spluttering, drooling her seed down your chin. Slow and steady, the hutnress withdraws her massive rod from your battered throat, ending with a wet pop that sends rivulets of seed streaking down your face and splattering across your [pc.chest]. ");
+			output("\n\nWhen she’s done, you’re left coughing and spluttering, drooling her seed down your chin. Slow and steady, the huntress withdraws her massive rod from your battered throat, ending with a wet pop that sends rivulets of seed streaking down your face and splattering across your [pc.chest]. ");
 
 			pc.loadInMouth(foes[0]);
 			
 			output("\n\n<i>“Not bad,”</i> the huntress moans, flicking the last vestiges of her orgasm from her X-shaped slit.");
-			if (foes[0] is NyreaBeta) output(" <i>“Maybe when I have a harem of my own when I see you again, I’ll just have to keep you around.");
+			if (foes[0] is NyreaBeta) output(" <i>“Maybe if I have a harem of my own when I see you again, I’ll just have to keep you around.");
 			else if (foes[0] is NyreaAlpha) output(" <i>“Too bad my harem’s already so full, or I’d be tempted to keep you around. And not just for that skilled tongue of yours, either.");
 			output("”</i>");
 			
@@ -537,13 +542,13 @@ public function pcLossToNyrea():void
 			
 			if (foes[0] is NyreaAlpha) output("\n\n<i>“How strange,”</i> the huntress murmurs,");
 			else if (foes[0] is NyreaBeta) output("\n\n<i>“I’ve never done anything like... like this before,”</i> the huntress says to you,");
-			output(" starting to stroke you again, her fingers gliding along your [pc.cock]. Your fingers clutch at the jagged wall behind you, your back arching as the nyrea picks up a little speed, growing more confident in her motions as she goes. After adding a little more milk, her hand starts to really glide across your cockflesh, pumping from base to [pc.cockHead] to ease. You actually see her smile a bit after a while - she’s really getting the hang of this! A little bit longer and you’ll be giving her that seed she’s working for.");
+			output(" starting to stroke you again, her fingers gliding along your [pc.cock]. Your fingers clutch at the jagged wall behind you, your back arching as the nyrea picks up a little speed, growing more confident in her motions as she goes. After adding a little more milk, her hand starts to really glide across your cockflesh, pumping from base to [pc.cockHead] with ease. You actually see her smile a bit after a while - she’s really getting the hang of this! A little bit longer and you’ll be giving her that seed she’s working for.");
 			
 			output("\n\nDeciding to press your luck, you murmur between husky moans that maybe she’d have better luck using her breasts to milk out your sperm.");
 			
 			output("\n\n<i>“My breasts?”</i> she says, cocking her head to the side and cupping one of her tits.");
 			
-			output("\n\nYou nod, telling her that many off-worlders enjoy milking sperm that way, and explain how to go about it. She listens intently the whole while, still jerking you off as she does so. Only when you get to the part about wrapping her big, milky tits around your [pc.cock] and humping away with her entire body does she actually stop, looking up at your incredulously. <i>“You mean like this?”</i> she asks, dropping your prick and squeezing her breasts together; a little trickle of milk seeps out between her fingers. You nod encouragingly.");
+			output("\n\nYou nod, telling her that many off-worlders enjoy milking sperm that way, and explain how to go about it. She listens intently the whole while, still jerking you off as she does so. Only when you get to the part about wrapping her big, milky tits around your [pc.cock] and humping away with her entire body does she actually stop, looking up at you incredulously. <i>“You mean like this?”</i> she asks, dropping your prick and squeezing her breasts together; a little trickle of milk seeps out between her fingers. You nod encouragingly.");
 			
 			output("\n\n<i>“This is embarrassing,”</i> she huffs, moving her hands slightly to let you holster your [pc.cock] between her ample mounds.");
 			
@@ -618,7 +623,7 @@ public function pcLossToNyrea():void
 			output("\n\nShe gives a grunt of consternation and starts to move her hips, thrusting awkwardly into you. <i>“Where is it?”</i> the huntress demands, giving you another knot-deep thrust. <i>“Don’t tell me another bitch got to you today already?”</i>");
 			
 			output("\n\nYou squirm under her relentless assault, trying to give voice to an explanation, but only managing to moan like a whore as she fucks you. Your breath comes ragged, and you cry out as her knot and barbs torment you with pleasure");
-			if (pc.looseness(tVag) <= 2) output(", threatening to break you with the tie’s sheer thickness");
+			if (pc.looseness(tVag) <= 2) output(", threatening to break you with the knot’s sheer thickness");
 			output(". The huntress’s fingers dig into your");
 			if (pc.biggestTitSize() <= 1) output(" shoulders");
 			else output(" [pc.chest]");
@@ -628,11 +633,11 @@ public function pcLossToNyrea():void
 			if (pc.hasCock()) output(" and making your [pc.cocks] stiffen and shoot, blasting a load of that precious seed she was after all across your [pc.belly]");
 			output(". Your wringing cunt is the only thing that stops her, trapping her like a wriggling vice of pleasure that soon has her panting and gasping, trying to hold on.");
 			
-			output("\n\n<i>“Give me... your...”</i> she tries to say, but ends up just moaning and humping faster until you’re squirting around her, splattering her thighs and your with [pc.femCumNoun].");
+			output("\n\n<i>“Give me... your...”</i> she tries to say, but ends up just moaning and humping faster until you’re squirting around her, splattering her thighs and your's with [pc.femCumNoun].");
 			
 			output("\n\nBy the time she’s done, you’re a mess of ");
 			if (!pc.hasCock()) output("fem");
-			output("cum and sweat, gasping for breath on the cave floor in a puddle of your juices. The huntress overtop you scowls between heavy, husky breaths, looking you up and down. <i>“Deceitful offworlder. Where is your sperm?”</i>");
+			output("cum and sweat, gasping for breath on the cave floor in a puddle of your juices. The huntress atop you scowls between heavy, husky breaths, looking you up and down. <i>“Deceitful offworlder. Where is your sperm?”</i>");
 			
 			output("\n\nYou try to explain, but find yourself cut short as she pulls out of you, dragging those fiendishly tickling barbs back across every inch of your [pc.cunt " +tVag +"]. She stands, letting her drooling want swing free between her legs as she collects her equipment. <i>“I suppose I’ll have to find another mate. Still, you were... pleasurable, to say the least.”</i>");
 			
