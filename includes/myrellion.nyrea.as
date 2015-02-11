@@ -79,14 +79,14 @@ public function encounterNyreaHuntress(forceType:uint = NYREA_UNKNOWN):void
 	{
 		output(" tsking her tongue as she follows her wide-flying net with her eyes, clearly disappointed");
 	}
-	else output(" taking advantage of your vulnerable state to loom over you threateningly, spear leveled at you");
+	else output(" taking advantage of your vulnerable state to loom over you threateningly, spear leveled at you.");
 	if (nyreaEggs)
 	{
-		output(". <i>“I'm not too picky where I put my eggs,”</i> she growls, circling you, <i>“Even an offworlder will do in a pinch. So why don't you just make this easy on yourself and submit. You might even like it.”</i>");
+		output(" <i>“I'm not too picky where I put my eggs,”</i> she growls, circling you, <i>“Even an offworlder will do in a pinch. So why don't you just make this easy on yourself and submit. You might even like it.”</i>");
 	}
 	else
 	{
-		output(". <i>“You look like a healthy breeder,”</i> she growls, circling you, <i>“so why don't you just make this easy on yourself and submit. You might even like it.”</i>");
+		output(" <i>“You look like a healthy breeder,”</i> she growls, circling you, <i>“so why don't you just make this easy on yourself and submit. You might even like it.”</i>");
 	}
 
 	if (!CodexManager.entryUnlocked("Nyrea"))
@@ -740,12 +740,12 @@ public function fuckNyreaButtsGetHerOff():void
 	else if (foes[0] is NyreaAlpha) output("<i>“Ah yeah, just like that,”</i> the alpha hunter groans, gritting her teeth as you plunge into her receptive backdoor, <i>“Come, stud, fuck me hard!”</i>");
 	output(" You silence her with a kiss, leaning over her quaking body as your [pc.hips] slide in, pressing against her tensed butt. She groans into your mouth, breathing hard... but still, her tongue rolls out, playing across your own as she tries to relax, opening herself up to you. Though her ass still protests, you push forward, using your thick coating of spit-lube and superior positioning to keep pushing into her until you’re nice and buried in the hot, squeezing grip of the nyrea’s hole, able to feel every beat of her heart translate through her muscles as they go wild around you.");
 	
-	output("\n\nYou break the kiss, shifting down to the peak of one of her bountiful breasts. She tenses as your hand squeezes the mound, wincing with sudden sensation as you draw a bead of her milk out and lap it up.");
+	output("\n\nYou break the kiss, shifting down to the peak of one of her bountiful breasts. She tenses as your hand squeezes the mound, wincing from the sudden sensation as you draw a bead of her milk out and lap it up.");
 	if (foes[0] is NyreaBeta && foes[0].hasStatusEffect("Nyrea Eggs")) output(" <i>“Wh-what are you...”</i> the nyrea whines as you plant your lips on her teat, starting to suckle. <i>“That’s for my hatchlings...”</i>");
 	else if (foes[0] is NyreaAlpha && foes[0].hasStatusEffect("Nyrea Eggs")) output(" <i>“What, you actually like that? You big baby...”</i> the alpha sighs, though you think she’s just trying not to moan as you settle into her tits, suckling on the puffy, beading teats.");
-	output(" Between your hand and lips, both working ceaselessly on her tits, the nyrea’s soon unable to hold back, letting out a long moan as you drink from her, enjoying the creamy bounty. As she finally gives in, her ass relaxes around your [pc.cock], letting you start to thrust again: slowly at first, but quickly mounting to a steady hammer-fall of a pace that has your conquest moaning opening, hands digging at the stone for purchase as you pound her ass.");
+	output(" Between your hand and lips, both working ceaselessly on her tits, the nyrea’s soon unable to hold back, letting out a long moan as you drink from her, enjoying the creamy bounty. As she finally gives in, her ass relaxes around your [pc.cock], letting you start to thrust again: slowly at first, but quickly mounting to a steady hammer-fall of a pace that has your conquest moaning, hands digging at the stone for purchase as you pound her ass.");
 	
-	output("\n\nHer ass wrings and contracts, squeezing hard around your cock, varying her hole between almost impossible to move in and loose enough to take you to the hilt in a single thrust. Every movement you make, though, is rewarded with an ever-louder moan or grunt from the nyrea huntress. Her voice crescendos as you redouble your attentions on her cock, encasing it in a double-handed grip and pumping to the beat of your thrusting, working to get you both off. You’re quickly rewarded with a spurt of sticky pre that drools down onto your fingers, quickly making itself useful as lube when you pick up the pace, hammering into her ass and pumping her prick until you’re both moaning wildly, riding the brink of orgasm, clutching and clawing at each other as the pressure and need rises with every thrust.");
+	output("\n\nHer ass wrings and contracts, squeezing hard around your cock, varying her hole between almost impossible to move in and loose enough to take you to the hilt in a single thrust. Every movement you make, though, is rewarded with an ever-louder moan or grunt from the nyrea huntress. Her voice crescendos as you redouble your attentions on her cock, encasing it in a double-handed grip and pumping to the beat of your thrusting, working to get you both off. You’re quickly rewarded with a spurt of sticky pre that drools down onto your fingers, quickly making itself useful as lube when you pick up the pace, hammering into her ass and pumping her prick until you’re both moaning wildly, riding on the brink of orgasm, clutching and clawing at each other as the pressure and need rises with every thrust.");
 	
 	output("\n\nA particularly feral grunt announces your orgasm as you slam yourself hilt-deep into the nyrea’s butt, wringing out a thick load that fills the huntress’s tight passage. She’s not far behind you, and feeling the flood of spunk rushing into her bowels seems to set her off: the nyrea gives a sharp cry as she cums, back arching and pseudo-cock spraying a thick, viscous load across her chest");
 	if (foes[0].hasStatusEffect("Nyrea Eggs"))
@@ -756,7 +756,7 @@ public function fuckNyreaButtsGetHerOff():void
 	}
 	else output(".");
 	
-	output("\n\nWith a heavy sigh, you pat the cum-soaked huntress on the thigh and pull out of her, wiping the last of your own seed off on her chitinous leg before reaching back to gather your gear. By the time you’ve got a hold of it, the huntress is already on her feet, walking shakily away. <i>“Thanks for being a friend,”</i> she says with a slight smile, indicated her cum-spattered legs and wilting prick. You wave as she departs, leaving you to catch your breath.");
+	output("\n\nWith a heavy sigh, you pat the cum-soaked huntress on the thigh and pull out of her, wiping the last of your own seed off on her chitinous leg before reaching back to gather your gear. By the time you’ve got a hold of it, the huntress is already on her feet, walking shakily away. <i>“Thanks for being a friend,”</i> she says with a slight smile, indicating her cum-spattered legs and wilting prick. You wave as she departs, leaving you to catch your breath.");
 
 	processTime(45+rand(15));
 	pc.orgasm();
@@ -781,7 +781,7 @@ public function fuckNyreaButtsFuckHer():void
 	
 	output("\n\nAs soon as you bottom out in the insectile slut, you pull back again, keeping your strokes nice and slow for now, letting her ass get used to your presence. Soon, though, you’re building up speed, pounding away at her hole with wanton lust: her dark star seems to suck you back in with every forceful push. She moans lewdly, back arching as you slam back into her with a particularly powerful thrust - so powerful, even, that a spurt of cream erupts from her nipples of its own volition, spattering across her chest and trickling down the big mounds of her teats.");
 	
-	output("\n\nWith a lascivious grin, you pull your conquest closer, watching her big tits jiggle with the sudden downward motion as you pin her hips to yours, bringing that bountiful bosom down to easy reach. She gives a startled gasp - especially as your cock rams even deeper into her quaking hole - and blushes a dark rosey red as you grab her tits, squeezing the massive orbs until their sweet cream flows over your fingers.");
+	output("\n\nWith a lascivious grin, you pull your conquest closer, watching her big tits jiggle with the sudden downward motion as you pin her hips to yours, bringing that bountiful bosom down within easy reach. She gives a startled gasp - especially as your cock rams even deeper into her quaking hole - and blushes a dark rosey red as you grab her tits, squeezing the massive orbs until their sweet cream flows over your fingers.");
 	if (foes[0] is NyreaBeta && foes[0].hasStatusEffect("Nyrea Eggs")) output(" <i>“Wh-what are you...”</i> the nyrea whines as you plant your lips on her teat, starting to suckle. <i>“That’s for my hatchlings...”</i>");
 	else if (foes[0] is NyreaAlpha && foes[0].hasStatusEffect("Nyrea Alpha")) output(" <i>“What, you actually like that? You big baby...”</i> the alpha sighs, though you think she’s just trying not to moan as you settle into her tits, suckling on the puffy, beading teats.");
 	output(" Between your hand and lips, both working ceaselessly on her tits, the nyrea’s soon unable to hold back, letting out a long moan as you drink from her, enjoying the creamy bounty. As she finally gives in, her ass utterly relaxes around your [pc.cock], giving it unrestricted access to the spasming, tight, wet depths of her ass. You plunge in eagerly, each stroke taking you from crown to hilt to the beat of your suckling, hammering home with each deep drink you draw forth.");
@@ -833,7 +833,7 @@ public function rideNyreaDick():void
 	if (foes[0] is NyreaAlpha) output(" <i>“Is that what you want?”</i> the nyrea purrs, spreading her legs and stroking her member for you. <i>“Should have just let me win...”</i> You give her a look, and she answers with a little shrug. True to her word, she’s unresisting as you brush her hand off her rod and take it for yourself, giving it a few experimental tugs.");
 	output(" You slowly start to pump the huntress’s pseudo-cock, running your hands from the turgid knot at her base to the halo of soft spines around her flared crown.");
 	
-	output("\n\nYour thumb swirls around the flared head of the huntress’s cock, teasing the X-shaped slit at the heart of her flare. The nyrea sucks in a sharp breath, groaning as you tease the opening to her hollowed-out prick. Her hips hump up, grinding into the palm of your hand. Just a little attention seems to be all it takes to get this huntress into a mindless rut, it seems! Her eyes roll closed as you tease her hefty shaft, little moans of pleasure following pressing into her slit. You easily push into her, the folds that make up her cockhead parting around your digit to give access to the hollow, wet egg-laying tube inside.");
+	output("\n\nYour thumb swirls around the flared head of the huntress’s cock, teasing the X-shaped slit at the heart of her flare. The nyrea sucks in a sharp breath, groaning as you tease the opening to her hollowed-out prick. Her hips hump up, grinding into the palm of your hand. Just a little attention seems to be all it takes to get this huntress into a mindless rut, it seems! Her eyes roll closed as you tease her hefty shaft, little moans of pleasure following your pressing into her slit. You easily push into her, the folds that make up her cockhead parting around your digit to give access to the hollow, wet egg-laying tube inside.");
 	
 	output("\n\nYou bring a little of that sweet, warm moisture out to rub down on the outside of her prick. It’s not much, but you’re confident your "+ tHoleTag +" will thank you for it soon. The nyrea seems to as well: her hips keep thrusting, doubly so whenever you let a finger slip inside her, teasing the clearly quite sensitive inner walls of her prick.");
 	if (foes[0] is NyreaBeta) output(" <i>“That’s... that’s not bad,”</i> she purrs, wiggling her hips under you. <i>“Do all of you offworlders do things like this?”</i>");
