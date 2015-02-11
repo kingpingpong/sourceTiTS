@@ -79,14 +79,14 @@ public function encounterNyreaHuntress(forceType:uint = NYREA_UNKNOWN):void
 	{
 		output(" tsking her tongue as she follows her wide-flying net with her eyes, clearly disappointed");
 	}
-	else output(" taking advantage of your vulnerable state to loom over you threateningly, spear leveled at you");
+	else output(" taking advantage of your vulnerable state to loom over you threateningly, spear leveled at you.");
 	if (nyreaEggs)
 	{
-		output(". <i>“I'm not too picky where I put my eggs,”</i> she growls, circling you, <i>“Even an offworlder will do in a pinch. So why don't you just make this easy on yourself and submit. You might even like it.”</i>");
+		output(" <i>“I'm not too picky where I put my eggs,”</i> she growls, circling you, <i>“Even an offworlder will do in a pinch. So why don't you just make this easy on yourself and submit. You might even like it.”</i>");
 	}
 	else
 	{
-		output(". <i>“You look like a healthy breeder,”</i> she growls, circling you, <i>“so why don't you just make this easy on yourself and submit. You might even like it.”</i>");
+		output(" <i>“You look like a healthy breeder,”</i> she growls, circling you, <i>“so why don't you just make this easy on yourself and submit. You might even like it.”</i>");
 	}
 
 	if (!CodexManager.entryUnlocked("Nyrea"))
